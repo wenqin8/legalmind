@@ -46,6 +46,17 @@ class ModelUnavailableError(AppError):
         )
 
 
+class RetrievalUnavailableError(AppError):
+    """The configured embedding or retrieval index cannot serve a query."""
+
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=424,
+            code="RETRIEVAL_UNAVAILABLE",
+            message="案例检索服务暂时不可用，请稍后重试",
+        )
+
+
 class AuthenticationRequiredError(AppError):
     def __init__(self) -> None:
         super().__init__(

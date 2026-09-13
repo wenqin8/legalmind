@@ -18,12 +18,22 @@ def test_initial_migration_is_reversible_and_matches_metadata(
     engine = create_engine(database_url)
     try:
         inspector = inspect(engine)
-        assert {"alembic_version", "users", "conversations"}.issubset(
+        assert {
+            "alembic_version",
+            "users",
+            "conversations",
+            "cases",
+            "legal_provisions",
+            "knowledge_chunks",
+        }.issubset(
             inspector.get_table_names()
         )
         assert {
             index["name"] for index in inspector.get_indexes("conversations")
         } == {"ix_conversations_id_user_id"}
+        assert {
+            index["name"] for index in inspector.get_indexes("cases")
+        } == {"ix_cases_domain_status"}
     finally:
         engine.dispose()
 

@@ -6,6 +6,7 @@ uvicorn[standard]~=0.52.4
 langchain~=1.4.0
 langgraph~=1.2.11
 chromadb~=1.5.9
+sentence-transformers~=6.0.1
 redis~=8.1.0
 SQLAlchemy~=2.0.52
 alembic~=1.19.2

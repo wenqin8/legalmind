@@ -2,7 +2,7 @@
 
 文档状态：已确认
 适用阶段：首月 MVP
-当前里程碑：第 1 周 M1 已按 2026-09-13 新版计划完成最终验收
+当前里程碑：第 2 周 M2 已于 2026-09-13 完成实现与验收，冻结标识为 `v0.1.0-m2`
 目标环境：Windows 本地开发，最终通过 Docker Desktop 验收
 
 本文中的“首月 MVP”指四周结束时的完整目标，“第一周 M1”指第一周结束时冻结的可运行切片。第一周 M1 的业务运行链路是 Vue 3 → FastAPI → 可注入 LLM，并以本地 SQLite 保存用户与会话归属；新版详细日程还明确要求 LangChain/LangGraph/Chroma/Redis/psycopg 依赖就绪，以及 PostgreSQL、Redis、Chroma 的独立真实连通 smoke test，这些环境验收不等同于后续业务接入。

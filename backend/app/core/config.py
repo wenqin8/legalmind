@@ -11,6 +11,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 BACKEND_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_DATABASE_URL = f"sqlite:///{(BACKEND_DIR / 'data' / 'legalmind.db').as_posix()}"
 DEFAULT_CHROMA_PERSIST_DIRECTORY = BACKEND_DIR / "data" / "chroma"
+DEFAULT_EMBEDDING_CACHE_DIRECTORY = BACKEND_DIR / "data" / "models"
+EMBEDDING_MODEL_NAME = "BAAI/bge-small-zh-v1.5"
+EMBEDDING_MODEL_REVISION = "7999e1d3359715c523056ef9478215996d62a620"
+EMBEDDING_DIMENSION = 512
+EMBEDDING_QUERY_PREFIX = "为这个句子生成表示以用于检索相关文章："
+EMBEDDING_QUERY_PREFIX_VERSION = "bge-small-zh-v1.5-zh-query-v1"
+CHROMA_COLLECTION_NAME = "legal_knowledge_v1"
 
 
 class Settings(BaseSettings):
@@ -35,6 +42,17 @@ class Settings(BaseSettings):
     postgres_smoke_url: SecretStr | None = None
     redis_url: SecretStr = SecretStr("redis://127.0.0.1:6379/0")
     chroma_persist_directory: Path = DEFAULT_CHROMA_PERSIST_DIRECTORY
+    embedding_backend: Literal["sentence_transformers", "fake"] = (
+        "sentence_transformers"
+    )
+    embedding_model_name: Literal["BAAI/bge-small-zh-v1.5"] = EMBEDDING_MODEL_NAME
+    embedding_model_revision: Literal[
+        "7999e1d3359715c523056ef9478215996d62a620"
+    ] = EMBEDDING_MODEL_REVISION
+    embedding_dimension: Literal[512] = EMBEDDING_DIMENSION
+    embedding_device: Literal["cpu"] = "cpu"
+    embedding_cache_directory: Path = DEFAULT_EMBEDDING_CACHE_DIRECTORY
+    chroma_collection_name: Literal["legal_knowledge_v1"] = CHROMA_COLLECTION_NAME
     jwt_secret_key: SecretStr | None = None
     jwt_issuer: str = "legalmind-api"
     jwt_audience: str = "legalmind-web"
@@ -99,7 +117,7 @@ class Settings(BaseSettings):
             return None
         return url
 
-    @field_validator("chroma_persist_directory")
+    @field_validator("chroma_persist_directory", "embedding_cache_directory")
     @classmethod
     def resolve_chroma_persist_directory(cls, path: Path) -> Path:
         if path.is_absolute():

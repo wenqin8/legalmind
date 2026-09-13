@@ -16,6 +16,9 @@ from app.core.middleware import RequestContextMiddleware, UnhandledExceptionMidd
 from app.db.session import Database
 from app.llm.base import LLMClient
 from app.llm.factory import create_llm_client
+from app.rag.embeddings import EmbeddingClient, create_embedding_client
+from app.rag.retriever import HybridCaseRetriever
+from app.rag.vector_store import ChromaVectorStore
 
 
 def create_app(
@@ -23,6 +26,9 @@ def create_app(
     *,
     llm_client: LLMClient | None = None,
     database: Database | None = None,
+    embedding_client: EmbeddingClient | None = None,
+    vector_store: ChromaVectorStore | None = None,
+    case_retriever: HybridCaseRetriever | None = None,
 ) -> FastAPI:
     """Build an isolated application instance for runtime or tests."""
 
@@ -31,6 +37,17 @@ def create_app(
     resolved_llm_client = llm_client or create_llm_client(resolved_settings)
     resolved_database = database or Database(
         resolved_settings.database_url.get_secret_value()
+    )
+    resolved_embedding = embedding_client or create_embedding_client(resolved_settings)
+    resolved_vector_store = vector_store or ChromaVectorStore(
+        resolved_settings.chroma_persist_directory,
+        resolved_settings.chroma_collection_name,
+        resolved_embedding,
+    )
+    resolved_case_retriever = case_retriever or HybridCaseRetriever(
+        resolved_database,
+        resolved_vector_store,
+        resolved_embedding,
     )
 
     @asynccontextmanager
@@ -57,6 +74,9 @@ def create_app(
     application.state.settings = resolved_settings
     application.state.llm_client = resolved_llm_client
     application.state.database = resolved_database
+    application.state.embedding_client = resolved_embedding
+    application.state.vector_store = resolved_vector_store
+    application.state.case_retriever = resolved_case_retriever
 
     register_exception_handlers(application)
     application.add_middleware(UnhandledExceptionMiddleware)

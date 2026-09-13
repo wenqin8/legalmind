@@ -1,8 +1,10 @@
 # LegalMind Backend
 
-第 1 周第 5 天后端：FastAPI、SQLAlchemy、Alembic、Argon2 密码哈希、JWT 登录，以及受保护的同步法律问答链路。
+第 2 周 M2 后端：在既有认证和同步问答链路上，新增可重复法律数据导入、固定本地 Embedding、Chroma/BM25/RRF 混合检索及受保护的案例 API。
 
 当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 运行工作流或 Redis 消息历史。`langchain`、`langgraph`、`chromadb`、`redis` 和 `psycopg` 已按第一周计划加入运行依赖，并完成安装、导入和基础设施连通验收；这只表示环境就绪，不表示后续业务逻辑已经接入。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
+
+第二周已完成严格案例/法条 Schema、三张知识表及可逆迁移、规范化/哈希/确定性 UUID 和事务化 JSONL 导入。16 条演示案例会形成 64 个知识块，并以固定 BGE 或测试假向量写入 `legal_knowledge_v1`；成功后状态为 `indexed`。法条结构与导入入口已完成，但未填充未经核验的法条语料。
 
 ## 本地准备
 
@@ -43,7 +45,25 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 .\.venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的业务数据库配置入口。M1 已对 PostgreSQL 17.11 实例完成独立 `SELECT 1` 连通验收，但应用迁移和业务表仍只在 SQLite 验证；切换业务库将在后续里程碑单独执行。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的业务数据库配置入口。第二周已在 PostgreSQL 17.11 随机临时 schema 中完成迁移、JSONB 类型、16 条导入和幂等复验，并确认 schema 精确清理；日常运行仍按本周基线使用 SQLite。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+
+## 导入演示案例
+
+迁移后运行以下幂等命令。法条结构和 `--legal-provisions <jsonl>` 入口已提供，但第二周不内置未经核验的法条语料。
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.import_legal_data
+```
+
+## 建立案例索引
+
+默认使用固定的 `BAAI/bge-small-zh-v1.5`，revision 为 `7999e1d3359715c523056ef9478215996d62a620`，512 维、CPU、L2 归一化。查询添加“为这个句子生成表示以用于检索相关文章：”，文档不加前缀。首次运行会下载权重到被 Git 忽略的 `data/models`，启动 API 和健康检查不会加载模型。
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.index_legal_data
+```
+
+自动化测试通过 `LEGALMIND_EMBEDDING_BACKEND=fake` 注入确定性中文字符 n-gram 向量。假向量只用于测试，不得替代真实 M2 量化验收。
 
 ## 基础设施连通验收
 
@@ -77,9 +97,11 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 - 当前用户：`GET http://127.0.0.1:8000/api/v1/auth/me`
 - 同步问答：`POST http://127.0.0.1:8000/api/v1/chat/send`
 - 删除会话：`DELETE http://127.0.0.1:8000/api/v1/chat/history/{session_id}`
+- 案例搜索：`POST http://127.0.0.1:8000/api/v1/cases/search`
+- 案例详情：`GET http://127.0.0.1:8000/api/v1/cases/{case_id}`
 - 开发文档：`http://127.0.0.1:8000/docs`
 
-健康检查、注册和登录为公开接口。`/auth/me`、`/chat/send` 与删除会话接口必须携带登录取得的 `Authorization: Bearer <token>`；任意或伪造的 Bearer 值不会被接受。访问或删除其他用户的会话 UUID 与不存在的会话统一返回 404，并且不会调用模型。当前删除操作只删除关系库中的会话归属；Redis 消息正文尚未接入。
+健康检查、注册和登录为公开接口。`/auth/me`、聊天、会话删除和案例接口必须携带登录取得的 `Authorization: Bearer <token>`。案例详情只返回 `indexed` 关系库来源；检索排序分数不表示法律结论置信度，所有演示详情固定提示“课程演示合成数据，不是真实判例或法律依据”。
 
 生产环境会关闭 Swagger、ReDoc 和 OpenAPI 文档端点，并要求配置至少 32 字符的 JWT 密钥。
 
@@ -89,8 +111,15 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-测试覆盖注册与规范化唯一性、Argon2 哈希、JWT 必需声明与篡改拒绝、活跃用户回查、会话隔离、统一错误、模型超时、模型失败无孤立会话、日志脱敏及 Alembic 升降级/模型一致性。
+测试覆盖既有认证/聊天能力，以及 Schema 不变量、事务导入、确定性分块、向量元数据兼容、失败清理、BM25/RRF、过滤、Top-K、来源回查、案例 API 和错误/日志净化。
+
+真实评估与 PostgreSQL 隔离验收：
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_week2_retrieval --output ..\docs\acceptance\week2-retrieval-evaluation.json
+.\.venv\Scripts\python.exe -m scripts.verify_postgres_week2
+```
 
 M1 最终验收实测结果：运行依赖全部可导入，PostgreSQL 17.11、Redis API 7.2.11 和 Chroma 持久化 smoke test 全部通过，94 项后端测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 已在全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。完整证据见 [第一周 M1 验收记录](../docs/acceptance/week1-m1.md)。
 
-交接后会话删除补丁的当前回归结果为 95 项后端测试全部通过。
+第二周最终结果见 [`docs/acceptance/week2-m2.md`](../docs/acceptance/week2-m2.md)。案例检索尚未接入聊天回答，Redis 消息历史、LangGraph、SSE、文书 API 和前端案例页面仍属于第三、四周范围。

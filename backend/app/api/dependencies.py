@@ -15,6 +15,7 @@ from app.core.security import decode_access_token
 from app.db.models import User
 from app.db.session import Database
 from app.llm.base import LLMClient
+from app.rag.retriever import HybridCaseRetriever
 
 bearer_scheme = HTTPBearer(auto_error=False)
 
@@ -37,6 +38,10 @@ def get_llm_client(request: Request) -> LLMClient:
 
 def get_database(request: Request) -> Database:
     return request.app.state.database
+
+
+def get_case_retriever(request: Request) -> HybridCaseRetriever:
+    return request.app.state.case_retriever
 
 
 def get_runtime_settings(request: Request) -> Settings:

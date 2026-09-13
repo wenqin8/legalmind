@@ -1,24 +1,25 @@
 # 数据模型设计
 
-文档状态：第 1 周第 2 天形成首月设计基线；2026-09-13 按新版计划完成 M1 基础设施就绪验收
+文档状态：2026-09-13 已按第二周 M2 物理模型校准
 
-本文同时记录首月四周目标数据模型和第一周 M1 实际物理模型。M1 已落地 `users` 和 `conversations` 两张表，实际使用本地 SQLite；SQLAlchemy/Alembic 已保留切换 PostgreSQL 的结构，并已完成 PostgreSQL、Redis、Chroma 的独立真实连通 smoke test。下文的文书、案例、法条、知识分块、正式 Chroma 向量集合和 Redis 消息仍是后续目标，尚未在 M1 业务链路实现。
+M1 已落地 `users` 和 `conversations`；M2 新增 `cases`、`legal_provisions`、`knowledge_chunks`，并完成 SQLite 与 PostgreSQL 兼容迁移。当前只有 16 条演示案例和对应 64 个知识块，法条表为空。正式 Chroma 案例集合已接入独立案例 API；生成文书、Redis 消息和聊天 RAG 仍是后续目标。
 
 ### 存储状态表
 
-| 数据或存储 | 首月四周目标 | 第一周 M1 实际状态 |
+| 数据或存储 | 首月四周目标 | 当前实际状态 |
 | --- | --- | --- |
 | `users` | 保存用户身份、规范化唯一字段和密码哈希 | 已在 SQLite 落地并通过 Alembic 迁移验收 |
 | `conversations` | 在关系库保存会话所有权，由 Redis 保存短期消息 | 已在 SQLite 落地所有权；不保存问题、回答正文或多轮上下文 |
 | SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际数据库，已验证迁移升级、降级和一致性 |
-| PostgreSQL | 月末关系业务数据库和来源事实库 | PostgreSQL 17.11 `SELECT 1` smoke test 已通过；应用迁移和业务表尚未切换 |
-| `generated_documents`、`cases`、`legal_provisions`、`knowledge_chunks` | 保存文书、来源事实和检索分块 | 仅完成模型设计，M1 未建表 |
+| PostgreSQL | 月末关系业务数据库和来源事实库 | 随机临时 schema 已通过 M2 业务迁移、JSONB、导入和精确清理；日常默认仍为 SQLite |
+| `cases`、`legal_provisions`、`knowledge_chunks` | 保存来源事实和检索分块 | M2 已建表；16 个案例、64 块，法条为 0 |
+| `generated_documents` | 保存用户文书草稿 | 尚未实现 |
 | Redis | 保存 24 小时短期会话消息 | Python 客户端和 Redis API 7.2.11 临时键往返 smoke test 已通过；消息模型尚未接入 |
-| Chroma | 保存本地持久化向量及来源引用键 | 本地持久化写入与向量查询 smoke test 已通过；正式集合和来源数据尚未接入 |
+| Chroma | 保存本地持久化向量及来源引用键 | `legal_knowledge_v1` 已接入 64 个 512 维案例向量；展示事实仍回查关系库 |
 
 ## 1. 首月四周目标通用约定
 
-- 所有主键和对外资源 ID 使用 UUID v4。
+- 用户、会话等运行资源使用 UUID v4；导入来源与知识块使用固定 namespace 的 UUID v5，保证重复构建稳定。
 - 数据库时间统一存储带时区的 UTC 时间，API 输出 ISO 8601 字符串。
 - 数据库列使用 `snake_case`，Python 与 JSON 字段保持一致。
 - 用户名和邮箱比较使用规范化值，并建立唯一索引。
@@ -40,7 +41,7 @@
 
 ## 3. 首月四周目标关系模型
 
-下图是四周结束时的目标关系模型。M1 只实现其中的 `USERS` 和 `CONVERSATIONS`；其他实体不得视为已建表。
+下图中 `USERS`、`CONVERSATIONS`、`CASES`、`LEGAL_PROVISIONS` 和 `KNOWLEDGE_CHUNKS` 已建表；`GENERATED_DOCUMENTS` 仍是后续目标。
 
 ```mermaid
 erDiagram
@@ -83,27 +84,34 @@ erDiagram
 
     CASES {
         uuid id PK
-        string title
         string case_number UK
+        string title
         string court
         date judgment_date
+        date sample_date
         string domain
         text summary
         text facts
+        text dispute_focus
         text reasoning
         jsonb law_references
         string source_kind
         string source_url
         string source_title
         string publisher
+        text source_description
+        text authorization_note
         boolean is_demo
+        boolean is_synthetic
         string content_hash UK
         string import_status
+        timestamptz collected_at
         timestamptz imported_at
     }
 
     LEGAL_PROVISIONS {
         uuid id PK
+        string record_id UK
         string regulation_name
         string article_number
         text content
@@ -113,8 +121,13 @@ erDiagram
         string legal_status
         string source_kind
         string source_url
+        string source_title
+        string publisher
+        boolean is_demo
+        boolean is_synthetic
         string content_hash UK
         string import_status
+        timestamptz collected_at
         timestamptz imported_at
     }
 
@@ -123,6 +136,7 @@ erDiagram
         string source_type
         uuid source_id
         int chunk_index
+        string section
         text content
         string content_hash UK
         int character_count
@@ -154,30 +168,30 @@ erDiagram
 - `sources` 保存生成时的来源快照，避免知识库更新后无法解释旧文书。
 - 所有读取和下载查询必须同时过滤 `id` 与 `user_id`。
 
-### 4.4 cases（后续目标）
+### 4.4 cases（M2 已实现）
 
 - 真实案例的 `case_number`、`court`、`judgment_date` 和 `source_url` 必填。
 - 演示案例使用 `DEMO-<DOMAIN>-<NNN>` 形式编号，并设置 `is_demo=true`、`source_kind=demo`。
 - `content_hash` 基于规范化后的核心内容计算，用于重复导入检测。
 - `import_status=indexed` 之前不得进入正常检索结果。
 
-### 4.5 legal_provisions（后续目标）
+### 4.5 legal_provisions（M2 Schema/空表已实现）
 
 - `regulation_name`、`article_number`、`content`、`issuing_authority` 和 `source_url` 必填。
 - `legal_status` 为 `unknown` 时，回答必须提示用户核验效力状态。
 - 同一法规同一条文的修订版本可以并存，但需要不同内容哈希和日期信息。
 
-### 4.6 knowledge_chunks（后续目标）
+### 4.6 knowledge_chunks（M2 已实现）
 
 - `(source_type, source_id, chunk_index)` 唯一。
 - `content_hash` 唯一，重复内容不重复向量化。
 - 删除或重建来源时，按 `source_type + source_id` 删除对应 Chroma 向量和数据库块记录。
 
-## 5. 后续目标：Chroma 设计
+## 5. Chroma 设计（M2 已实现案例索引）
 
-> 实现状态：M1 已加入 Chroma 依赖并通过隔离的本地持久化探针，但尚未创建正式集合，也未建立知识资料的向量写入与查询链路。本节只定义首月四周目标结构。
+> 实现状态：正式案例集合和混合检索已实现；法条尚无核验语料，聊天回答尚未消费检索结果。
 
-使用一个集合 `legal_knowledge`，通过元数据区分案例与法条，避免首月维护多集合查询合并逻辑。
+使用一个集合 `legal_knowledge_v1`，cosine 空间并显式传入向量。集合元数据固定模型名、revision、512 维、L2 归一化和查询前缀版本；任一项不兼容即拒绝打开。
 
 每个向量条目包括：
 

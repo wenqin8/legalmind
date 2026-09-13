@@ -1,10 +1,12 @@
 import asyncio
 
+import httpx
 import pytest
 
 from app.core.config import Settings
 from app.llm.fake import FakeLLMClient
 from app.main import create_app
+from app.rag.embeddings import SentenceTransformerEmbedding
 
 
 class ClosableFakeLLMClient(FakeLLMClient):
@@ -40,6 +42,8 @@ def test_public_and_authenticated_routes_are_mounted() -> None:
         "/api/v1/auth/me",
         "/api/v1/chat/send",
         "/api/v1/chat/history/{session_id}",
+        "/api/v1/cases/search",
+        "/api/v1/cases/{case_id}",
     }
 
 
@@ -94,5 +98,28 @@ def test_lifespan_closes_llm_client_after_failure() -> None:
                 raise RuntimeError("startup scenario failed")
 
         assert llm_client.closed
+
+    asyncio.run(scenario())
+
+
+def test_health_does_not_load_or_download_embedding(tmp_path) -> None:
+    async def scenario() -> None:
+        settings = Settings(
+            _env_file=None,
+            environment="test",
+            llm_backend="fake",
+            database_url=f"sqlite:///{(tmp_path / 'lazy.db').as_posix()}",
+        )
+        embedding = SentenceTransformerEmbedding(tmp_path / "models")
+        app = create_app(settings, embedding_client=embedding)
+        transport = httpx.ASGITransport(app=app)
+        async with httpx.AsyncClient(
+            transport=transport, base_url="http://testserver"
+        ) as client:
+            response = await client.get("/api/v1/health")
+
+        assert response.status_code == 200
+        assert embedding.is_loaded is False
+        assert not (tmp_path / "models").exists()
 
     asyncio.run(scenario())

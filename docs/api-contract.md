@@ -1,6 +1,6 @@
 # API 合同设计
 
-文档状态：第 1 周第 2 天设计基线，第 5 天按 M1 实现校准
+文档状态：2026-09-13 已按第二周 M2 案例 API 实现校准
 Base URL：`/api/v1`
 
 ## 1. 通用规则
@@ -45,7 +45,7 @@ Base URL：`/api/v1`
 
 ## 3. 接口清单
 
-| 方法 | 路径 | 认证 | M1 状态 | 用途 |
+| 方法 | 路径 | 认证 | 当前状态 | 用途 |
 | --- | --- | --- | --- | --- |
 | GET | `/api/v1/health` | 否 | 已实现 | 健康检查和版本 |
 | POST | `/api/v1/auth/register` | 否 | 已实现 | 注册 |
@@ -55,13 +55,13 @@ Base URL：`/api/v1`
 | POST | `/api/v1/chat/stream` | 是 | 首月计划 | SSE 流式 Agent 问答 |
 | GET | `/api/v1/chat/history/{session_id}` | 是 | 首月计划 | 当前用户会话历史 |
 | DELETE | `/api/v1/chat/history/{session_id}` | 是 | 已实现 | 删除当前用户会话 |
-| POST | `/api/v1/cases/search` | 是 | 首月计划 | 案例混合检索 |
-| GET | `/api/v1/cases/{case_id}` | 是 | 首月计划 | 案例详情 |
+| POST | `/api/v1/cases/search` | 是 | M2 已实现 | 案例混合检索 |
+| GET | `/api/v1/cases/{case_id}` | 是 | M2 已实现 | 案例详情 |
 | GET | `/api/v1/documents/templates` | 是 | 首月计划 | 三类文书及字段定义 |
 | POST | `/api/v1/documents/generate` | 是 | 首月计划 | 生成并保存文书草稿 |
 | GET | `/api/v1/documents/{document_id}/download` | 是 | 首月计划 | 下载 Markdown/TXT |
 
-“首月计划”表示合同已冻结但 M1 尚未挂载路由；调用这些路径当前会返回 404，不得将文档示例当作已交付功能。
+“首月计划”表示合同已冻结但尚未挂载路由；M2 标记的两个案例接口已经可用。
 
 ## 4. 健康检查
 
@@ -226,11 +226,13 @@ data: {"success":false}
 - `source_kind`：可选；界面必须能显示是否为演示数据。
 - `top_k`：1-20，默认 5。
 
-成功数据包含 `items` 和实际 `count`。每项至少包含案例 UUID、标题、案号、法院、裁判日期、领域、摘要、`source_kind`、`source_url`、`is_demo` 和排名信息。排名信息是检索排序依据，不声称为法律结论置信度。
+成功数据包含 `items`、实际 `count` 和固定 `score_note`。每项包含案例 UUID、标题、`DEMO-*` 编号、可空法院/日期/链接、领域、摘要、来源类别、双演示标记，以及 `rrf_score`、可空 `vector_rank`、可空 `bm25_rank`。排名信息仅是检索排序依据，不表示法律结论置信度。
+
+搜索先在向量与 BM25 两路应用 `domain`/`source_kind`；最终字段根据 `source_id` 回查关系库，且只返回 `import_status=indexed` 的案例。一路为空时保留另一路，两路为空时返回 `items=[]`。空白/超长查询、非法枚举或 `top_k` 返回统一 422；Embedding、Chroma 或集合不兼容返回净化后的 `424 RETRIEVAL_UNAVAILABLE`。
 
 ### GET `/api/v1/cases/{case_id}`
 
-返回案例完整字段和引用法条。演示案例响应必须包含 `is_demo=true` 及醒目警告。真实案例没有完整来源地址时不进入可用数据集。
+只返回 `indexed` 案例的完整事实、争议焦点、演示分析、来源元数据和引用法条；未知、未索引或非法 UUID 分别按 404/422 处理。演示案例包含 `is_demo=true`、`is_synthetic=true`，并固定警告“课程演示合成数据，不是真实判例或法律依据”。当前演示案例的法院、裁判日期、外链和法条引用均为空。
 
 ## 8. 文书接口
 

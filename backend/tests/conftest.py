@@ -21,6 +21,8 @@ def settings(tmp_path) -> Settings:
         llm_backend="fake",
         jwt_secret_key="test-only-secret-at-least-32-characters-long",
         database_url=f"sqlite:///{(tmp_path / 'test.db').as_posix()}",
+        embedding_backend="fake",
+        chroma_persist_directory=tmp_path / "chroma",
     )
 
 

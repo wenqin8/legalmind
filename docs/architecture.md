@@ -1,7 +1,7 @@
 # 系统架构与工作流设计
 
-文档状态：第 1 周第 2 天形成首月设计基线；2026-09-13 按新版计划完成 M1 基础设施就绪验收
-适用范围：首月四周目标架构与第一周 M1 实际运行边界
+文档状态：2026-09-13 已按第二周 M2 实现校准
+适用范围：首月四周目标架构与 M1/M2 实际运行边界
 
 本文同时记录两种范围：“首月四周目标”是四周结束时计划形成的完整 MVP，“第一周 M1”是已经冻结并实际验收的可运行切片。目标架构中的组件不得据此视为已在 M1 接入。
 
@@ -17,22 +17,39 @@ flowchart LR
     LLM --> Adapter[Fake / DeepSeek 适配器]
 ```
 
-M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek 适配器已经运行并完成真实调用验收；LangChain/LangGraph 只完成依赖准备，尚无运行工作流。RAG、Redis 消息历史、SSE、案例和文书接口均未接入。新版计划要求的 PostgreSQL、Redis 和 Chroma 环境就绪项已通过独立 smoke test；M1 业务路径仍使用 SQLite，不能把连通验收误写为业务接入。
+M1 只存用户与会话归属，不存消息正文。M2 在独立案例路径中接入关系来源库、固定 Embedding、Chroma、BM25/RRF 和案例 API，但没有把检索资料送入聊天回答。Redis 消息历史、LangGraph、SSE、文书接口和前端案例页面仍未接入。日常业务数据库继续使用 SQLite；PostgreSQL 已通过随机临时 schema 的迁移与导入验收，尚未成为默认运行库。
+
+第二周实际案例链路：
+
+```mermaid
+flowchart LR
+    Import[严格 JSONL 导入] --> DB[(SQLite / PostgreSQL 兼容来源库)]
+    DB --> Chunk[确定性语义分块]
+    Chunk --> Embed[固定 BGE / 测试假 Embedding]
+    Embed --> Chroma[(legal_knowledge_v1)]
+    Query[JWT 案例查询] --> Vector[Chroma 向量召回]
+    Query --> BM25[关系块 BM25]
+    Vector --> RRF[RRF k=60]
+    BM25 --> RRF
+    RRF --> Truth[按 source_id 回查 indexed 关系来源]
+    Truth --> CasesAPI[案例搜索 / 详情响应]
+```
 
 前端允许在当前页面生命周期内归档、切换和删除多次咨询，解决“新建咨询后旧内容立即消失”的交互问题。删除已有后端会话时，先由受保护接口校验用户归属并删除关系库记录，成功后再移除前端记录；删除失败则保留界面内容。消息副本只存在 Pinia 内存中，页面刷新或退出登录即清除，也不会作为模型的多轮上下文；这一界面能力不替代后续 Redis 消息历史。
 
 ### 里程碑状态表
 
-| 组件或能力 | 首月四周目标 | 第一周 M1 实际状态 |
+| 组件或能力 | 首月四周目标 | 当前实际状态 |
 | --- | --- | --- |
 | Vue 3 前端 | 承载认证、问答、案例、文书和会话界面 | 已运行注册、登录、受保护咨询台与同步问答 |
 | FastAPI | 提供完整 `/api/v1` 业务 API | 已运行健康检查、认证、受保护的 `POST /chat/send` 和 `DELETE /chat/history/{session_id}` |
 | 可注入 LLM | 通过统一端口服务 Agent 各生成节点 | `LLMClient`、Fake 与 DeepSeek 适配器已运行；真实 DeepSeek 调用已验收 |
-| SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际关系数据库；仅保存用户和会话归属，迁移升降级已验收 |
-| PostgreSQL | 月末关系业务数据库与来源事实库 | `psycopg`、独立 URL 和 PostgreSQL 17.11 `SELECT 1` smoke test 已通过；尚未切换应用迁移与业务表 |
+| SQLite | 本地开发兼容与阶段性验收数据库 | 当前默认关系数据库；已保存身份、会话归属、案例来源和知识块 |
+| PostgreSQL | 月末关系业务数据库与来源事实库 | PostgreSQL 17.11 随机 schema 已通过全部业务迁移、JSONB、导入和幂等校验；尚未成为默认库 |
 | LangChain / LangGraph | 编排 `qa`、`search`、`document` 工作流 | 已显式加入运行依赖并验证导入；运行时代码中尚无 `AgentState`、图构建或调用链 |
 | Redis | 保存有 TTL 的短期会话消息 | Python 客户端、独立 URL 及 Redis API 7.2.11 临时键往返 smoke test 已通过；当前页面记录仅在前端内存，Redis 尚未保存消息正文 |
-| Chroma | 提供本地持久化向量检索 | 本地持久化客户端的写入、向量查询和探针集合清理已通过；尚无正式集合、Embedding、RAG 或回答来源 |
+| Chroma | 提供本地持久化向量检索 | 正式集合 `legal_knowledge_v1` 已保存 64 个固定 512 维向量并供案例 API 检索；尚未接入聊天回答 |
+| BM25 / RRF | 混合关键词与语义排名 | 已在案例 API 运行，参数固定并通过 20 条真实 BGE 评估 |
 
 本文后续主图、请求链路、Agent 工作流和故障策略均属于“首月四周目标”；M1 的完成状态只以本节实际路径和状态表为准。
 
@@ -179,9 +196,9 @@ flowchart TD
 - 专用案例和文书 API 直接进入对应服务，不重复调用意图识别；聊天 API 才运行完整路由图。
 - 意图模型输出不在枚举中时记录可观测事件并回退为 `qa`，不把原始模型输出暴露给用户。
 
-## 5. 首月四周目标 RAG 数据流
+## 5. RAG 数据流
 
-本节是后续目标。M1 尚未加入 Chroma、Embedding、BM25、导入器或检索运行链路。
+本节的数据管线与案例检索在 M2 已实现；图中的生成、问答上下文和依据不足拒答仍属于第三周。
 
 ### 5.1 导入流程
 
@@ -191,12 +208,12 @@ flowchart LR
     Validate --> Normalize[文本规范化]
     Normalize --> Hash[计算 source/content hash]
     Hash --> Dedup{是否已导入}
-    Dedup -->|是| Skip[跳过或更新元数据]
+    Dedup -->|是| Skip[相同编号和内容时跳过]
     Dedup -->|否| Persist[保存来源元数据到 PostgreSQL]
     Persist --> Chunk[按语义边界分块]
     Chunk --> Embed[生成 Embedding]
     Embed --> Upsert[按确定性 chunk_id 写入 Chroma]
-    Chunk --> Keyword[重建 BM25 语料索引]
+    Chunk --> Keyword[查询时从受控关系块构建 BM25]
 ```
 
 导入失败不得留下“数据库已保存但向量缺失”的成功状态。实现阶段使用显式导入状态，并提供可重复执行的重建命令。
@@ -220,12 +237,12 @@ flowchart LR
 
 ### 5.3 检索参数基线
 
-- 分块目标：500-800 个中文字符，重叠约 80-120 个字符。
+- 分块目标：500-800 个中文字符，重叠 100 个字符；标题等短语义段不填充。
 - 向量和 BM25 各召回最多 10 条候选。
 - 使用 Reciprocal Rank Fusion 合并排名，避免直接混合不可比较的原始分数。
 - 去重后向 Agent 提供 3-5 条证据。
 - 首月不增加正式 Reranker；质量不足通过来源门槛和拒答处理。
-- 所有数字做成配置项，第二周根据测试集结果调整。
+- 当前固定 `BM25 k1=1.5, b=0.75`、两路各 10 个来源候选、`RRF k=60`；冻结评估集达到 20/20，无需修改标签或调参。
 
 ## 6. 计划目录结构
 
@@ -304,7 +321,7 @@ legal-mind/
 
 测试目录按行为分层；不为每个源文件机械创建一一对应的测试文件。运行时生成的数据不进入 Git。
 
-上述仍是月末目标目录；`agents`、`rag`、`repositories`、案例/文书路由和部分数据目录在 M1 中尚未创建。`migrations` 是已落地的 Alembic 脚本目录；LangGraph 当前仅在依赖清单中准备，不能因依赖存在而把 `agents` 目录或运行工作流标为已实现。
+目录中的 `rag`、案例路由、数据与评估脚本已在 M2 创建；`agents`、文书路由、Redis 消息和 LangGraph 运行工作流仍是后续目标。
 
 ## 7. 首月四周目标关键架构决策
 
@@ -322,7 +339,7 @@ legal-mind/
 
 ## 8. 首月四周目标故障与降级原则
 
-PostgreSQL、Redis、Chroma、Embedding、BM25 和 SSE 的条目是对应组件接入后的验收合同。M1 已实现并验证的是关系数据库抽象及 DeepSeek 调用的错误边界，不代表尚未接入的服务已有运行时降级代码。
+Chroma、Embedding 与 BM25 的案例检索错误已统一净化为 `424 RETRIEVAL_UNAVAILABLE`；PostgreSQL 默认切换、Redis、聊天 RAG 和 SSE 的故障策略仍待其业务接入时实现。
 
 - PostgreSQL 不可用：认证和所有业务请求失败，返回数据库不可用错误。
 - Redis 不可用：不静默退化为跨用户内存缓存；会话相关请求返回明确错误。

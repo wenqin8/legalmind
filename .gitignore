@@ -24,6 +24,7 @@ dist/
 data/vectors/
 data/chroma/
 backend/data/chroma/
+backend/data/models/
 backend/data/*.db*
 logs/
 tmp/

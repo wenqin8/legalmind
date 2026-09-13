@@ -1,0 +1,388 @@
+{
+  "evaluated_at": "2026-09-13T09:45:00.603454+00:00",
+  "evaluation_dataset_sha256": "DAE562F49CDD93E8B3076B4464F7F4729114C55F5F68BD828AD6817BE4A2AB81",
+  "source_dataset_sha256": "752EFB9C679BDBB30521BEAF77CC04A38588C49276C10F1E05F0EE452861BB84",
+  "configuration": {
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "embedding_normalization": "l2",
+    "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+    "query_prefix_version": "bge-small-zh-v1.5-zh-query-v1",
+    "collection": "legal_knowledge_v1",
+    "distance": "cosine",
+    "chunk_target_min": 500,
+    "chunk_target_max": 800,
+    "chunk_overlap": 100,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "vector_candidates": 10,
+    "vector_internal_chunk_pool": 40,
+    "bm25_candidates": 10,
+    "rrf_k": 60
+  },
+  "import": {
+    "received": 16,
+    "created": 16,
+    "skipped": 0
+  },
+  "index": {
+    "received": 16,
+    "indexed": 16,
+    "failed": 0,
+    "chunks": 64,
+    "persisted_vector_count": 64
+  },
+  "metrics": {
+    "queries": 20,
+    "top_5_hits": 20,
+    "top_5_hit_rate": 1.0,
+    "minimum_hits": 16,
+    "passed": true,
+    "rankings_stable": true,
+    "no_duplicate_cases": true
+  },
+  "results": [
+    {
+      "query_id": "W2-MF-001",
+      "domain": "marriage_family",
+      "query": "婚前买的房子登记在一方名下，婚后两个人一起还贷款，分开时房屋增值和补偿怎么考虑",
+      "relevant_case_ids": [
+        "DEMO-MARRIAGE_FAMILY-001"
+      ],
+      "top_5": [
+        "DEMO-MARRIAGE_FAMILY-001",
+        "DEMO-MARRIAGE_FAMILY-004",
+        "DEMO-CONTRACT_DISPUTE-002",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-TRAFFIC_ACCIDENT-003"
+      ],
+      "matched_case_id": "DEMO-MARRIAGE_FAMILY-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-MF-002",
+      "domain": "marriage_family",
+      "query": "父母分居后都想照顾未成年孩子，应当怎样考虑日常抚养、稳定居住和探望安排",
+      "relevant_case_ids": [
+        "DEMO-MARRIAGE_FAMILY-002"
+      ],
+      "top_5": [
+        "DEMO-MARRIAGE_FAMILY-002",
+        "DEMO-MARRIAGE_FAMILY-003",
+        "DEMO-MARRIAGE_FAMILY-004",
+        "DEMO-MARRIAGE_FAMILY-001",
+        "DEMO-TRAFFIC_ACCIDENT-002"
+      ],
+      "matched_case_id": "DEMO-MARRIAGE_FAMILY-002",
+      "hit": true
+    },
+    {
+      "query_id": "W2-MF-003",
+      "domain": "marriage_family",
+      "query": "家庭成员反复动手并持续威胁，我需要先保护人身安全并保存哪些证据",
+      "relevant_case_ids": [
+        "DEMO-MARRIAGE_FAMILY-003"
+      ],
+      "top_5": [
+        "DEMO-MARRIAGE_FAMILY-003",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-MARRIAGE_FAMILY-002",
+        "DEMO-MARRIAGE_FAMILY-001",
+        "DEMO-LABOR_DISPUTE-001"
+      ],
+      "matched_case_id": "DEMO-MARRIAGE_FAMILY-003",
+      "hit": true
+    },
+    {
+      "query_id": "W2-MF-004",
+      "domain": "marriage_family",
+      "query": "配偶瞒着我为个人经营借了钱，这笔经营负债是否属于夫妻共同债务",
+      "relevant_case_ids": [
+        "DEMO-MARRIAGE_FAMILY-004"
+      ],
+      "top_5": [
+        "DEMO-MARRIAGE_FAMILY-004",
+        "DEMO-MARRIAGE_FAMILY-001",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-CONTRACT_DISPUTE-002",
+        "DEMO-CONTRACT_DISPUTE-001"
+      ],
+      "matched_case_id": "DEMO-MARRIAGE_FAMILY-004",
+      "hit": true
+    },
+    {
+      "query_id": "W2-MF-005",
+      "domain": "marriage_family",
+      "query": "夫妻共同偿还一方婚前房贷，离婚时能否主张共同还贷和对应房产增值的补偿",
+      "relevant_case_ids": [
+        "DEMO-MARRIAGE_FAMILY-001"
+      ],
+      "top_5": [
+        "DEMO-MARRIAGE_FAMILY-001",
+        "DEMO-MARRIAGE_FAMILY-004",
+        "DEMO-CONTRACT_DISPUTE-002",
+        "DEMO-MARRIAGE_FAMILY-003",
+        "DEMO-MARRIAGE_FAMILY-002"
+      ],
+      "matched_case_id": "DEMO-MARRIAGE_FAMILY-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-LD-001",
+      "domain": "labor_dispute",
+      "query": "公司几个月不发工资又没有签完整劳动合同，怎样证明我和单位存在劳动关系",
+      "relevant_case_ids": [
+        "DEMO-LABOR_DISPUTE-001"
+      ],
+      "top_5": [
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-002",
+        "DEMO-LABOR_DISPUTE-003",
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-004"
+      ],
+      "matched_case_id": "DEMO-LABOR_DISPUTE-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-LD-002",
+      "domain": "labor_dispute",
+      "query": "单位说绩效不合格就当天解除劳动关系，没有给出制度依据和处理程序",
+      "relevant_case_ids": [
+        "DEMO-LABOR_DISPUTE-002"
+      ],
+      "top_5": [
+        "DEMO-LABOR_DISPUTE-002",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-003",
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-003"
+      ],
+      "matched_case_id": "DEMO-LABOR_DISPUTE-002",
+      "hit": true
+    },
+    {
+      "query_id": "W2-LD-003",
+      "domain": "labor_dispute",
+      "query": "长期下班后继续工作，单位称是自愿停留，考勤和聊天记录能否证明加班事实",
+      "relevant_case_ids": [
+        "DEMO-LABOR_DISPUTE-003"
+      ],
+      "top_5": [
+        "DEMO-LABOR_DISPUTE-003",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-LABOR_DISPUTE-002",
+        "DEMO-MARRIAGE_FAMILY-003"
+      ],
+      "matched_case_id": "DEMO-LABOR_DISPUTE-003",
+      "hit": true
+    },
+    {
+      "query_id": "W2-LD-004",
+      "domain": "labor_dispute",
+      "query": "我由承包团队招进工地并在工作现场受伤，现在不清楚应向哪个用工主体主张处理",
+      "relevant_case_ids": [
+        "DEMO-LABOR_DISPUTE-004"
+      ],
+      "top_5": [
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-LABOR_DISPUTE-003"
+      ],
+      "matched_case_id": "DEMO-LABOR_DISPUTE-004",
+      "hit": true
+    },
+    {
+      "query_id": "W2-LD-005",
+      "domain": "labor_dispute",
+      "query": "没有书面合同且工资被拖欠，工资转账、工作群和排班信息应怎样整理",
+      "relevant_case_ids": [
+        "DEMO-LABOR_DISPUTE-001"
+      ],
+      "top_5": [
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-001",
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-MARRIAGE_FAMILY-001"
+      ],
+      "matched_case_id": "DEMO-LABOR_DISPUTE-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-TA-001",
+      "domain": "traffic_accident",
+      "query": "城市道路发生多车连续追尾，各车对第一次碰撞顺序和车辆损失范围说法不同",
+      "relevant_case_ids": [
+        "DEMO-TRAFFIC_ACCIDENT-001"
+      ],
+      "top_5": [
+        "DEMO-TRAFFIC_ACCIDENT-001",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-MARRIAGE_FAMILY-003"
+      ],
+      "matched_case_id": "DEMO-TRAFFIC_ACCIDENT-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-TA-002",
+      "domain": "traffic_accident",
+      "query": "机动车在人行横道附近撞到行人，对信号通行状态、伤情和医疗损失有争议",
+      "relevant_case_ids": [
+        "DEMO-TRAFFIC_ACCIDENT-002"
+      ],
+      "top_5": [
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-TRAFFIC_ACCIDENT-001",
+        "DEMO-MARRIAGE_FAMILY-003"
+      ],
+      "matched_case_id": "DEMO-TRAFFIC_ACCIDENT-002",
+      "hit": true
+    },
+    {
+      "query_id": "W2-TA-003",
+      "domain": "traffic_accident",
+      "query": "把车借给朋友后发生事故，驾驶人、车主和保险公司之间的责任及理赔怎样区分",
+      "relevant_case_ids": [
+        "DEMO-TRAFFIC_ACCIDENT-003"
+      ],
+      "top_5": [
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-TRAFFIC_ACCIDENT-001",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-LABOR_DISPUTE-004"
+      ],
+      "matched_case_id": "DEMO-TRAFFIC_ACCIDENT-003",
+      "hit": true
+    },
+    {
+      "query_id": "W2-TA-004",
+      "domain": "traffic_accident",
+      "query": "电动自行车和小客车在没有信号灯的路口相撞，双方争议谁应让行以及是否尽到观察义务",
+      "relevant_case_ids": [
+        "DEMO-TRAFFIC_ACCIDENT-004"
+      ],
+      "top_5": [
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-001",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-MARRIAGE_FAMILY-004"
+      ],
+      "matched_case_id": "DEMO-TRAFFIC_ACCIDENT-004",
+      "hit": true
+    },
+    {
+      "query_id": "W2-TA-005",
+      "domain": "traffic_accident",
+      "query": "连环追尾事故需要用行车记录仪判断碰撞先后，并核对每辆车的损失",
+      "relevant_case_ids": [
+        "DEMO-TRAFFIC_ACCIDENT-001"
+      ],
+      "top_5": [
+        "DEMO-TRAFFIC_ACCIDENT-001",
+        "DEMO-TRAFFIC_ACCIDENT-002",
+        "DEMO-TRAFFIC_ACCIDENT-004",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-LABOR_DISPUTE-002"
+      ],
+      "matched_case_id": "DEMO-TRAFFIC_ACCIDENT-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-CD-001",
+      "domain": "contract_dispute",
+      "query": "货物已经交付但买方拖欠剩余货款，双方还争议是否验收以及质量异议提出时间",
+      "relevant_case_ids": [
+        "DEMO-CONTRACT_DISPUTE-001"
+      ],
+      "top_5": [
+        "DEMO-CONTRACT_DISPUTE-001",
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-MARRIAGE_FAMILY-001"
+      ],
+      "matched_case_id": "DEMO-CONTRACT_DISPUTE-001",
+      "hit": true
+    },
+    {
+      "query_id": "W2-CD-002",
+      "domain": "contract_dispute",
+      "query": "租房结束完成交接后房东不退押金，称要扣除维修费用",
+      "relevant_case_ids": [
+        "DEMO-CONTRACT_DISPUTE-002"
+      ],
+      "top_5": [
+        "DEMO-CONTRACT_DISPUTE-002",
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-003",
+        "DEMO-TRAFFIC_ACCIDENT-003",
+        "DEMO-LABOR_DISPUTE-004"
+      ],
+      "matched_case_id": "DEMO-CONTRACT_DISPUTE-002",
+      "hit": true
+    },
+    {
+      "query_id": "W2-CD-003",
+      "domain": "contract_dispute",
+      "query": "培训机构变更课程安排，实际服务与效果承诺不一致，我要求按退款约定退费",
+      "relevant_case_ids": [
+        "DEMO-CONTRACT_DISPUTE-003"
+      ],
+      "top_5": [
+        "DEMO-CONTRACT_DISPUTE-003",
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-003",
+        "DEMO-LABOR_DISPUTE-001"
+      ],
+      "matched_case_id": "DEMO-CONTRACT_DISPUTE-003",
+      "hit": true
+    },
+    {
+      "query_id": "W2-CD-004",
+      "domain": "contract_dispute",
+      "query": "家庭装修工程延期，还有未经书面确认的口头增项费用和验收质量问题",
+      "relevant_case_ids": [
+        "DEMO-CONTRACT_DISPUTE-004"
+      ],
+      "top_5": [
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-CONTRACT_DISPUTE-001",
+        "DEMO-LABOR_DISPUTE-004",
+        "DEMO-LABOR_DISPUTE-003",
+        "DEMO-LABOR_DISPUTE-001"
+      ],
+      "matched_case_id": "DEMO-CONTRACT_DISPUTE-004",
+      "hit": true
+    },
+    {
+      "query_id": "W2-CD-005",
+      "domain": "contract_dispute",
+      "query": "买方签过收货单却没有支付尾款，后来才提出货物质量问题",
+      "relevant_case_ids": [
+        "DEMO-CONTRACT_DISPUTE-001"
+      ],
+      "top_5": [
+        "DEMO-CONTRACT_DISPUTE-001",
+        "DEMO-CONTRACT_DISPUTE-004",
+        "DEMO-LABOR_DISPUTE-001",
+        "DEMO-CONTRACT_DISPUTE-002",
+        "DEMO-TRAFFIC_ACCIDENT-003"
+      ],
+      "matched_case_id": "DEMO-CONTRACT_DISPUTE-001",
+      "hit": true
+    }
+  ]
+}
