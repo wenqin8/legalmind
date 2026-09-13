@@ -19,6 +19,8 @@ flowchart LR
 
 M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek 适配器已经运行并完成真实调用验收；LangChain/LangGraph 只完成依赖准备，尚无运行工作流。RAG、Redis 消息历史、SSE、案例和文书接口均未接入。新版计划要求的 PostgreSQL、Redis 和 Chroma 环境就绪项已通过独立 smoke test；M1 业务路径仍使用 SQLite，不能把连通验收误写为业务接入。
 
+前端允许在当前页面生命周期内归档和切换多次咨询，解决“新建咨询后旧内容立即消失”的交互问题。消息副本只存在 Pinia 内存中，页面刷新或退出登录即清除，也不会作为模型的多轮上下文；这一界面能力不替代后续 Redis 消息历史。
+
 ### 里程碑状态表
 
 | 组件或能力 | 首月四周目标 | 第一周 M1 实际状态 |
@@ -29,7 +31,7 @@ M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek
 | SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际关系数据库；仅保存用户和会话归属，迁移升降级已验收 |
 | PostgreSQL | 月末关系业务数据库与来源事实库 | `psycopg`、独立 URL 和 PostgreSQL 17.11 `SELECT 1` smoke test 已通过；尚未切换应用迁移与业务表 |
 | LangChain / LangGraph | 编排 `qa`、`search`、`document` 工作流 | 已显式加入运行依赖并验证导入；运行时代码中尚无 `AgentState`、图构建或调用链 |
-| Redis | 保存有 TTL 的短期会话消息 | Python 客户端、独立 URL 及 Redis API 7.2.11 临时键往返 smoke test 已通过；尚未保存消息正文 |
+| Redis | 保存有 TTL 的短期会话消息 | Python 客户端、独立 URL 及 Redis API 7.2.11 临时键往返 smoke test 已通过；当前页面记录仅在前端内存，Redis 尚未保存消息正文 |
 | Chroma | 提供本地持久化向量检索 | 本地持久化客户端的写入、向量查询和探针集合清理已通过；尚无正式集合、Embedding、RAG 或回答来源 |
 
 本文后续主图、请求链路、Agent 工作流和故障策略均属于“首月四周目标”；M1 的完成状态只以本节实际路径和状态表为准。

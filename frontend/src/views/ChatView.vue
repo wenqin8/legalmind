@@ -13,6 +13,7 @@ const {
   messages,
   draft,
   sessionId,
+  conversationRecords,
   errorMessage,
   errorCode,
   errorRequestId,
@@ -53,6 +54,7 @@ const intentLabels: Record<string, string> = {
 const noRetrievalWarning = '当前版本尚未接入法律资料检索，未提供可核验来源。'
 const noContextWarning = '当前版本仅保存会话归属，不保存消息正文或上下文。'
 const mobileDomainMenu = ref<HTMLDetailsElement | null>(null)
+const mobileHistoryMenu = ref<HTMLDetailsElement | null>(null)
 
 const sessionLabel = computed(() => (sessionId.value ? '当前咨询' : '新咨询'))
 
@@ -64,7 +66,9 @@ function displayWarnings(message: ChatMessage): string[] {
   return (message.warnings ?? [])
     .filter((warning) => warning !== noRetrievalWarning)
     .map((warning) =>
-      warning === noContextWarning ? '当前不会保留完整消息记录，重要信息请自行保存。' : warning,
+      warning === noContextWarning
+        ? '消息仅保留在当前页面，不会作为多轮上下文；刷新后会清空。'
+        : warning,
     )
 }
 
@@ -79,6 +83,11 @@ function retry(): void {
 function chooseMobileDomain(question: string): void {
   chatStore.useSuggestedQuestion(question)
   if (mobileDomainMenu.value) mobileDomainMenu.value.open = false
+}
+
+function chooseMobileConversation(key: string): void {
+  chatStore.switchConversation(key)
+  if (mobileHistoryMenu.value) mobileHistoryMenu.value.open = false
 }
 
 onMounted(chatStore.refreshCredentialState)
@@ -96,20 +105,46 @@ onMounted(chatStore.refreshCredentialState)
         type="button"
         class="focus-ring mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-ink-950 px-4 text-sm font-semibold text-white transition enabled:hover:bg-jade-900 disabled:cursor-not-allowed disabled:opacity-40"
         :disabled="isSending"
-        @click="chatStore.clearConversation"
+        @click="chatStore.startNewConversation"
       >
         <AppIcon name="plus" :size="17" />
         新建咨询
       </button>
 
-      <div class="mt-5 rounded-xl border border-ink-950/8 bg-white/55 p-3.5">
-        <p class="text-xs font-semibold text-ink-900">
-          {{ messages.length ? '当前咨询' : '暂无咨询记录' }}
-        </p>
-        <p class="mt-1.5 text-xs leading-5 text-ink-600">
-          {{ messages.length ? '本次交流正在进行中。' : '选择一个问题类型，开始新的咨询。' }}
-        </p>
+      <div
+        v-if="conversationRecords.length"
+        class="mt-5 min-h-0 space-y-2 overflow-y-auto"
+        data-testid="conversation-history"
+      >
+        <button
+          v-for="conversation in conversationRecords"
+          :key="conversation.key"
+          type="button"
+          class="focus-ring block w-full rounded-xl border px-3.5 py-3 text-left transition"
+          :class="
+            conversation.isActive
+              ? 'border-jade-800/20 bg-jade-50/70'
+              : 'border-ink-950/8 bg-white/55 hover:border-ink-950/15 hover:bg-white/80'
+          "
+          :aria-current="conversation.isActive ? 'page' : undefined"
+          :disabled="isSending"
+          @click="chatStore.switchConversation(conversation.key)"
+        >
+          <span class="block truncate text-xs font-semibold text-ink-900">
+            {{ conversation.title }}
+          </span>
+          <span class="mt-1 block text-[10px] text-ink-600">
+            {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+          </span>
+        </button>
       </div>
+
+      <div v-else class="mt-5 rounded-xl border border-ink-950/8 bg-white/55 p-3.5">
+        <p class="text-xs font-semibold text-ink-900">暂无咨询记录</p>
+        <p class="mt-1.5 text-xs leading-5 text-ink-600">选择一个问题类型，开始新的咨询。</p>
+      </div>
+
+      <p class="mt-3 text-[10px] leading-4 text-ink-500">记录仅保留在当前页面，刷新后会清空。</p>
 
       <div class="mt-7">
         <p class="text-xs font-semibold tracking-[0.08em] text-ink-600">常见问题类型</p>
@@ -157,11 +192,32 @@ onMounted(chatStore.refreshCredentialState)
           type="button"
           class="focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl bg-ink-950 px-3.5 text-xs font-semibold text-white disabled:opacity-40"
           :disabled="isSending"
-          @click="chatStore.clearConversation"
+          @click="chatStore.startNewConversation"
         >
           <AppIcon name="plus" :size="15" />
           新建咨询
         </button>
+        <details v-if="conversationRecords.length" ref="mobileHistoryMenu" class="relative">
+          <summary class="focus-ring flex min-h-10 list-none items-center rounded-xl border border-ink-950/8 bg-white/65 px-3 text-xs font-semibold text-ink-700 [&::-webkit-details-marker]:hidden">
+            记录
+          </summary>
+          <div class="absolute left-0 z-20 mt-2 grid w-72 gap-1.5 rounded-2xl border border-ink-950/10 bg-paper p-2 shadow-[0_16px_45px_rgba(18,33,29,0.16)]">
+            <button
+              v-for="conversation in conversationRecords"
+              :key="conversation.key"
+              type="button"
+              class="focus-ring rounded-xl px-3 py-2.5 text-left text-xs transition"
+              :class="conversation.isActive ? 'bg-jade-50 text-ink-950' : 'bg-white/65 text-ink-700'"
+              :disabled="isSending"
+              @click="chooseMobileConversation(conversation.key)"
+            >
+              <span class="block truncate font-medium">{{ conversation.title }}</span>
+              <span class="mt-1 block text-[10px] text-ink-500">
+                {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+              </span>
+            </button>
+          </div>
+        </details>
         <details ref="mobileDomainMenu" class="relative ml-auto">
           <summary class="focus-ring flex min-h-10 list-none items-center rounded-xl border border-ink-950/8 bg-white/65 px-3.5 text-xs font-semibold text-ink-700 [&::-webkit-details-marker]:hidden">
             问题类型

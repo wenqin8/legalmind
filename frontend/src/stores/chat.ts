@@ -4,7 +4,12 @@ import { defineStore } from 'pinia'
 import { hasChatCredential, sendChatMessage } from '@/api/chat'
 import { ApiRequestError, normalizeApiError } from '@/api/client'
 import { useAuthStore } from '@/stores/auth'
-import { MAX_CHAT_MESSAGE_LENGTH, type ChatMessage, type ChatStatus } from '@/types/chat'
+import {
+  MAX_CHAT_MESSAGE_LENGTH,
+  type ChatMessage,
+  type ChatStatus,
+  type LocalConversationRecord,
+} from '@/types/chat'
 
 function createMessage(
   role: ChatMessage['role'],
@@ -24,11 +29,27 @@ function authMessage(): string {
   return '提交咨询需要登录。当前页面尚未取得登录会话，请先完成登录后再试。'
 }
 
+function copyMessages(messages: ChatMessage[]): ChatMessage[] {
+  return messages.map((message) => ({
+    ...message,
+    warnings: message.warnings ? [...message.warnings] : undefined,
+  }))
+}
+
+function conversationTitle(messages: ChatMessage[]): string {
+  const firstQuestion = messages.find((message) => message.role === 'user')?.content
+  if (!firstQuestion) return '未命名咨询'
+  const normalized = firstQuestion.replace(/\s+/g, ' ').trim()
+  return normalized.length > 24 ? `${normalized.slice(0, 24)}…` : normalized
+}
+
 export const useChatStore = defineStore('chat', () => {
   const messages = ref<ChatMessage[]>([])
   const draft = ref('')
   const status = ref<ChatStatus>('idle')
   const sessionId = ref<string | null>(null)
+  const activeConversationKey = ref<string>(globalThis.crypto.randomUUID())
+  const archivedConversations = ref<LocalConversationRecord[]>([])
   const errorMessage = ref('')
   const errorCode = ref('')
   const errorRequestId = ref<string | undefined>()
@@ -39,6 +60,26 @@ export const useChatStore = defineStore('chat', () => {
   const canSend = computed(() => {
     const length = draft.value.trim().length
     return length > 0 && length <= MAX_CHAT_MESSAGE_LENGTH && !isSending.value
+  })
+  const conversationRecords = computed<LocalConversationRecord[]>(() => {
+    const activeRecord = messages.value.length
+      ? [
+          {
+            key: activeConversationKey.value,
+            sessionId: sessionId.value,
+            title: conversationTitle(messages.value),
+            messages: messages.value,
+            isActive: true,
+          },
+        ]
+      : []
+    return [
+      ...activeRecord,
+      ...archivedConversations.value.map((conversation) => ({
+        ...conversation,
+        isActive: false,
+      })),
+    ]
   })
 
   function refreshCredentialState(): void {
@@ -59,6 +100,7 @@ export const useChatStore = defineStore('chat', () => {
     errorMessage.value = error.code === 'AUTH_REQUIRED' ? authMessage() : error.message
     if (error.code === 'AUTH_REQUIRED') {
       hasCredential.value = false
+      discardConversationRecords()
       useAuthStore().logout()
     }
   }
@@ -130,11 +172,62 @@ export const useChatStore = defineStore('chat', () => {
     clearError()
   }
 
-  function clearConversation(): void {
-    if (isSending.value) return
+  function resetActiveConversation(): void {
     messages.value = []
     draft.value = ''
     sessionId.value = null
+    activeConversationKey.value = globalThis.crypto.randomUUID()
+    lastFailedQuestion.value = ''
+    clearError()
+  }
+
+  function discardConversationRecords(): void {
+    messages.value = []
+    sessionId.value = null
+    activeConversationKey.value = globalThis.crypto.randomUUID()
+    archivedConversations.value = []
+  }
+
+  function archiveActiveConversation(): void {
+    if (!messages.value.length) return
+    const record: LocalConversationRecord = {
+      key: activeConversationKey.value,
+      sessionId: sessionId.value,
+      title: conversationTitle(messages.value),
+      messages: copyMessages(messages.value),
+      isActive: false,
+    }
+    archivedConversations.value = [
+      record,
+      ...archivedConversations.value.filter((item) => item.key !== record.key),
+    ]
+  }
+
+  function startNewConversation(): void {
+    if (isSending.value) return
+    archiveActiveConversation()
+    resetActiveConversation()
+  }
+
+  function switchConversation(key: string): void {
+    if (isSending.value || key === activeConversationKey.value) return
+    const target = archivedConversations.value.find((item) => item.key === key)
+    if (!target) return
+
+    archiveActiveConversation()
+    archivedConversations.value = archivedConversations.value.filter((item) => item.key !== key)
+    activeConversationKey.value = target.key
+    sessionId.value = target.sessionId
+    messages.value = copyMessages(target.messages)
+    draft.value = ''
+    lastFailedQuestion.value = ''
+    clearError()
+  }
+
+  function clearConversation(): void {
+    if (isSending.value) return
+    discardConversationRecords()
+    draft.value = ''
     lastFailedQuestion.value = ''
     clearError()
   }
@@ -144,6 +237,7 @@ export const useChatStore = defineStore('chat', () => {
     draft,
     status,
     sessionId,
+    conversationRecords,
     errorMessage,
     errorCode,
     errorRequestId,
@@ -155,6 +249,8 @@ export const useChatStore = defineStore('chat', () => {
     submitQuestion,
     retryLastQuestion,
     useSuggestedQuestion,
+    startNewConversation,
+    switchConversation,
     clearConversation,
   }
 })

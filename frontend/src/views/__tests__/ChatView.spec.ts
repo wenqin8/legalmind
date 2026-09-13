@@ -72,7 +72,7 @@ describe('ChatView', () => {
     expect(wrapper.text()).toContain('依据与提示')
     expect(wrapper.get('section[aria-label="依据与提示"]').text()).toContain(compactDisclaimer)
     expect(wrapper.text()).toContain('暂未附可核验的参考依据')
-    expect(wrapper.text()).toContain('当前不会保留完整消息记录')
+    expect(wrapper.text()).toContain('消息仅保留在当前页面')
     expect(wrapper.text()).not.toContain('当前版本尚未接入')
     expect(wrapper.text()).not.toContain('演示回复')
     expect(wrapper.text()).not.toMatch(/\bqa\b/)
@@ -113,6 +113,32 @@ describe('ChatView', () => {
 
     expect(useChatStore().draft).toBe('我想咨询劳动争议问题，事情经过是：')
     expect((menu.element as HTMLDetailsElement).open).toBe(false)
+  })
+
+  it('archives the current consultation when starting a new one and can restore it', async () => {
+    const wrapper = mountChat()
+    await wrapper.get('textarea').setValue('公司拖欠工资，我应该准备什么材料？')
+    await wrapper.get('form').trigger('submit')
+    await flushPromises()
+
+    const store = useChatStore()
+    expect(store.messages).toHaveLength(2)
+
+    await wrapper.get('aside button').trigger('click')
+
+    expect(store.messages).toHaveLength(0)
+    expect(store.conversationRecords).toHaveLength(1)
+    expect(wrapper.get('[data-testid="conversation-history"]').text()).toContain('公司拖欠工资')
+
+    await wrapper.get('[data-testid="conversation-history"] button').trigger('click')
+
+    expect(store.messages).toHaveLength(2)
+    expect(wrapper.text()).toContain('请先保存劳动合同、工资记录和催告沟通记录。')
+
+    store.startNewConversation()
+    expect(store.conversationRecords).toHaveLength(1)
+    store.clearConversation()
+    expect(store.conversationRecords).toHaveLength(0)
   })
 
   it('rejects questions beyond the API contract limit outside the DOM', async () => {

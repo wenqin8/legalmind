@@ -13,6 +13,14 @@ export interface ChatMessage {
   warnings?: string[]
 }
 
+export interface LocalConversationRecord {
+  key: string
+  sessionId: string | null
+  title: string
+  messages: ChatMessage[]
+  isActive: boolean
+}
+
 export interface ChatSendRequest {
   message: string
   session_id: string | null
