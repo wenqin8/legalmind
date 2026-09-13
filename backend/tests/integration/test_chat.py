@@ -193,6 +193,44 @@ async def test_unknown_session_is_rejected_before_model_call(
     assert fake_llm.call_count == 0
 
 
+async def test_conversation_can_only_be_deleted_by_its_owner(
+    client: httpx.AsyncClient,
+    app: FastAPI,
+) -> None:
+    owner_token = await _create_user_token(client, suffix="delete_owner")
+    other_token = await _create_user_token(client, suffix="delete_other")
+    created = await client.post(
+        "/api/v1/chat/send",
+        headers={"Authorization": f"Bearer {owner_token}"},
+        json={"message": "需要删除的咨询"},
+    )
+    assert created.status_code == 200
+    session_id = created.json()["data"]["session_id"]
+
+    forbidden = await client.delete(
+        f"/api/v1/chat/history/{session_id}",
+        headers={"Authorization": f"Bearer {other_token}"},
+    )
+    assert forbidden.status_code == 404
+    with app.state.database.session() as session:
+        assert session.get(Conversation, UUID(session_id)) is not None
+
+    deleted = await client.delete(
+        f"/api/v1/chat/history/{session_id}",
+        headers={"Authorization": f"Bearer {owner_token}"},
+    )
+    assert deleted.status_code == 200
+    assert deleted.json()["data"]["deleted_session_id"] == session_id
+    with app.state.database.session() as session:
+        assert session.get(Conversation, UUID(session_id)) is None
+
+    repeated = await client.delete(
+        f"/api/v1/chat/history/{session_id}",
+        headers={"Authorization": f"Bearer {owner_token}"},
+    )
+    assert repeated.status_code == 404
+
+
 async def test_model_failure_does_not_leave_empty_session(
     client: httpx.AsyncClient,
     app: FastAPI,

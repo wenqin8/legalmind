@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { CHAT_REQUEST_TIMEOUT_MS, sendChatMessage } from '@/api/chat'
+import { CHAT_REQUEST_TIMEOUT_MS, deleteChatSession, sendChatMessage } from '@/api/chat'
 import { ACCESS_TOKEN_STORAGE_KEY, apiClient } from '@/api/client'
 
 describe('sendChatMessage', () => {
@@ -71,5 +71,19 @@ describe('sendChatMessage', () => {
       code: 'INVALID_RESPONSE',
       message: '服务响应异常，请稍后重试',
     })
+  })
+
+  it('deletes an authenticated chat session through the protected endpoint', async () => {
+    window.sessionStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, 'test-token')
+    const sessionId = '97c94b7f-2451-470e-a3e5-a278a9d04929'
+    const envelope = {
+      success: true as const,
+      data: { deleted_session_id: sessionId },
+      request_id: 'delete-request-id',
+    }
+    const remove = vi.spyOn(apiClient, 'delete').mockResolvedValue({ data: envelope })
+
+    await expect(deleteChatSession(sessionId)).resolves.toEqual(envelope)
+    expect(remove).toHaveBeenCalledWith(`/chat/history/${sessionId}`)
   })
 })

@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
-import { hasChatCredential, sendChatMessage } from '@/api/chat'
+import { deleteChatSession, hasChatCredential, sendChatMessage } from '@/api/chat'
 import { ApiRequestError, normalizeApiError } from '@/api/client'
 import { useAuthStore } from '@/stores/auth'
 import {
@@ -50,6 +50,7 @@ export const useChatStore = defineStore('chat', () => {
   const sessionId = ref<string | null>(null)
   const activeConversationKey = ref<string>(globalThis.crypto.randomUUID())
   const archivedConversations = ref<LocalConversationRecord[]>([])
+  const deletingConversationKey = ref<string | null>(null)
   const errorMessage = ref('')
   const errorCode = ref('')
   const errorRequestId = ref<string | undefined>()
@@ -210,7 +211,7 @@ export const useChatStore = defineStore('chat', () => {
   }
 
   function switchConversation(key: string): void {
-    if (isSending.value || key === activeConversationKey.value) return
+    if (isSending.value || deletingConversationKey.value || key === activeConversationKey.value) return
     const target = archivedConversations.value.find((item) => item.key === key)
     if (!target) return
 
@@ -222,6 +223,38 @@ export const useChatStore = defineStore('chat', () => {
     draft.value = ''
     lastFailedQuestion.value = ''
     clearError()
+  }
+
+  function removeConversationLocally(key: string): void {
+    if (key === activeConversationKey.value) {
+      resetActiveConversation()
+      return
+    }
+    archivedConversations.value = archivedConversations.value.filter((item) => item.key !== key)
+  }
+
+  async function deleteConversation(key: string): Promise<boolean> {
+    if (isSending.value || deletingConversationKey.value) return false
+    const target = conversationRecords.value.find((item) => item.key === key)
+    if (!target) return false
+
+    clearError()
+    if (!target.sessionId) {
+      removeConversationLocally(key)
+      return true
+    }
+
+    deletingConversationKey.value = key
+    try {
+      await deleteChatSession(target.sessionId)
+      removeConversationLocally(key)
+      return true
+    } catch (error: unknown) {
+      setError(normalizeApiError(error))
+      return false
+    } finally {
+      deletingConversationKey.value = null
+    }
   }
 
   function clearConversation(): void {
@@ -238,6 +271,7 @@ export const useChatStore = defineStore('chat', () => {
     status,
     sessionId,
     conversationRecords,
+    deletingConversationKey,
     errorMessage,
     errorCode,
     errorRequestId,
@@ -251,6 +285,7 @@ export const useChatStore = defineStore('chat', () => {
     useSuggestedQuestion,
     startNewConversation,
     switchConversation,
+    deleteConversation,
     clearConversation,
   }
 })

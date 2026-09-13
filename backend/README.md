@@ -76,9 +76,10 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 - 登录：`POST http://127.0.0.1:8000/api/v1/auth/login`
 - 当前用户：`GET http://127.0.0.1:8000/api/v1/auth/me`
 - 同步问答：`POST http://127.0.0.1:8000/api/v1/chat/send`
+- 删除会话：`DELETE http://127.0.0.1:8000/api/v1/chat/history/{session_id}`
 - 开发文档：`http://127.0.0.1:8000/docs`
 
-健康检查、注册和登录为公开接口。`/auth/me` 与 `/chat/send` 必须携带登录取得的 `Authorization: Bearer <token>`；任意或伪造的 Bearer 值不会被接受。访问其他用户的会话 UUID 与不存在的会话统一返回 404，并且不会调用模型。
+健康检查、注册和登录为公开接口。`/auth/me`、`/chat/send` 与删除会话接口必须携带登录取得的 `Authorization: Bearer <token>`；任意或伪造的 Bearer 值不会被接受。访问或删除其他用户的会话 UUID 与不存在的会话统一返回 404，并且不会调用模型。当前删除操作只删除关系库中的会话归属；Redis 消息正文尚未接入。
 
 生产环境会关闭 Swagger、ReDoc 和 OpenAPI 文档端点，并要求配置至少 32 字符的 JWT 密钥。
 
@@ -91,3 +92,5 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 测试覆盖注册与规范化唯一性、Argon2 哈希、JWT 必需声明与篡改拒绝、活跃用户回查、会话隔离、统一错误、模型超时、模型失败无孤立会话、日志脱敏及 Alembic 升降级/模型一致性。
 
 M1 最终验收实测结果：运行依赖全部可导入，PostgreSQL 17.11、Redis API 7.2.11 和 Chroma 持久化 smoke test 全部通过，94 项后端测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 已在全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。完整证据见 [第一周 M1 验收记录](../docs/acceptance/week1-m1.md)。
+
+交接后会话删除补丁的当前回归结果为 95 项后端测试全部通过。

@@ -6,7 +6,11 @@ import { RouterLink } from 'vue-router'
 import AppIcon from '@/components/AppIcon.vue'
 import LegalDisclaimer from '@/components/LegalDisclaimer.vue'
 import { useChatStore } from '@/stores/chat'
-import { MAX_CHAT_MESSAGE_LENGTH, type ChatMessage } from '@/types/chat'
+import {
+  MAX_CHAT_MESSAGE_LENGTH,
+  type ChatMessage,
+  type LocalConversationRecord,
+} from '@/types/chat'
 
 const chatStore = useChatStore()
 const {
@@ -14,6 +18,7 @@ const {
   draft,
   sessionId,
   conversationRecords,
+  deletingConversationKey,
   errorMessage,
   errorCode,
   errorRequestId,
@@ -67,7 +72,7 @@ function displayWarnings(message: ChatMessage): string[] {
     .filter((warning) => warning !== noRetrievalWarning)
     .map((warning) =>
       warning === noContextWarning
-        ? '消息仅保留在当前页面，不会作为多轮上下文；刷新后会清空。'
+        ? '界面会在当前页面保留消息，但模型不会读取此前问答作为上下文；刷新后会清空。'
         : warning,
     )
 }
@@ -88,6 +93,13 @@ function chooseMobileDomain(question: string): void {
 function chooseMobileConversation(key: string): void {
   chatStore.switchConversation(key)
   if (mobileHistoryMenu.value) mobileHistoryMenu.value.open = false
+}
+
+async function requestDeleteConversation(conversation: LocalConversationRecord): Promise<void> {
+  const confirmed = window.confirm(`确定删除“${conversation.title}”吗？删除后无法恢复。`)
+  if (!confirmed) return
+  const deleted = await chatStore.deleteConversation(conversation.key)
+  if (deleted && mobileHistoryMenu.value) mobileHistoryMenu.value.open = false
 }
 
 onMounted(chatStore.refreshCredentialState)
@@ -116,27 +128,41 @@ onMounted(chatStore.refreshCredentialState)
         class="mt-5 min-h-0 space-y-2 overflow-y-auto"
         data-testid="conversation-history"
       >
-        <button
+        <div
           v-for="conversation in conversationRecords"
           :key="conversation.key"
-          type="button"
-          class="focus-ring block w-full rounded-xl border px-3.5 py-3 text-left transition"
+          class="flex items-center rounded-xl border transition"
           :class="
             conversation.isActive
               ? 'border-jade-800/20 bg-jade-50/70'
               : 'border-ink-950/8 bg-white/55 hover:border-ink-950/15 hover:bg-white/80'
           "
-          :aria-current="conversation.isActive ? 'page' : undefined"
-          :disabled="isSending"
-          @click="chatStore.switchConversation(conversation.key)"
         >
-          <span class="block truncate text-xs font-semibold text-ink-900">
-            {{ conversation.title }}
-          </span>
-          <span class="mt-1 block text-[10px] text-ink-600">
-            {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
-          </span>
-        </button>
+          <button
+            type="button"
+            class="focus-ring min-w-0 flex-1 rounded-l-xl px-3.5 py-3 text-left"
+            :aria-current="conversation.isActive ? 'page' : undefined"
+            :disabled="isSending || Boolean(deletingConversationKey)"
+            @click="chatStore.switchConversation(conversation.key)"
+          >
+            <span class="block truncate text-xs font-semibold text-ink-900">
+              {{ conversation.title }}
+            </span>
+            <span class="mt-1 block text-[10px] text-ink-600">
+              {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+            </span>
+          </button>
+          <button
+            type="button"
+            class="focus-ring mr-2 grid size-8 shrink-0 place-items-center rounded-lg text-ink-500 transition hover:bg-red-50 hover:text-red-800 disabled:cursor-not-allowed disabled:opacity-35"
+            :aria-label="`删除咨询：${conversation.title}`"
+            :title="`删除咨询：${conversation.title}`"
+            :disabled="isSending || Boolean(deletingConversationKey)"
+            @click="requestDeleteConversation(conversation)"
+          >
+            <AppIcon name="trash" :size="15" />
+          </button>
+        </div>
       </div>
 
       <div v-else class="mt-5 rounded-xl border border-ink-950/8 bg-white/55 p-3.5">
@@ -202,20 +228,33 @@ onMounted(chatStore.refreshCredentialState)
             记录
           </summary>
           <div class="absolute left-0 z-20 mt-2 grid w-72 gap-1.5 rounded-2xl border border-ink-950/10 bg-paper p-2 shadow-[0_16px_45px_rgba(18,33,29,0.16)]">
-            <button
+            <div
               v-for="conversation in conversationRecords"
               :key="conversation.key"
-              type="button"
-              class="focus-ring rounded-xl px-3 py-2.5 text-left text-xs transition"
+              class="flex items-center rounded-xl text-xs transition"
               :class="conversation.isActive ? 'bg-jade-50 text-ink-950' : 'bg-white/65 text-ink-700'"
-              :disabled="isSending"
-              @click="chooseMobileConversation(conversation.key)"
             >
-              <span class="block truncate font-medium">{{ conversation.title }}</span>
-              <span class="mt-1 block text-[10px] text-ink-500">
-                {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
-              </span>
-            </button>
+              <button
+                type="button"
+                class="focus-ring min-w-0 flex-1 rounded-l-xl px-3 py-2.5 text-left"
+                :disabled="isSending || Boolean(deletingConversationKey)"
+                @click="chooseMobileConversation(conversation.key)"
+              >
+                <span class="block truncate font-medium">{{ conversation.title }}</span>
+                <span class="mt-1 block text-[10px] text-ink-500">
+                  {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+                </span>
+              </button>
+              <button
+                type="button"
+                class="focus-ring mr-1 grid size-8 shrink-0 place-items-center rounded-lg text-ink-500 hover:bg-red-50 hover:text-red-800 disabled:opacity-35"
+                :aria-label="`删除咨询：${conversation.title}`"
+                :disabled="isSending || Boolean(deletingConversationKey)"
+                @click="requestDeleteConversation(conversation)"
+              >
+                <AppIcon name="trash" :size="14" />
+              </button>
+            </div>
           </div>
         </details>
         <details ref="mobileDomainMenu" class="relative ml-auto">
@@ -327,7 +366,7 @@ onMounted(chatStore.refreshCredentialState)
         >
           <div class="flex items-start justify-between gap-4">
             <div>
-              <p class="font-semibold">本次请求未完成</p>
+              <p class="font-semibold">本次操作未完成</p>
               <p class="mt-1.5 leading-6 text-red-950/75">{{ errorMessage }}</p>
               <p v-if="errorRequestId" class="mt-2 text-[10px] text-red-950/60">
                 请求编号：{{ errorRequestId }}

@@ -26,7 +26,7 @@ def test_application_factory_is_repeatable() -> None:
     assert first.version == second.version == "0.1.0"
 
 
-def test_day_five_public_and_authenticated_routes_are_mounted() -> None:
+def test_public_and_authenticated_routes_are_mounted() -> None:
     settings = Settings(_env_file=None, environment="test", llm_backend="fake")
     app = create_app(settings)
     business_paths = {
@@ -39,6 +39,7 @@ def test_day_five_public_and_authenticated_routes_are_mounted() -> None:
         "/api/v1/auth/login",
         "/api/v1/auth/me",
         "/api/v1/chat/send",
+        "/api/v1/chat/history/{session_id}",
     }
 
 

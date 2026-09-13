@@ -134,3 +134,33 @@ def _create_session(database: Database, user_id: UUID, session_id: UUID) -> None
             session.commit()
     except SQLAlchemyError as exc:
         raise DatabaseUnavailableError() from exc
+
+
+async def delete_chat_session(
+    database: Database,
+    *,
+    user_id: UUID,
+    session_id: UUID,
+) -> None:
+    """Delete one conversation only when it belongs to the authenticated user."""
+
+    await run_in_threadpool(_delete_session, database, user_id, session_id)
+
+
+def _delete_session(database: Database, user_id: UUID, session_id: UUID) -> None:
+    try:
+        with database.session() as session:
+            conversation = session.scalar(
+                select(Conversation).where(
+                    Conversation.id == session_id,
+                    Conversation.user_id == user_id,
+                )
+            )
+            if conversation is None:
+                raise ResourceNotFoundError()
+            session.delete(conversation)
+            session.commit()
+    except ResourceNotFoundError:
+        raise
+    except SQLAlchemyError as exc:
+        raise DatabaseUnavailableError() from exc

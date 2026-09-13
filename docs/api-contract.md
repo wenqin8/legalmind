@@ -54,7 +54,7 @@ Base URL：`/api/v1`
 | POST | `/api/v1/chat/send` | 是 | 已实现 | 普通 Agent 问答 |
 | POST | `/api/v1/chat/stream` | 是 | 首月计划 | SSE 流式 Agent 问答 |
 | GET | `/api/v1/chat/history/{session_id}` | 是 | 首月计划 | 当前用户会话历史 |
-| DELETE | `/api/v1/chat/history/{session_id}` | 是 | 首月计划 | 清空当前用户会话 |
+| DELETE | `/api/v1/chat/history/{session_id}` | 是 | 已实现 | 删除当前用户会话 |
 | POST | `/api/v1/cases/search` | 是 | 首月计划 | 案例混合检索 |
 | GET | `/api/v1/cases/{case_id}` | 是 | 首月计划 | 案例详情 |
 | GET | `/api/v1/documents/templates` | 是 | 首月计划 | 三类文书及字段定义 |
@@ -204,7 +204,7 @@ data: {"success":false}
 
 ### DELETE `/api/v1/chat/history/{session_id}`
 
-删除 PostgreSQL 会话记录和对应 Redis 消息。操作成功后返回 `deleted_session_id`。
+当前实现先以会话 UUID 和当前用户 UUID 同时过滤关系库记录；不存在或不属于当前用户均返回 `404 RESOURCE_NOT_FOUND`。操作成功后删除会话归属并返回 `deleted_session_id`。Redis 消息正文接入后，该接口还须精确删除对应消息键；当前没有 Redis 消息可删除。
 
 ## 7. 案例接口
 

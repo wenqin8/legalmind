@@ -71,6 +71,9 @@ withDefaults(
       <path d="M10 5H5v14h5" />
       <path d="M14 8l4 4-4 4M8 12h10" />
     </template>
+    <template v-else-if="name === 'trash'">
+      <path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5" />
+    </template>
     <template v-else-if="name === 'check'">
       <path d="m5 12 4 4L19 6" />
     </template>

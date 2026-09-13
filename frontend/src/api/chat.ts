@@ -1,6 +1,6 @@
 import { ApiRequestError, apiClient, readAccessToken } from '@/api/client'
 import type { ApiSuccess } from '@/types/api'
-import type { ChatResponseData, ChatSendRequest } from '@/types/chat'
+import type { ChatResponseData, ChatSendRequest, DeletedConversationData } from '@/types/chat'
 
 export const CHAT_REQUEST_TIMEOUT_MS = 72_000
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
@@ -40,6 +40,22 @@ function parseChatEnvelope(value: unknown): ApiSuccess<ChatResponseData> {
   return candidate as ApiSuccess<ChatResponseData>
 }
 
+function parseDeleteEnvelope(value: unknown): ApiSuccess<DeletedConversationData> {
+  if (!value || typeof value !== 'object') throw invalidChatResponse()
+  const candidate = value as Partial<ApiSuccess<DeletedConversationData>>
+  const sessionId = candidate.data?.deleted_session_id
+  if (
+    candidate.success !== true ||
+    typeof candidate.request_id !== 'string' ||
+    !candidate.request_id.trim() ||
+    typeof sessionId !== 'string' ||
+    !UUID_PATTERN.test(sessionId)
+  ) {
+    throw invalidChatResponse()
+  }
+  return candidate as ApiSuccess<DeletedConversationData>
+}
+
 export async function sendChatMessage(
   message: string,
   sessionId: string | null,
@@ -62,4 +78,19 @@ export async function sendChatMessage(
     timeout: CHAT_REQUEST_TIMEOUT_MS,
   })
   return parseChatEnvelope(response.data)
+}
+
+export async function deleteChatSession(
+  sessionId: string,
+): Promise<ApiSuccess<DeletedConversationData>> {
+  if (!hasChatCredential()) {
+    throw new ApiRequestError('请先登录后再删除咨询', {
+      status: 401,
+      code: 'AUTH_REQUIRED',
+    })
+  }
+  if (!UUID_PATTERN.test(sessionId)) throw invalidChatResponse()
+
+  const response = await apiClient.delete<unknown>(`/chat/history/${sessionId}`)
+  return parseDeleteEnvelope(response.data)
 }

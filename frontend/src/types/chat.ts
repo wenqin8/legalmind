@@ -36,3 +36,7 @@ export interface ChatResponseData {
   missing_fields: unknown[]
   warnings: string[]
 }
+
+export interface DeletedConversationData {
+  deleted_session_id: string
+}

@@ -5,11 +5,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 const chatApi = vi.hoisted(() => ({
   hasCredential: vi.fn(),
   send: vi.fn(),
+  deleteSession: vi.fn(),
 }))
 
 vi.mock('@/api/chat', () => ({
   hasChatCredential: chatApi.hasCredential,
   sendChatMessage: chatApi.send,
+  deleteChatSession: chatApi.deleteSession,
 }))
 
 import { useChatStore } from '@/stores/chat'
@@ -51,8 +53,14 @@ describe('ChatView', () => {
     setActivePinia(createPinia())
     chatApi.hasCredential.mockReset()
     chatApi.send.mockReset()
+    chatApi.deleteSession.mockReset()
     chatApi.hasCredential.mockReturnValue(true)
     chatApi.send.mockResolvedValue(successfulResponse())
+    chatApi.deleteSession.mockResolvedValue({
+      success: true,
+      data: { deleted_session_id: '97c94b7f-2451-470e-a3e5-a278a9d04929' },
+      request_id: 'delete-request-id',
+    })
   })
 
   it('submits a real API question and presents user-facing answer metadata', async () => {
@@ -72,7 +80,7 @@ describe('ChatView', () => {
     expect(wrapper.text()).toContain('依据与提示')
     expect(wrapper.get('section[aria-label="依据与提示"]').text()).toContain(compactDisclaimer)
     expect(wrapper.text()).toContain('暂未附可核验的参考依据')
-    expect(wrapper.text()).toContain('消息仅保留在当前页面')
+    expect(wrapper.text()).toContain('模型不会读取此前问答作为上下文')
     expect(wrapper.text()).not.toContain('当前版本尚未接入')
     expect(wrapper.text()).not.toContain('演示回复')
     expect(wrapper.text()).not.toMatch(/\bqa\b/)
@@ -139,6 +147,29 @@ describe('ChatView', () => {
     expect(store.conversationRecords).toHaveLength(1)
     store.clearConversation()
     expect(store.conversationRecords).toHaveLength(0)
+  })
+
+  it('confirms and deletes an archived consultation from the server and local history', async () => {
+    const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    const wrapper = mountChat()
+    await wrapper.get('textarea').setValue('公司拖欠工资，我应该准备什么材料？')
+    await wrapper.get('form').trigger('submit')
+    await flushPromises()
+
+    const store = useChatStore()
+    store.startNewConversation()
+    await wrapper.vm.$nextTick()
+    const deleteButton = wrapper.findAll('button[aria-label^="删除咨询"]')[0]
+    expect(deleteButton).toBeDefined()
+    await deleteButton!.trigger('click')
+    await flushPromises()
+
+    expect(confirm).toHaveBeenCalledWith(expect.stringContaining('删除后无法恢复'))
+    expect(chatApi.deleteSession).toHaveBeenCalledWith(
+      '97c94b7f-2451-470e-a3e5-a278a9d04929',
+    )
+    expect(store.conversationRecords).toHaveLength(0)
+    expect(wrapper.find('[data-testid="conversation-history"]').exists()).toBe(false)
   })
 
   it('rejects questions beyond the API contract limit outside the DOM', async () => {

@@ -50,3 +50,9 @@ class ChatData(BaseModel):
     session_id: UUID
     missing_fields: list[str]
     warnings: list[str]
+
+
+class DeletedConversationData(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    deleted_session_id: UUID
