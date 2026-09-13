@@ -6,7 +6,7 @@
 
 ## 当前进度
 
-- 阶段：第 1 周第 5 天已完成，M1 冻结标识为 `v0.1.0-m1`
+- 阶段：第 1 周 M1 及补充验收已完成；原冻结标识为 `v0.1.0-m1`，补充闭环标识为 `v0.1.0-m1.1`
 - 状态：后端 89 项、前端 26 项自动化测试通过；类型检查、生产构建、依赖检查和 Alembic 迁移校验通过
 - 闭环：已在浏览器实测“注册 → 登录签发 JWT → 前端调用受保护 API → DeepSeek 返回真实回答”
 - 交接状态：[HANDOFF](HANDOFF.md)
@@ -18,7 +18,7 @@
 - 健康检查：`GET /api/v1/health`
 - 前端开发地址：`http://127.0.0.1:5173/`，咨询台：`http://127.0.0.1:5173/chat`
 - 当前咨询台调用受 JWT 保护的 `POST /api/v1/chat/send`；运行时按后端 `.env` 选择 DeepSeek 或离线假模型
-- 当前尚未接入 RAG、Redis 消息历史或 LangGraph，回答会明确告知无可核验来源，不伪造法条和案例
+- 当前尚未接入 RAG、Redis 消息历史或 LangGraph 运行工作流；LangGraph 仅完成依赖准备。回答会明确告知无可核验来源，不伪造法条和案例
 
 ## 设计文档
 
@@ -27,7 +27,9 @@
 - [数据模型](docs/data-model.md)
 - [API 合同](docs/api-contract.md)
 
-## 首月交付范围
+## 首月最终交付范围（非第一周 M1）
+
+“首月 MVP”指四周结束时的目标；“第一周 M1”指已经验收的可运行切片。M1 的实际链路是 Vue 3 → FastAPI → 可注入 LLM，并以本地 SQLite 保存用户与会话归属。PostgreSQL 仅完成驱动和可配置 URL 预留，未完成实库验收；Redis、Chroma 未接入；LangGraph 已列入运行依赖，但工作流仍按第三周计划实现。
 
 - Vue 3 前端与 FastAPI 后端
 - DeepSeek OpenAI 兼容接口

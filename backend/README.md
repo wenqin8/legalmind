@@ -2,7 +2,7 @@
 
 第 1 周第 5 天后端：FastAPI、SQLAlchemy、Alembic、Argon2 密码哈希、JWT 登录，以及受保护的同步法律问答链路。
 
-当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 或 Redis。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
+当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 运行工作流或 Redis。`langgraph` 已按第一周计划加入运行依赖并完成安装、导入及兼容性检查，但图编排仍按第三周实现。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
 
 ## 本地准备
 
@@ -43,7 +43,7 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 .\.venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-配置 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 后可切换 PostgreSQL。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的 PostgreSQL 配置入口和驱动依赖，但尚未完成 PostgreSQL 实库迁移或集成验收。不要把带数据库密码的 URL 提交到仓库或输出到日志。
 
 ## 启动
 
@@ -70,4 +70,4 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 
 测试覆盖注册与规范化唯一性、Argon2 哈希、JWT 必需声明与篡改拒绝、活跃用户回查、会话隔离、统一错误、模型超时、模型失败无孤立会话、日志脱敏及 Alembic 升降级/模型一致性。
 
-M1 冻结前实测结果：89 项测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 在全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。
+M1 补充验收实测结果：`langgraph 1.2.11` 与 `StateGraph` 导入成功，89 项测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 在原 M1 验收中已于全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。
