@@ -10,6 +10,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BACKEND_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_DATABASE_URL = f"sqlite:///{(BACKEND_DIR / 'data' / 'legalmind.db').as_posix()}"
+DEFAULT_CHROMA_PERSIST_DIRECTORY = BACKEND_DIR / "data" / "chroma"
 
 
 class Settings(BaseSettings):
@@ -31,6 +32,9 @@ class Settings(BaseSettings):
     cors_origins: tuple[str, ...] = ("http://localhost:5173",)
 
     database_url: SecretStr = SecretStr(DEFAULT_DATABASE_URL)
+    postgres_smoke_url: SecretStr | None = None
+    redis_url: SecretStr = SecretStr("redis://127.0.0.1:6379/0")
+    chroma_persist_directory: Path = DEFAULT_CHROMA_PERSIST_DIRECTORY
     jwt_secret_key: SecretStr | None = None
     jwt_issuer: str = "legalmind-api"
     jwt_audience: str = "legalmind-web"
@@ -85,6 +89,22 @@ class Settings(BaseSettings):
         if isinstance(api_key, SecretStr) and not api_key.get_secret_value().strip():
             return None
         return api_key
+
+    @field_validator("postgres_smoke_url", mode="before")
+    @classmethod
+    def normalize_empty_postgres_smoke_url(cls, url: object) -> object:
+        if isinstance(url, str) and not url.strip():
+            return None
+        if isinstance(url, SecretStr) and not url.get_secret_value().strip():
+            return None
+        return url
+
+    @field_validator("chroma_persist_directory")
+    @classmethod
+    def resolve_chroma_persist_directory(cls, path: Path) -> Path:
+        if path.is_absolute():
+            return path
+        return (BACKEND_DIR / path).resolve()
 
     @field_validator("jwt_secret_key", mode="before")
     @classmethod

@@ -2,7 +2,7 @@
 
 第 1 周第 5 天后端：FastAPI、SQLAlchemy、Alembic、Argon2 密码哈希、JWT 登录，以及受保护的同步法律问答链路。
 
-当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 运行工作流或 Redis。`langgraph` 已按第一周计划加入运行依赖并完成安装、导入及兼容性检查，但图编排仍按第三周实现。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
+当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 运行工作流或 Redis 消息历史。`langchain`、`langgraph`、`chromadb`、`redis` 和 `psycopg` 已按第一周计划加入运行依赖，并完成安装、导入和基础设施连通验收；这只表示环境就绪，不表示后续业务逻辑已经接入。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
 
 ## 本地准备
 
@@ -43,7 +43,27 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 .\.venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的 PostgreSQL 配置入口和驱动依赖，但尚未完成 PostgreSQL 实库迁移或集成验收。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的业务数据库配置入口。M1 已对 PostgreSQL 17.11 实例完成独立 `SELECT 1` 连通验收，但应用迁移和业务表仍只在 SQLite 验证；切换业务库将在后续里程碑单独执行。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+
+## 基础设施连通验收
+
+先生成仅保存在 `backend/.env` 的本地 PostgreSQL/Redis 密钥和连接配置：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\ensure_local_infrastructure_secrets.py
+```
+
+Docker Desktop 可用时，在仓库根目录启动 PostgreSQL 与 Redis，再运行统一 smoke test：
+
+```powershell
+docker compose --env-file backend\.env -f compose.infrastructure.yml up -d --wait
+cd backend
+.\.venv\Scripts\python.exe -m scripts.smoke_infrastructure
+```
+
+smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时键往返、Chroma 本地持久化写入与向量查询；Redis 键和 Chroma 探针集合在结束时按精确标识删除。脚本只输出通过状态和服务版本，不输出连接 URL 或密码。
+
+本次 M1 在 Docker 生效前使用 Windows 原生 PostgreSQL 17.11 和 Memurai Developer 4.1.7（Redis API 7.2.11）完成相同验收。Windows 的 WSL 与虚拟机平台功能已启用，但系统需重启后才生效；Docker Desktop 的正式容器化验收仍按第 4 周执行。
 
 ## 启动
 
@@ -70,4 +90,4 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 
 测试覆盖注册与规范化唯一性、Argon2 哈希、JWT 必需声明与篡改拒绝、活跃用户回查、会话隔离、统一错误、模型超时、模型失败无孤立会话、日志脱敏及 Alembic 升降级/模型一致性。
 
-M1 补充验收实测结果：`langgraph 1.2.11` 与 `StateGraph` 导入成功，89 项测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 在原 M1 验收中已于全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。
+M1 最终验收实测结果：运行依赖全部可导入，PostgreSQL 17.11、Redis API 7.2.11 和 Chroma 持久化 smoke test 全部通过，94 项后端测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 已在全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。完整证据见 [第一周 M1 验收记录](../docs/acceptance/week1-m1.md)。

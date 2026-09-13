@@ -1,6 +1,6 @@
 # 系统架构与工作流设计
 
-文档状态：第 1 周第 2 天形成首月设计基线；第 1 周 M1 冻结后校准实现边界
+文档状态：第 1 周第 2 天形成首月设计基线；2026-09-13 按新版计划完成 M1 基础设施就绪验收
 适用范围：首月四周目标架构与第一周 M1 实际运行边界
 
 本文同时记录两种范围：“首月四周目标”是四周结束时计划形成的完整 MVP，“第一周 M1”是已经冻结并实际验收的可运行切片。目标架构中的组件不得据此视为已在 M1 接入。
@@ -17,7 +17,7 @@ flowchart LR
     LLM --> Adapter[Fake / DeepSeek 适配器]
 ```
 
-M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek 适配器已经运行并完成真实调用验收；LangGraph 仅完成依赖准备，尚无运行工作流。RAG、Chroma、Redis、SSE、案例和文书接口均未接入。PostgreSQL 是月末目标业务库，M1 仅准备驱动和可配置 URL，并只在 SQLite 完成迁移验收。
+M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek 适配器已经运行并完成真实调用验收；LangChain/LangGraph 只完成依赖准备，尚无运行工作流。RAG、Redis 消息历史、SSE、案例和文书接口均未接入。新版计划要求的 PostgreSQL、Redis 和 Chroma 环境就绪项已通过独立 smoke test；M1 业务路径仍使用 SQLite，不能把连通验收误写为业务接入。
 
 ### 里程碑状态表
 
@@ -27,10 +27,10 @@ M1 只存用户与会话归属，不存消息正文。可注入 LLM 与 DeepSeek
 | FastAPI | 提供完整 `/api/v1` 业务 API | 已运行健康检查、认证和受保护的 `POST /chat/send` |
 | 可注入 LLM | 通过统一端口服务 Agent 各生成节点 | `LLMClient`、Fake 与 DeepSeek 适配器已运行；真实 DeepSeek 调用已验收 |
 | SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际关系数据库；仅保存用户和会话归属，迁移升降级已验收 |
-| PostgreSQL | 月末关系业务数据库与来源事实库 | 仅有 `psycopg` 驱动依赖和可配置 URL 兼容；未进行 PostgreSQL 实库迁移或集成验收 |
-| LangGraph | 编排 `qa`、`search`、`document` 工作流 | 仅在依赖清单中完成准备；运行时代码中尚无 `AgentState`、图构建或调用链 |
-| Redis | 保存有 TTL 的短期会话消息 | 未加入 M1 依赖、配置或运行链路，不保存消息正文 |
-| Chroma | 提供本地持久化向量检索 | 未加入 M1 依赖、集合或运行链路，当前回答没有 RAG 来源 |
+| PostgreSQL | 月末关系业务数据库与来源事实库 | `psycopg`、独立 URL 和 PostgreSQL 17.11 `SELECT 1` smoke test 已通过；尚未切换应用迁移与业务表 |
+| LangChain / LangGraph | 编排 `qa`、`search`、`document` 工作流 | 已显式加入运行依赖并验证导入；运行时代码中尚无 `AgentState`、图构建或调用链 |
+| Redis | 保存有 TTL 的短期会话消息 | Python 客户端、独立 URL 及 Redis API 7.2.11 临时键往返 smoke test 已通过；尚未保存消息正文 |
+| Chroma | 提供本地持久化向量检索 | 本地持久化客户端的写入、向量查询和探针集合清理已通过；尚无正式集合、Embedding、RAG 或回答来源 |
 
 本文后续主图、请求链路、Agent 工作流和故障策略均属于“首月四周目标”；M1 的完成状态只以本节实际路径和状态表为准。
 

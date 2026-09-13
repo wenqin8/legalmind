@@ -23,6 +23,7 @@ dist/
 # Local runtime data
 data/vectors/
 data/chroma/
+backend/data/chroma/
 backend/data/*.db*
 logs/
 tmp/

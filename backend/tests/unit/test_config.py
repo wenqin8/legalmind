@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from app.core.config import Settings
+from app.core.config import BACKEND_DIR, Settings
 
 
 def test_settings_load_without_deepseek_key() -> None:
@@ -42,6 +42,26 @@ def test_secret_is_masked_in_repr_and_serialization() -> None:
 
     assert secret not in repr(settings)
     assert secret not in settings.model_dump_json()
+
+
+def test_infrastructure_secrets_are_masked() -> None:
+    postgres_url = "postgresql://user:secret@127.0.0.1:5432/legalmind"
+    redis_url = "redis://:secret@127.0.0.1:6379/0"
+    settings = Settings(
+        _env_file=None,
+        postgres_smoke_url=postgres_url,
+        redis_url=redis_url,
+    )
+
+    serialized = settings.model_dump_json()
+    assert postgres_url not in serialized
+    assert redis_url not in serialized
+
+
+def test_relative_chroma_path_is_resolved_from_backend_directory() -> None:
+    settings = Settings(_env_file=None, chroma_persist_directory="data/test-chroma")
+
+    assert settings.chroma_persist_directory == (BACKEND_DIR / "data/test-chroma").resolve()
 
 
 def test_settings_are_immutable() -> None:

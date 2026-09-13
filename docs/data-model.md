@@ -1,8 +1,8 @@
 # 数据模型设计
 
-文档状态：第 1 周第 2 天形成首月设计基线；第 1 周 M1 冻结后校准实现边界
+文档状态：第 1 周第 2 天形成首月设计基线；2026-09-13 按新版计划完成 M1 基础设施就绪验收
 
-本文同时记录首月四周目标数据模型和第一周 M1 实际物理模型。M1 已落地 `users` 和 `conversations` 两张表，实际使用本地 SQLite；SQLAlchemy/Alembic 已保留切换 PostgreSQL 的结构，但 PostgreSQL 仅完成驱动与可配置 URL 准备，尚未进行实库验收。下文的文书、案例、法条、知识分块、Chroma 向量和 Redis 消息均是后续目标，尚未在 M1 实现。
+本文同时记录首月四周目标数据模型和第一周 M1 实际物理模型。M1 已落地 `users` 和 `conversations` 两张表，实际使用本地 SQLite；SQLAlchemy/Alembic 已保留切换 PostgreSQL 的结构，并已完成 PostgreSQL、Redis、Chroma 的独立真实连通 smoke test。下文的文书、案例、法条、知识分块、正式 Chroma 向量集合和 Redis 消息仍是后续目标，尚未在 M1 业务链路实现。
 
 ### 存储状态表
 
@@ -11,10 +11,10 @@
 | `users` | 保存用户身份、规范化唯一字段和密码哈希 | 已在 SQLite 落地并通过 Alembic 迁移验收 |
 | `conversations` | 在关系库保存会话所有权，由 Redis 保存短期消息 | 已在 SQLite 落地所有权；不保存问题、回答正文或多轮上下文 |
 | SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际数据库，已验证迁移升级、降级和一致性 |
-| PostgreSQL | 月末关系业务数据库和来源事实库 | 仅准备 `psycopg` 驱动依赖及可配置 URL；未进行 PostgreSQL 实库迁移或集成验收 |
+| PostgreSQL | 月末关系业务数据库和来源事实库 | PostgreSQL 17.11 `SELECT 1` smoke test 已通过；应用迁移和业务表尚未切换 |
 | `generated_documents`、`cases`、`legal_provisions`、`knowledge_chunks` | 保存文书、来源事实和检索分块 | 仅完成模型设计，M1 未建表 |
-| Redis | 保存 24 小时短期会话消息 | 未加入 M1 依赖、配置或运行链路 |
-| Chroma | 保存本地持久化向量及来源引用键 | 未加入 M1 依赖、集合或运行链路 |
+| Redis | 保存 24 小时短期会话消息 | Python 客户端和 Redis API 7.2.11 临时键往返 smoke test 已通过；消息模型尚未接入 |
+| Chroma | 保存本地持久化向量及来源引用键 | 本地持久化写入与向量查询 smoke test 已通过；正式集合和来源数据尚未接入 |
 
 ## 1. 首月四周目标通用约定
 
@@ -175,7 +175,7 @@ erDiagram
 
 ## 5. 后续目标：Chroma 设计
 
-> 实现状态：M1 尚未加入 Chroma 依赖、创建集合或建立向量写入与查询链路。本节只定义首月四周目标结构。
+> 实现状态：M1 已加入 Chroma 依赖并通过隔离的本地持久化探针，但尚未创建正式集合，也未建立知识资料的向量写入与查询链路。本节只定义首月四周目标结构。
 
 使用一个集合 `legal_knowledge`，通过元数据区分案例与法条，避免首月维护多集合查询合并逻辑。
 
