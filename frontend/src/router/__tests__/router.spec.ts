@@ -12,7 +12,11 @@ describe('router', () => {
   it('resolves the public pages and a deliberate not-found page', () => {
     expect(router.resolve('/').name).toBe('home')
     expect(router.resolve('/auth').name).toBe('auth')
+    expect(router.resolve('/guide').name).toBe('guide')
+    expect(router.resolve('/privacy').name).toBe('privacy')
+    expect(router.resolve('/about').name).toBe('about')
     expect(router.resolve('/chat').name).toBe('chat')
+    expect(router.resolve('/chat').meta.appShell).toBe(true)
     expect(router.resolve('/missing-page').name).toBe('not-found')
   })
 

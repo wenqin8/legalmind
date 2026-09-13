@@ -36,7 +36,7 @@ describe('getHealth', () => {
 
     await expect(getHealth()).rejects.toMatchObject({
       code: 'INVALID_RESPONSE',
-      message: '后端健康响应格式不正确',
+      message: '服务状态响应异常',
     })
   })
 })

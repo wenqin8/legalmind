@@ -77,7 +77,7 @@ export function normalizeApiError(error: unknown): ApiRequestError {
     }
 
     return new ApiRequestError(
-      error.response ? '请求暂时无法处理，请稍后重试' : '无法连接后端服务',
+      error.response ? '请求暂时无法处理，请稍后重试' : '暂时无法连接服务，请稍后重试',
       {
         status: error.response?.status,
         code: error.response ? 'HTTP_ERROR' : 'NETWORK_ERROR',

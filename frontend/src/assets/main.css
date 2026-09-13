@@ -6,7 +6,7 @@
   --color-ink-900: #1e302a;
   --color-ink-700: #40534c;
   --color-ink-600: #586a63;
-  --color-ink-500: #71817b;
+  --color-ink-500: #62726b;
   --color-ink-400: #91a09a;
   --color-ink-300: #adb8b4;
   --color-jade-950: #173d34;
@@ -84,6 +84,8 @@ a {
   padding: 0.7rem 1rem;
   color: white;
   font-size: 0.8125rem;
+  white-space: nowrap;
+  width: max-content;
   transition: transform 160ms ease;
 }
 

@@ -7,7 +7,7 @@ from uuid import UUID
 from pydantic import AnyHttpUrl, BaseModel, ConfigDict, Field, JsonValue
 
 CHAT_DISCLAIMER = (
-    "AI 内容仅供参考，不构成法律意见；重要事项请咨询执业律师并核对原始依据。"
+    "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。"
 )
 NO_RETRIEVAL_WARNING = "当前版本尚未接入法律资料检索，未提供可核验来源。"
 NO_CONTEXT_WARNING = "当前版本仅保存会话归属，不保存消息正文或上下文。"

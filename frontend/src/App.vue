@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 import AppHeader from '@/components/AppHeader.vue'
+
+const route = useRoute()
 </script>
 
 <template>
@@ -17,13 +19,15 @@ import AppHeader from '@/components/AppHeader.vue'
       </RouterView>
     </main>
 
-    <footer class="border-t border-ink-950/8 bg-white/35">
-      <div
-        class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs leading-5 text-ink-500 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10"
+    <footer v-if="!route.meta.appShell" class="border-t border-ink-950/8 bg-white/35">
+      <nav
+        class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5 py-6 text-xs text-ink-600 sm:px-8 lg:px-10"
+        aria-label="页脚导航"
       >
-        <p>LegalMind · 中国大陆法律信息场景 · 本地课程演示</p>
-        <p>AI 输出不构成法律意见，请核对原始依据。</p>
-      </div>
+        <RouterLink class="focus-ring rounded-md transition hover:text-ink-950" to="/guide">使用说明</RouterLink>
+        <RouterLink class="focus-ring rounded-md transition hover:text-ink-950" to="/privacy">隐私说明</RouterLink>
+        <RouterLink class="focus-ring rounded-md transition hover:text-ink-950" to="/about">关于我们</RouterLink>
+      </nav>
     </footer>
   </div>
 </template>

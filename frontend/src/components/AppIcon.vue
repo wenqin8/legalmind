@@ -44,6 +44,10 @@ withDefaults(
       <path d="M6 3h8l4 4v14H6z" />
       <path d="M14 3v5h5M9 13h6M9 17h6" />
     </template>
+    <template v-else-if="name === 'search'">
+      <circle cx="11" cy="11" r="6" />
+      <path d="m16 16 4 4" />
+    </template>
     <template v-else-if="name === 'send'">
       <path d="m3 11 18-8-8 18-2-8-8-2Z" />
       <path d="m11 13 4-4" />

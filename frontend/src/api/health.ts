@@ -15,7 +15,7 @@ export async function getHealth(): Promise<ApiSuccess<HealthData>> {
     !(body as Partial<ApiSuccess<HealthData>>).data?.version.trim() ||
     typeof (body as Partial<ApiSuccess<HealthData>>).request_id !== 'string'
   ) {
-    throw new ApiRequestError('后端健康响应格式不正确', {
+    throw new ApiRequestError('服务状态响应异常', {
       code: 'INVALID_RESPONSE',
     })
   }

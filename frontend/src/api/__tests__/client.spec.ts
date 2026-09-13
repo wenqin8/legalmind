@@ -65,7 +65,7 @@ describe('normalizeApiError', () => {
     })
 
     expect(normalized.code).toBe('NETWORK_ERROR')
-    expect(normalized.message).toBe('无法连接后端服务')
+    expect(normalized.message).toBe('暂时无法连接服务，请稍后重试')
     expect(normalized.message).not.toContain('ECONNREFUSED')
   })
 

@@ -54,6 +54,9 @@ describe('loginAccount', () => {
 
     await expect(
       loginAccount({ login: 'demo_user', password: 'safe-password' }),
-    ).rejects.toMatchObject({ code: 'INVALID_RESPONSE' })
+    ).rejects.toMatchObject({
+      code: 'INVALID_RESPONSE',
+      message: '服务响应异常，请稍后重试',
+    })
   })
 })

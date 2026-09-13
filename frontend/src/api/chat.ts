@@ -10,7 +10,7 @@ export function hasChatCredential(): boolean {
 }
 
 function invalidChatResponse(): ApiRequestError {
-  return new ApiRequestError('模型服务返回了无法识别的数据', { code: 'INVALID_RESPONSE' })
+  return new ApiRequestError('服务响应异常，请稍后重试', { code: 'INVALID_RESPONSE' })
 }
 
 function isStringArray(value: unknown): value is string[] {

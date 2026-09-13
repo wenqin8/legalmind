@@ -69,6 +69,7 @@ describe('sendChatMessage', () => {
 
     await expect(sendChatMessage('问题', null)).rejects.toMatchObject({
       code: 'INVALID_RESPONSE',
+      message: '服务响应异常，请稍后重试',
     })
   })
 })

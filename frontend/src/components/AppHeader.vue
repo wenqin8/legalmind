@@ -4,24 +4,23 @@ import { storeToRefs } from 'pinia'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
 import { getHealth } from '@/api/health'
-import AppIcon from '@/components/AppIcon.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useChatStore } from '@/stores/chat'
 
 type BackendState = 'checking' | 'online' | 'offline'
 
 const backendState = ref<BackendState>('checking')
-const backendVersion = ref('')
 const authStore = useAuthStore()
 const chatStore = useChatStore()
 const { user, isAuthenticated } = storeToRefs(authStore)
 const route = useRoute()
 const router = useRouter()
+const accountMenu = ref<HTMLDetailsElement | null>(null)
 
 const statusLabel = computed(() => {
-  if (backendState.value === 'online') return `API ${backendVersion.value}`
-  if (backendState.value === 'offline') return '仅前端预览'
-  return '正在确认服务'
+  if (backendState.value === 'online') return '服务正常'
+  if (backendState.value === 'offline') return '服务暂不可用'
+  return '正在连接服务'
 })
 
 const statusDotClass = computed(() => ({
@@ -30,10 +29,11 @@ const statusDotClass = computed(() => ({
   'bg-ink-400': backendState.value === 'offline',
 }))
 
+const userInitial = computed(() => user.value?.username.trim().slice(0, 1).toUpperCase() || '我')
+
 async function checkBackend(): Promise<void> {
   try {
-    const response = await getHealth()
-    backendVersion.value = `v${response.data.version}`
+    await getHealth()
     backendState.value = 'online'
   } catch {
     backendState.value = 'offline'
@@ -41,9 +41,16 @@ async function checkBackend(): Promise<void> {
 }
 
 async function logout(): Promise<void> {
+  closeAccountMenu()
   chatStore.clearConversation()
   authStore.logout()
-  if (route.meta.requiresAuth) await router.replace({ name: 'auth', query: { redirect: '/chat' } })
+  if (route.meta.requiresAuth) {
+    await router.replace({ name: 'auth', query: { redirect: '/chat' } })
+  }
+}
+
+function closeAccountMenu(): void {
+  if (accountMenu.value) accountMenu.value.open = false
 }
 
 onMounted(() => {
@@ -65,7 +72,7 @@ onMounted(() => {
         >衡</span>
         <span class="hidden leading-none min-[360px]:block">
           <span class="block text-[15px] font-semibold tracking-[0.01em] text-ink-950">LegalMind</span>
-          <span class="mt-1 hidden text-[10px] tracking-[0.16em] text-ink-500 uppercase sm:block">
+          <span class="mt-1 hidden text-[10px] tracking-[0.12em] text-ink-600 sm:block">
             法律信息助手
           </span>
         </span>
@@ -81,7 +88,7 @@ onMounted(() => {
           首页
         </RouterLink>
         <RouterLink to="/chat" class="nav-link" active-class="nav-link-active">
-          咨询台
+          咨询
         </RouterLink>
       </nav>
 
@@ -103,23 +110,40 @@ onMounted(() => {
           <span class="hidden sm:inline" aria-hidden="true">{{ statusLabel }}</span>
         </span>
 
-        <div
-          v-if="isAuthenticated"
-          class="flex h-9 items-center rounded-full border border-ink-950/8 bg-white/60 pl-0 lg:pl-3"
-        >
-          <span class="hidden max-w-28 truncate text-xs font-medium text-ink-700 lg:block">
-            {{ user?.username ?? '已登录' }}
-          </span>
-          <button
-            type="button"
-            class="focus-ring grid size-9 place-items-center rounded-full text-ink-500 transition hover:bg-white hover:text-ink-950"
-            aria-label="退出登录"
-            title="退出登录"
-            @click="logout"
+        <details v-if="isAuthenticated" ref="accountMenu" class="group relative">
+          <summary
+            class="focus-ring flex h-9 list-none items-center gap-2 rounded-full border border-ink-950/8 bg-white/60 p-1 pr-1 text-ink-700 transition hover:bg-white [&::-webkit-details-marker]:hidden"
+            aria-label="打开账户菜单"
           >
-            <AppIcon name="logout" :size="15" />
-          </button>
-        </div>
+            <span class="grid size-7 place-items-center rounded-full bg-ink-950 text-xs font-semibold text-white" aria-hidden="true">
+              {{ userInitial }}
+            </span>
+            <span class="hidden max-w-24 truncate pr-2 text-xs font-medium lg:block">
+              {{ user?.username }}
+            </span>
+          </summary>
+          <div
+            class="absolute right-0 mt-2 w-52 overflow-hidden rounded-2xl border border-ink-950/10 bg-paper p-2 text-sm shadow-[0_18px_55px_rgba(18,33,29,0.16)]"
+          >
+            <p class="truncate border-b border-ink-950/8 px-3 py-2 text-xs font-semibold text-ink-700">
+              {{ user?.username }}
+            </p>
+            <RouterLink class="focus-ring mt-1 flex rounded-xl px-3 py-2.5 text-ink-600 transition hover:bg-white hover:text-ink-950" to="/about" @click="closeAccountMenu">
+              关于 LegalMind
+            </RouterLink>
+            <RouterLink class="focus-ring flex rounded-xl px-3 py-2.5 text-ink-600 transition hover:bg-white hover:text-ink-950" to="/privacy" @click="closeAccountMenu">
+              隐私说明
+            </RouterLink>
+            <button
+              type="button"
+              class="focus-ring flex w-full rounded-xl px-3 py-2.5 text-left text-ink-600 transition hover:bg-white hover:text-ink-950"
+              @click="logout"
+            >
+              退出登录
+            </button>
+          </div>
+        </details>
+
         <RouterLink
           v-else
           to="/auth"

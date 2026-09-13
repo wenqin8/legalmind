@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import { readAccessToken } from '@/api/client'
+import AboutView from '@/views/AboutView.vue'
 import AuthView from '@/views/AuthView.vue'
 import ChatView from '@/views/ChatView.vue'
+import GuideView from '@/views/GuideView.vue'
 import HomeView from '@/views/HomeView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import PrivacyView from '@/views/PrivacyView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,10 +23,25 @@ const router = createRouter({
       component: AuthView,
     },
     {
+      path: '/guide',
+      name: 'guide',
+      component: GuideView,
+    },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: PrivacyView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView,
+    },
+    {
       path: '/chat',
       name: 'chat',
       component: ChatView,
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, appShell: true },
     },
     {
       path: '/:pathMatch(.*)*',
