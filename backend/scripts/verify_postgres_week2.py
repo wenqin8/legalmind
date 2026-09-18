@@ -79,8 +79,9 @@ def main() -> int:
         }
         with database.session() as session:
             case_count = session.scalar(select(func.count()).select_from(Case))
+            migration_head = session.scalar(text("SELECT version_num FROM alembic_version"))
         result = {
-            "migration_head": "20260913_0002",
+            "migration_head": migration_head,
             "tables_present": sorted(
                 set(inspect(database.engine).get_table_names())
                 & {"users", "conversations", "cases", "legal_provisions", "knowledge_chunks"}

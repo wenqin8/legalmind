@@ -1,10 +1,8 @@
 # LegalMind Backend
 
-第 2 周 M2 后端：在既有认证和同步问答链路上，新增可重复法律数据导入、固定本地 Embedding、Chroma/BM25/RRF 混合检索及受保护的案例 API。
+第三周 M3：已接入 LangChain 意图合同、LangGraph 三分支、演示 RAG 与引用约束、三类固定文书、Redis 多轮历史及实时 SSE。后端保留 JWT、统一外壳和案例 API；日常数据库仍为 SQLite。
 
-当前问答只调用配置的模型适配器，尚未接入 RAG、LangGraph 运行工作流或 Redis 消息历史。`langchain`、`langgraph`、`chromadb`、`redis` 和 `psycopg` 已按第一周计划加入运行依赖，并完成安装、导入和基础设施连通验收；这只表示环境就绪，不表示后续业务逻辑已经接入。系统只持久化用户和会话归属，不保存聊天正文或多轮上下文；回答会明确显示无可核验来源及非法律意见提示。
-
-第二周已完成严格案例/法条 Schema、三张知识表及可逆迁移、规范化/哈希/确定性 UUID 和事务化 JSONL 导入。16 条演示案例会形成 64 个知识块，并以固定 BGE 或测试假向量写入 `legal_knowledge_v1`；成功后状态为 `indexed`。法条结构与导入入口已完成，但未填充未经核验的法条语料。
+现有 16 条冻结合成案例和 64 个块保持不变。补充开发新增四领域 60 条官方条文、版本过滤、独立适用性检查、问答事实状态与文书逐轮收集/冲突确认。法条采用本地核验快照，不宣称实时最新；演示资料仅支持场景整理。见 [扩展说明](../docs/legal-multiturn.md)、[扩展验收](../docs/acceptance/legal-multiturn.md) 和 [API 合同](../docs/api-contract.md)。
 
 ## 本地准备
 
@@ -35,7 +33,7 @@ LEGALMIND_LLM_BACKEND=deepseek
 LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 ```
 
-自动化测试始终注入确定性假模型，不访问 DeepSeek，也不消耗模型额度。
+自动化测试注入确定性假模型和测试存储，不访问 DeepSeek；真实存储与模型另用下方显式验收命令。默认 Fake 模型不能确认检索证据时返回依据不足，不伪装真实 RAG 回答。运行聊天、历史和会话列表还必须启动 Redis；故障返回 SESSION_STORE_UNAVAILABLE，不降级为内存历史。
 
 ## 数据库迁移
 
@@ -45,11 +43,23 @@ LEGALMIND_DEEPSEEK_API_KEY=your-local-key
 .\.venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-已保留 `LEGALMIND_DATABASE_URL=postgresql+psycopg://...` 的业务数据库配置入口。第二周已在 PostgreSQL 17.11 随机临时 schema 中完成迁移、JSONB 类型、16 条导入和幂等复验，并确认 schema 精确清理；日常运行仍按本周基线使用 SQLite。不要把带数据库密码的 URL 提交到仓库或输出到日志。
+当前迁移头为 `20260918_0004`，新增可空 `legal_provisions.verification`（SQLite JSON / PostgreSQL JSONB）；此前 `0003` 已增加 `generated_documents` 和 `conversations.history_commit_id`。已有开发库须先备份再升级，不重建或清空原有数据；不要对有用数据直接运行降级命令。PostgreSQL 兼容性、隔离 schema 升降级及法条 JSONB 往返已经验证，日常仍使用 SQLite。不要把带密码的 URL 提交到仓库或输出到日志。
+
+官方条文需要单独手动导入，不会混入冻结案例向量集合：
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.import_verified_laws --check-only
+.\.venv\Scripts\python.exe -m scripts.import_verified_laws
+.\.venv\Scripts\python.exe -m scripts.evaluate_legal_retrieval --output ../docs/acceptance/legal-retrieval-evaluation.json
+```
+
+版本更新方法、核验日期与状态截止日的区别见 [法条资料说明](data/legal/README.md)。导入命令不负责联网核验，清单必须先由维护者核对官方来源。没有核验元数据的旧法条不会被用于回答。
+
+2026-09-18 本机默认 SQLite 已按用户授权完成上述升级，升级前一致备份位于 `tmp/backups/legalmind-pre-m3-20260917T192538Z-a395569b.db`（相对仓库根目录）。Redis PING 和默认配置的真实 HTTP 冒烟通过，原有用户、会话、案例、分块和向量均保留，详见 [默认环境报告](../docs/acceptance/week3-default-environment-smoke.json)。其他环境仍应检查自己的迁移版本；已有 indexed 数据不需要重新导入或重建索引来完成本次升级。
 
 ## 导入演示案例
 
-迁移后运行以下幂等命令。法条结构和 `--legal-provisions <jsonl>` 入口已提供，但第二周不内置未经核验的法条语料。
+迁移后运行以下幂等案例命令，不改冻结案例/查询/标签。旧 `--legal-provisions <jsonl>` 入口只导入来源基础信息，实际用于问答的已核验法条使用上述 `import_verified_laws` 命令。
 
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.import_legal_data
@@ -96,12 +106,18 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 - 登录：`POST http://127.0.0.1:8000/api/v1/auth/login`
 - 当前用户：`GET http://127.0.0.1:8000/api/v1/auth/me`
 - 同步问答：`POST http://127.0.0.1:8000/api/v1/chat/send`
+- 流式问答：`POST http://127.0.0.1:8000/api/v1/chat/stream`
+- 会话列表：`GET http://127.0.0.1:8000/api/v1/chat/conversations`
+- 读取历史：`GET http://127.0.0.1:8000/api/v1/chat/history/{session_id}`
 - 删除会话：`DELETE http://127.0.0.1:8000/api/v1/chat/history/{session_id}`
 - 案例搜索：`POST http://127.0.0.1:8000/api/v1/cases/search`
 - 案例详情：`GET http://127.0.0.1:8000/api/v1/cases/{case_id}`
+- 文书模板：`GET http://127.0.0.1:8000/api/v1/documents/templates`
+- 生成草稿：`POST http://127.0.0.1:8000/api/v1/documents/generate`
+- 文书下载：`GET http://127.0.0.1:8000/api/v1/documents/{document_id}/download?format=md`
 - 开发文档：`http://127.0.0.1:8000/docs`
 
-健康检查、注册和登录为公开接口。`/auth/me`、聊天、会话删除和案例接口必须携带登录取得的 `Authorization: Bearer <token>`。案例详情只返回 `indexed` 关系库来源；检索排序分数不表示法律结论置信度，所有演示详情固定提示“课程演示合成数据，不是真实判例或法律依据”。
+健康检查、注册和登录为公开接口。`/auth/me`、聊天、会话、文书和案例接口必须携带登录取得的 `Authorization: Bearer <token>`。案例详情只返回 `indexed` 关系库来源；检索排序分数不表示法律结论置信度，所有演示详情固定提示“课程演示合成数据，不是真实判例或法律依据”。
 
 生产环境会关闭 Swagger、ReDoc 和 OpenAPI 文档端点，并要求配置至少 32 字符的 JWT 密钥。
 
@@ -111,15 +127,38 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-测试覆盖既有认证/聊天能力，以及 Schema 不变量、事务导入、确定性分块、向量元数据兼容、失败清理、BM25/RRF、过滤、Top-K、来源回查、案例 API 和错误/日志净化。
+测试覆盖意图回退、证据筛选、引用、模板与缺项、所有权、历史过期/裁剪、并发、补偿、真实本地 TCP 的首段到达和断开取消，以及 Schema 不变量、事务导入、确定性分块、向量元数据兼容、失败清理、BM25/RRF、过滤、Top-K、来源回查、案例 API 和错误/日志净化。
 
-真实评估与 PostgreSQL 隔离验收：
+M2 复验写入临时报告，保留冻结评估文件；PostgreSQL 脚本报告实际迁移版本：
 
 ```powershell
-.\.venv\Scripts\python.exe -m scripts.evaluate_week2_retrieval --output ..\docs\acceptance\week2-retrieval-evaluation.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_week2_retrieval --output ..\tmp\week2-retrieval-recheck.json
 .\.venv\Scripts\python.exe -m scripts.verify_postgres_week2
 ```
 
 M1 最终验收实测结果：运行依赖全部可导入，PostgreSQL 17.11、Redis API 7.2.11 和 Chroma 持久化 smoke test 全部通过，94 项后端测试全部通过，`compileall` 通过，`pip check` 无依赖冲突；Alembic 已在全新隔离 SQLite 上完成升级、一致性检查、降级和重新升级。完整证据见 [第一周 M1 验收记录](../docs/acceptance/week1-m1.md)。
 
-第二周最终结果见 [`docs/acceptance/week2-m2.md`](../docs/acceptance/week2-m2.md)。案例检索尚未接入聊天回答，Redis 消息历史、LangGraph、SSE、文书 API 和前端案例页面仍属于第三、四周范围。
+第二周最终结果见 [`docs/acceptance/week2-m2.md`](../docs/acceptance/week2-m2.md)。M3 后端已完成这些业务接入；第四周剩余完整界面和 Docker 部署。
+
+
+## M3 复现与验收
+
+先启动已配置的本地 Redis/PostgreSQL（Compose 命令见上文）。自动化测试使用临时库，不修改默认开发库；实库脚本只操作随机 PostgreSQL schema 和随机 Redis 命名空间，结束后精确清理。
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m compileall -q app scripts
+.\.venv\Scripts\python.exe -m scripts.verify_week3_storage --output ..\docs\acceptance\legal-multiturn-storage.json
+```
+
+当前真实模型联调仅发送脚本内的合成输入，使用本地 DeepSeek 配置，可能消耗模型额度。它在被忽略的 `tmp/legal-multiturn-*` 新建 SQLite，并只读使用现有冻结案例向量，不迁移或改写已有业务库；结束后精确清理合成用户 Redis 键。报告保存已校验的合成回答，临时目录中的诊断文件可能包含未通过校验的合成输出，不能作为产品回答。下列 offline 标记只关闭 BGE 权重联网下载，不关闭 DeepSeek 网络；首次需要先缓存固定模型。
+
+```powershell
+$env:HF_HUB_OFFLINE='1'
+.\.venv\Scripts\python.exe -m scripts.smoke_legal_multiturn --output ..\docs\acceptance\legal-multiturn-real-model.json
+```
+
+SSE 到达顺序和断流不是用缓冲 ASGI 客户端推断：`tests/integration/test_live_stream.py` 启动真实 Uvicorn 回环端口，暂停假模型验证首段到达，再关闭客户端验证上游取消、历史不变和释放锁。真实模型脚本验证内容/完成事件，与此测试互补。
+
+Redis 24 小时 TTL 仅在成功成对追加时刷新。关系记录保留过期会话；任务快照与消息同一键保存、一起过期；上下文最多 10 条/12000 字符；同会话并发为 409。文书需核对摘要后确认生成，过期或陈旧摘要为 TASK_CHANGED。修改模型超时时要同步核对前端 72 秒等待和代理设置。完整说明见架构和 API 合同。

@@ -31,8 +31,7 @@ function successfulResponse() {
       missing_fields: [],
       warnings: [
         compactDisclaimer,
-        '当前版本尚未接入法律资料检索，未提供可核验来源。',
-        '当前版本仅保存会话归属，不保存消息正文或上下文。',
+        '没有可确认相关的资料，当前回答不提供具体法律结论。',
       ],
     },
     request_id: 'c4f8e06b-686b-440e-8635-f8656f395d42',
@@ -63,6 +62,23 @@ describe('ChatView', () => {
     })
   })
 
+  it('offers confirmation only for the latest reviewed task and displays official source provenance', async () => {
+    const id = '97c94b7f-2451-470e-a3e5-a278a9d04929'
+    const task = { task_id: id, revision: id, kind: 'document' as const, phase: 'review' as const, fields: {}, conflicts: {}, missing_fields: [], questions: [], document_id: null }
+    const store = useChatStore()
+    store.sessionId = id
+    store.messages.push({ id: 'review', role: 'assistant', content: '请核对摘要', isDemo: false, task, sources: [{ source_type: 'legal_provision', source_id: id, citation_id: 'S1', title: '官方法律', reference_number: '第一条', publisher: '官方', date: '2020-01-01', sample_date: null, source_url: 'https://www.court.gov.cn/example', source_kind: 'official', is_demo: false, is_synthetic: false, version: '核验版本', effective_from: '2021-01-01', verified_at: '2026-09-18', status_as_of: '2026-03-12', original_text: '逐字保留的官方原文', applicability: 'event_candidate' }] })
+    const wrapper = mountChat()
+    expect(wrapper.text()).toContain('逐字保留的官方原文')
+    expect(wrapper.text()).toContain('本次未实时联网核验')
+    expect(wrapper.get('a[href="https://www.court.gov.cn/example"]').attributes('rel')).toBe('noopener noreferrer')
+    const button = wrapper.findAll('button').find(b => b.text() === '确认摘要并生成草稿')!
+    await button.trigger('click')
+    await flushPromises()
+    expect(chatApi.send).toHaveBeenCalledWith('确认生成', id, { action: 'confirm', revision: id })
+    expect(wrapper.text()).not.toContain('确认摘要并生成草稿')
+  })
+
   it('submits a real API question and presents user-facing answer metadata', async () => {
     const wrapper = mountChat()
     const textarea = wrapper.get('textarea')
@@ -80,7 +96,7 @@ describe('ChatView', () => {
     expect(wrapper.text()).toContain('依据与提示')
     expect(wrapper.get('section[aria-label="依据与提示"]').text()).toContain(compactDisclaimer)
     expect(wrapper.text()).toContain('暂未附可核验的参考依据')
-    expect(wrapper.text()).toContain('模型不会读取此前问答作为上下文')
+    expect(wrapper.text()).toContain('不提供具体法律结论')
     expect(wrapper.text()).not.toContain('当前版本尚未接入')
     expect(wrapper.text()).not.toContain('演示回复')
     expect(wrapper.text()).not.toMatch(/\bqa\b/)

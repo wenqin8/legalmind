@@ -16,6 +16,7 @@ from app.db.models import User
 from app.db.session import Database
 from app.llm.base import LLMClient
 from app.rag.retriever import HybridCaseRetriever
+from app.services.session_store import SessionStore
 
 bearer_scheme = HTTPBearer(auto_error=False)
 
@@ -42,6 +43,10 @@ def get_database(request: Request) -> Database:
 
 def get_case_retriever(request: Request) -> HybridCaseRetriever:
     return request.app.state.case_retriever
+
+
+def get_session_store(request: Request) -> SessionStore:
+    return request.app.state.session_store
 
 
 def get_runtime_settings(request: Request) -> Settings:

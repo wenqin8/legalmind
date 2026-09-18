@@ -9,6 +9,7 @@ from app.db.base import Base
 from app.db.session import Database
 from app.llm.fake import FakeLLMClient
 from app.main import create_app
+from tests.session_store import FakeSessionStore
 
 
 @pytest.fixture
@@ -35,7 +36,7 @@ def fake_llm() -> FakeLLMClient:
 def app(settings: Settings, fake_llm: FakeLLMClient) -> Iterator[FastAPI]:
     database = Database(settings.database_url.get_secret_value())
     Base.metadata.create_all(database.engine)
-    application = create_app(settings, llm_client=fake_llm, database=database)
+    application = create_app(settings, llm_client=fake_llm, database=database, session_store=FakeSessionStore())
     try:
         yield application
     finally:

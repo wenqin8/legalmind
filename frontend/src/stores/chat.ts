@@ -9,6 +9,7 @@ import {
   type ChatMessage,
   type ChatStatus,
   type LocalConversationRecord,
+  type TaskAction,
 } from '@/types/chat'
 
 function createMessage(
@@ -55,6 +56,7 @@ export const useChatStore = defineStore('chat', () => {
   const errorCode = ref('')
   const errorRequestId = ref<string | undefined>()
   const lastFailedQuestion = ref('')
+  const lastFailedAction = ref<{ action: TaskAction; revision: string } | undefined>()
   const hasCredential = ref(hasChatCredential())
 
   const isSending = computed(() => status.value === 'sending')
@@ -119,7 +121,7 @@ export const useChatStore = defineStore('chat', () => {
     return question
   }
 
-  async function requestAnswer(question: string, appendUserMessage: boolean): Promise<boolean> {
+  async function requestAnswer(question: string, appendUserMessage: boolean, taskAction?: { action: TaskAction; revision: string }): Promise<boolean> {
     if (isSending.value) return false
 
     refreshCredentialState()
@@ -134,20 +136,27 @@ export const useChatStore = defineStore('chat', () => {
     if (appendUserMessage) messages.value.push(createMessage('user', question))
 
     try {
-      const result = await sendChatMessage(question, sessionId.value)
+      const result = taskAction ? await sendChatMessage(question, sessionId.value, taskAction) : await sendChatMessage(question, sessionId.value)
       sessionId.value = result.data.session_id
       messages.value.push(
         createMessage('assistant', result.data.response, {
           intent: result.data.intent,
           sourceCount: result.data.sources.length,
+          hasDemoSources: result.data.sources.some((source) => source.is_demo),
+          missingFields: result.data.missing_fields,
           warnings: result.data.warnings,
+          sources: result.data.sources,
+          task: result.data.task,
+          documentId: result.data.document_id,
         }),
       )
       lastFailedQuestion.value = ''
+      lastFailedAction.value = undefined
       status.value = 'idle'
       return true
     } catch (error: unknown) {
       lastFailedQuestion.value = question
+      lastFailedAction.value = taskAction
       setError(normalizeApiError(error))
       return false
     }
@@ -164,7 +173,12 @@ export const useChatStore = defineStore('chat', () => {
   async function retryLastQuestion(): Promise<boolean> {
     const question = validateQuestion(lastFailedQuestion.value.trim())
     if (!question) return false
-    return requestAnswer(question, false)
+    return requestAnswer(question, false, lastFailedAction.value)
+  }
+
+  async function submitTaskAction(action: TaskAction, revision: string): Promise<boolean> {
+    const labels: Record<TaskAction, string> = { confirm: '确认生成', accept_changes: '确认修改', reject_changes: '保留原值', cancel: '取消任务', restart: '重新开始' }
+    return requestAnswer(labels[action], true, { action, revision })
   }
 
   function useSuggestedQuestion(question: string): void {
@@ -281,6 +295,7 @@ export const useChatStore = defineStore('chat', () => {
     canSend,
     refreshCredentialState,
     submitQuestion,
+    submitTaskAction,
     retryLastQuestion,
     useSuggestedQuestion,
     startNewConversation,

@@ -1,48 +1,36 @@
 # LegalMind - 法律咨询 Agent
 
-面向课程演示和本地部署的中国大陆法律咨询 MVP。第一周 M1 已打通认证和真实模型问答；第二周 M2 已交付可追溯演示数据管线、持久化混合检索与受保护的案例 API。聊天 RAG、多轮会话与文书生成仍属后续里程碑。
+面向课程演示和本地部署的中国大陆法律咨询 MVP。第三周 M3 已实现意图识别、RAG、三类固定文书、LangGraph、Redis 多轮历史与 SSE，并扩展官方法条引用、问答补事实和文书逐轮补字段。改动保留在工作区，尚未冻结新版本。
 
-> 本项目输出由人工智能生成，仅用于课程演示和一般信息参考，不构成法律意见，也不能替代律师或其他专业人士的判断。
+> AI 生成内容仅供参考，不构成法律意见。16 条合成案例不是真实判例；60 条官方条文使用本地核验快照，未在每次回答时实时联网更新，具体适用条件仍须核对。
 
 ## 当前进度
 
-- 阶段：第 2 周 M2 已实现并经用户确认验收；冻结标识为 `v0.1.0-m2`
-- 状态：16 条 `DEMO-*` 课程演示合成案例已完成严格导入、64 块持久化索引和 BM25/RRF 混合检索；固定真实 BGE 的 20 条评估查询 Top-5 命中 `20/20`
-- 闭环：已在浏览器实测“注册 → 登录签发 JWT → 前端调用受保护 API → DeepSeek 返回真实回答”
-- 界面：已完成产品化信息架构优化；首页可直接发起咨询，移动端登录表单优先，咨询页使用独立应用壳，项目属性集中在关于页面
-- 交接状态：[HANDOFF](HANDOFF.md)
+- M1、M2 已验收冻结，最新冻结标签为 `v0.1.0-m2`；M3 改动与验收证据保留在当前工作区。
+- M3 后端提供 `qa/search/document` 三分支、受控引用、文书逐轮补齐和摘要确认、Markdown/TXT 下载、会话列表/历史/删除及逐段校验的 SSE。任务状态含字段原句和用户消息来源；冲突需确认，过期重新补充。
+- 继续使用 SQLite；迁移兼容 PostgreSQL，已完成随机隔离 schema 实测。Redis 已接入业务历史，24 小时滑动 TTL，最多 20 条消息。
+- M2 数据和排名参数未改：16 条合成案例、64 块、固定 BGE/Chroma + BM25/RRF；冻结评估为 20/20。本周真实 BGE、DeepSeek、Redis 联调通过。
+- 前端继续同步交互，已提供官方条文来源卡片、缺项追问及确认/取消按钮。SSE 界面、服务端记录恢复、独立案例/文书页及完整 Docker 部署留第四周。
+- [法条与多轮扩展](docs/legal-multiturn.md)、[官方数据范围和更新](backend/data/legal/README.md)、[扩展验收](docs/acceptance/legal-multiturn.md)。
+- [交接与下一步](HANDOFF.md)、[M3 验收记录](docs/acceptance/week3-m3.md)、[M2 验收记录](docs/acceptance/week2-m2.md)、[M1 验收记录](docs/acceptance/week1-m1.md)。
 
-## 工程入口
+## 启动入口
 
-- [后端启动、配置与测试说明](backend/README.md)
-- [前端启动、配置与测试说明](frontend/README.md)
-- 健康检查：`GET /api/v1/health`
-- 前端开发地址：`http://127.0.0.1:5173/`，咨询页：`http://127.0.0.1:5173/chat`；另有 `/guide`、`/privacy`、`/about` 三个公开说明页面
-- 当前咨询台调用受 JWT 保护的 `POST /api/v1/chat/send`；运行时按后端 `.env` 选择 DeepSeek 或离线假模型
-- “新建咨询”会在当前页面内归档已有消息，并可从桌面侧栏或移动端“记录”菜单切换回来；每条记录支持确认后删除，已有后端会话同时通过受保护的 `DELETE /api/v1/chat/history/{session_id}` 删除
-- 页面刷新或退出登录仍会清除前端临时记录；后端尚未保存消息正文，也不会把此前问答作为模型上下文
-- 聊天问答尚未接入 RAG、Redis 消息历史或 LangGraph；案例检索已通过 `POST /api/v1/cases/search` 和 `GET /api/v1/cases/{case_id}` 独立交付，两个接口均要求 JWT
-- 原始演示案例及边界见 [`backend/data/demo`](backend/data/demo/README.md)，冻结评估集及真实模型逐条排名见 [`week2-retrieval-evaluation.json`](docs/acceptance/week2-retrieval-evaluation.json)
+1. 按[后端说明](backend/README.md)配置本地密钥，启动 Redis，执行迁移、导入及索引，再启动 FastAPI。
+2. 按[前端说明](frontend/README.md)安装依赖并运行 `npm run dev`。
+3. 打开 `http://127.0.0.1:5173/`，注册、登录并进入咨询页；健康检查为 `GET /api/v1/health`。
 
-## 设计文档
+日常数据库仍为 `backend/data/legalmind.db`。当前迁移头为 `20260918_0004`，在文书表和会话提交标记基础上增加法条核验元数据；升级后执行 `python -m scripts.import_verified_laws`。聊天要求真实 Redis；Redis 故障会明确返回错误，不回退进程内历史。离线假模型仅用于开发，无法确认相关证据时返回依据不足提示。
 
-- [MVP 需求与范围基线](docs/mvp-requirements.md)
-- [系统架构与工作流](docs/architecture.md)
+咨询页“新建咨询”归档当前页面内的消息，可切换和删除。页面刷新或退出登录会清除浏览器临时记录；后端 Redis 消息仍按 TTL 保留，恢复这些记录的页面将在第四周接入。删除会话会清理该会话归属和 Redis 消息；独立保存的文书不会随会话删除。
+
+## 文档与基线
+
+- [MVP 需求与范围](docs/mvp-requirements.md)
+- [当前架构](docs/architecture.md)
 - [数据模型](docs/data-model.md)
 - [API 合同](docs/api-contract.md)
+- [演示数据边界](backend/data/demo/README.md)
+- [冻结 M2 检索报告](docs/acceptance/week2-retrieval-evaluation.json)
 
-## 首月最终交付范围（非第一周 M1）
-
-“首月 MVP”指四周结束时的目标；“第一周 M1”指已经验收的可运行切片。M1 的业务链路是 Vue 3 → FastAPI → 可注入 LLM，并以本地 SQLite 保存用户与会话归属。PostgreSQL、Redis 和 Chroma 已完成独立的真实连通与持久化 smoke test，但尚未替代 SQLite 或接入问答、消息历史和 RAG 业务链路；LangChain/LangGraph 已列入运行依赖，工作流仍按第三周实现。
-
-第一周证据见 [M1 验收记录](docs/acceptance/week1-m1.md)，第二周证据见 [M2 验收记录](docs/acceptance/week2-m2.md)。
-
-- Vue 3 前端与 FastAPI 后端
-- DeepSeek OpenAI 兼容接口
-- LangGraph 三类意图工作流
-- Chroma 本地持久化 RAG
-- PostgreSQL 业务数据与 Redis 会话数据
-- 注册、JWT 登录和用户会话隔离
-- Docker Compose 本地部署
-
-具体范围、验收规则和不做清单以需求基线为准。
+原始 8 页开发计划 PDF 必须单独交付：`output/pdf/法律咨询Agent一个月开发计划.pdf`，SHA-256 为 `9A49723FEE1AD8BB1610A92BC5C088D5F73E12F622859681F2CC2669C61EBC1D`。该文件不在 Git 提交中，本周未修改。

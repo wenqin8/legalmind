@@ -11,11 +11,12 @@ const mountInfoView = (component: typeof GuideView) =>
   })
 
 describe('public information views', () => {
-  it('explains how to use the assistant without claiming source retrieval is available', () => {
+  it('distinguishes demo retrieval from verified legal sources', () => {
     const wrapper = mountInfoView(GuideView)
 
     expect(wrapper.get('h1').text()).toBe('从事实开始，得到更清晰的下一步')
-    expect(wrapper.text()).toContain('当前版本尚未接入法规与案例来源检索')
+    expect(wrapper.text()).toContain('当前版本可检索演示案例')
+    expect(wrapper.text()).toContain('不是真实判例或法律依据')
   })
 
   it('explains browser, database, and AI-service data handling', () => {

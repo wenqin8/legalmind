@@ -117,6 +117,12 @@ class Settings(BaseSettings):
             return None
         return url
 
+    @field_validator("redis_url", mode="before")
+    @classmethod
+    def normalize_empty_redis_url(cls, value: object) -> object:
+        raw = value.get_secret_value() if isinstance(value, SecretStr) else value
+        return "redis://127.0.0.1:6379/0" if isinstance(raw, str) and not raw.strip() else value
+
     @field_validator("chroma_persist_directory", "embedding_cache_directory")
     @classmethod
     def resolve_chroma_persist_directory(cls, path: Path) -> Path:

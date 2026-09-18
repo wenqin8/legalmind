@@ -19,6 +19,7 @@ from app.llm.factory import create_llm_client
 from app.rag.embeddings import EmbeddingClient, create_embedding_client
 from app.rag.retriever import HybridCaseRetriever
 from app.rag.vector_store import ChromaVectorStore
+from app.services.session_store import RedisSessionStore, SessionStore
 
 
 def create_app(
@@ -29,10 +30,12 @@ def create_app(
     embedding_client: EmbeddingClient | None = None,
     vector_store: ChromaVectorStore | None = None,
     case_retriever: HybridCaseRetriever | None = None,
+    session_store: SessionStore | None = None,
 ) -> FastAPI:
     """Build an isolated application instance for runtime or tests."""
 
     resolved_settings = settings or get_settings()
+    resolved_session_store = session_store or RedisSessionStore(resolved_settings.redis_url.get_secret_value())
     configure_logging(resolved_settings.log_level)
     resolved_llm_client = llm_client or create_llm_client(resolved_settings)
     resolved_database = database or Database(
@@ -58,7 +61,10 @@ def create_app(
             try:
                 await resolved_llm_client.aclose()
             finally:
-                resolved_database.dispose()
+                try:
+                    await resolved_session_store.aclose()
+                finally:
+                    resolved_database.dispose()
 
     expose_docs = resolved_settings.environment != "production"
     application = FastAPI(
@@ -77,6 +83,7 @@ def create_app(
     application.state.embedding_client = resolved_embedding
     application.state.vector_store = resolved_vector_store
     application.state.case_retriever = resolved_case_retriever
+    application.state.session_store = resolved_session_store
 
     register_exception_handlers(application)
     application.add_middleware(UnhandledExceptionMiddleware)

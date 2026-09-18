@@ -1,20 +1,20 @@
 # 数据模型设计
 
-文档状态：2026-09-13 已按第二周 M2 物理模型校准
+文档状态：2026-09-18 已按第三周 M3 物理模型校准
 
-M1 已落地 `users` 和 `conversations`；M2 新增 `cases`、`legal_provisions`、`knowledge_chunks`，并完成 SQLite 与 PostgreSQL 兼容迁移。当前只有 16 条演示案例和对应 64 个知识块，法条表为空。正式 Chroma 案例集合已接入独立案例 API；生成文书、Redis 消息和聊天 RAG 仍是后续目标。
+M1 已落地 `users` 和 `conversations`；M2 新增 `cases`、`legal_provisions`、`knowledge_chunks`。M3 新增 generated_documents、会话提交标记及 Redis 短期消息。当前保留 16 条演示案例、64 块及 64 向量；扩展新增 60 条官方法条及 verification JSON/JSONB 元数据，法条不写入冻结案例向量集合。
 
 ### 存储状态表
 
 | 数据或存储 | 首月四周目标 | 当前实际状态 |
 | --- | --- | --- |
 | `users` | 保存用户身份、规范化唯一字段和密码哈希 | 已在 SQLite 落地并通过 Alembic 迁移验收 |
-| `conversations` | 在关系库保存会话所有权，由 Redis 保存短期消息 | 已在 SQLite 落地所有权；不保存问题、回答正文或多轮上下文 |
-| SQLite | 本地开发兼容与阶段性验收数据库 | M1 实际数据库，已验证迁移升级、降级和一致性 |
-| PostgreSQL | 月末关系业务数据库和来源事实库 | 随机临时 schema 已通过 M2 业务迁移、JSONB、导入和精确清理；日常默认仍为 SQLite |
-| `cases`、`legal_provisions`、`knowledge_chunks` | 保存来源事实和检索分块 | M2 已建表；16 个案例、64 块，法条为 0 |
-| `generated_documents` | 保存用户文书草稿 | 尚未实现 |
-| Redis | 保存 24 小时短期会话消息 | Python 客户端和 Redis API 7.2.11 临时键往返 smoke test 已通过；消息模型尚未接入 |
+| `conversations` | 在关系库保存会话所有权，由 Redis 保存短期消息 | 保存所有权、标题、更新时间及 history_commit_id；正文在 Redis |
+| SQLite | 本地开发兼容与阶段性验收数据库 | 日常默认数据库，已验证 M3 迁移升级、降级和一致性 |
+| PostgreSQL | 月末关系业务数据库和来源事实库 | 随机临时 schema 已通过 M3 迁移、JSONB、文书/提交标记往返和精确清理；日常默认仍为 SQLite |
+| `cases`、`legal_provisions`、`knowledge_chunks` | 保存来源事实和检索分块 | 16 个案例、64 块；扩展已核验法条 60 条 |
+| `generated_documents` | 保存用户文书草稿 | M3 已实现，所有权隔离，参数及来源快照使用 JSON/JSONB |
+| Redis | 保存 24 小时短期会话消息 | M3 已接入原子问答对、24 小时滑动 TTL、20 条保留、互斥和补偿 |
 | Chroma | 保存本地持久化向量及来源引用键 | `legal_knowledge_v1` 已接入 64 个 512 维案例向量；展示事实仍回查关系库 |
 
 ## 1. 首月四周目标通用约定
@@ -41,7 +41,7 @@ M1 已落地 `users` 和 `conversations`；M2 新增 `cases`、`legal_provisions
 
 ## 3. 首月四周目标关系模型
 
-下图中 `USERS`、`CONVERSATIONS`、`CASES`、`LEGAL_PROVISIONS` 和 `KNOWLEDGE_CHUNKS` 已建表；`GENERATED_DOCUMENTS` 仍是后续目标。
+下图所有关系表均已建表；日常 SQLite，PostgreSQL 兼容迁移已实测。
 
 ```mermaid
 erDiagram
@@ -66,6 +66,7 @@ erDiagram
         uuid id PK
         uuid user_id FK
         string title
+        uuid history_commit_id
         timestamptz created_at
         timestamptz updated_at
     }
@@ -77,6 +78,7 @@ erDiagram
         string title
         text content
         jsonb parameters
+        text additional_instructions
         jsonb sources
         timestamptz created_at
         timestamptz updated_at
@@ -155,18 +157,21 @@ erDiagram
 - `password_hash`：非空。
 - 删除用户不在首月 API 范围内。
 
-### 4.2 conversations（M1 仅实现所有权）
+### 4.2 conversations（M3 已接入历史）
 
 - `(id, user_id)` 用于所有权查询。
-- 首月目标：删除会话时同时删除对应 Redis 消息键。当前补丁已实现按用户隔离删除关系库会话归属；Redis 消息键尚不存在。
-- M1 只保存会话标题和所有权，不保存消息正文；后续接入 Redis 后再保存短期消息。
+- 删除会话同时清理对应 Redis 消息键；失败执行补偿。
+- `history_commit_id` 为可空 UUID，保存最后成功提交消息对的 turn_id；旧 M1/M2 记录为空。
+- 标题来自首条成功问题的前 24 字符；继续咨询更新时间。正文只保存在 Redis，到期不删除关系记录。
 
-### 4.3 generated_documents（后续目标）
+### 4.3 generated_documents（M3 已实现）
 
 - `document_type` 只接受三种 `DocumentType`。
 - `parameters` 保存生成时已校验的字段，不保存密码、Token 或无关敏感数据。
 - `sources` 保存生成时的来源快照，避免知识库更新后无法解释旧文书。
-- 所有读取和下载查询必须同时过滤 `id` 与 `user_id`。
+- 所有读取和下载查询同时过滤 `id` 与 `user_id`；会话删除不删除独立文书。
+- `additional_instructions` 独立保存用户补充说明，最长 4000 字符。`content` 为带草稿提示的固定模板结果，时间使用 UTC。
+- 参数、来源在 SQLite 中为 JSON，在 PostgreSQL 中为 JSONB；类型检查约束与 id/user_id 索引随 `20260917_0003` 可逆迁移建立。
 
 ### 4.4 cases（M2 已实现）
 
@@ -189,7 +194,7 @@ erDiagram
 
 ## 5. Chroma 设计（M2 已实现案例索引）
 
-> 实现状态：正式案例集合和混合检索已实现；法条尚无核验语料，聊天回答尚未消费检索结果。
+> 实现状态：案例集合和混合检索服务案例 API 与聊天；法条使用独立版本过滤及关系库 BM25，不改动该集合。
 
 使用一个集合 `legal_knowledge_v1`，cosine 空间并显式传入向量。集合元数据固定模型名、revision、512 维、L2 归一化和查询前缀版本；任一项不兼容即拒绝打开。
 
@@ -209,41 +214,47 @@ erDiagram
 | `date` | 裁判日期或发布日期的 ISO 日期 |
 | `content_hash` | 去重与重建校验值 |
 
-Chroma 不是来源事实的唯一存储。API 展示前必须使用 `source_id` 回查 PostgreSQL 的权威元数据。
+Chroma 不是来源事实的唯一存储。API 展示前必须使用 `source_id` 回查关系库的来源元数据。
 
-## 6. 后续目标：Redis 会话设计
+## 6. Redis 会话设计（M3 已实现）
 
-> 实现状态：本节是后续目标。M1 只在关系库保存会话 UUID 与用户归属，不保存或恢复问题、回答正文和多轮上下文。
+> 所有读、继续、删除先校验关系库所有权，Redis 不可用时明确失败。历史过期后保留会话元数据，返回空消息和中文提示。
 
 - 键：`conversation:{user_id}:{session_id}:messages`
 - 类型：Redis List；每项为精简 JSON 消息。
 - TTL：24 小时，每次成功追加消息后刷新。
-- 最大保留：最近 20 条消息；传给模型时默认取最近 10 条。
-- 消息字段：`role`、`content`、`created_at`，助手消息额外包含 `intent` 和精简来源列表。
-- 访问前先通过 PostgreSQL `conversations` 表校验所有权。
+- 最大保留最近 20 条消息，Lua 成对追加/裁剪/续期；传给模型最近 10 条，累计不超过 12000 字符，超限去掉最早完整问答对。
+- 消息字段：`role`、`content`、`created_at`、`turn_id`；助手额外含 `intent/sources/warnings/missing_fields/document_id`。只保存成功完成的用户/助手对。
+- 锁键为消息键加 `:lock`，随机 token、NX、TTL 为模型超时加 20 秒；Lua 修改前检查 token。
+- 追加成功后更新关系提交标记，失败恢复旧消息及剩余 TTL。补偿失败或进程退出后，下次读取剔除标记之后的未提交尾部。
+- 历史接口读取不续期；列表返回当前消息键是否存在。列表状态为即时快照，读取时仍可能已到期。
+- 访问前先通过关系库 `conversations` 表校验所有权。
 - Redis 不可用时拒绝会话请求，不回退到进程内共享内存。
 
 ## 7. 首月四周目标 API 数据对象
 
-`SourceReference`、`ConversationMessage` 和 `DocumentParameters` 是首月目标合同；M1 问答的 `sources` 固定为空，且不会持久化 `ConversationMessage`。
+以下为 M3 实际合同。来源元数据来自关系库，模型只使用引用编号。
 
 ### SourceReference
 
 ```json
 {
+  "citation_id": "S1",
   "source_type": "case",
   "source_id": "uuid",
-  "title": "来源标题",
-  "reference_number": "案号或条文编号",
-  "publisher": "法院或发布机关",
-  "date": "2026-01-01",
-  "source_url": "https://example.invalid/source",
-  "source_kind": "official",
-  "is_demo": false
+  "title": "演示来源标题",
+  "reference_number": "DEMO-LABOR_DISPUTE-001",
+  "publisher": "LegalMind 课程项目组",
+  "date": null,
+  "sample_date": "2026-09-13",
+  "source_url": null,
+  "source_kind": "demo",
+  "is_demo": true,
+  "is_synthetic": true
 }
 ```
 
-`source_url` 对演示资料可以为空；真实资料不得为空。示例域名只用于说明结构，不得写入正式数据。
+案例 `publisher/date/source_url` 允许为空，`date` 是裁判日期，`sample_date` 是合成样本日期，不能互相替代。演示来源要求两个标记为 true、DEMO 编号、空裁判日期/外链。官方法条 `date` 为版本公布日期，另外包含生效边界、核验日期、状态截止日、版本、原文与适用性类别；模型不得生成或改写这些字段。
 
 ### ConversationMessage
 
@@ -253,6 +264,10 @@ Chroma 不是来源事实的唯一存储。API 展示前必须使用 `source_id`
   "content": "回答正文",
   "intent": "qa",
   "sources": [],
+  "warnings": [],
+  "missing_fields": [],
+  "document_id": null,
+  "turn_id": "uuid",
   "created_at": "2026-09-12T00:00:00Z"
 }
 ```
@@ -265,4 +280,10 @@ Chroma 不是来源事实的唯一存储。API 展示前必须使用 `source_id`
 - `civil_defense`：`respondent`、`case_reference`、`defense_opinions`、`court`。
 - `general_contract`：`party_a`、`party_b`、`subject`、`main_terms`、`effective_date`。
 
-以上字段首月先按字符串接收并限制长度。任何缺失字段由后端返回字段名和中文提示，模型不得补写身份、金额、日期或诉讼请求。
+以上字段仅接受字符串，拒绝未知字段；身份、法院、标的、案件标识和生效条件上限 500 字符，事实、请求、意见及条款上限 4000 字符；整个参数对象按 UTF-8 JSON 计不超过 20KB。任何缺失字段由后端返回字段名和中文提示，模型不得补写身份、金额、日期或诉讼请求。
+
+## 8. 法条核验与任务状态扩展
+
+`20260918_0004` 只新增 `legal_provisions.verification` 可空 JSON/JSONB。内容包括 `version/effective_from/effective_until/verified_at/status_as_of/status_source_url/original_text/text_sha256/domains/keywords`。有效区间左闭右开；同条不同版本不能重叠。未经核验的旧行保留，但不进入法条检索。引用正文取 `original_text`，不取经过 NFKC 规范化的搜索文本。
+
+`ConversationMessage.task` 保存最新 `TaskState`：任务 UUID、修订 UUID、问答/文书类型、阶段、模板、领域、字段、待确认冲突、缺项与最多三个问题。每个值都带原句、来源用户 turn UUID 和 message/parameters 类型。原始用户消息被裁剪时，最新快照仍保存来源原句；历史与任务共享 TTL。任务不另建 Redis key，追加、补偿和关系提交标记沿用现有机制。取消清空当前快照字段，历史消息本身仍按原保留规则处理。

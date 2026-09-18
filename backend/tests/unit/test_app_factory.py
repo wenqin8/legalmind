@@ -44,6 +44,11 @@ def test_public_and_authenticated_routes_are_mounted() -> None:
         "/api/v1/chat/history/{session_id}",
         "/api/v1/cases/search",
         "/api/v1/cases/{case_id}",
+        "/api/v1/chat/stream",
+        "/api/v1/chat/conversations",
+        "/api/v1/documents/templates",
+        "/api/v1/documents/generate",
+        "/api/v1/documents/{document_id}/download",
     }
 
 

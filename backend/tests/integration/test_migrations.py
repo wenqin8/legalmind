@@ -25,6 +25,7 @@ def test_initial_migration_is_reversible_and_matches_metadata(
             "cases",
             "legal_provisions",
             "knowledge_chunks",
+            "generated_documents",
         }.issubset(
             inspector.get_table_names()
         )
@@ -34,6 +35,7 @@ def test_initial_migration_is_reversible_and_matches_metadata(
         assert {
             index["name"] for index in inspector.get_indexes("cases")
         } == {"ix_cases_domain_status"}
+        assert "history_commit_id" in {column["name"] for column in inspector.get_columns("conversations")}
     finally:
         engine.dispose()
 
@@ -44,3 +46,6 @@ def test_initial_migration_is_reversible_and_matches_metadata(
         assert inspect(engine).get_table_names() == ["alembic_version"]
     finally:
         engine.dispose()
+
+    command.upgrade(config, "head")
+    command.check(config)

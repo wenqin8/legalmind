@@ -1,0 +1,43 @@
+{
+  "verified_at": "2026-09-18",
+  "status_as_of": "2026-03-12",
+  "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+  "sources": [
+    {
+      "law": "中华人民共和国民法典",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "version": "2020年制定",
+      "snapshot": "snapshots/civil_code.txt",
+      "sha256": "ffd2256619a5652512ed241ed03e716e8689602baf53d309e0a7dbddddebd559",
+      "articles": 32,
+      "capture_method": "official HTML visible text"
+    },
+    {
+      "law": "中华人民共和国劳动合同法",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html",
+      "version": "2012年修正",
+      "snapshot": "snapshots/labor_contract.txt",
+      "sha256": "be8d7017c93bef876ae13701d34bf354b142a44c1a2c9e738cc6288cea85dcd2",
+      "articles": 14,
+      "capture_method": "official page text via web reader"
+    },
+    {
+      "law": "中华人民共和国劳动争议调解仲裁法",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+      "version": "2007年制定",
+      "snapshot": "snapshots/labor_arbitration.txt",
+      "sha256": "d82bb244b2abbbfc8aa560c681585a1c81696bac90b898b5f0e68dbe387b9b95",
+      "articles": 10,
+      "capture_method": "official page text via web reader"
+    },
+    {
+      "law": "中华人民共和国道路交通安全法",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202307/t20230710_3158807.html",
+      "version": "2021年修正",
+      "snapshot": "snapshots/road_safety.txt",
+      "sha256": "6c5fef78aaedfd3e8ff2359445d1cb0e5daa7456e11cf31f1aba8b27d1d6c51d",
+      "articles": 4,
+      "capture_method": "official page text via web reader"
+    }
+  ]
+}

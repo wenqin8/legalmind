@@ -65,6 +65,7 @@ class Conversation(Base):
         Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )
     title: Mapped[str] = mapped_column(String(200), nullable=False, default="新咨询")
+    history_commit_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, default=utc_now
     )
@@ -73,6 +74,25 @@ class Conversation(Base):
     )
 
     user: Mapped[User] = relationship(back_populates="conversations")
+
+
+class GeneratedDocument(Base):
+    __tablename__ = "generated_documents"
+    __table_args__ = (
+        CheckConstraint("document_type IN ('civil_complaint', 'civil_defense', 'general_contract')", name="ck_documents_type"),
+        Index("ix_generated_documents_id_user_id", "id", "user_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    user_id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    document_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    parameters: Mapped[dict] = mapped_column(JSON_VALUE, nullable=False)
+    additional_instructions: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    sources: Mapped[list] = mapped_column(JSON_VALUE, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
 
 class Case(Base):
@@ -154,6 +174,7 @@ class LegalProvision(Base):
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True)
     record_id: Mapped[str] = mapped_column(String(200), nullable=False, unique=True)
+    verification: Mapped[dict | None] = mapped_column(JSON_VALUE, nullable=True)
     regulation_name: Mapped[str] = mapped_column(String(500), nullable=False)
     article_number: Mapped[str] = mapped_column(String(200), nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)

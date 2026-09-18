@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-09-18T04:32:08.866368+00:00",
+  "checks": {
+    "redis": {
+      "ok": true,
+      "checks": {
+        "mutual_exclusion": true,
+        "retention_20": true,
+        "sliding_ttl_24h": true,
+        "structured_state_roundtrip": true,
+        "write_fencing": true,
+        "compensation_restore": true,
+        "expiration": true,
+        "keys_removed": true
+      }
+    },
+    "postgresql": {
+      "ok": true,
+      "checks": {
+        "jsonb": true,
+        "document_roundtrip": true,
+        "owner_filter": true,
+        "history_commit_marker": true,
+        "verified_laws_jsonb": true,
+        "verified_laws_roundtrip": true,
+        "upgrade_downgrade_upgrade": true,
+        "schema_removed": true
+      }
+    }
+  },
+  "passed": true
+}

@@ -56,8 +56,6 @@ const intentLabels: Record<string, string> = {
   document: '文书生成',
 }
 
-const noRetrievalWarning = '当前版本尚未接入法律资料检索，未提供可核验来源。'
-const noContextWarning = '当前版本仅保存会话归属，不保存消息正文或上下文。'
 const mobileDomainMenu = ref<HTMLDetailsElement | null>(null)
 const mobileHistoryMenu = ref<HTMLDetailsElement | null>(null)
 
@@ -68,13 +66,7 @@ function intentLabel(intent?: string): string | null {
 }
 
 function displayWarnings(message: ChatMessage): string[] {
-  return (message.warnings ?? [])
-    .filter((warning) => warning !== noRetrievalWarning)
-    .map((warning) =>
-      warning === noContextWarning
-        ? '界面会在当前页面保留消息，但模型不会读取此前问答作为上下文；刷新后会清空。'
-        : warning,
-    )
+  return message.warnings ?? []
 }
 
 function submit(): void {
@@ -324,6 +316,15 @@ onMounted(chatStore.refreshCredentialState)
               </div>
               <p class="whitespace-pre-wrap [overflow-wrap:anywhere]">{{ message.content }}</p>
 
+              <div v-if="message.task && message === messages[messages.length - 1] && !['completed', 'cancelled'].includes(message.task.phase)" class="mt-3 flex flex-wrap gap-2" aria-label="任务操作">
+                <button v-if="message.task.phase === 'review'" type="button" class="focus-ring rounded-lg bg-jade-800 px-3 py-2 text-xs text-white" :disabled="isSending" @click="chatStore.submitTaskAction('confirm', message.task.revision)">确认摘要并生成草稿</button>
+                <template v-if="message.task.phase === 'conflict'">
+                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('accept_changes', message.task.revision)">采用本次修改</button>
+                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('reject_changes', message.task.revision)">保留原值</button>
+                </template>
+                <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('cancel', message.task.revision)">取消当前任务</button>
+              </div>
+
               <section
                 v-if="message.role === 'assistant'"
                 class="mt-4 border-t border-ink-950/8 pt-3 text-[11px] leading-5 text-ink-600"
@@ -334,8 +335,19 @@ onMounted(chatStore.refreshCredentialState)
                   暂未附可核验的参考依据，请先自行核对原始材料。
                 </p>
                 <p v-else-if="message.sourceCount" class="mt-1.5">
-                  已附 {{ message.sourceCount }} 条参考依据。
+                  已附 {{ message.sourceCount }} 条{{ message.hasDemoSources ? '参考材料，包含演示数据，不是真实判例或法律依据' : '参考材料，请核对原始来源' }}。
                 </p>
+                <details v-for="source in message.sources" :key="source.source_id" class="mt-2 rounded-lg border border-ink-950/10 p-3">
+                  <summary class="cursor-pointer font-semibold">[{{ source.citation_id }}] {{ source.title }} · {{ source.reference_number }}{{ source.is_demo ? '（演示参考）' : '（官方条文）' }}</summary>
+                  <template v-if="source.source_type === 'legal_provision'">
+                    <p class="mt-2">{{ source.version }} · 生效日期：{{ source.effective_from }}{{ source.effective_until ? `，失效边界：${source.effective_until}` : '' }}</p>
+                    <p>核验日期：{{ source.verified_at }}；有效状态资料截至：{{ source.status_as_of }}。本次未实时联网核验。</p>
+                    <p>{{ source.applicability === 'general_reference' ? '一般规则参考' : '事件时间候选依据，仍须审查具体适用条件' }}</p>
+                    <blockquote class="my-2 whitespace-pre-wrap border-l-2 border-jade-700/30 pl-3">{{ source.original_text }}</blockquote>
+                    <a v-if="source.source_url" :href="source.source_url" target="_blank" rel="noopener noreferrer" class="focus-ring underline">查看官方原文（{{ source.publisher }}）</a>
+                  </template>
+                  <p v-else class="mt-2">合成场景仅用于演示，样本日期 {{ source.sample_date }} 不是裁判日期。</p>
+                </details>
                 <ul v-if="displayWarnings(message).length" class="mt-1.5 space-y-1.5">
                   <li v-for="warning in displayWarnings(message)" :key="warning">
                     {{ warning }}
