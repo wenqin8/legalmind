@@ -1,0 +1,438 @@
+# RAG-v1 端到端复核
+
+本报告从原始40场景输出离线复算，不重新调用模型、不修改冻结标签。
+结构校验与开发代理语义复核分别记录；尚无法律专家审核，不给出法律正确率认证。
+
+## 自动化指标
+
+```json
+{
+  "planned_turns": 56,
+  "http_successes": 55,
+  "scenario_structural_passes": 25,
+  "expected_answer_behavior_counts": {
+    "answer": 20,
+    "clarify": 8,
+    "service_error": 1,
+    "insufficient": 3
+  },
+  "behavior_match_including_errors": {
+    "value": 0.6428571428571429,
+    "denominator": 56
+  },
+  "answerable_but_insufficient_rate": {
+    "value": 0.09375,
+    "denominator": 32
+  },
+  "answerable_but_clarifying_rate": {
+    "value": 0.25,
+    "denominator": 32
+  },
+  "hard_check_failures": {
+    "source_integrity": 0,
+    "known_citations": 0,
+    "verbatim_quotes": 0,
+    "no_model_urls": 0,
+    "version_interval": 0,
+    "field_provenance": 0,
+    "conflict_preserved": 4,
+    "confirmed_field": 4
+  },
+  "candidate_hit_on_expected_answers": {
+    "value": 0.78125,
+    "denominator": 32
+  },
+  "candidate_recall_on_expected_answers": {
+    "value": 0.6260416666666666,
+    "denominator": 32
+  },
+  "selected_hit_on_expected_answers": {
+    "value": 0.65625,
+    "denominator": 32
+  },
+  "selected_recall_on_expected_answers": {
+    "value": 0.44375,
+    "denominator": 32
+  },
+  "returned_hit_on_expected_answers": {
+    "value": 0.625,
+    "denominator": 32
+  },
+  "returned_recall_on_expected_answers": {
+    "value": 0.42291666666666666,
+    "denominator": 32
+  },
+  "by_domain": {
+    "contract_dispute": {
+      "turns": 14,
+      "behavior_match_including_errors": {
+        "value": 0.7142857142857143,
+        "denominator": 14
+      },
+      "http_successes": 14
+    },
+    "labor_dispute": {
+      "turns": 14,
+      "behavior_match_including_errors": {
+        "value": 0.7142857142857143,
+        "denominator": 14
+      },
+      "http_successes": 13
+    },
+    "marriage_family": {
+      "turns": 14,
+      "behavior_match_including_errors": {
+        "value": 0.5714285714285714,
+        "denominator": 14
+      },
+      "http_successes": 14
+    },
+    "traffic_accident": {
+      "turns": 14,
+      "behavior_match_including_errors": {
+        "value": 0.5714285714285714,
+        "denominator": 14
+      },
+      "http_successes": 14
+    }
+  }
+}
+```
+
+## 逐场景复核
+
+### E-L-MF-01
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：关于协议免付后必要费用显著增加的说明与解释二第16条及民法典1085条一致。
+- applicability：保留费用必要性、负担能力等前提；未直接计算金额。
+- diagnosis：能回答一般规则，但下一步重复索取一般咨询未要求的个案细节。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-02
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：第17条支持分别列出未成年/不能独立生活子女与已成年独立后直接抚养方的请求；回答进一步说成年独立子女通常不适格，属于较强排除性推断。
+- applicability：未直接套用个案，但应避免将赋予另一主体请求权等同排除所有其他路径。
+- diagnosis：核心来源命中；存在超出明确文义的排除性表述。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-03
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：父母全额购房的归属与补偿区分得到第8条支持。
+- applicability：未武断认定另一方必无权益，保留多因素判断。
+- diagnosis：召回直接依据并有条件回答；通用风险和补材料段较长。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-04
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：违反忠实义务目的处分共同财产的一般规则与第7条对应。
+- applicability：区分共同财产和目的前提；未承诺返还金额。
+- diagnosis：核心支持充分，但末尾套用仅有演示案例的条件句，容易混淆本轮官方来源。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-05
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 answer；实际 clarify；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：两轮均未生成实质法律结论。
+- applicability：补事件日期后继续询问婚姻起止时间，可能与过渡适用有关。
+- diagnosis：冻结预期为补日期后回答，实际持续追问；应审查是否过度收集。
+- annotation_caveat：本题未给婚姻完整起止日期，继续追问不必然是法律错误；保留原失败标签并标记预期歧义。
+
+### E-L-MF-06
+
+- 第 1 轮：预期 answer；实际 clarify；未通过项：expected_behavior, relevant_answer_source。
+- 第 2 轮：预期 conflict；实际 clarify；未通过项：expected_behavior, conflict_preserved。
+- 第 3 轮：预期 answer；实际 clarify；未通过项：expected_behavior, confirmed_field, relevant_answer_source。
+- faithfulness：未对同居析产生成结论。
+- applicability：首轮要求同居起止时间可能合理；更正事件日期却切换文书任务。
+- diagnosis：第二轮意图输出 document，导致原 QA 任务丢失，第三轮继续要求模板；确认与冲突路径失败。
+- annotation_caveat：第一轮预期回答有材料充分性歧义；后两轮跨任务丢状态是明确功能问题。
+
+### E-L-MF-12
+
+- 第 1 轮：预期 insufficient；实际 clarify；未通过项：expected_behavior。
+- faithfulness：未编造地方律师收费数额。
+- applicability：无本地规则应提示资料缺口；实际索要婚姻事实，未识别问题是收费标准查询。
+- diagnosis：安全性上未乱答，严格拒答行为不匹配。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-13
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 cancelled；实际 cancelled；未通过项：无。
+- faithfulness：日期不明时先追问，取消后明确结束任务。
+- applicability：没有套用最新规则。
+- diagnosis：两轮符合预期；任务快照为空的取消状态不等于删除会话。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-14
+
+- 第 1 轮：预期 insufficient；实际 clarify；未通过项：expected_behavior。
+- faithfulness：未对1990年已终审争议用新法下结论。
+- applicability：应明确旧版本/程序资料不足，实际继续询问婚姻材料。
+- diagnosis：安全未误用新法，但未解释关键的知识覆盖边界。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-MF-16
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：登记离婚后仅以虚假意思表示主张无效的规则得到第2条支持。
+- applicability：区分身份关系与其他瑕疵，未承诺案件结果。
+- diagnosis：末尾泛称法律依据不足与前文有依据的一般规则说明不够一致。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-01
+
+- 第 1 轮：预期 answer；实际 MODEL_UNAVAILABLE；未通过项：无。
+- faithfulness：请求返回424 MODEL_UNAVAILABLE，没有可交付答案，不能计为成功拒答。
+- applicability：草稿意识到缺少承诺无效/社保补偿返还的直接依据。
+- diagnosis：关键词门槛未取回解释二第19条；生成首段又被校验中断，需分别检查召回与引号误拦。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-02
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：竞业限制未接触秘密不生效的说明与第13条一致。
+- applicability：保留知悉秘密和知识产权保密事项的前提。
+- diagnosis：一般规则已给，但重复强调无法确定与假设演示资料削弱清晰度。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-03
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：关联单位无书面合同的管理行为判断和共同责任例外与第3条吻合。
+- applicability：对二倍工资扩展内容保留例外。
+- diagnosis：把多个未签合同条文一并纳入，偏离本题关系/报酬焦点，直接补充依据召回不全；应核对标签完整性而非改分。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-04
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：按月及不足月实际工作日规则与第6条一致；用劳动合同法第10、82条解释前提。
+- applicability：明确区分未满一个月用工与应付二倍工资期间内不足整月。
+- diagnosis：命中核心规则，但旧标签未把第10条列为相关，属于标注复核候选；本版标签不修改。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-05
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 answer；实际 clarify；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：两轮均为澄清，没有实质工资结论。
+- applicability：继续索取关系建立和知悉侵害时间；对只问规则和材料是否必要有争议。
+- diagnosis：补事件日期后仍未回答。
+- annotation_caveat：真实法律适用可能需要更多日期，本题金标准应由专家复核；不能直接把继续追问视为错误适法。
+
+### E-L-LD-06
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- 第 2 轮：预期 conflict；实际 clarify；未通过项：expected_behavior, conflict_preserved。
+- 第 3 轮：预期 answer；实际 clarify；未通过项：expected_behavior, confirmed_field, relevant_answer_source。
+- faithfulness：首轮指向有资质承包人的用工主体责任得到第1条支持，未自动认定全部事实。
+- applicability：事实与程序前提有条件说明。
+- diagnosis：更正日期被误分 document 后丢失原任务，未展示新旧值冲突，确认也无效。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-12
+
+- 第 1 轮：预期 insufficient；实际 insufficient；未通过项：无。
+- faithfulness：未编造县级最低工资数额。
+- applicability：缺地方最新文件，明确资料不足。
+- diagnosis：符合无覆盖资料时的拒答预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-13
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 cancelled；实际 cancelled；未通过项：无。
+- faithfulness：缺日期时追问，取消成功。
+- applicability：没有用当前日期替代用工日期。
+- diagnosis：符合两轮预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-14
+
+- 第 1 轮：预期 insufficient；实际 insufficient；未通过项：无。
+- faithfulness：未对1995年已终审劳动纠纷给新法计算结果。
+- applicability：明确资料不足，避免套用后续版本。
+- diagnosis：符合严格拒答预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-LD-16
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：工作许可及合法停留居留下请求确认劳动关系与第4条对应。
+- applicability：保留主体、许可与用工一致性审查。
+- diagnosis：官方依据有效呈现，但混入假设演示案例的模板句，无需让用户重复提供已声明不涉及的个案。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-01
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：医疗收费凭证结合病历诊断证明、必要性合理性争议举证与第6条对应。
+- applicability：明确后续治疗费用例外，不自行计算金额。
+- diagnosis：直接依据与一般赔偿项目均命中。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-02
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：无固定收入又无法证明三年平均收入时的参考口径与第7条对应。
+- applicability：保留行业、地区、误工时间证据前提。
+- diagnosis：回答与引用一致；统计数据本身未编造。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-03
+
+- 第 1 轮：预期 answer；实际 insufficient；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：明确仅有演示材料，未宣称给出法律标准；护理证据方向有部分超出所引事故演示文本。
+- applicability：本库实际有第8条，但口语“护理人数/费用”未命中该条关键词门槛。
+- diagnosis：召回缺陷导致回退演示和过度拒答，应区分无资料与有资料未检出。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-04
+
+- 第 1 轮：预期 answer；实际 insufficient；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：未给出无来源结论。
+- applicability：本库有交通费第9条，问题未含事故词，提取器将领域判空。
+- diagnosis：上游领域识别失败，法条检索没有执行；不是库中缺少法律。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-05
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 answer；实际 clarify；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：补日期后仍追问知悉侵害时间。
+- applicability：营养费规则咨询是否必须先知悉日期值得复核。
+- diagnosis：冻结行为预期未达成，可能是适用性筛选过度追问。
+- annotation_caveat：用户仅问材料和规则，未要求时效判断；本题人工复核应区分必要信息与过度收集。
+
+### E-L-TA-06
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- 第 2 轮：预期 conflict；实际 clarify；未通过项：expected_behavior, conflict_preserved。
+- 第 3 轮：预期 answer；实际 clarify；未通过项：expected_behavior, confirmed_field, relevant_answer_source。
+- faithfulness：普通适用辅助器具与特殊需要的说明有第13条支持。
+- applicability：提及责任和保险时使用相应道路交通法来源；“生效时间接近”措辞不精确。
+- diagnosis：首轮能回答，第二轮日期更正误转文书，第三轮确认无法恢复。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-12
+
+- 第 1 轮：预期 insufficient；实际 clarify；未通过项：expected_behavior。
+- faithfulness：未凭空给出县级最终赔偿金额。
+- applicability：继续询问年龄收入等之前的共用基础字段，没有说明地方标准缺口。
+- diagnosis：安全未乱答，但严格拒答标签未匹配。
+- annotation_caveat：补事实也是合理动作之一；“拒答”与“追问”的互斥金标准需专业复核。
+
+### E-L-TA-13
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 cancelled；实际 cancelled；未通过项：无。
+- faithfulness：时间不清时先询问年份，取消结束。
+- applicability：未套用新版本。
+- diagnosis：符合预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-14
+
+- 第 1 轮：预期 insufficient；实际 insufficient；未通过项：无。
+- faithfulness：明确不将新解释用于1998年已终审结论；但引用明知不匹配的演示案例。
+- applicability：正确强调历史资料和过渡规则缺失。
+- diagnosis：证据筛选保留无关演示来源，回答又自行承认不相关；拒答行为安全但来源质量失败。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-TA-16
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：只提供第22条统计口径，却在结论支持请求较高地区标准；该结论需要未进入上下文的第18条。
+- applicability：缺直接条文对可适用赔偿项目的限制，不能用笼统免责声明补足。
+- diagnosis：引用编号真实但主要结论不受所引来源支持，是明确的证据忠实性缺陷。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-01
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：交易习惯分类及举证责任与解释第2条一致。
+- applicability：不把任意个人习惯当作交易习惯。
+- diagnosis：核心依据命中，条件说明恰当。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-02
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：预约、意向书与本约的区分与第6条相符，合同成立补充引用第3条。
+- applicability：保留期限、主体标的、主要内容和实际履行等条件。
+- diagnosis：直接规则回答成立；第3条是否应计入金标准是标签完善候选，不更改本次分数。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-03
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：预约义务违反和赔偿酌定因素与第7、8条相符。
+- applicability：区分预约与本约，未直接给金额。
+- diagnosis：多条核心规则一起使用，未遗漏主要分支。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-04
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：勾选弹窗不当然履行义务、提供方举证与第10条对应，民法典496条补充后果。
+- applicability：区分提示与应要求说明，没有说所有弹窗均无效。
+- diagnosis：回答和来源一致。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-05
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 answer；实际 answer；未通过项：无。
+- faithfulness：备案不保证合同有效与第13条对应。
+- applicability：补日期后有条件分析，未认定具体合同当然有效或无效。
+- diagnosis：两轮达到冻结预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-06
+
+- 第 1 轮：预期 answer；实际 answer；未通过项：无。
+- 第 2 轮：预期 conflict；实际 clarify；未通过项：expected_behavior, conflict_preserved。
+- 第 3 轮：预期 answer；实际 clarify；未通过项：expected_behavior, confirmed_field, relevant_answer_source。
+- faithfulness：第65条支持综合衡量和一般30%参照，第64条支持调整方式及举证；未把比例当绝对上限。
+- applicability：保留恶意违约及具体履行情形。
+- diagnosis：后续日期更正误转文书任务；首轮结尾将合成咨询称为合成演示材料也混淆输入与依据。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-12
+
+- 第 1 轮：预期 insufficient；实际 insufficient；未通过项：无。
+- faithfulness：未编造本市限购政策和购房资格。
+- applicability：地方现行政策未收录，明确依据不足。
+- diagnosis：符合严格拒答预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-13
+
+- 第 1 轮：预期 clarify；实际 clarify；未通过项：无。
+- 第 2 轮：预期 cancelled；实际 cancelled；未通过项：无。
+- faithfulness：时间缺失时询问，取消后结束。
+- applicability：未用最新版本直接认定格式条款。
+- diagnosis：符合两轮预期。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-14
+
+- 第 1 轮：预期 insufficient；实际 clarify；未通过项：expected_behavior。
+- faithfulness：未用新民法典对1997年已终审争议下结论。
+- applicability：实际询问合同材料，没有解释缺旧法和程序依据。
+- diagnosis：安全未误套版本，但严格拒答预期不匹配。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。
+
+### E-L-CD-16
+
+- 第 1 轮：预期 answer；实际 insufficient；未通过项：expected_behavior, relevant_answer_source。
+- faithfulness：未输出无依据结论，但没有回答可由第58条解释的一般抵销问题。
+- applicability：提取器判定领域为空，未进入法条检索。
+- diagnosis：“欠钱/抵销”口语问题的领域识别不足造成过度拒答。
+- annotation_caveat：法律适用结论为开发代理复核，尚未经法律专业人员审核。

@@ -1,0 +1,31 @@
+{
+  "version": "rag-v1",
+  "frozen_at": "2026-09-19T04:45:47.757673+00:00",
+  "queries": 160,
+  "development": 120,
+  "holdout": 40,
+  "end_to_end_scenarios": 40,
+  "multiturn_scenarios": 12,
+  "law_records": 197,
+  "case_records": 16,
+  "annotation_status": "agent_draft_pending_expert",
+  "independence_limit": "Scenario-group separation only; authored by the same development agent, not an externally blinded benchmark. Existing M2 topics are known.",
+  "relevance_policy": "Exhaustive within the fixed corpus for the explicitly scoped issue; all unlisted sources graded zero. Draft legal judgments require expert review.",
+  "files": {
+    "data/evaluation/rag-v1/queries.jsonl": "a7199c1f2243892478603680ca5326b6e5f71e055a547e62ea2f2b99d3ef8893",
+    "data/evaluation/rag-v1/scenarios.jsonl": "c153cad2bf8d608b4877b96e849dde377040322cda6476ca0a2338365b069bbf",
+    "data/demo/cases.jsonl": "752efb9c679bdbb30521beaf77cc04a38588c49276c10f1e05f0ee452861bb84",
+    "data/legal/verified_provisions.jsonl": "5df60a1517feb8843b86404c56d11b02e46f01331da83ba0c16f6ed3ff18ee36",
+    "data/legal/manifest.json": "f01bc793176e54ee0fd58e622c56d3f19efd47358315acf3544e2e93eb010c60",
+    "data/legal/expansion-v1/verified_provisions.jsonl": "1f2303a4e0e68f924a26bf3119119872d4cd0cb4f1e06d663048ce280e060609",
+    "data/legal/expansion-v1/manifest.json": "c8885ad7245187401c11f80c25c17bc96f62cdcd244519c3173dc3f844795afb",
+    "data/legal/snapshots/civil_code.txt": "ffd2256619a5652512ed241ed03e716e8689602baf53d309e0a7dbddddebd559",
+    "data/legal/snapshots/labor_arbitration.txt": "d82bb244b2abbbfc8aa560c681585a1c81696bac90b898b5f0e68dbe387b9b95",
+    "data/legal/snapshots/labor_contract.txt": "be8d7017c93bef876ae13701d34bf354b142a44c1a2c9e738cc6288cea85dcd2",
+    "data/legal/snapshots/road_safety.txt": "6c5fef78aaedfd3e8ff2359445d1cb0e5daa7456e11cf31f1aba8b27d1d6c51d",
+    "data/legal/expansion-v1/snapshots/contract_general.txt": "e377f96d89682edbeba72b8c3fe5d8572a8f4af34043d619308f315686cad518",
+    "data/legal/expansion-v1/snapshots/labor_ii.txt": "70b8c753037f19e904ceb51a16a3290006617c4c65f9a64726dcbcb651a732b0",
+    "data/legal/expansion-v1/snapshots/marriage_ii.txt": "0c2c6d282ad305c54e88f0d28e3c726e732fe95bf6e84f2c72635f652fc9a7c7",
+    "data/legal/expansion-v1/snapshots/personal_injury.txt": "f9c189abf19869e496060cc7d56ec463c5b85556c68527f1c828ae0b05a780f7"
+  }
+}

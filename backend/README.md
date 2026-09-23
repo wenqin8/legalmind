@@ -123,6 +123,16 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 
 ## 测试
 
+当前新增 RAG-v1 独立评估工具，保持默认运行库、M2查询和M3标签不变。组合197条法条/解释与16条案例仅导入 `tmp/` 下新建SQLite和Chroma；不需要改变 `.env`。详情见 [评估数据定义](data/evaluation/rag-v1/README.md) 和 [基线与已知失败](../docs/acceptance/rag-v1.md)。
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag --output ../tmp/rag-retrieval-new-run.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --output ../tmp/rag-answers-new-run.json
+.\.venv\Scripts\python.exe -m scripts.review_rag_answers --input ../docs/acceptance/rag-v1-answers.json --annotations ../docs/acceptance/rag-v1-review-notes.json --output ../tmp/rag-review-new-run.json
+```
+
+前两条分别执行真实BGE检索和40场景真实模型HTTP联调；第二条需要Redis和现有DeepSeek配置，会消耗API额度。第三条仅离线复核既有合成结果。输出路径必须尚不存在，防止覆盖旧基线；测试失败和模型错误不会自动重试以挑选结果。`--split development` 或 `--split holdout` 可用于检索脚本分组运行。新增司法解释清单见 [扩展资料](data/legal/expansion-v1/README.md)，默认导入器仍指向M3的60条。
+
 ```powershell
 .\.venv\Scripts\python.exe -m pytest
 ```

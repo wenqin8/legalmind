@@ -1,0 +1,152 @@
+{
+  "created_at": "2026-09-19T16:25:42.250523+00:00",
+  "input_sha256": "1111507f4dda452f1cb585a4beffc629a17e3763d44c1a10e2cc60091d0cdb08",
+  "diagnostic_script_sha256": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+  "provider_calls": 0,
+  "database": "new in-memory SQLite; default database untouched",
+  "findings": {
+    "date_correction_replay": [
+      {
+        "scenario": "E-L-MF-06",
+        "actual_kind": "document",
+        "actual_fields": [],
+        "actual_task_replaced": true,
+        "direct_qa_reducer_preserves_old_value": true,
+        "direct_qa_reducer_confirms_new_value": true,
+        "counterfactual_scope": "reducer with grounded extraction; not a repaired workflow"
+      },
+      {
+        "scenario": "E-L-LD-06",
+        "actual_kind": "document",
+        "actual_fields": [],
+        "actual_task_replaced": true,
+        "direct_qa_reducer_preserves_old_value": true,
+        "direct_qa_reducer_confirms_new_value": true,
+        "counterfactual_scope": "reducer with grounded extraction; not a repaired workflow"
+      },
+      {
+        "scenario": "E-L-TA-06",
+        "actual_kind": "document",
+        "actual_fields": [],
+        "actual_task_replaced": true,
+        "direct_qa_reducer_preserves_old_value": true,
+        "direct_qa_reducer_confirms_new_value": true,
+        "counterfactual_scope": "reducer with grounded extraction; not a repaired workflow"
+      },
+      {
+        "scenario": "E-L-CD-06",
+        "actual_kind": "document",
+        "actual_fields": [],
+        "actual_task_replaced": true,
+        "direct_qa_reducer_preserves_old_value": true,
+        "direct_qa_reducer_confirms_new_value": true,
+        "counterfactual_scope": "reducer with grounded extraction; not a repaired workflow"
+      }
+    ],
+    "quote_false_positive": {
+      "scenario": "E-L-LD-01",
+      "matched_phrases": [
+        {
+          "prefix": "算方式；这些材料并未直接规定",
+          "phrase": "自愿放弃社保承诺"
+        },
+        {
+          "prefix": "弃社保承诺”的效力，也未规定",
+          "phrase": "补缴后已发补偿"
+        }
+      ],
+      "replayed_error": "MODEL_UNAVAILABLE",
+      "provider_calls": 0,
+      "stream_closed": true,
+      "emitted_paragraphs": 0,
+      "same_paragraph_without_quotes_passes_citation_check": true,
+      "scope": "saved prefix only; full provider output was cancelled and is unavailable"
+    },
+    "unsupported_claim_is_not_structurally_rejected": {
+      "scenario": "E-L-TA-16",
+      "production_citation_check_passes": true,
+      "evidence_articles": [
+        "第二十二条"
+      ],
+      "semantic_verdict": "manual source comparison required; this probe does not judge entailment"
+    },
+    "keyword_gate_ablation": [
+      {
+        "scenario": "E-L-LD-01",
+        "target": "labor_ii-2025-07-31-19",
+        "target_keywords": [
+          "劳动合同",
+          "经济补偿",
+          "社会保险"
+        ],
+        "matching_keywords": [],
+        "rank_before_keyword_gate": 1,
+        "would_be_in_ungated_top5": true,
+        "returned_ids": [
+          "labor_contract-2012-12-28-38",
+          "labor_contract-2012-12-28-47",
+          "labor_contract-2012-12-28-46"
+        ]
+      },
+      {
+        "scenario": "E-L-TA-03",
+        "target": "personal_injury-2022-04-24-8",
+        "target_keywords": [
+          "误工费",
+          "护理费",
+          "辅助器具",
+          "收入",
+          "医疗机构"
+        ],
+        "matching_keywords": [],
+        "rank_before_keyword_gate": 1,
+        "would_be_in_ungated_top5": true,
+        "returned_ids": [
+          "civil_code-2020-05-28-1208",
+          "road_safety-2021-04-29-70"
+        ]
+      },
+      {
+        "scenario": "E-L-TA-16",
+        "target": "personal_injury-2022-04-24-18",
+        "target_keywords": [
+          "赔偿",
+          "残疾赔偿金",
+          "死亡赔偿金",
+          "被扶养人",
+          "生活费",
+          "收入",
+          "证明"
+        ],
+        "matching_keywords": [],
+        "rank_before_keyword_gate": 1,
+        "would_be_in_ungated_top5": true,
+        "returned_ids": [
+          "personal_injury-2022-04-24-21",
+          "personal_injury-2022-04-24-22"
+        ]
+      }
+    ],
+    "domain_gate_counterfactual": [
+      {
+        "scenario": "E-L-TA-04",
+        "recorded_domain": null,
+        "recorded_legal_retrieval_executed": false,
+        "gold_domain_counterfactual_hits": [
+          "personal_injury-2022-04-24-9"
+        ],
+        "scope": "oracle-domain diagnostic; not end-to-end improvement"
+      },
+      {
+        "scenario": "E-L-CD-16",
+        "recorded_domain": null,
+        "recorded_legal_retrieval_executed": false,
+        "gold_domain_counterfactual_hits": [
+          "contract_general-2023-12-04-55",
+          "contract_general-2023-12-04-58"
+        ],
+        "scope": "oracle-domain diagnostic; not end-to-end improvement"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "version": "expansion-v1",
+  "verified_at": "2026-09-19",
+  "record_count": 137,
+  "catalog_sha256": "1f2303a4e0e68f924a26bf3119119872d4cd0cb4f1e06d663048ce280e060609",
+  "sources": [
+    {
+      "slug": "marriage_ii",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释（二）",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+      "version": "2025年制定",
+      "published_at": "2025-01-15",
+      "effective_from": "2025-02-01",
+      "articles": 23,
+      "snapshot": "snapshots/marriage_ii.txt",
+      "sha256": "0c2c6d282ad305c54e88f0d28e3c726e732fe95bf6e84f2c72635f652fc9a7c7",
+      "capture_method": "official HTTPS HTML; standard-library HTML parser; paragraph indentation removed; article wording retained",
+      "status_limit": "Announcement establishes the stated version and commencement, not continuously verified current validity.",
+      "temporal_caveat": "Event-date filtering alone cannot decide judicial-interpretation transitional applicability or final-judgment exceptions."
+    },
+    {
+      "slug": "labor_ii",
+      "title": "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/472691.html",
+      "version": "2025年制定",
+      "published_at": "2025-07-31",
+      "effective_from": "2025-09-01",
+      "articles": 21,
+      "snapshot": "snapshots/labor_ii.txt",
+      "sha256": "70b8c753037f19e904ceb51a16a3290006617c4c65f9a64726dcbcb651a732b0",
+      "capture_method": "official HTTPS HTML; standard-library HTML parser; paragraph indentation removed; article wording retained",
+      "status_limit": "Announcement establishes the stated version and commencement, not continuously verified current validity.",
+      "temporal_caveat": "Event-date filtering alone cannot decide judicial-interpretation transitional applicability or final-judgment exceptions."
+    },
+    {
+      "slug": "contract_general",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "version": "2023年制定",
+      "published_at": "2023-12-04",
+      "effective_from": "2023-12-05",
+      "articles": 69,
+      "snapshot": "snapshots/contract_general.txt",
+      "sha256": "e377f96d89682edbeba72b8c3fe5d8572a8f4af34043d619308f315686cad518",
+      "capture_method": "official HTTPS HTML; standard-library HTML parser; paragraph indentation removed; article wording retained",
+      "status_limit": "Announcement establishes the stated version and commencement, not continuously verified current validity.",
+      "temporal_caveat": "Event-date filtering alone cannot decide judicial-interpretation transitional applicability or final-judgment exceptions."
+    },
+    {
+      "slug": "personal_injury",
+      "title": "最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+      "version": "2022年修正",
+      "published_at": "2022-04-24",
+      "effective_from": "2022-05-01",
+      "articles": 24,
+      "snapshot": "snapshots/personal_injury.txt",
+      "sha256": "f9c189abf19869e496060cc7d56ec463c5b85556c68527f1c828ae0b05a780f7",
+      "capture_method": "official HTTPS HTML; standard-library HTML parser; paragraph indentation removed; article wording retained",
+      "status_limit": "Announcement establishes the stated version and commencement, not continuously verified current validity.",
+      "temporal_caveat": "Event-date filtering alone cannot decide judicial-interpretation transitional applicability or final-judgment exceptions."
+    }
+  ]
+}
