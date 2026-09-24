@@ -1,0 +1,2977 @@
+{
+  "started_at": "2026-09-24T20:07:03.621600+00:00",
+  "scope": "offline_code_regression",
+  "real_model_calls": 0,
+  "real_model_quality_passed": null,
+  "suite": "quick",
+  "limitations": [
+    "Scripted/replayed outputs do not predict new model answers or validate prompt improvements.",
+    "Archived metrics describe only that immutable recording, not the current workflow.",
+    "Mock Redis verifies application behavior; real Redis acceptance is separate.",
+    "Local TCP tests verify transport timing/cancellation, not provider latency."
+  ],
+  "tests": {
+    "tests": 100,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "network": {
+      "blocked_attempts": 0
+    },
+    "passed": true,
+    "details_directory": "C:\\Users\\段文钦\\Documents\\ChatGPT\\法律咨询Agent\\tmp\\offline-68b8a67c5813481797f3f194d43d9cad"
+  },
+  "retrieval": {
+    "scope": "frozen development laws; gold domain supplied; no LLM",
+    "catalog": {
+      "profile": "eval-rag-v2-209",
+      "provision_count": 209,
+      "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+    },
+    "groups": {
+      "law_bm25": {
+        "queries": 60,
+        "successful_queries": 60,
+        "service_errors": 0,
+        "latency_ms_p50": 8.475549999275245,
+        "latency_ms_p95": 16.250350006157525,
+        "hit@1": {
+          "value": 0.9318181818181818,
+          "denominator": 44
+        },
+        "recall@1": {
+          "value": 0.5871212121212122,
+          "denominator": 44
+        },
+        "precision@1": {
+          "value": 0.6833333333333333,
+          "denominator": 60
+        },
+        "ndcg@1": {
+          "value": 0.9318181818181818,
+          "denominator": 44
+        },
+        "reciprocal_rank@1": {
+          "value": 0.9318181818181818,
+          "denominator": 44
+        },
+        "recall_ceiling@1": {
+          "value": 0.6268939393939393,
+          "denominator": 44
+        },
+        "negative_false_retrieval@1": {
+          "value": 0.5,
+          "denominator": 16
+        },
+        "hit@3": {
+          "value": 1.0,
+          "denominator": 44
+        },
+        "recall@3": {
+          "value": 0.7689393939393939,
+          "denominator": 44
+        },
+        "precision@3": {
+          "value": 0.3333333333333333,
+          "denominator": 60
+        },
+        "ndcg@3": {
+          "value": 0.8963067289507567,
+          "denominator": 44
+        },
+        "reciprocal_rank@3": {
+          "value": 0.9659090909090909,
+          "denominator": 44
+        },
+        "recall_ceiling@3": {
+          "value": 0.9829545454545454,
+          "denominator": 44
+        },
+        "negative_false_retrieval@3": {
+          "value": 0.5,
+          "denominator": 16
+        },
+        "hit@5": {
+          "value": 1.0,
+          "denominator": 44
+        },
+        "recall@5": {
+          "value": 0.9128787878787878,
+          "denominator": 44
+        },
+        "precision@5": {
+          "value": 0.25666666666666665,
+          "denominator": 60
+        },
+        "ndcg@5": {
+          "value": 0.9307699058680815,
+          "denominator": 44
+        },
+        "reciprocal_rank@5": {
+          "value": 0.9659090909090909,
+          "denominator": 44
+        },
+        "recall_ceiling@5": {
+          "value": 1.0,
+          "denominator": 44
+        },
+        "negative_false_retrieval@5": {
+          "value": 0.5,
+          "denominator": 16
+        },
+        "effective_hit@5_including_errors": {
+          "value": 1.0,
+          "denominator": 44
+        },
+        "returned_version_match_rate": {
+          "value": null,
+          "denominator": 0
+        }
+      }
+    },
+    "direct_hit_at_5": {
+      "hits": 44,
+      "denominator": 44,
+      "value": 1.0
+    },
+    "results": [
+      {
+        "id": "L-MF-01",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-16",
+          "civil_code-2020-05-28-1085",
+          "marriage_ii-2025-01-15-17",
+          "civil_code-2020-05-28-1076",
+          "marriage_ii-2025-01-15-3"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-16": 3,
+          "civil_code-2020-05-28-1085": 2,
+          "civil_code-2020-05-28-1084": 1
+        },
+        "error": null,
+        "latency_ms": 9.231100004399195,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.9467676761267002,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.4,
+            "ndcg": 0.9467676761267002,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-02",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-17",
+          "civil_code-2020-05-28-1085",
+          "marriage_ii-2025-01-15-16",
+          "civil_code-2020-05-28-1076",
+          "civil_code-2020-05-28-1084"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-17": 3,
+          "civil_code-2020-05-28-1085": 2
+        },
+        "error": null,
+        "latency_ms": 9.096900001168251,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-03",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-8",
+          "marriage_ii-2025-01-15-6",
+          "civil_code-2020-05-28-1085",
+          "civil_code-2020-05-28-1084",
+          "marriage_ii-2025-01-15-16"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-8": 3,
+          "civil_code-2020-05-28-1062": 2,
+          "civil_code-2020-05-28-1087": 2
+        },
+        "error": null,
+        "latency_ms": 8.360400010133162,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.6735439182299785,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.2,
+            "ndcg": 0.6735439182299785,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-04",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-7",
+          "marriage_ii-2025-01-15-11",
+          "marriage_ii-2025-01-15-20",
+          "civil_code-2020-05-28-1079",
+          "civil_code-2020-05-28-1064"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-7": 3,
+          "civil_code-2020-05-28-153": 2,
+          "civil_code-2020-05-28-1062": 1
+        },
+        "error": null,
+        "latency_ms": 8.177399999112822,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7452525342261976,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.2,
+            "ndcg": 0.7452525342261976,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-05",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-21",
+          "marriage_ii-2025-01-15-8",
+          "marriage_ii-2025-01-15-5",
+          "civil_code-2020-05-28-1087",
+          "marriage_ii-2025-01-15-18"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-21": 3
+        },
+        "error": null,
+        "latency_ms": 8.11029999749735,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-06",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-4",
+          "marriage_ii-2025-01-15-7",
+          "civil_code-2020-05-28-1062",
+          "civil_code-2020-05-28-1087",
+          "marriage_ii-2025-01-15-8"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-4": 3
+        },
+        "error": null,
+        "latency_ms": 8.12499999301508,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-07",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-12",
+          "marriage_ii-2025-01-15-13",
+          "civil_code-2020-05-28-1084",
+          "civil_code-2020-05-28-1079",
+          "marriage_ii-2025-01-15-14"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-12": 3,
+          "marriage_ii-2025-01-15-13": 2
+        },
+        "error": null,
+        "latency_ms": 8.332999990670942,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-08",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-6",
+          "marriage_ii-2025-01-15-7",
+          "marriage_ii-2025-01-15-11",
+          "civil_code-2020-05-28-1064",
+          "civil_code-2020-05-28-1087"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-6": 3,
+          "civil_code-2020-05-28-1087": 1
+        },
+        "error": null,
+        "latency_ms": 25.152800008072518,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.9173194127129571,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.9680147827042069,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-09",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-20",
+          "marriage_ii-2025-01-15-3",
+          "civil_code-2020-05-28-1085",
+          "civil_code-2020-05-28-1076",
+          "marriage_ii-2025-01-15-16"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-20": 3
+        },
+        "error": null,
+        "latency_ms": 8.389599999645725,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-10",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-19",
+          "marriage_ii-2025-01-15-18",
+          "civil_code-2020-05-28-1084",
+          "civil_code-2020-05-28-1087",
+          "marriage_ii-2025-01-15-16"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-18": 3
+        },
+        "error": null,
+        "latency_ms": 8.178799995221198,
+        "metrics": {
+          "1": {
+            "hit": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "ndcg": 0.0,
+            "reciprocal_rank": 0.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.6309297535714575,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 0.6309297535714575,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-11",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": true,
+        "ranking": [
+          "marriage_ii-2025-01-15-19",
+          "civil_code-2020-05-28-1084",
+          "marriage_ii-2025-01-15-18",
+          "marriage_ii-2025-01-15-13",
+          "civil_code-2020-05-28-1085"
+        ],
+        "gold": {
+          "marriage_ii-2025-01-15-19": 3
+        },
+        "error": null,
+        "latency_ms": 8.104600012302399,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-MF-12",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": false,
+        "ranking": [
+          "civil_code-2020-05-28-1079",
+          "marriage_ii-2025-01-15-16",
+          "marriage_ii-2025-01-15-11",
+          "marriage_ii-2025-01-15-15",
+          "marriage_ii-2025-01-15-17"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.690200003911741,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-MF-13",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 0.014500008546747267,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-MF-14",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 6.289700002525933,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-MF-15",
+        "route": "law_bm25",
+        "domain": "marriage_family",
+        "answerable": false,
+        "ranking": [
+          "civil_code-2020-05-28-1085",
+          "marriage_ii-2025-01-15-12",
+          "civil_code-2020-05-28-1087",
+          "marriage_ii-2025-01-15-5",
+          "marriage_ii-2025-01-15-7"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.03549999545794,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-LD-01",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-19",
+          "labor_ii-2025-07-31-15",
+          "labor_contract-2012-12-28-38",
+          "labor_arbitration-2007-12-29-9",
+          "labor_contract-2012-12-28-46"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-19": 3,
+          "labor_contract-2012-12-28-38": 2,
+          "labor_contract-2012-12-28-46": 1
+        },
+        "error": null,
+        "latency_ms": 8.517900001606904,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.9049495058460971,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6,
+            "ndcg": 0.9461356536981058,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-02",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-13",
+          "labor_ii-2025-07-31-14",
+          "labor_ii-2025-07-31-15",
+          "labor_contract-2012-12-28-36",
+          "labor_arbitration-2007-12-29-2"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-13": 3
+        },
+        "error": null,
+        "latency_ms": 8.4391999989748,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-03",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-3",
+          "labor_contract-2012-12-28-10",
+          "labor_ii-2025-07-31-6",
+          "labor_arbitration-2007-12-29-2",
+          "labor_contract-2012-12-28-82"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-3": 3,
+          "labor_contract-2012-12-28-7": 2
+        },
+        "error": null,
+        "latency_ms": 8.730300003662705,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.2,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-04",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-6",
+          "labor_contract-2012-12-28-82",
+          "labor_contract-2012-12-28-47",
+          "labor_ii-2025-07-31-7",
+          "labor_ii-2025-07-31-9"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-6": 3,
+          "labor_ii-2025-07-31-7": 2,
+          "labor_contract-2012-12-28-82": 2
+        },
+        "error": null,
+        "latency_ms": 8.716700001969002,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.8556691603792903,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6,
+            "ndcg": 0.9799889788426704,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-05",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-18",
+          "labor_ii-2025-07-31-16",
+          "labor_contract-2012-12-28-87",
+          "labor_arbitration-2007-12-29-2",
+          "labor_arbitration-2007-12-29-9"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-18": 3
+        },
+        "error": null,
+        "latency_ms": 8.857800014084205,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-06",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-1",
+          "labor_ii-2025-07-31-2",
+          "labor_ii-2025-07-31-4",
+          "labor_arbitration-2007-12-29-6",
+          "labor_contract-2012-12-28-30"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-1": 3
+        },
+        "error": null,
+        "latency_ms": 9.067399994819425,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-07",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-9",
+          "labor_ii-2025-07-31-7",
+          "labor_ii-2025-07-31-6",
+          "labor_contract-2012-12-28-82",
+          "labor_contract-2012-12-28-10"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-7": 3,
+          "labor_contract-2012-12-28-82": 2
+        },
+        "error": null,
+        "latency_ms": 8.405400003539398,
+        "metrics": {
+          "1": {
+            "hit": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "ndcg": 0.0,
+            "reciprocal_rank": 0.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.4966392596877323,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.6419288461539238,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-08",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-10",
+          "labor_ii-2025-07-31-9",
+          "labor_ii-2025-07-31-11",
+          "labor_contract-2012-12-28-82",
+          "labor_contract-2012-12-28-46"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-10": 3
+        },
+        "error": null,
+        "latency_ms": 8.51189999957569,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-09",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-11",
+          "labor_ii-2025-07-31-10",
+          "labor_ii-2025-07-31-3",
+          "labor_contract-2012-12-28-46",
+          "labor_arbitration-2007-12-29-28"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-11": 3
+        },
+        "error": null,
+        "latency_ms": 8.783299999777228,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-10",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-15",
+          "labor_ii-2025-07-31-14",
+          "labor_ii-2025-07-31-19",
+          "labor_contract-2012-12-28-47",
+          "labor_arbitration-2007-12-29-9"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-15": 3
+        },
+        "error": null,
+        "latency_ms": 8.99849999404978,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-11",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": true,
+        "ranking": [
+          "labor_ii-2025-07-31-17",
+          "labor_contract-2012-12-28-42",
+          "labor_ii-2025-07-31-18",
+          "labor_arbitration-2007-12-29-2",
+          "labor_contract-2012-12-28-36"
+        ],
+        "gold": {
+          "labor_ii-2025-07-31-17": 3
+        },
+        "error": null,
+        "latency_ms": 9.188399999402463,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-LD-12",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": false,
+        "ranking": [
+          "labor_arbitration-2007-12-29-47",
+          "labor_contract-2012-12-28-47",
+          "labor_ii-2025-07-31-18",
+          "labor_contract-2012-12-28-40",
+          "labor_ii-2025-07-31-16"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.902000001398847,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-LD-13",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 0.015900004655122757,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-LD-14",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 5.919900009757839,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-LD-15",
+        "route": "law_bm25",
+        "domain": "labor_dispute",
+        "answerable": false,
+        "ranking": [
+          "labor_arbitration-2007-12-29-9",
+          "labor_ii-2025-07-31-7",
+          "labor_ii-2025-07-31-17",
+          "labor_contract-2012-12-28-42",
+          "labor_contract-2012-12-28-38"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.68659999105148,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-TA-01",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-6",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-73",
+          "civil_code-2020-05-28-1208",
+          "road_safety-2021-04-29-76"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-6": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 7.889000000432134,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-02",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-7",
+          "personal_injury-2022-04-24-8",
+          "civil_code-2020-05-28-1165",
+          "road_safety-2021-04-29-73",
+          "civil_code-2020-05-28-1179"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-7": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 7.914899993920699,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.9176601606601069,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-03",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-8",
+          "road_safety-2021-04-29-73",
+          "civil_code-2020-05-28-1209",
+          "personal_injury-2022-04-24-13",
+          "civil_code-2020-05-28-1215"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-8": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.037500010686927,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.2,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-04",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-9",
+          "civil_code-2020-05-28-1208",
+          "road_safety-2021-04-29-70",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-76"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-9": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.023700007470325,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.9324441894571632,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-05",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-11",
+          "civil_code-2020-05-28-1179",
+          "personal_injury-2022-04-24-8",
+          "road_safety-2021-04-29-70",
+          "personal_injury-2022-04-24-6"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-11": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.116299999528565,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-06",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-13",
+          "personal_injury-2022-04-24-19",
+          "personal_injury-2022-04-24-20",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-73"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-13": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.012300007976592,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.9324441894571632,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-07",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-10",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-73",
+          "road_safety-2021-04-29-70",
+          "civil_code-2020-05-28-1208"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-10": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.31389999075327,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-08",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-14",
+          "civil_code-2020-05-28-1179",
+          "personal_injury-2022-04-24-22",
+          "personal_injury-2022-04-24-21",
+          "personal_injury-2022-04-24-16"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-14": 3,
+          "civil_code-2020-05-28-1179": 2
+        },
+        "error": null,
+        "latency_ms": 8.523399999830872,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-09",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-12",
+          "personal_injury-2022-04-24-15",
+          "personal_injury-2022-04-24-19",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-74"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-12": 3,
+          "civil_code-2020-05-28-1179": 2,
+          "personal_injury-2022-04-24-22": 1
+        },
+        "error": null,
+        "latency_ms": 7.918499992229044,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7452525342261976,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.4,
+            "ndcg": 0.882808018370203,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-10",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-22",
+          "personal_injury-2022-04-24-20",
+          "personal_injury-2022-04-24-15",
+          "civil_code-2020-05-28-1208",
+          "road_safety-2021-04-29-73"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-22": 3
+        },
+        "error": null,
+        "latency_ms": 8.029999997233972,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-11",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": true,
+        "ranking": [
+          "personal_injury-2022-04-24-16",
+          "personal_injury-2022-04-24-18",
+          "personal_injury-2022-04-24-17",
+          "civil_code-2020-05-28-1179",
+          "personal_injury-2022-04-24-19"
+        ],
+        "gold": {
+          "personal_injury-2022-04-24-16": 3,
+          "personal_injury-2022-04-24-17": 3,
+          "civil_code-2020-05-28-1179": 1
+        },
+        "error": null,
+        "latency_ms": 8.38449998991564,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.881130592761647,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6,
+            "ndcg": 0.9172717633239094,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-TA-12",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": false,
+        "ranking": [
+          "personal_injury-2022-04-24-12",
+          "road_safety-2021-04-29-73",
+          "civil_code-2020-05-28-1208",
+          "road_safety-2021-04-29-70",
+          "civil_code-2020-05-28-1215"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.195100002922118,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-TA-13",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 0.014499993994832039,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-TA-14",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 6.257600005483255,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-TA-15",
+        "route": "law_bm25",
+        "domain": "traffic_accident",
+        "answerable": false,
+        "ranking": [
+          "personal_injury-2022-04-24-4",
+          "road_safety-2021-04-29-74",
+          "personal_injury-2022-04-24-16",
+          "civil_code-2020-05-28-1179",
+          "road_safety-2021-04-29-76"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 8.704799998668022,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-CD-01",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-2",
+          "contract_general-2023-12-04-23",
+          "civil_code-2020-05-28-680",
+          "civil_code-2020-05-28-509",
+          "contract_general-2023-12-04-63"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-2": 3,
+          "contract_general-2023-12-04-1": 2,
+          "civil_code-2020-05-28-509": 1
+        },
+        "error": null,
+        "latency_ms": 14.10549999854993,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7452525342261976,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.6666666666666666,
+            "precision": 0.4,
+            "ndcg": 0.7911043622741993,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-02",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-6",
+          "contract_general-2023-12-04-8",
+          "contract_general-2023-12-04-7",
+          "civil_code-2020-05-28-585",
+          "contract_general-2023-12-04-18"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-6": 3
+        },
+        "error": null,
+        "latency_ms": 12.774799994076602,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-03",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-7",
+          "contract_general-2023-12-04-8",
+          "contract_general-2023-12-04-12",
+          "civil_code-2020-05-28-577",
+          "civil_code-2020-05-28-584"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-7": 3,
+          "contract_general-2023-12-04-8": 3,
+          "contract_general-2023-12-04-6": 1,
+          "civil_code-2020-05-28-577": 1
+        },
+        "error": null,
+        "latency_ms": 19.992400004412048,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.25,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.25,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.9580414003446834,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.75,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.75,
+            "precision": 0.6,
+            "ndcg": 0.9595049392424512,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-04",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-10",
+          "civil_code-2020-05-28-496",
+          "contract_general-2023-12-04-9",
+          "civil_code-2020-05-28-497",
+          "contract_general-2023-12-04-1"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-10": 3,
+          "civil_code-2020-05-28-496": 2,
+          "contract_general-2023-12-04-9": 1
+        },
+        "error": null,
+        "latency_ms": 18.493299998226576,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-05",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-13",
+          "contract_general-2023-12-04-16",
+          "contract_general-2023-12-04-53",
+          "civil_code-2020-05-28-143",
+          "civil_code-2020-05-28-153"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-13": 3,
+          "civil_code-2020-05-28-153": 2,
+          "civil_code-2020-05-28-143": 1
+        },
+        "error": null,
+        "latency_ms": 16.13230000657495,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.3333333333333333,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7452525342261976,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6,
+            "ndcg": 0.9146628058302255,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-06",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-65",
+          "contract_general-2023-12-04-64",
+          "contract_general-2023-12-04-66",
+          "civil_code-2020-05-28-585",
+          "civil_code-2020-05-28-584"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-65": 3,
+          "contract_general-2023-12-04-64": 2,
+          "civil_code-2020-05-28-585": 2,
+          "civil_code-2020-05-28-584": 1
+        },
+        "error": null,
+        "latency_ms": 15.394899994134903,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.25,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.25,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.8556691603792903,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.75,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.8,
+            "ndcg": 0.9767362801495987,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-07",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-67",
+          "contract_general-2023-12-04-6",
+          "civil_code-2020-05-28-566",
+          "civil_code-2020-05-28-509",
+          "contract_general-2023-12-04-68"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-67": 3
+        },
+        "error": null,
+        "latency_ms": 12.415299992426299,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-08",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-68",
+          "contract_general-2023-12-04-67",
+          "contract_general-2023-12-04-63",
+          "civil_code-2020-05-28-563",
+          "civil_code-2020-05-28-585"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-68": 3,
+          "contract_general-2023-12-04-67": 1
+        },
+        "error": null,
+        "latency_ms": 12.613700004294515,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-09",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-48",
+          "contract_general-2023-12-04-49",
+          "contract_general-2023-12-04-50",
+          "contract_general-2023-12-04-47",
+          "civil_code-2020-05-28-585"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-48": 3
+        },
+        "error": null,
+        "latency_ms": 12.406699999701232,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.3333333333333333,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.2,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-10",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-53",
+          "contract_general-2023-12-04-54",
+          "contract_general-2023-12-04-52",
+          "civil_code-2020-05-28-563",
+          "civil_code-2020-05-28-566"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-53": 3,
+          "civil_code-2020-05-28-563": 2
+        },
+        "error": null,
+        "latency_ms": 13.133500004187226,
+        "metrics": {
+          "1": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 1.0,
+            "ndcg": 1.0,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 0.5,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.3333333333333333,
+            "ndcg": 0.7871546029909718,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 1.0,
+            "precision": 0.4,
+            "ndcg": 0.9324441894571632,
+            "reciprocal_rank": 1.0,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-11",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": true,
+        "ranking": [
+          "contract_general-2023-12-04-61",
+          "contract_general-2023-12-04-63",
+          "contract_general-2023-12-04-60",
+          "civil_code-2020-05-28-584",
+          "civil_code-2020-05-28-563"
+        ],
+        "gold": {
+          "contract_general-2023-12-04-60": 3,
+          "contract_general-2023-12-04-63": 3,
+          "civil_code-2020-05-28-584": 2,
+          "contract_general-2023-12-04-62": 1
+        },
+        "error": null,
+        "latency_ms": 12.991300012799911,
+        "metrics": {
+          "1": {
+            "hit": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "ndcg": 0.0,
+            "reciprocal_rank": 0.0,
+            "recall_ceiling": 0.25,
+            "negative_false_retrieval": null
+          },
+          "3": {
+            "hit": 1.0,
+            "recall": 0.5,
+            "precision": 0.6666666666666666,
+            "ndcg": 0.6128984789428379,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 0.75,
+            "negative_false_retrieval": null
+          },
+          "5": {
+            "hit": 1.0,
+            "recall": 0.75,
+            "precision": 0.6,
+            "ndcg": 0.6899236104382197,
+            "reciprocal_rank": 0.5,
+            "recall_ceiling": 1.0,
+            "negative_false_retrieval": null
+          }
+        }
+      },
+      {
+        "id": "L-CD-12",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": false,
+        "ranking": [
+          "contract_general-2023-12-04-60",
+          "contract_general-2023-12-04-23",
+          "civil_code-2020-05-28-143",
+          "civil_code-2020-05-28-497",
+          "contract_general-2023-12-04-4"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 12.552800006233156,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      },
+      {
+        "id": "L-CD-13",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 0.016699996194802225,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-CD-14",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": false,
+        "ranking": [],
+        "gold": {},
+        "error": null,
+        "latency_ms": 6.194100002176128,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": false
+          }
+        }
+      },
+      {
+        "id": "L-CD-15",
+        "route": "law_bm25",
+        "domain": "contract_dispute",
+        "answerable": false,
+        "ranking": [
+          "contract_general-2023-12-04-24",
+          "civil_code-2020-05-28-496",
+          "contract_general-2023-12-04-9",
+          "civil_code-2020-05-28-497",
+          "contract_general-2023-12-04-16"
+        ],
+        "gold": {},
+        "error": null,
+        "latency_ms": 12.273299988009967,
+        "metrics": {
+          "1": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "3": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          },
+          "5": {
+            "hit": null,
+            "recall": null,
+            "precision": 0.0,
+            "ndcg": null,
+            "reciprocal_rank": null,
+            "recall_ceiling": null,
+            "negative_false_retrieval": true
+          }
+        }
+      }
+    ]
+  },
+  "offline_regression_passed": true,
+  "external_requests_blocked": 0,
+  "completed_at": "2026-09-24T20:07:22.390080+00:00",
+  "implementation_files": {
+    "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+    "app/agents/evidence.py": "7c722a4931408e6cf4855a025039d10bdc3817c7c18812d240e38e41791ae614",
+    "app/agents/grounding.py": "6ea8fc1189e8ad8dab47c87d365dbcf8759a41b7643701f955a0da1e18e4f35e",
+    "app/agents/intent.py": "002ad4bb586e6f9bef63cfd2981556d530a13a3feeec86f29e9db12c941383c2",
+    "app/agents/legal_evidence.py": "8e9f6ea8d848bc35f284a0572f691249ef538e51ab1e3e1c48a7db2ba6fe6ea0",
+    "app/agents/qa.py": "346d0449f6be6baf3e80d151426594889a5483d4c8d6e6b8e8d4a7ac471f30cf",
+    "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+    "app/agents/tasks.py": "4be727fe1222c3687f02231fbcba0726f88a0934d1e973ed73d93db17078d055",
+    "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+    "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+    "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+    "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+    "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+    "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+    "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+    "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+    "app/rag/legal_catalog.py": "269d45fb07749ade5ae91ff3e26b7142fc6cc9d7547c1773ed509d93232addd9",
+    "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+    "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+    "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+    "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+    "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+    "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+    "app/evaluation/dataset.py": "ad989e043c543975791578cadcf9dada29ebf538202cf30838229f88be3a9950",
+    "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+    "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+    "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+    "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+    "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+    "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+    "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+    "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+    "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+    "scripts/evaluate_offline.py": "55267a1cea79486eefcbe35cc4a673ae1ed7a57cb4d3a452c307ceebaeceb73e",
+    "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+    "scripts/evaluate_rag.py": "1fb1b0fd377d19de5115cda8eb4f33a0f6a973f2d7f39ad85a0e0aab3c3c0b0a",
+    "scripts/evaluate_rag_answers.py": "e9076902f5c6f93d076998d3962db5546b39bbae764380af7d3e794791af0b29",
+    "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+    "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+    "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+    "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+    "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+    "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+    "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+    "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+    "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+    "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+  }
+}

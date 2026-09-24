@@ -15,7 +15,7 @@ class RetirementEvidenceModel:
         selected = [item for item in payload['candidates'] if '退休年龄' in item['source']['original_text']]
         return json.dumps({'assessment': 'conditional' if selected else 'insufficient',
                            'source_ids': [item['source_id'] for item in selected],
-                           'direct_support': {item['source_id']: item['source']['original_text'] for item in selected}})
+                           'direct_support': {item['source_id']: [item['spans'][0]['span_id']] for item in selected}})
 
 
 @pytest.mark.anyio

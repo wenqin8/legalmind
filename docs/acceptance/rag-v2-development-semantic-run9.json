@@ -1,0 +1,31 @@
+{
+  "raw_report_sha256": "188766dc7737f80ac4879ebde2e1bdbe3f94ee20fd1d6c684083cf9678dba9ba",
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "对开发输出进行定向语义复核，发现明确阻断后保留失败，不将未完成的条目批量判为通过。",
+  "limitations": [
+    "不是法律专家或盲测认证；未列出的成功回答没有通过本轮完整语义验收。"
+  ],
+  "turns": {
+    "E-L-TA-06:1": {
+      "faithfulness": "fail",
+      "applicability": "fail",
+      "notes": "原文是特殊需要时可以参照配制机构意见，回答将能否偏离普通标准写为取决于是否有意见支持，可能把可参考方式升级为必要条件。"
+    },
+    "E-L-TA-06:3": {
+      "faithfulness": "fail",
+      "applicability": "fail",
+      "notes": "日期确认后重复同一必要条件扩张；前文免责声明不能补救该句。"
+    },
+    "E-L-CD-01:1": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "结论正确区分当事人惯常做法和行业做法，但风险段概括取决于知道或应当知道等条件，未继续区分两分支，可能把第二分支条件施加于第一分支。"
+    }
+  },
+  "service_failures": {
+    "E-L-MF-04:1": "修订仍复制未提供的交叉条号157",
+    "E-L-LD-01:1": "修订删除条号后解除事由联系表述不足，条件审核拒绝",
+    "E-L-LD-05:2": "审核模型拼接非连续原文，invalid_support_span",
+    "E-L-TA-03:1": "修订后审核模型拼接非连续原文，invalid_support_span"
+  }
+}

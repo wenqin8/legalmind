@@ -4,6 +4,7 @@ import pytest
 
 from app.agents.workflow import build_workflow
 from app.schemas.chat import ChatRequest
+from tests.agent_helpers import AgentLLM
 
 pytestmark = pytest.mark.anyio
 
@@ -21,7 +22,7 @@ async def test_every_graph_branch_terminates_with_standard_result(app, message, 
     events = []
     async def emit(name, data):
         events.append((name, data))
-    graph = build_workflow(app.state.database, EmptyRetriever(), app.state.llm_client, emit)
+    graph = build_workflow(app.state.database, EmptyRetriever(), AgentLLM(), emit)
     state = await graph.ainvoke({"request_id": uuid4(), "user_id": uuid4(), "session_id": uuid4(), "payload": ChatRequest(message=message, document_type=document_type), "conversation_messages": [], "warnings": []}, {"recursion_limit": 10})
     result = state["result"]
     assert result.intent == intent

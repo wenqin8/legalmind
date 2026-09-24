@@ -35,8 +35,8 @@ def evidence():
     [{'unit_id': 0, 'verdict': 'unsupported', 'supports': []}],
     [{'unit_id': 0, 'verdict': 'neutral', 'supports': []}],
     [{'unit_id': 0, 'verdict': 'supported', 'supports': []}],
-    [{'unit_id': 0, 'verdict': 'supported', 'supports': [{'citation_id': 'S1', 'quote': '不在原文中的条件'}]}],
-    [{'unit_id': 0, 'verdict': 'supported', 'supports': [{'citation_id': 'S4', 'quote': '申请人应当提供证明材料。'}]}],
+    [{'unit_id': 0, 'verdict': 'supported', 'supports': [{'citation_id': 'S1', 'span_id': 999}]}],
+    [{'unit_id': 0, 'verdict': 'supported', 'supports': [{'citation_id': 'S4', 'span_id': 0}]}],
 ])
 async def test_checker_cannot_omit_claims_or_fabricate_support(items):
     with pytest.raises(ModelUnavailableError):
@@ -46,7 +46,7 @@ async def test_checker_cannot_omit_claims_or_fabricate_support(items):
 
 async def test_valid_support_is_rendered_with_its_own_citation():
     raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [
-        {'citation_id': 'S1', 'quote': '申请人应当提供证明材料。'}]}]})
+        {'citation_id': 'S1', 'span_id': 0}]}]})
     await validate_grounding('结论\n申请人需要提供证明材料[S1]。', evidence(), '材料', CheckedFake(raw))
     result = await validate_grounding('结论\n申请人需要提供证明材料。', evidence(), '材料', CheckedFake(raw))
     assert result == '结论\n[S1] 申请人需要提供证明材料。'
@@ -55,7 +55,7 @@ async def test_valid_support_is_rendered_with_its_own_citation():
 async def test_server_added_label_does_not_turn_a_quoted_term_into_a_verbatim_quote():
     from app.agents.evidence import validate_citations
     raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [
-        {'citation_id': 'S1', 'quote': '申请人应当提供证明材料。'}]}]})
+        {'citation_id': 'S1', 'span_id': 0}]}]})
     result = await validate_grounding('结论\n需要提供“证明材料”。', evidence(), '材料', CheckedFake(raw))
     validate_citations(result, evidence())
 
@@ -91,6 +91,20 @@ async def test_condition_check_can_block_a_first_reviewer_approval(items):
                 return json.dumps({'items': items})
             return await super().complete(messages)
     raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [
-        {'citation_id': 'S1', 'quote': '申请人应当提供证明材料。'}]}]})
+        {'citation_id': 'S1', 'span_id': 0}]}]})
     with pytest.raises(ModelUnavailableError):
         await validate_grounding('结论\n申请人应当提供材料。', evidence(), '材料', ConditionRejector(raw))
+
+
+async def test_multiple_server_spans_support_one_claim_without_stitching_quotes():
+    from app.agents.grounding import evidence_spans
+    text = '第一条\u3000满足前提时适用以下规则：\r\n（一）事项甲；\r\n（二）事项乙；\r\n（三）事项丙。'
+    spans = evidence_spans(text)
+    assert [s['span_id'] for s in spans] == list(range(len(spans)))
+    assert all(s['text'] in text for s in spans)
+    source = evidence()[0].source.model_copy(update={'original_text': text})
+    chosen = [s['span_id'] for s in spans if '前提' in s['text'] or '事项甲' in s['text'] or '事项丙' in s['text']]
+    raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [
+        {'citation_id': 'S1', 'span_id': i} for i in chosen]}]})
+    result = await validate_grounding('结论\n满足前提时，事项甲及丙适用。', [Evidence(source, text)], '范围', CheckedFake(raw))
+    assert result.count('[S1]') == 1

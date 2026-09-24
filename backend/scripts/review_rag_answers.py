@@ -26,7 +26,8 @@ def review(raw: dict, annotations: dict | None = None):
     queries={q.id:q for q in load_queries()};known=known_sources();items=[]
     for scenario in raw['scenarios']:
         query=queries[scenario['query_id']]
-        item={'id':scenario['id'],'domain':scenario['domain'],'split':scenario['split'],'turns':[]}
+        item={'id':scenario['id'],'domain':scenario['domain'],'split':scenario['split'],
+              'gold_grades':{key:value.grade for key,value in query.relevance.items()},'turns':[]}
         for index,turn in enumerate(scenario['turns'],1):
             entry={'turn':index,'expected':turn['expected']['expected'],'status':turn.get('status'),'error':turn.get('error')}
             if turn.get('status')==200 and turn.get('evaluation'):
@@ -61,6 +62,19 @@ def review(raw: dict, annotations: dict | None = None):
             values=[(t.get('evaluation') or t.get('stage_metrics',{})).get(stage+'_metrics',{}).get(name) or 0 for t in answered]
             metrics[f'{stage}_{name}_on_expected_answers']={'value':mean(values) if values else None,'denominator':len(values)}
     metrics['by_domain']={}
+    metrics['source_recall_by_grade']={}
+    for grade in (3,2,1):
+        rows=[(turn, {key for key,value in item['gold_grades'].items() if value==grade})
+              for item in items for turn in item['turns'] if turn['expected']=='answer']
+        rows=[(turn,gold) for turn,gold in rows if gold]
+        stages={}
+        for stage in ('candidate','selected','returned'):
+            matches=[len(set((turn.get('evaluation') or turn.get('stage_metrics',{})).get(stage+'_ids',[])) & gold)
+                     for turn,gold in rows]
+            stages[stage]={'macro_recall':mean(n/len(gold) for n,(_,gold) in zip(matches,rows)) if rows else None,
+                           'turns_with_grade':len(rows), 'matched_sources':sum(matches),
+                           'gold_sources':sum(len(gold) for _,gold in rows)}
+        metrics['source_recall_by_grade'][str(grade)]=stages
     for domain in sorted({s['domain'] for s in items}):
         subset=[t for s in items if s['domain']==domain for t in s['turns']]
         metrics['by_domain'][domain]={'turns':len(subset),

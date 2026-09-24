@@ -102,3 +102,8 @@ def test_failed_generation_retains_retrieval_measurements(monkeypatch):
     assert result['metrics']['candidate_recall_on_expected_answers']['value']==1
     assert result['metrics']['selected_recall_on_expected_answers']['value']==1
     assert result['metrics']['returned_recall_on_expected_answers']['value']==0
+    grades=result['metrics']['source_recall_by_grade']
+    assert grades['3']['candidate']['macro_recall']==1
+    assert grades['3']['returned']['macro_recall']==0
+    assert grades['3']['returned']['turns_with_grade']==1
+    assert grades['1']['returned']['macro_recall'] is None

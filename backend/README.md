@@ -123,11 +123,20 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 
 ## 测试
 
+日常开发先运行离线入口，不需要模型额度或真实Redis。完整说明见 [离线回归](../docs/acceptance/rag-v2-offline.md)：
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite quick --output ../tmp/offline-quick-new.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite full --include-vectors --output ../tmp/offline-full-new.json
+```
+
+快速模式覆盖本轮关键回归和60条法条查询；完整模式覆盖全部测试，`--include-vectors`增加案例三路检索，使用缓存BGE，不联网下载。脚本同时拦截外网HTTP/DNS及真实模型请求，异常联网尝试导致失败。可加 `--recording <已保存答案JSON>` 复算历史指标；它不生成新答案，也不验证新提示词质量。真实模型评估仅在用户明确要求时运行：
+
 修复前 RAG-v1 基线已本地提交为 `6fb2996`，保持默认运行库、冻结查询和 M3 标签不变。当前 RAG-v2 仅运行120条开发查询及36个开发场景（52轮），扩展209条法条与16条案例只导入 `tmp/` 下新建SQLite和Chroma；不需要改变 `.env`。默认库锁定 `demo-m3-60`，评估锁定 `eval-rag-v2-209`，响应会显示资料边界。详情见 [评估数据定义](data/evaluation/rag-v1/README.md) 和 [修复验收](../docs/acceptance/rag-v2.md)。
 
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.evaluate_rag --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-retrieval-new-run.json
-.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-answers-new-run.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --allow-real-model --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-answers-new-run.json
 .\.venv\Scripts\python.exe -m scripts.review_rag_answers --input ../docs/acceptance/rag-v1-answers.json --annotations ../docs/acceptance/rag-v1-review-notes.json --output ../tmp/rag-review-new-run.json
 ```
 
@@ -140,6 +149,8 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 ```
 
 复核文件使用 `raw_report_sha256` 绑定答案报告，`reviewer` 记录复核身份，`turns` 以 `场景ID:轮次` 为键，每项包含 `faithfulness`、`applicability`（`pass/fail`）和具体 `notes`。不能仅根据引用真实或自动检查通过批量标记为通过。
+
+当前法条候选保留BM25前三条，剩余两项按分数除以“已选同法规数量+1”排序，最多五条；日期与终审状态参与版本过滤，不额外重复加入检索词。案例检索参数未变。离线复核新增 `source_recall_by_grade`：按冻结的3级直接依据、2级补充依据、1级背景分别统计各阶段召回，并保留原全相关来源Recall和错误请求分母，不能用直接依据指标替代完整召回。
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest

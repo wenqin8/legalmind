@@ -23,6 +23,8 @@ class AgentLLM(FakeLLMClient):
         self.call_count += 1
         if "TASK:INTENT" in messages[0].content:
             return '{"intent":"qa","confidence":0.9}'
+        if 'TASK:EXTRACT' in messages[0].content:
+            return '{"domain":null,"general_question":false,"requires_local_material":false,"fields":[]}'
         if "TASK:EVIDENCE" in messages[0].content:
             candidates = json.loads(messages[1].content)["candidates"]
             return json.dumps({"in_scope": self.selection, "source_ids": [candidates[0]["source_id"]] if self.selection and candidates else []})
@@ -37,7 +39,7 @@ class AgentLLM(FakeLLMClient):
             items = []
             for unit in data['units']:
                 labels = re.findall(r'\[(S[1-5])\]', unit['text'])
-                spans = [{'citation_id': e['citation_id'], 'quote': e['text']} for e in data['evidence'] if e['citation_id'] in labels]
+                spans = [{'citation_id': e['citation_id'], 'span_id': e['spans'][0]['span_id']} for e in data['evidence'] if e['citation_id'] in labels]
                 items.append({'unit_id': unit['unit_id'], 'verdict': 'supported' if spans else 'neutral', 'supports': spans})
             return json.dumps({'items': items})
         return self.response

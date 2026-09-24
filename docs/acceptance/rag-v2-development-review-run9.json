@@ -1,0 +1,3753 @@
+{
+  "source_run_started_at": "2026-09-24T09:32:51.139966+00:00",
+  "complete": true,
+  "model_reruns": 0,
+  "annotation_status": "agent_review_not_expert_certification",
+  "quality_gate_passed": null,
+  "metrics": {
+    "planned_turns": 52,
+    "http_successes": 48,
+    "scenario_structural_passes": 32,
+    "expected_answer_behavior_counts": {
+      "answer": 24,
+      "service_error": 4
+    },
+    "behavior_match_including_errors": {
+      "value": 0.9230769230769231,
+      "denominator": 52
+    },
+    "answerable_but_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "answerable_but_clarifying_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "hard_check_failures": {
+      "source_integrity": 0,
+      "known_citations": 0,
+      "verbatim_quotes": 0,
+      "no_model_urls": 0,
+      "version_interval": 0,
+      "field_provenance": 0,
+      "conflict_preserved": 0,
+      "confirmed_field": 0
+    },
+    "candidate_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "candidate_recall_on_expected_answers": {
+      "value": 0.8482142857142857,
+      "denominator": 28
+    },
+    "selected_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "selected_recall_on_expected_answers": {
+      "value": 0.7589285714285714,
+      "denominator": 28
+    },
+    "returned_hit_on_expected_answers": {
+      "value": 0.8571428571428571,
+      "denominator": 28
+    },
+    "returned_recall_on_expected_answers": {
+      "value": 0.6636904761904762,
+      "denominator": 28
+    },
+    "by_domain": {
+      "contract_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 1.0,
+          "denominator": 13
+        },
+        "http_successes": 13
+      },
+      "labor_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.8461538461538461,
+          "denominator": 13
+        },
+        "http_successes": 11
+      },
+      "marriage_family": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "traffic_accident": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      }
+    },
+    "source_recall_by_grade": {
+      "3": {
+        "candidate": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "selected": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "returned": {
+          "macro_recall": 0.8571428571428571,
+          "turns_with_grade": 28,
+          "matched_sources": 25,
+          "gold_sources": 29
+        }
+      },
+      "2": {
+        "candidate": {
+          "macro_recall": 0.6842105263157895,
+          "turns_with_grade": 19,
+          "matched_sources": 16,
+          "gold_sources": 23
+        },
+        "selected": {
+          "macro_recall": 0.5263157894736842,
+          "turns_with_grade": 19,
+          "matched_sources": 12,
+          "gold_sources": 23
+        },
+        "returned": {
+          "macro_recall": 0.47368421052631576,
+          "turns_with_grade": 19,
+          "matched_sources": 10,
+          "gold_sources": 23
+        }
+      },
+      "1": {
+        "candidate": {
+          "macro_recall": 0.5,
+          "turns_with_grade": 9,
+          "matched_sources": 5,
+          "gold_sources": 10
+        },
+        "selected": {
+          "macro_recall": 0.16666666666666666,
+          "turns_with_grade": 9,
+          "matched_sources": 2,
+          "gold_sources": 10
+        },
+        "returned": {
+          "macro_recall": 0.16666666666666666,
+          "turns_with_grade": 9,
+          "matched_sources": 2,
+          "gold_sources": 10
+        }
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "E-L-MF-01",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-16": 3,
+        "civil_code-2020-05-28-1085": 2,
+        "civil_code-2020-05-28-1084": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16",
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-3"
+            ],
+            "selected_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16"
+            ],
+            "returned_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.8354477690556398,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.7895959410076381,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.7895959410076381,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-02",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-17": 3,
+        "civil_code-2020-05-28-1085": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-16",
+              "civil_code-2020-05-28-1076"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-03",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-8": 3,
+        "civil_code-2020-05-28-1062": 2,
+        "civil_code-2020-05-28-1087": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-6",
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-14"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-8"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-8"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.6735439182299785,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.6735439182299785,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.6735439182299785,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-04",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-7": 3,
+        "civil_code-2020-05-28-153": 2,
+        "civil_code-2020-05-28-1062": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 424,
+          "error": "MODEL_UNAVAILABLE",
+          "failure_stage": "generation_or_service",
+          "stage_metrics": {
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-6",
+              "marriage_ii-2025-01-15-7",
+              "civil_code-2020-05-28-1079",
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-14"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-7"
+            ],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.47020199776783905,
+              "reciprocal_rank": 0.5,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.7452525342261976,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            }
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-05",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-21": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-21",
+              "marriage_ii-2025-01-15-23",
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1087",
+              "marriage_ii-2025-01-15-5"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-21",
+              "marriage_ii-2025-01-15-23"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-21",
+              "marriage_ii-2025-01-15-23"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-06",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {
+        "marriage_ii-2025-01-15-4": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-4",
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1087",
+              "civil_code-2020-05-28-1062",
+              "marriage_ii-2025-01-15-7"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-4"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-4"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "conflict",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "conflict",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 3,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-4",
+              "marriage_ii-2025-01-15-7",
+              "civil_code-2020-05-28-1062",
+              "civil_code-2020-05-28-1087",
+              "marriage_ii-2025-01-15-8"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-4"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-4"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-12",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-13",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "cancelled",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "cancelled",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-MF-14",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-01",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-19": 3,
+        "labor_contract-2012-12-28-38": 2,
+        "labor_contract-2012-12-28-46": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 424,
+          "error": "MODEL_UNAVAILABLE",
+          "failure_stage": "generation_or_service",
+          "stage_metrics": {
+            "candidate_ids": [
+              "labor_ii-2025-07-31-19",
+              "labor_ii-2025-07-31-15",
+              "labor_ii-2025-07-31-21",
+              "labor_contract-2012-12-28-38",
+              "labor_arbitration-2007-12-29-47"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-19",
+              "labor_ii-2025-07-31-21"
+            ],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.882808018370203,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.7452525342261976,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            }
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-02",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-13": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "labor_ii-2025-07-31-13",
+              "labor_ii-2025-07-31-14",
+              "labor_ii-2025-07-31-15",
+              "labor_contract-2012-12-28-40",
+              "labor_arbitration-2007-12-29-27"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-13"
+            ],
+            "returned_ids": [
+              "labor_ii-2025-07-31-13"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-03",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-3": 3,
+        "labor_contract-2012-12-28-7": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "labor_ii-2025-07-31-3",
+              "labor_ii-2025-07-31-6",
+              "labor_contract-2012-12-28-10",
+              "labor_arbitration-2007-12-29-2",
+              "labor_contract-2012-12-28-82"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-3",
+              "labor_ii-2025-07-31-6",
+              "labor_contract-2012-12-28-10",
+              "labor_arbitration-2007-12-29-2",
+              "labor_contract-2012-12-28-82"
+            ],
+            "returned_ids": [
+              "labor_ii-2025-07-31-3",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-04",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-6": 3,
+        "labor_ii-2025-07-31-7": 2,
+        "labor_contract-2012-12-28-82": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "labor_ii-2025-07-31-6",
+              "labor_contract-2012-12-28-82",
+              "labor_contract-2012-12-28-47",
+              "labor_ii-2025-07-31-7",
+              "labor_arbitration-2007-12-29-47"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-6"
+            ],
+            "returned_ids": [
+              "labor_ii-2025-07-31-6"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9799889788426704,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.6735439182299785,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.6735439182299785,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-05",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-18": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "answer",
+          "status": 424,
+          "error": "MODEL_UNAVAILABLE",
+          "failure_stage": "generation_or_service",
+          "stage_metrics": {
+            "candidate_ids": [
+              "labor_ii-2025-07-31-18",
+              "labor_ii-2025-07-31-16",
+              "labor_arbitration-2007-12-29-2",
+              "labor_contract-2012-12-28-87",
+              "labor_arbitration-2007-12-29-6"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-18",
+              "labor_ii-2025-07-31-16",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            }
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-06",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {
+        "labor_ii-2025-07-31-1": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_ii-2025-07-31-2",
+              "labor_arbitration-2007-12-29-6",
+              "labor_contract-2012-12-28-7",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_ii-2025-07-31-2",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "returned_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "conflict",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "conflict",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 3,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_ii-2025-07-31-2",
+              "labor_arbitration-2007-12-29-6",
+              "labor_contract-2012-12-28-7",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "selected_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_ii-2025-07-31-2",
+              "labor_arbitration-2007-12-29-6",
+              "labor_contract-2012-12-28-7",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "returned_ids": [
+              "labor_ii-2025-07-31-1",
+              "labor_arbitration-2007-12-29-2"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-12",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-13",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "cancelled",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "cancelled",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-LD-14",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-01",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-6": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-6",
+              "traffic_ii-2026-05-06-7",
+              "traffic_ii-2026-05-06-10",
+              "civil_code-2020-05-28-1179",
+              "road_safety-2021-04-29-76"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-6",
+              "civil_code-2020-05-28-1179"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-6",
+              "civil_code-2020-05-28-1179"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 0.9324441894571632,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-02",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-7": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-7",
+              "personal_injury-2022-04-24-8",
+              "traffic_ii-2026-05-06-6",
+              "civil_code-2020-05-28-1165",
+              "road_safety-2021-04-29-76"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-7"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-7"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-03",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-8": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 424,
+          "error": "MODEL_UNAVAILABLE",
+          "failure_stage": "generation_or_service",
+          "stage_metrics": {
+            "candidate_ids": [
+              "personal_injury-2022-04-24-8",
+              "traffic_ii-2026-05-06-7",
+              "personal_injury-2022-04-24-23",
+              "road_safety-2021-04-29-73",
+              "civil_code-2020-05-28-1209"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-8"
+            ],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            }
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-04",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-9": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-9",
+              "traffic_ii-2026-05-06-7",
+              "personal_injury-2022-04-24-23",
+              "road_safety-2021-04-29-76",
+              "civil_code-2020-05-28-1179"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-9"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-9"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 0.9176601606601069,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.7871546029909718,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-05",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-11": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-11",
+              "traffic_ii-2026-05-06-3",
+              "road_safety-2021-04-29-73",
+              "civil_code-2020-05-28-1179",
+              "traffic_ii-2026-05-06-10"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-11",
+              "civil_code-2020-05-28-1179"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-11",
+              "civil_code-2020-05-28-1179"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 0.9324441894571632,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-06",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {
+        "personal_injury-2022-04-24-13": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-13",
+              "road_safety-2021-04-29-73",
+              "traffic_ii-2026-05-06-3",
+              "civil_code-2020-05-28-1179",
+              "personal_injury-2022-04-24-19"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-13",
+              "civil_code-2020-05-28-1179"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-13",
+              "civil_code-2020-05-28-1179"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 0.9324441894571632,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "conflict",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "conflict",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 3,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "personal_injury-2022-04-24-13",
+              "road_safety-2021-04-29-73",
+              "traffic_ii-2026-05-06-3",
+              "civil_code-2020-05-28-1179",
+              "personal_injury-2022-04-24-19"
+            ],
+            "selected_ids": [
+              "personal_injury-2022-04-24-13",
+              "civil_code-2020-05-28-1179"
+            ],
+            "returned_ids": [
+              "personal_injury-2022-04-24-13",
+              "civil_code-2020-05-28-1179"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 0.9324441894571632,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-12",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-13",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "cancelled",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "cancelled",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-TA-14",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-01",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-2": 3,
+        "contract_general-2023-12-04-1": 2,
+        "civil_code-2020-05-28-509": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-2",
+              "contract_general-2023-12-04-23",
+              "civil_code-2020-05-28-680",
+              "civil_code-2020-05-28-509",
+              "contract_general-2023-12-04-3"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-2"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-2"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.7911043622741993,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.7452525342261976,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.7452525342261976,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-02",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-6": 3
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-6",
+              "contract_general-2023-12-04-3",
+              "civil_code-2020-05-28-585",
+              "civil_code-2020-05-28-496",
+              "contract_general-2023-12-04-8"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-6",
+              "contract_general-2023-12-04-3"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-6",
+              "contract_general-2023-12-04-3"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-03",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-7": 3,
+        "contract_general-2023-12-04-8": 3,
+        "contract_general-2023-12-04-6": 1,
+        "civil_code-2020-05-28-577": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-7",
+              "contract_general-2023-12-04-8",
+              "contract_general-2023-12-04-4",
+              "civil_code-2020-05-28-577",
+              "civil_code-2020-05-28-496"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-7",
+              "contract_general-2023-12-04-8",
+              "civil_code-2020-05-28-577"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-7",
+              "contract_general-2023-12-04-8",
+              "civil_code-2020-05-28-577"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.9595049392424512,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.9651194532279319,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.9651194532279319,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-04",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-10": 3,
+        "civil_code-2020-05-28-496": 2,
+        "contract_general-2023-12-04-9": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-10",
+              "civil_code-2020-05-28-496",
+              "civil_code-2020-05-28-497",
+              "contract_general-2023-12-04-9",
+              "labor_ii-2025-07-31-14"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-10",
+              "civil_code-2020-05-28-496"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-10",
+              "civil_code-2020-05-28-496"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9926195041747018,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.9467676761267002,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.9467676761267002,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-05",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-13": 3,
+        "civil_code-2020-05-28-153": 2,
+        "civil_code-2020-05-28-143": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-13",
+              "contract_general-2023-12-04-16",
+              "contract_general-2023-12-04-24",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9146628058302255,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-06",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {
+        "contract_general-2023-12-04-65": 3,
+        "contract_general-2023-12-04-64": 2,
+        "civil_code-2020-05-28-585": 2,
+        "civil_code-2020-05-28-584": 1
+      },
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64",
+              "contract_general-2023-12-04-66",
+              "civil_code-2020-05-28-585",
+              "civil_code-2020-05-28-566"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64",
+              "civil_code-2020-05-28-585"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.9409942346984062,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.960208997257994,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.4,
+              "ndcg": 0.821621226472388,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "conflict",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "conflict",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 3,
+          "expected": "answer",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64",
+              "contract_general-2023-12-04-66",
+              "civil_code-2020-05-28-585",
+              "civil_code-2020-05-28-566"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64",
+              "civil_code-2020-05-28-585"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-65",
+              "contract_general-2023-12-04-64"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.9409942346984062,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.75,
+              "precision": 0.6,
+              "ndcg": 0.960208997257994,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.5,
+              "precision": 0.4,
+              "ndcg": 0.821621226472388,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-12",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-13",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "clarify",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        },
+        {
+          "turn": 2,
+          "expected": "cancelled",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "cancelled",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    },
+    {
+      "id": "E-L-CD-14",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_grades": {},
+      "turns": [
+        {
+          "turn": 1,
+          "expected": "insufficient",
+          "status": 200,
+          "error": null,
+          "evaluation": {
+            "observed_behavior": "insufficient",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "selected_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "returned_metrics": {
+              "hit": null,
+              "recall": null,
+              "precision": 0.0,
+              "ndcg": null,
+              "reciprocal_rank": null,
+              "recall_ceiling": null,
+              "negative_false_retrieval": false
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness",
+            "provenance_check_origin": "original HTTP history check, carried forward unchanged"
+          }
+        }
+      ],
+      "agent_review": {
+        "status": "pending_expert_review"
+      }
+    }
+  ],
+  "raw_report_sha256": "188766dc7737f80ac4879ebde2e1bdbe3f94ee20fd1d6c684083cf9678dba9ba",
+  "review_implementation_sha256": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+  "annotations_sha256": null
+}

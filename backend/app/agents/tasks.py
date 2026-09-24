@@ -106,7 +106,9 @@ async def extract(payload: ChatRequest, task: TaskState, llm: LLMClient) -> Extr
         return result
     except (ModelUnavailableError, TimeoutError, ValueError, TypeError) as exc:
         logging.getLogger("app.tasks").warning("task_extraction_failed", extra={"exception_type": type(exc).__name__})
-        return Extraction()
+        # An unavailable/invalid extraction is not evidence of missing facts or
+        # missing law. Abort before any task/history state is committed.
+        raise ModelUnavailableError() from exc
 
 
 def task_reply(task: TaskState) -> str:

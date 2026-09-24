@@ -1,5 +1,13 @@
 """Resolve model-selected spans back to exact server-owned text."""
 
+import re
+
+
+def evidence_spans(text: str) -> list[dict]:
+    # Contiguous, server-owned slices; multiple selections remain separate.
+    pieces = [match.group().strip() for match in re.finditer(r'[^\r\n。！？；]+[。！？；]?', text)]
+    return [{'span_id': i, 'text': value} for i, value in enumerate(p for p in pieces if p)]
+
 
 def exact_support(text: str, proposed: str) -> str | None:
     if len(proposed.strip()) < 4:

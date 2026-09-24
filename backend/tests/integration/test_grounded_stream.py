@@ -93,3 +93,25 @@ async def test_disconnect_after_verified_paragraph_cancels_without_saving(app, c
             while app.state.session_store.locks:
                 await asyncio.sleep(.01)
     assert not app.state.session_store.rows and not model.completed
+
+
+@pytest.mark.parametrize('endpoint', ['send', 'stream'])
+async def test_extraction_outage_is_an_error_not_a_saved_insufficient_answer(app, client, endpoint):
+    from app.core.errors import ModelUnavailableError
+    model, headers = await setup(app, client)
+    original = model.complete
+    model.resume.set()
+    async def unavailable(messages):
+        if messages[0].content.startswith('TASK:EXTRACT'):
+            raise ModelUnavailableError()
+        return await original(messages)
+    model.complete = unavailable
+    async with live_server(app) as url, httpx.AsyncClient(base_url=url, timeout=10) as remote:
+        response = await remote.post('/api/v1/chat/' + endpoint, headers=headers, json=PAYLOAD)
+    if endpoint == 'send':
+        assert response.status_code == 424
+        assert response.json()['error']['code'] == 'MODEL_UNAVAILABLE'
+    else:
+        assert 'event: error' in response.text and '"success":false' in response.text
+        assert 'event: content' not in response.text
+    assert not app.state.session_store.rows and not app.state.session_store.locks

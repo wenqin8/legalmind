@@ -101,6 +101,14 @@ async def select_evidence(query: str, history: list[ConversationMessage], eviden
         return []
 
 
+class CitationViolation(ModelUnavailableError):
+    """Internal feedback; public error details never contain submitted text."""
+
+    def __init__(self, invalid_identifiers: list[str]):
+        super().__init__()
+        self.invalid_identifiers = invalid_identifiers
+
+
 def validate_citations(text: str, evidence: list[Evidence]) -> None:
     if any(e.source.source_type == "legal_provision" for e in evidence):
         # The quoted span must match this citation's exact version, not any candidate.
@@ -122,12 +130,12 @@ def validate_citations(text: str, evidence: list[Evidence]) -> None:
     references = re.findall(r"\[([^\]\n]+)\]", text)
     if any(ref not in allowed for ref in references):
         logging.getLogger("app.qa").warning("qa_unknown_citation")
-        raise ModelUnavailableError()
+        raise CitationViolation([ref for ref in references if ref not in allowed])
     allowed_numbers = {e.source.reference_number for e in evidence}
     identifiers = re.findall(r"DEMO[-－][A-Z_]+[-－]\d+|第[一二三四五六七八九十百千万零〇\d]+条|[（(]\d{4}[）)][^，。\n]{0,30}?号", text)
     if any(identifier not in allowed_numbers for identifier in identifiers):
         logging.getLogger("app.qa").warning("qa_unknown_reference_number")
-        raise ModelUnavailableError()
+        raise CitationViolation([identifier for identifier in identifiers if identifier not in allowed_numbers])
     if re.search(r"[a-z][a-z0-9+.-]*://|https?:|//[a-z0-9]|www\.|(?:[a-z0-9-]+\.)+(?:com|cn|org|net|gov|edu|io)\b|《[^》]*(?:法|法律|法典|条例|规定|办法|解释|细则)》", text, re.I):
         logging.getLogger("app.qa").warning("qa_external_identifier")
         raise ModelUnavailableError()

@@ -107,3 +107,21 @@ async def test_completed_document_can_be_corrected_without_rewriting_old_draft()
 async def test_unspecified_template_prompts_without_accepting_unknown_parameters():
     task, ready = await advance_task(ChatRequest(message='帮我生成文书',document_params={'unknown':'x'}),None,kind='document',turn_id=uuid4(),llm=ExtractLLM())
     assert task.missing_fields == ['document_type'] and not task.fields and not ready
+
+
+@pytest.mark.parametrize('failure', ['provider', 'timeout', 'invalid_json'])
+async def test_failed_extraction_does_not_return_empty_facts_or_mutate_prior_state(failure):
+    from app.core.errors import ModelUnavailableError
+    class BrokenExtractor(ExtractLLM):
+        async def complete(self, messages):
+            if failure == 'provider':
+                raise ModelUnavailableError()
+            if failure == 'timeout':
+                raise TimeoutError()
+            return 'invalid-json'
+    prior = TaskState(kind='qa', domain='labor_dispute', fields={
+        'facts': GroundedValue(value='原有事实', quote='原有事实', source_turn_id=uuid4())})
+    before = prior.model_copy(deep=True)
+    with pytest.raises(ModelUnavailableError):
+        await advance_task(ChatRequest(message='补充事实'), prior, kind='qa', turn_id=uuid4(), llm=BrokenExtractor())
+    assert prior == before

@@ -1,0 +1,98 @@
+{
+  "source_report": "docs/acceptance/rag-v2-development-answers-run10.json",
+  "source_sha256": "5d9bbdb2d5207b846cbc507288e9d4643bdba3e20ca7977679bad304a2e25164",
+  "scope": "legacy node contract replay; no prompt-quality claim",
+  "cases": [
+    {
+      "id": "E-L-MF-01",
+      "expected": "success",
+      "call": {
+        "task": "TASK:EXTRACT",
+        "input": {
+          "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？",
+          "allowed_fields": {
+            "event_date": [
+              "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+              500
+            ],
+            "facts": [
+              "事情经过、争议焦点和希望解决的问题",
+              4000
+            ],
+            "context": [
+              "双方关系、已有协议或处理材料",
+              4000
+            ],
+            "relationship_date": [
+              "关系建立或合同签订日期（含年份）",
+              500
+            ],
+            "discovery_date": [
+              "何时知道权利受侵害（含年份）",
+              500
+            ],
+            "end_date": [
+              "持续事件或关系结束日期（含年份），未结束请明确说明",
+              500
+            ],
+            "case_status": [
+              "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+              500
+            ]
+          },
+          "task_kind": "qa",
+          "domain": null,
+          "requested_fields": []
+        },
+        "output": "{\"domain\": \"marriage_family\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+        "elapsed_seconds": 0.431
+      }
+    },
+    {
+      "id": "E-L-CD-04",
+      "expected": "error",
+      "call": {
+        "task": "TASK:EXTRACT",
+        "input": {
+          "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：网页弹窗让勾选同意格式条款，就必然履行了异常条款提示说明义务吗？",
+          "allowed_fields": {
+            "event_date": [
+              "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+              500
+            ],
+            "facts": [
+              "事情经过、争议焦点和希望解决的问题",
+              4000
+            ],
+            "context": [
+              "双方关系、已有协议或处理材料",
+              4000
+            ],
+            "relationship_date": [
+              "关系建立或合同签订日期（含年份）",
+              500
+            ],
+            "discovery_date": [
+              "何时知道权利受侵害（含年份）",
+              500
+            ],
+            "end_date": [
+              "持续事件或关系结束日期（含年份），未结束请明确说明",
+              500
+            ],
+            "case_status": [
+              "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+              500
+            ]
+          },
+          "task_kind": "qa",
+          "domain": null,
+          "requested_fields": []
+        },
+        "output": "",
+        "error_type": "ModelUnavailableError",
+        "elapsed_seconds": 0.386
+      }
+    }
+  ]
+}

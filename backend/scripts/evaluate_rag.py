@@ -31,7 +31,7 @@ def render_report(report: dict) -> str:
                     f" | {group['latency_ms_p95']:.1f} |" if group['latency_ms_p95'] is not None else f'| {name} | 服务故障 |')
     text += ['', 'Precision@K 分母固定为 K，缺少返回项不补分；无答案题的正例排序指标为空。每项指标的精确分母见 JSON。',
              '版本匹配率仅检查固定元数据的日期区间，不证明司法解释过渡适用正确。案例路线不作日期版本判分。',
-             '计时不含资料导入、建索引和权重加载；记录本机顺序查询耗时，首次查询可能包含缓存开销。不是并发负载测试。未调节检索参数。', '', '## 失败明细', '']
+             '计时不含资料导入、建索引和权重加载；记录本机顺序查询耗时，首次查询可能包含缓存开销。不是并发负载测试。案例参数冻结；法条候选策略见 JSON 配置。', '', '## 失败明细', '']
     failures = [r for r in report['results'] if r['error'] or (r['answerable'] and r['metrics']['5']['recall'] < 1) or
                 (not r['answerable'] and r['ranking']) or not all(r.get('version_checks', []))]
     for row in failures:
@@ -97,7 +97,8 @@ def evaluate(split: str = 'development', corpus_profile: str = 'eval-rag-v2-209'
                 'quality_gate_passed':None,'annotation_status':'agent_draft_pending_expert','configuration':provenance(settings),
                 'catalog':catalog_identity(database), 'split':split,
                 'retrieval_parameters':{'bm25_k1':BM25_K1,'bm25_b':BM25_B,'rrf_k':RRF_K,'route_candidates':PER_ROUTE_CANDIDATES,
-                    'vector_chunk_pool':VECTOR_CHUNK_CANDIDATES,'top_k':5,'case_domain_filter':None,'law_domain_filter':'gold domain supplied'},
+                    'vector_chunk_pool':VECTOR_CHUNK_CANDIDATES,'top_k':5,'case_domain_filter':None,'law_domain_filter':'gold domain supplied',
+                    'law_candidate_policy':'top 3 BM25 preserved; remaining 2 selected by score/(1+same regulation count)'},
                 'groups':groups,'results':results}
     finally:
         database.dispose()

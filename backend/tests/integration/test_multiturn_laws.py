@@ -38,7 +38,7 @@ class ScriptedLLM(AgentLLM):
             data = json.loads(messages[1].content)
             first = data['candidates'][0]
             return json.dumps({'assessment':'conditional','source_ids':self.applicability_ids if self.applicability_ids is not None else [first['source_id']],
-                               'missing_fields':self.missing, 'direct_support': {first['source_id']:first['source']['original_text']}})
+                               'missing_fields':self.missing, 'direct_support': {first['source_id']:[first['spans'][0]['span_id']]}})
         return await super().complete(messages)
 
 

@@ -1,5 +1,7 @@
 # RAG-v2 开发集修复验收
 
+最新后续工作见 [离线回归与修复记录](rag-v2-offline.md)。下文保留第八轮阶段性结果；第九、十轮及之后代码不能沿用第八轮的通过结论。日常开发已改用离线入口，真实模型评估须显式开启。
+
 2026-09-24。修复前评估代码、数据与报告单独冻结于本地提交 `6fb2996`；原M3标签保持不变。此次只使用120条开发查询和36个开发场景（52轮），不运行或调试已看过的保留集。标注和语义复核均为开发代理草案，尚无法律专家复核；开发集通过不等于盲测或法律正确率认证。
 
 ## 修复与边界
@@ -35,7 +37,7 @@
 
 [第六轮门槛](rag-v2-development-gates-run6.json)、[第六轮逐条复核](rag-v2-development-semantic-run6.json)、[第七轮门槛](rag-v2-development-gates-run7.json)、[第七轮逐条复核](rag-v2-development-semantic-run7.json)均绑定对应原始报告SHA-256。自动检查与代理语义复核分开，不把引用存在当作结论正确。
 
-## 最终结果与剩余问题
+## 第八轮阶段结果与当时剩余问题
 
 最终采用 [第八轮完整原始输出](rag-v2-development-answers-run8.json)、[24条逐条语义复核](rag-v2-development-semantic-run8.json)与[门槛报告](rag-v2-development-gates-run8.json)。当前预设开发门槛通过；这不是独立保留集验收、人工法律专家审查或全库完整性证明。
 
@@ -68,7 +70,7 @@
 在后端目录按 [运行说明](../../backend/README.md)执行开发集检索、真实模型联调和门槛命令。真实模型命令需要现有DeepSeek配置及Redis，会产生API调用。报告路径必须尚不存在。自动化测试使用假模型；真实反例探针也单独保存，不混入冻结52轮分母：
 
 ```powershell
-.\.venv\Scripts\python.exe -m scripts.evaluate_grounding_probes --output ../tmp/grounding-probes-new.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_grounding_probes --allow-real-model --output ../tmp/grounding-probes-new.json
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m pip check
 .\.venv\Scripts\python.exe -m compileall -q app scripts

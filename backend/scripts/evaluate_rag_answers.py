@@ -26,6 +26,7 @@ from app.llm.base import LLMClient
 from app.llm.factory import create_llm_client
 from app.main import create_app
 from app.rag.catalog_profiles import catalog_identity
+from app.evaluation.replay import prompt_digest
 
 
 class TraceLLM(LLMClient):
@@ -34,7 +35,8 @@ class TraceLLM(LLMClient):
         self.calls=[]
 
     def begin(self,messages):
-        item={'task':messages[0].content.split('\n')[0], 'input':json.loads(messages[1].content), 'output':''}
+        item={'task':messages[0].content.split('\n')[0], 'input':json.loads(messages[1].content), 'output':'',
+              'system_prompt_sha256':prompt_digest(messages[0].content)}
         self.calls.append(item)
         return item
 
@@ -48,11 +50,12 @@ class TraceLLM(LLMClient):
         finally:item['elapsed_seconds']=round(time.perf_counter()-start,3)
 
     async def stream(self,messages):
-        item=self.begin(messages);start=time.perf_counter()
+        item=self.begin(messages);start=time.perf_counter();item['chunks']=[]
         stream=self.client.stream(messages)
         try:
             async for part in stream:
                 item['output']+=part
+                item['chunks'].append(part)
                 yield part
         except BaseException as exc:
             item['error_type']=type(exc).__name__;raise
@@ -186,7 +189,10 @@ def main():
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--split',choices=['development'],default='development')
     parser.add_argument('--corpus-profile',choices=['eval-rag-v1-197','eval-rag-v2-209'],default='eval-rag-v2-209')
+    parser.add_argument('--allow-real-model',action='store_true',help='Explicitly enable paid model acceptance')
     args=parser.parse_args()
+    if not args.allow_real_model:
+        raise SystemExit('Use evaluate_offline for daily development; real acceptance requires --allow-real-model')
     if args.output.exists():raise SystemExit('Choose a new output path; prior raw runs must be preserved')
     report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile))
     print(json.dumps({'complete':report['complete'],'summary':report['summary'],'cleanup':report['cleanup']},ensure_ascii=False))

@@ -3,6 +3,7 @@
 import hashlib
 import json
 import re
+from collections import Counter
 from datetime import date
 from pathlib import Path
 from typing import Literal
@@ -139,6 +140,25 @@ def pending_case(value: str | None) -> bool:
                 and not re.search(r'已经终审|已终审|再审', value) and not uncertain_case_status(value))
 
 
+def diversify_provisions(ranked: list[tuple[tuple[LegalProvision, Verification], float]]) -> list[tuple[LegalProvision, Verification]]:
+    """Keep the strongest three hits; give the remaining slots broader coverage.
+
+    Repeated articles from one regulation receive a diminishing score. This is
+    only candidate selection, not an assertion of authority or applicability.
+    """
+    positive = [(pair, score) for pair, score in ranked if score > 0]
+    selected = [pair for pair, _ in positive[:3]]
+    counts = Counter(row.regulation_name for row, _ in selected)
+    remaining = positive[3:]
+    while len(selected) < 5 and remaining:
+        index = max(range(len(remaining)), key=lambda i:
+                    remaining[i][1] / (1 + counts[remaining[i][0][0].regulation_name]))
+        pair, _ = remaining.pop(index)
+        selected.append(pair)
+        counts[pair[0].regulation_name] += 1
+    return selected
+
+
 def retrieve_provisions(database: Database, query: str, domain: Domain | None, *, event_date: str | None,
                         general: bool = False, case_status: str | None = None,
                         include_transition_questions: bool = False) -> list[tuple[LegalProvision, Verification]]:
@@ -175,6 +195,6 @@ def retrieve_provisions(database: Database, query: str, domain: Domain | None, *
         ranked = [(lookup[key], score) for key, score in BM25Index(corpus).search(query, limit=len(corpus))]
         # Keywords contribute to ranking, but lexical synonyms must not delete top hits.
         # Candidate scores do not authorize an answer: direct support is checked downstream.
-        return [pair for pair, score in ranked if score > 0][:5]
+        return diversify_provisions(ranked)
     except (SQLAlchemyError, ValueError, TypeError) as exc:
         raise RetrievalUnavailableError() from exc
