@@ -1,0 +1,108 @@
+{
+  "started_at": "2026-09-23T16:35:39.204556+00:00",
+  "configuration": {
+    "implementation_sha256": "d0e513fd8378f3a0a5d25102c44b1f358f129ff66bd4a1fb4fe448862a28d868",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/evidence.py": "ba483aa47fa1a911dd31eb49e576e6d69deaba07d85b3fb464e26c044e075e6f",
+      "app/agents/grounding.py": "8efaefae1aa84c6c689e41644d58c5c0d790ad52a8706eb200c0dbdccb1c8c6e",
+      "app/agents/intent.py": "002ad4bb586e6f9bef63cfd2981556d530a13a3feeec86f29e9db12c941383c2",
+      "app/agents/legal_evidence.py": "6b3d575aa23242976f6761685fa46aa00f18c8d2245cef7de7f895ad28704ab2",
+      "app/agents/qa.py": "ecfeac7e9096ae745fc4a1c8f453e64b84dbecc9c4c7dc74a1217f95faa66b1d",
+      "app/agents/tasks.py": "0eed941abc29ac8480ea4ef5c0b7a9ec8415aa73ac611526718e36b7dc2982a2",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "85f17f478466273cf5075b4c4d1e9eb8e965672dbd830a95fcf89f5c4e9b9cad",
+      "app/evaluation/dataset.py": "ad989e043c543975791578cadcf9dada29ebf538202cf30838229f88be3a9950",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "77ed2ae281871c95ad39c3df1893354e86db76b1a90ef76b3710ab48e17afddf",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_rag.py": "9ab03ce43b7f6363f61182b156a14c3ce1f23ccb4cbf9a521ae11c8673c670a6",
+      "scripts/evaluate_rag_answers.py": "3706a7f5bd2181e4c26c49b6513dcde1c916755b561a8ea2515d6feebabb47a3",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/review_rag_answers.py": "8c5545c2ce24e4e528aaa311cdca622a75e093d3f628d20cf056a1d0d4dc3ab3",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": false,
+  "scenarios": [],
+  "cleanup": {
+    "synthetic_redis_keys_removed": true
+  },
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 36,
+  "infrastructure_error": "TypeError",
+  "completed_at": "2026-09-23T16:35:39.922732+00:00",
+  "summary": {
+    "scenarios_attempted": 0,
+    "turns_planned": 0,
+    "successful_http_turns": 0,
+    "model_calls": 0,
+    "scenario_structural_passes": 0,
+    "behavior_match_including_errors": {
+      "value": null,
+      "denominator": 0
+    },
+    "answer_behavior_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "strict_insufficient_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "safe_nonanswer_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "http_latency_seconds_p50": null,
+    "http_latency_seconds_p95": null,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  }
+}

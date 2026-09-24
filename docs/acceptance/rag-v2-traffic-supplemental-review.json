@@ -1,0 +1,41 @@
+{
+  "scope": "supplemental development-label review, not a replacement for frozen scores",
+  "reviewer": "development_agent_pending_legal_expert",
+  "query_id": "L-TA-11",
+  "ranking": [
+    "personal_injury-2022-04-24-16",
+    "personal_injury-2022-04-24-18",
+    "personal_injury-2022-04-24-17",
+    "personal_injury-2022-04-24-19",
+    "personal_injury-2022-04-24-20"
+  ],
+  "frozen_gold": {
+    "personal_injury-2022-04-24-16": 3,
+    "personal_injury-2022-04-24-17": 3,
+    "civil_code-2020-05-28-1179": 1
+  },
+  "supplemental_gold": {
+    "personal_injury-2022-04-24-16": 3,
+    "personal_injury-2022-04-24-17": 3,
+    "civil_code-2020-05-28-1179": 1,
+    "traffic_ii-2026-05-06-8": 2
+  },
+  "frozen_metrics": {
+    "hit": 1.0,
+    "recall": 0.6666666666666666,
+    "precision": 0.4,
+    "ndcg": 0.881130592761647,
+    "reciprocal_rank": 1.0,
+    "recall_ceiling": 1.0,
+    "negative_false_retrieval": null
+  },
+  "supplemental_metrics": {
+    "hit": 1.0,
+    "recall": 0.5,
+    "precision": 0.4,
+    "ndcg": 0.7866827448123422,
+    "reciprocal_rank": 1.0,
+    "recall_ceiling": 1.0,
+    "negative_false_retrieval": null
+  }
+}

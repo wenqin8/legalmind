@@ -1,0 +1,142 @@
+{
+  "raw_report_sha256": "091b4a07806f26e1d76d888ff520f60a462eca2f755b1a8d73f6bbc7d170ebee",
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "逐条阅读实际返回正文及对应完整来源；独立于生成与逐句审核模型调用。非人工专家审核。",
+  "turns": {
+    "E-L-MF-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "1085及解释二16支持突破不付抚养费约定的必要合理费用显著增加情形；保留负担能力等因素，不给金额。变更抚养关系旁述不属于主要结论，建议删减。"
+    },
+    "E-L-MF-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二17支持以成年及能否独立生活区分追讨主体，未把历史欠付与增加请求混同。"
+    },
+    "E-L-MF-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二8保留婚后一方父母全额出资、赠与约定与法院酌定补偿因素，不断言另一方零权益。"
+    },
+    "E-L-MF-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二21支持离婚诉讼、较多家庭义务、证据与数额衡量因素；未核实程序状态仅作为限制，未计算。"
+    },
+    "E-L-MF-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二4区分个人所得与共同经营收益，保留无配偶、无约定且协商不成前提。对已称未婚仍要求核实略重复，不改变规则。"
+    },
+    "E-L-MF-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认7月日期后保留共同经营原事实与同一直接依据，没有把纠正转成文书。"
+    },
+    "E-L-LD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "劳动解释二19及劳动合同法38直接支持社保承诺无效、未缴解除补偿、依法补缴后返还补偿；保留各自前提。"
+    },
+    "E-L-LD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二13明确未知悉接触商业秘密及知识产权保密事项的条件，并区分整体不生效与比例过大部分无效。"
+    },
+    "E-L-LD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二3保留未书面合同综合用工因素和经劳动者同意约定的例外；6、7及劳动合同法10支撑附带书面合同说明。附带双倍工资并非必要，建议减少扩写。"
+    },
+    "E-L-LD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二6直接支持不足整月按该月实际工作日；未补造工资基数或金额，明确应支付前提。"
+    },
+    "E-L-LD-05:2": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "主要工资区间有解释二18支持，但风险段转述16漏掉因合并或分立解散的除外情形；第5项原文严重影响与经提出不解除为或者，回答改为且。自动逐句审核漏检，阻止语义验收。"
+    },
+    "E-L-LD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二1支持合格承包人向无资格主体转分包后用工责任，回答保留责任主体和事实前提。修订后的风险段重复但未虚构。"
+    },
+    "E-L-LD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认后日期更新且任务保留；解释二1直接支持工资责任，未推导劳动关系自动成立。"
+    },
+    "E-L-TA-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释6支撑收款凭证结合病历诊断、异议举证和后续治疗费条件。修订后未阐明病历具体作用，有回答完整性不足，但未编造。"
+    },
+    "E-L-TA-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释7保留无固定收入、不能证明三年均值、受诉法院地同近行业上一年度工资及误工时间条件。"
+    },
+    "E-L-TA-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释8支持原则一人及机构明确意见例外、同级护工报酬、护理期限与残后护理级别。"
+    },
+    "E-L-TA-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释9支撑正式票据与地点时间人数次数相符；未扩大为任何差异均全部不赔。"
+    },
+    "E-L-TA-05:2": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "主结论符合人损解释11，但风险段自行将意见是否明确营养必要性、期限、标准写成影响参照作用的条件，原文没有直接规定；保守措辞不能替代证据，应删去扩写。"
+    },
+    "E-L-TA-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释13支撑普通适用合理费用及伤情特殊需要参考配制机构意见；没有断言豪华一概不赔。下一步残留“依，”语病需改进。"
+    },
+    "E-L-TA-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认后的事实与依据一致，普通标准与特殊需要的条件均保留，未给具体金额。"
+    },
+    "E-L-CD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同通则解释2支持两类交易习惯、强制规定公序良俗限制和主张方举证，没有把任意个人习惯算作交易习惯。"
+    },
+    "E-L-CD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释6支持将来期限、主体标的确定、意向书与本约区分，履行受领条件保留。未展开定金替代情形，但用户问认购书，不作排除。"
+    },
+    "E-L-CD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释7、8分别支持拒绝或失信磋商、赔偿按约定或完备程度及条件成就酌定，未给固定比例。"
+    },
+    "E-L-CD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释10及民法典496支持勾选弹窗不当然履责、提示说明举证及不成为合同内容的因果前提。风险段应减少重复，完整主结论已保留因果前提。"
+    },
+    "E-L-CD-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释13直接否定备案批准登记足以排除无效/可撤销，69保留施行后未终审适用；不判断具体无效构成。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释65、64支撑多因素、一般30%与恶意违约例外、请求及举证；不计算个案金额。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "日期确认后继续同一损失与违约金分析，30%非唯一、恶意例外与双方举证都有直接依据。"
+    }
+  }
+}

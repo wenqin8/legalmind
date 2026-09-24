@@ -1,0 +1,15 @@
+{
+  "version": "traffic-ii-2026",
+  "verified_at": "2026-09-24",
+  "record_count": 12,
+  "source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+  "published_at": "2026-05-06",
+  "effective_from": "2026-06-30",
+  "status_as_of": "2026-06-30",
+  "catalog_sha256": "1c2b35fa64405b94e09e5098e5164e6acdae6270ab260bb8303c5fe775dbeaa6",
+  "snapshot": "official-text.txt",
+  "snapshot_sha256": "85969b4b126a5cba8cdfb51438e046073b06f96db50679ce00f1fb577c97e7bf",
+  "capture_method": "Official HTTPS body, HTML decoded; article paragraphs retained; news and editorial links excluded.",
+  "verification_limit": "Verified original publication and commencement, not an exhaustive search for later amendments or repeal.",
+  "temporal_rule": "Article 12: applies to cases not finally adjudicated after commencement; excludes retrial of cases finally adjudicated before commencement."
+}

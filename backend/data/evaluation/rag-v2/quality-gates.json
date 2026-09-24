@@ -1,0 +1,13 @@
+{
+  "version": "rag-v2-development-gates",
+  "scope": "development_only_not_blind_acceptance",
+  "frozen_before_final_run": true,
+  "direct_hit_at_5_minimum": 0.9,
+  "behavior_match_minimum": 0.85,
+  "safe_nonanswer_minimum": 1.0,
+  "required_correction_scenarios": ["E-L-MF-06", "E-L-LD-06", "E-L-TA-06", "E-L-CD-06"],
+  "maximum_hard_check_failures": 0,
+  "required_semantic_review": "Every returned substantive answer needs a recorded independent reviewer decision; unsupported or uncertain main claims block passing.",
+  "corpus_requirement": "Exact matched fingerprints or explicit demo/evaluation profile lock with user-visible disclosure.",
+  "limitations": "Labels and initial semantic review are development-agent drafts. Passing sampled development gates is not expert legal certification or an unseen-test result."
+}

@@ -32,6 +32,7 @@ DOCUMENT_NAMES: dict[str, DocumentType] = {
     "起诉状": "civil_complaint", "答辩状": "civil_defense", "合同": "general_contract",
 }
 SEARCH_REQUEST = re.compile(r"(?:查找|查一下|搜索|检索|找|列出|比较).{0,16}(?:案例|判例)")
+DOCUMENT_REQUEST = re.compile(r"(?:生成|起草|拟定|拟一|写一|写份|写个|帮.{0,4}写|修改|想要一份).{0,16}(?:文书|起诉状|答辩状|合同)")
 
 
 async def classify_intent(payload: ChatRequest, llm: LLMClient) -> IntentDecision:
@@ -40,7 +41,7 @@ async def classify_intent(payload: ChatRequest, llm: LLMClient) -> IntentDecisio
     if payload.document_params is not None:
         return IntentDecision(intent="document")
     text = payload.message
-    if re.search(r"(?:生成|起草|拟定|拟一|写一|写份|写个|帮.{0,4}写|修改).{0,16}(?:文书|起诉状|答辩状|合同)", text):
+    if DOCUMENT_REQUEST.search(text):
         matches = [value for name, value in DOCUMENT_NAMES.items() if name in text]
         return IntentDecision(intent="document", document_type=matches[0] if len(matches) == 1 else None)
     if SEARCH_REQUEST.search(text):

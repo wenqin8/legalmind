@@ -123,15 +123,23 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 
 ## 测试
 
-当前新增 RAG-v1 独立评估工具，保持默认运行库、M2查询和M3标签不变。组合197条法条/解释与16条案例仅导入 `tmp/` 下新建SQLite和Chroma；不需要改变 `.env`。详情见 [评估数据定义](data/evaluation/rag-v1/README.md) 和 [基线与已知失败](../docs/acceptance/rag-v1.md)。
+修复前 RAG-v1 基线已本地提交为 `6fb2996`，保持默认运行库、冻结查询和 M3 标签不变。当前 RAG-v2 仅运行120条开发查询及36个开发场景（52轮），扩展209条法条与16条案例只导入 `tmp/` 下新建SQLite和Chroma；不需要改变 `.env`。默认库锁定 `demo-m3-60`，评估锁定 `eval-rag-v2-209`，响应会显示资料边界。详情见 [评估数据定义](data/evaluation/rag-v1/README.md) 和 [修复验收](../docs/acceptance/rag-v2.md)。
 
 ```powershell
-.\.venv\Scripts\python.exe -m scripts.evaluate_rag --output ../tmp/rag-retrieval-new-run.json
-.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --output ../tmp/rag-answers-new-run.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-retrieval-new-run.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-answers-new-run.json
 .\.venv\Scripts\python.exe -m scripts.review_rag_answers --input ../docs/acceptance/rag-v1-answers.json --annotations ../docs/acceptance/rag-v1-review-notes.json --output ../tmp/rag-review-new-run.json
 ```
 
-前两条分别执行真实BGE检索和40场景真实模型HTTP联调；第二条需要Redis和现有DeepSeek配置，会消耗API额度。第三条仅离线复核既有合成结果。输出路径必须尚不存在，防止覆盖旧基线；测试失败和模型错误不会自动重试以挑选结果。`--split development` 或 `--split holdout` 可用于检索脚本分组运行。新增司法解释清单见 [扩展资料](data/legal/expansion-v1/README.md)，默认导入器仍指向M3的60条。
+前两条分别执行真实BGE检索和36场景真实模型HTTP联调；第二条需要Redis和现有DeepSeek配置，会消耗API额度。第三条仅离线复核既有合成结果。输出路径必须尚不存在；每次完整运行都保留失败，不能择优拼接。当前CLI只接受开发集；已看过的保留集不再用于调试。复现原40场景基线应在单独检出 `6fb2996` 的目录使用当时说明。新增资料见 [扩展解释](data/legal/expansion-v1/README.md) 与 [交通解释二](data/legal/traffic-ii-2026/README.md)，默认导入器仍指向M3的60条。
+
+门槛检查绑定同一资料指纹，并要求为每条实际返回的法律回答记录逐条语义复核；缺少复核或报告哈希不符都会阻止通过。开发代理复核不等于法律专家认证：
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_quality_gates --answers ../tmp/rag-answers-new-run.json --retrieval ../tmp/rag-retrieval-new-run.json --reviews ../tmp/semantic-review.json --output ../tmp/rag-gates-new-run.json
+```
+
+复核文件使用 `raw_report_sha256` 绑定答案报告，`reviewer` 记录复核身份，`turns` 以 `场景ID:轮次` 为键，每项包含 `faithfulness`、`applicability`（`pass/fail`）和具体 `notes`。不能仅根据引用真实或自动检查通过批量标记为通过。
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest

@@ -12,11 +12,12 @@ from app.rag.embeddings import create_embedding_client
 from app.rag.importer import import_cases, load_case_records
 from app.rag.indexer import index_cases
 from app.rag.legal_catalog import import_catalog
+from app.rag.catalog_profiles import profile_entries
 from app.rag.retriever import HybridCaseRetriever
 from app.rag.vector_store import ChromaVectorStore
 
 
-def prepare(workspace: Path):
+def prepare(workspace: Path, corpus_profile: str = 'eval-rag-v1-197'):
     workspace = workspace.resolve()
     allowed = (BACKEND_DIR.parent / 'tmp').resolve()
     if not workspace.is_relative_to(allowed):
@@ -27,7 +28,7 @@ def prepare(workspace: Path):
     database = Database(settings.database_url.get_secret_value())
     Base.metadata.create_all(database.engine)
     import_cases(database, load_case_records(BACKEND_DIR/'data/demo/cases.jsonl'))
-    import_catalog(database, catalog_entries())
+    import_catalog(database, profile_entries(corpus_profile))
     embedding = create_embedding_client(settings)
     store = ChromaVectorStore(settings.chroma_persist_directory, settings.chroma_collection_name, embedding)
     summary = index_cases(database, store, embedding)

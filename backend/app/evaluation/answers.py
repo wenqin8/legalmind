@@ -62,7 +62,14 @@ def check_turn(data: dict, expected: dict, known_sources: dict, trace: list[dict
     else:lower,upper=date_bounds(event)
     for source in data.get('sources',[]):
         if source['source_type']=='legal_provision':
-            checks['version_interval'] &= bool(lower and date.fromisoformat(source['effective_from'])<=lower and
+            pending = task.get('fields',{}).get('case_status',{}).get('value','')
+            # Independent evaluation of the explicit transitional exception, not the production helper.
+            transition = (source.get('temporal_rule') == 'pending_after_effective' and source.get('transition_text')
+                          and re.search('尚未终审|未终审|没有生效裁判|未有生效裁判', pending)
+                          and not re.search('已经终审|已终审|再审', pending)
+                          and not re.search(r'是否|不(?:清楚|知道|确定|是)|可能|也许|或许|记不清|[?？]', pending)
+                          and date.fromisoformat(source['effective_from']) <= date.today())
+            checks['version_interval'] &= bool(lower and (date.fromisoformat(source['effective_from'])<=lower or transition) and
                 (not source['effective_until'] or upper<date.fromisoformat(source['effective_until'])))
     for field in (task.get('fields') or {}).values():
         text=provenance.get(field['source_turn_id'],'')

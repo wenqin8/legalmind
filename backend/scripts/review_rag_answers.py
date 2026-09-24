@@ -9,11 +9,12 @@ from statistics import mean
 from app.evaluation.answers import check_turn
 from app.evaluation.dataset import load_queries, catalog_entries, sha256
 from app.rag.importer import normalize_legal_provision
+from app.rag.catalog_profiles import profile_entries
 
 
 def known_sources():
     known={}
-    for entry in catalog_entries():
+    for entry in profile_entries('eval-rag-v2-209'):
         record=normalize_legal_provision(entry.record)
         known[str(record.id)]={'record_id':record.record_id,'title':record.regulation_name,'reference_number':record.article_number,
             'source_url':record.source_url,**{k:entry.verification.model_dump(mode='json').get(k) for k in
@@ -71,7 +72,7 @@ def review(raw: dict, annotations: dict | None = None):
 
 
 def render(report):
-    lines=['# RAG-v1 端到端复核','','本报告从原始40场景输出离线复算，不重新调用模型、不修改冻结标签。',
+    lines=['# RAG 端到端复核','',f"本报告从原始{len(report['items'])}场景输出离线复算，不重新调用模型、不修改冻结标签。",
            '结构校验与开发代理语义复核分别记录；尚无法律专家审核，不给出法律正确率认证。','',
            '## 自动化指标','', '```json',json.dumps(report['metrics'],ensure_ascii=False,indent=2),'```','',
            '## 逐场景复核','']

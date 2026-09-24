@@ -1,0 +1,5 @@
+# These new artifacts carry byte-level SHA-256 bindings. Preserve original bytes.
+/backend/data/legal/traffic-ii-2026/*.json* -text
+/backend/data/legal/traffic-ii-2026/*.txt -text
+/backend/data/evaluation/rag-v2/*.json -text
+/docs/acceptance/rag-v2*.json -text

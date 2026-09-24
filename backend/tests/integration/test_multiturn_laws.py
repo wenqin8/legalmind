@@ -36,7 +36,9 @@ class ScriptedLLM(AgentLLM):
             return json.dumps({'domain':self.domain,'general_question':False,'fields':fields}, ensure_ascii=False)
         if 'TASK:APPLICABILITY' in messages[0].content:
             data = json.loads(messages[1].content)
-            return json.dumps({'assessment':'conditional','source_ids':self.applicability_ids if self.applicability_ids is not None else [data['candidates'][0]['source_id']], 'missing_fields':self.missing})
+            first = data['candidates'][0]
+            return json.dumps({'assessment':'conditional','source_ids':self.applicability_ids if self.applicability_ids is not None else [first['source_id']],
+                               'missing_fields':self.missing, 'direct_support': {first['source_id']:first['source']['original_text']}})
         return await super().complete(messages)
 
 
@@ -127,8 +129,8 @@ async def test_unknown_applicability_source_fails_closed(client, app):
     headers = await auth(client)
     app.state.llm_client.applicability_ids = [str(uuid4())]
     result = await send(client, headers, message='facts=公司拖欠工资；event_date=2025年6月1日；context=有合同')
-    assert result.status_code == 200
-    assert not any(s['source_type'] == 'legal_provision' for s in result.json()['data']['sources'])
+    assert result.status_code == 424
+    assert result.json()['error']['code'] == 'MODEL_UNAVAILABLE'
 
 
 async def test_exact_legal_quotation_and_statutory_procedure_are_distinct_from_fabricated_judgment(app):
@@ -137,7 +139,7 @@ async def test_exact_legal_quotation_and_statutory_procedure_are_distinct_from_f
     from app.schemas.tasks import TaskState
     from app.core.errors import ModelUnavailableError
     task = TaskState(kind='qa', domain='marriage_family', mode='general')
-    evidence, _ = await legal_evidence(app.state.database,'子女抚养费',task,app.state.llm_client)
+    evidence = (await legal_evidence(app.state.database,'子女抚养费',task,app.state.llm_client)).evidence
     assert evidence
     source = evidence[0].source
     if '人民法院判决' not in source.original_text:

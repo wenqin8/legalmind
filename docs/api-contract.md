@@ -318,6 +318,10 @@ data: {"success":false}
 
 “没有检索到足够依据”是可预期业务结果，普通问答返回保守回答和空来源，不作为 500 错误。
 
+RAG-v2 保持上述接口与错误外壳。活动 QA 的更正、确认继续原会话任务；`task.fields.case_status` 可保存终审/再审事实及消息出处，`requires_local_material` 表示所问地方资料不在当前冻结资料集中。官方 `sources` 增加 `temporal_rule`（默认 `event_date`，或 `pending_after_effective`）和可空 `transition_text`；服务器参考附录展示过渡原文。`warnings` 包含实际资料版本和演示/评估边界，不把209条评估成绩用于默认60条库。
+
+法律回答每段需通过逐句证据审查才能成为 `content`。一次修订后仍无法支持、审核结构非法或超时均为 `MODEL_UNAVAILABLE`，不当作成功拒答，也不进入后续历史；同步返回424，流开始后使用既有失败事件。业务上的“依据不足”和“必须补充”仍为200，并分别返回空来源或具体 `missing_fields`。
+
 ## 10. CORS 与日志
 
 - 开发环境仅允许明确配置的本地前端来源。

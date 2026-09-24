@@ -1,4 +1,4 @@
-"""Run the fixed RAG-v1 retrieval benchmark without optimizing production retrieval."""
+"""Run frozen development queries against an explicitly selected corpus profile."""
 
 import argparse
 import json
@@ -15,11 +15,12 @@ from app.evaluation.dataset import load_queries
 from app.evaluation.environment import prepare, provenance
 from app.evaluation.metrics import aggregate, ranking_metrics
 from app.rag.legal_catalog import retrieve_provisions
+from app.rag.catalog_profiles import catalog_identity
 from app.rag.retriever import reciprocal_rank_fusion, BM25_K1, BM25_B, RRF_K, PER_ROUTE_CANDIDATES, VECTOR_CHUNK_CANDIDATES
 
 
 def render_report(report: dict) -> str:
-    text = ['# RAG-v1 检索基线', '', '相关性为固定语料内的开发代理标注草案，未经法律专家复核。空标签题不进入 Recall/MRR/NDCG 分母。', '',
+    text = ['# RAG 检索评估', '', '相关性为冻结查询的开发代理标注草案，未经法律专家复核。空标签题不进入 Recall/MRR/NDCG 分母。', '',
             '| 分组 | 题数 | Hit@5 | Recall@5 | Precision@5 | MRR@5 | NDCG@5 | 无答案误召回率 | P95 ms |',
             '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
     def value(group, name):
@@ -40,11 +41,11 @@ def render_report(report: dict) -> str:
     return '\n'.join(text)+'\n'
 
 
-def evaluate(split: str = 'all') -> dict:
+def evaluate(split: str = 'development', corpus_profile: str = 'eval-rag-v2-209') -> dict:
     queries = [q for q in load_queries() if split == 'all' or q.split == split]
     workspace = BACKEND_DIR.parent/'tmp'/('rag-retrieval-'+uuid4().hex)
     started = datetime.now(timezone.utc).isoformat()
-    settings, database, embedding, store, retriever = prepare(workspace)
+    settings, database, embedding, store, retriever = prepare(workspace, corpus_profile)
     results = []
     try:
         with database.session() as session:
@@ -91,9 +92,10 @@ def evaluate(split: str = 'all') -> dict:
             for field in ('split','domain','category'):
                 for value in sorted({r[field] for r in subset}):
                     groups[f'{route}/{field}/{value}']=aggregate([r for r in subset if r[field]==value])
-        return {'started_at':started,'completed_at':datetime.now(timezone.utc).isoformat(),'scope':'retrieval baseline; no tuning',
+        return {'started_at':started,'completed_at':datetime.now(timezone.utc).isoformat(),'scope':'frozen development queries; explicit corpus profile; not blind acceptance',
                 'complete':len(results)==sum(3 if q.route=='case' else 1 for q in queries),
                 'quality_gate_passed':None,'annotation_status':'agent_draft_pending_expert','configuration':provenance(settings),
+                'catalog':catalog_identity(database), 'split':split,
                 'retrieval_parameters':{'bm25_k1':BM25_K1,'bm25_b':BM25_B,'rrf_k':RRF_K,'route_candidates':PER_ROUTE_CANDIDATES,
                     'vector_chunk_pool':VECTOR_CHUNK_CANDIDATES,'top_k':5,'case_domain_filter':None,'law_domain_filter':'gold domain supplied'},
                 'groups':groups,'results':results}
@@ -104,11 +106,12 @@ def evaluate(split: str = 'all') -> dict:
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--split',choices=['all','development','holdout'],default='all')
+    parser.add_argument('--split',choices=['development'],default='development')
+    parser.add_argument('--corpus-profile',choices=['eval-rag-v1-197','eval-rag-v2-209'],default='eval-rag-v2-209')
     args=parser.parse_args()
     if args.output.exists() or args.output.with_suffix('.md').exists():
         raise SystemExit('Refusing to overwrite a prior baseline; choose a new output path')
-    report=evaluate(args.split)
+    report=evaluate(args.split,args.corpus_profile)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     args.output.with_suffix('.md').write_text(render_report(report),encoding='utf-8')

@@ -1,0 +1,15 @@
+{
+  "version": "traffic-development-review-20260924",
+  "scope": "Only development law questions L-TA-01 through L-TA-15; prior holdout excluded from tuning",
+  "corpus_profile": "eval-rag-v2-209",
+  "reviewer": "development_agent_pending_legal_expert",
+  "original_labels_unchanged": true,
+  "decisions": [
+    {"queries": ["L-TA-01", "L-TA-02", "L-TA-03", "L-TA-04", "L-TA-05", "L-TA-06", "L-TA-07", "L-TA-08", "L-TA-09", "L-TA-10"], "decision": "retain", "reason": "The new interpretation does not replace the existing core rules asked here. Retirement-age lost earnings and death during litigation add narrower prerequisites absent from these questions; do not indiscriminately mark all new provisions relevant."},
+    {"queries": ["L-TA-11"], "decision": "supplemental_review", "additional_source": "traffic_ii-2026-05-06-8", "grade": 2, "reason": "The question asks scope and calculation limits of dependent living expenses; article 8 clarifies the cap when there are multiple dependents. Conditional supplementary relevance; the question does not explicitly state multiple dependents. Report this alternative separately, not by rewriting frozen scores."},
+    {"queries": ["L-TA-12"], "decision": "retain_insufficient", "reason": "The new interpretation supplies no local statistical amount, injury-specific facts or complete final calculation."},
+    {"queries": ["L-TA-13"], "decision": "retain_clarify", "reason": "Unspecified accident time and procedural posture still prevent choosing an applicable version. Article 12 introduces a case-stage requirement, not permission to blindly use the newest standard."},
+    {"queries": ["L-TA-14"], "decision": "retain_insufficient", "reason": "The stipulated already-completed historical case cannot be reopened or recalculated solely using the new explanation; article 12 expressly excludes retrial of previously final cases."},
+    {"queries": ["L-TA-15"], "decision": "retain_out_of_scope", "reason": "Road traffic interpretation does not cover international aviation delay conventions."}
+  ]
+}

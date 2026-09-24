@@ -1,0 +1,132 @@
+{
+  "raw_report_sha256": "8530d07657b652256fd80dd9f9a3516f79be76f67f924a3a1eeb53d799eebb25",
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "逐条重新阅读第七轮25条实际返回答案及对应来源；非人工法律专家复核。",
+  "turns": {
+    "E-L-MF-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "抚养费约定约束力及必要合理费用显著增加的例外保留；本轮不再对变更抚养关系作额外判断。"
+    },
+    "E-L-MF-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二17支持以成年及能否独立生活区分追讨主体，未把历史欠付与增加请求混同。"
+    },
+    "E-L-MF-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二8保留婚后一方父母全额出资、赠与约定与法院酌定补偿因素，不断言另一方零权益。"
+    },
+    "E-L-MF-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二21支持离婚诉讼、较多家庭义务、证据与数额衡量因素；未核实程序状态仅作为限制，未计算。"
+    },
+    "E-L-MF-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "同居析产三类规则保留无约定且协商不成条件；风险中明确双方无配偶。"
+    },
+    "E-L-MF-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认后7月日期替换原6月日期；无配偶、协商不成及共同经营收益因素均保留。"
+    },
+    "E-L-LD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二13明确未知悉接触商业秘密及知识产权保密事项的条件，并区分整体不生效与比例过大部分无效。"
+    },
+    "E-L-LD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二3保留未书面合同综合用工因素和经劳动者同意约定的例外；6、7及劳动合同法10支撑附带书面合同说明。附带双倍工资并非必要，建议减少扩写。"
+    },
+    "E-L-LD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "本轮增加劳动合同法82来源，二倍工资起算的超过1月不满1年条件与实际工作日计算分别说明。"
+    },
+    "E-L-LD-05:2": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "工资主结论直接由18支持；风险段仍把合同期满、单位解散作为可能不能履行的例子，遗漏16中期满续延以及合并分立解散例外。单次审核仍漏检。"
+    },
+    "E-L-LD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释二1支持合格承包人向无资格主体转分包后用工责任，回答保留责任主体和事实前提。修订后的风险段重复但未虚构。"
+    },
+    "E-L-LD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：确认后日期更新且任务保留；解释二1直接支持工资责任，未推导劳动关系自动成立。"
+    },
+    "E-L-TA-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：人损解释6支撑收款凭证结合病历诊断、异议举证和后续治疗费条件。修订后未阐明病历具体作用，有回答完整性不足，但未编造。"
+    },
+    "E-L-TA-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：人损解释8支持原则一人及机构明确意见例外、同级护工报酬、护理期限与残后护理级别。"
+    },
+    "E-L-TA-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：人损解释9支撑正式票据与地点时间人数次数相符；未扩大为任何差异均全部不赔。"
+    },
+    "E-L-TA-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "本轮删去未载营养必要性期限标准即参照作用受限的判断，保留伤残情况参照医疗意见；材料形式核实未断言为法定排除条件。"
+    },
+    "E-L-TA-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "普通适用标准与伤情特殊需要参考机构意见有13直接支持，本轮无残留依字语病，未对替代证据作法定排除。"
+    },
+    "E-L-TA-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：确认后的事实与依据一致，普通标准与特殊需要的条件均保留，未给具体金额。"
+    },
+    "E-L-CD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：合同通则解释2支持两类交易习惯、强制规定公序良俗限制和主张方举证，没有把任意个人习惯算作交易习惯。"
+    },
+    "E-L-CD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释6支持将来期限、主体标的确定、意向书与本约区分，履行受领条件保留。未展开定金替代情形，但用户问认购书，不作排除。"
+    },
+    "E-L-CD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释7、8分别支持拒绝或失信磋商、赔偿按约定或完备程度及条件成就酌定，未给固定比例。"
+    },
+    "E-L-CD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释10及民法典496支持勾选弹窗不当然履责、提示说明举证及不成为合同内容的因果前提。风险段应减少重复，完整主结论已保留因果前提。"
+    },
+    "E-L-CD-05:2": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "主句当事人以合同已办理备案为由主张有效不予支持，省略解释13的存在无效或可撤销情形前提；民法典143作为背景不能修补该概括，阻止语义验收。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：解释65、64支撑多因素、一般30%与恶意违约例外、请求及举证；不计算个案金额。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "第七轮实际正文重新阅读：日期确认后继续同一损失与违约金分析，30%非唯一、恶意例外与双方举证都有直接依据。"
+    }
+  }
+}

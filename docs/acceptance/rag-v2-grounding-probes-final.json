@@ -1,0 +1,58 @@
+{
+  "scope": "synthetic_development_probes_not_legal_certification",
+  "model": "deepseek-v4-flash",
+  "prompt_sha256": "6d111c797e1873a9447ccd09c420a7d82492eb8544693ea357718eead6389302",
+  "all_passed": true,
+  "items": [
+    {
+      "id": "omitted_exception",
+      "claim": "用人单位解散时，法院可以认定劳动合同已经不能继续履行，不存在例外。",
+      "record_id": "labor_ii-2025-07-31-16",
+      "original_text_sha256": "9b30c0ae0ac0e9d28d2b3a6ae2dbf3eaa6d0ac7049ffe8992923fc557fff3ad7",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "or_changed_to_and",
+      "claim": "劳动者已与其他单位建立劳动关系时，仅在同时满足严重影响原工作且经原单位提出仍不解除这两个条件时，法院才可以认定合同不能继续履行。",
+      "record_id": "labor_ii-2025-07-31-16",
+      "original_text_sha256": "9b30c0ae0ac0e9d28d2b3a6ae2dbf3eaa6d0ac7049ffe8992923fc557fff3ad7",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "unsupported_evidence_requirement",
+      "claim": "医疗意见只有明确写出营养必要性、期限和标准，才可以作为营养费认定依据。",
+      "record_id": "personal_injury-2022-04-24-11",
+      "original_text_sha256": "ca756e3a3424c6deb1cfaa3ecaf8fe548204d3571f57f2a5111dcd86cb869474",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "omitted_contract_condition",
+      "claim": "只要当事人以合同已备案为由主张合同有效，人民法院一律不予支持，无需核对其他情形。",
+      "record_id": "contract_general-2023-12-04-13",
+      "original_text_sha256": "69fb00109bc21a47843dc30943b0e139fad9d171af03c919a7c358a1a358ecb6",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "supported_conditional_rule",
+      "claim": "营养费根据受害人伤残情况参照医疗机构的意见确定。",
+      "record_id": "personal_injury-2022-04-24-11",
+      "original_text_sha256": "ca756e3a3424c6deb1cfaa3ecaf8fe548204d3571f57f2a5111dcd86cb869474",
+      "expected_supported": true,
+      "observed_supported": true,
+      "reason": null,
+      "passed": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""Forty frozen scenarios, one real-model run, isolated HTTP/Redis state and full traces."""
+"""Frozen development scenarios, isolated HTTP/Redis state and complete model traces."""
 
 import argparse
 import asyncio
@@ -6,6 +6,7 @@ import json
 import secrets
 import socket
 import time
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
@@ -24,6 +25,7 @@ from app.evaluation.metrics import percentile
 from app.llm.base import LLMClient
 from app.llm.factory import create_llm_client
 from app.main import create_app
+from app.rag.catalog_profiles import catalog_identity
 
 
 class TraceLLM(LLMClient):
@@ -61,6 +63,10 @@ class TraceLLM(LLMClient):
     async def aclose(self):await self.client.aclose()
 
 
+def needs_login(token, token_at, now):
+    return token is None or now - token_at > 2400
+
+
 def summarize(report):
     turns=[t for scenario in report['scenarios'] for t in scenario['turns']]
     ok=[t for t in turns if t.get('status')==200]
@@ -80,11 +86,12 @@ def summarize(report):
         'semantic_quality_passed':None,'expert_review':'not performed'}
 
 
-async def evaluate(output: Path):
+async def evaluate(output: Path, split: str = 'development', corpus_profile: str = 'eval-rag-v2-209'):
     query_by_id={q.id:q for q in load_queries()}
     scenarios=[json.loads(line) for line in (BENCHMARK_DIR/'scenarios.jsonl').read_text(encoding='utf-8').splitlines()]
+    scenarios=[s for s in scenarios if s['split']==split]
     workspace=BACKEND_DIR.parent/'tmp'/('rag-answers-'+uuid4().hex)
-    settings,database,embedding,store,retriever=await asyncio.to_thread(prepare,workspace)
+    settings,database,embedding,store,retriever=await asyncio.to_thread(prepare,workspace,corpus_profile)
     settings=settings.model_copy(update={'llm_backend':'deepseek'})
     llm=TraceLLM(create_llm_client(settings))
     app=create_app(settings,database=database,embedding_client=embedding,vector_store=store,case_retriever=retriever,llm_client=llm)
@@ -94,7 +101,8 @@ async def evaluate(output: Path):
             known[str(row.id)]={'record_id':row.record_id,'title':row.regulation_name,'reference_number':row.article_number,
                 'source_url':row.source_url,**{k:row.verification.get(k) for k in ('version','original_text','effective_from','effective_until','verified_at','status_as_of')}}
     report={'started_at':datetime.now(timezone.utc).isoformat(),'configuration':provenance(settings),'transport':'real_loopback_http',
-        'model_attempts_per_turn':1,'complete':False,'scenarios':[], 'cleanup':{},'annotation_status':'agent_draft_pending_expert'}
+        'model_attempts_per_turn':1,'complete':False,'scenarios':[], 'cleanup':{},'annotation_status':'agent_draft_pending_expert',
+        'split':split, 'catalog':catalog_identity(database),'planned_scenarios':len(scenarios)}
     def save():
         summarize(report)
         output.parent.mkdir(parents=True,exist_ok=True)
@@ -116,7 +124,7 @@ async def evaluate(output: Path):
             token=None; token_at=0
             for scenario in scenarios:
                 # Refresh authentication before expiry; model generations are never retried.
-                if time.monotonic()-token_at>2400:
+                if needs_login(token, token_at, time.monotonic()):
                     login=await client.post('/api/v1/auth/login',json={'login':username,'password':password})
                     login.raise_for_status();token=login.json()['data']['access_token'];token_at=time.monotonic()
                 headers={'Authorization':'Bearer '+token}
@@ -152,9 +160,11 @@ async def evaluate(output: Path):
                 report['scenarios'].append(entry);save()
                 print(json.dumps({'scenario':scenario['id'],'completed':len(report['scenarios']),'statuses':[t.get('status') for t in entry['turns']],
                     'behaviors':[t.get('evaluation',{}).get('observed_behavior') for t in entry['turns']]}),flush=True)
-            report['complete']=len(report['scenarios'])==40
+            report['complete']=len(report['scenarios'])==len(scenarios)
     except Exception as exc:
         report['infrastructure_error']=type(exc).__name__
+        report['infrastructure_frames']=[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name}
+                                         for f in traceback.extract_tb(exc.__traceback__)]
     finally:
         server.should_exit=True
         with fail_after(15):await server_task
@@ -174,9 +184,11 @@ async def evaluate(output: Path):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--split',choices=['development'],default='development')
+    parser.add_argument('--corpus-profile',choices=['eval-rag-v1-197','eval-rag-v2-209'],default='eval-rag-v2-209')
     args=parser.parse_args()
     if args.output.exists():raise SystemExit('Choose a new output path; prior raw runs must be preserved')
-    report=asyncio.run(evaluate(args.output))
+    report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile))
     print(json.dumps({'complete':report['complete'],'summary':report['summary'],'cleanup':report['cleanup']},ensure_ascii=False))
     return 0 if report['complete'] and report['cleanup'].get('synthetic_redis_keys_removed') else 2
 

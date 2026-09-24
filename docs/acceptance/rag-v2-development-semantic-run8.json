@@ -1,0 +1,132 @@
+{
+  "raw_report_sha256": "2b3cde7b228af8d900a7e7b7c0a5619cbfb33855e483e3e59d62aec5550f3806",
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "逐条阅读24条实际成功回答及对应来源，分别检查主要结论、适用条件和例外。与线上两次模型审核分开；不是人工法律专家认证。",
+  "limitations": [
+    "不声称全部附带措辞均无歧义，逐条notes保留表达问题和专家复核点。",
+    "4条服务错误不计作合格回答，仍进入行为52轮分母。",
+    "本轮为开发回归，不是独立盲测。"
+  ],
+  "turns": {
+    "E-L-MF-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "1085及解释二16支持不付抚养费约定约束力和必要时增加请求，保留必要合理费用显著增加、主体和综合因素；风险不展开变更抚养请求。裸S1/S2及“依据，”属于表达问题。"
+    },
+    "E-L-MF-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二17区分未成年或不能独立生活与成年能独立生活的请求主体；1085仅补充一般安排。已阅读包含“所给参考材料”的完整风险段，未将正文中的该词误作附录边界。"
+    },
+    "E-L-MF-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二8支持婚后一方父母全额出资、赠与不明时房屋归属与补偿分别考量，保留明确只赠自己子女的例外，不宣称必然零份额。"
+    },
+    "E-L-MF-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二4支持无配偶同居析产、无约定且协商不成、个人所得与共同经营收益区别、出资比例及综合因素；不承诺个案份额。"
+    },
+    "E-L-MF-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认7月日期后仍保留前次经营事实与直接依据，不混入文书任务；无配偶和协商不成条件完整。"
+    },
+    "E-L-LD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二19直接支持社保承诺无效、未缴费解除补偿、依法补缴后返还补偿；风险只核实事实，不自行增加返还期限。"
+    },
+    "E-L-LD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二13支持未接触商业秘密及知识产权保密事项时请求确认条款不生效；未断言所有竞业约定均无效。"
+    },
+    "E-L-LD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "核心结论“不满一月按该月实际工作日计算”由解释二6直接支持，未给具体金额/基数公式。笼统按月薪折算的对比需结合本段实际工作日语境理解，不能据此排除以月薪为基数按工作日计算，表述仍建议专家复核。"
+    },
+    "E-L-LD-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二18直接支持违法解除且可继续履行的工资期间、正常劳动标准与双方过错。本轮不再概括16的例外清单，没有重复第六、七轮的条件遗漏。"
+    },
+    "E-L-LD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二1支持合法资格承包人向无资格主体转分包后的工资责任；保留各项主体及招工条件，不推导自动建立劳动关系或排除个人责任。"
+    },
+    "E-L-LD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认日期后保持同一任务和事实，主张承包人责任的前提完整；未扩写时效或仲裁程序。"
+    },
+    "E-L-TA-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释6支持收费凭据结合病历诊断以及必要性合理性异议方举证，说明材料辅助作用但没有增加法定证据形式或数量。"
+    },
+    "E-L-TA-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释7保留无固定收入、不能证明三年均值、受诉法院地同近行业上一年度平均工资及误工时间条件，没有给具体地区数额。"
+    },
+    "E-L-TA-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释8支持一人原则与机构明确意见例外、护理人员收入或同级护工标准、期限；材料建议未变成一律两人或固定赔偿额。"
+    },
+    "E-L-TA-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释9支持实际就医转院交通、必要陪护、正式票据与四项信息相符；没有把不一致推导为一概不赔。"
+    },
+    "E-L-TA-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释11支持伤残情况参照医疗机构意见，不支持受伤即按自行报价。本轮核实营养相关医疗记录，但未设必要性期限标准齐备这一新法律条件。"
+    },
+    "E-L-TA-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释13支持普通适用合理费用、伤情特殊需要参考配制机构意见及更换周期期限；对已有材料仅建议核实，不认定豪华器具绝不赔。"
+    },
+    "E-L-TA-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "日期确认后依据和事实不串会话，普通适用与特殊需要两层规则保留。"
+    },
+    "E-L-CD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同通则解释2支持两类交易习惯、强制规定与公序良俗限制及主张方举证，没有将任意个人习惯当然等同交易习惯。"
+    },
+    "E-L-CD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释7、8支持预约生效后拒绝或失信磋商、赔偿按约定或按完备和条件成就酌定，未给固定赔偿比例。"
+    },
+    "E-L-CD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释10保留电子勾选不足及实际履行提示说明的例外；496的不成为合同内容保留未注意理解的因果前提。修订后下一步重复规则，行动建议质量仍需改善，但不是无依据法律结论。"
+    },
+    "E-L-CD-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "本轮明确完整保留解释13“合同存在无效或可撤销情形”的前提，并说明不作无条件扩张；第七轮遗漏前提已在独立条件审核修订中纠正。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释65、64支持损失基础、多因素、一般30%及恶意违约例外、反诉抗辩与举证责任；没有计算个案结果。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认后保留损失和违约金原问题与新日期；一般阈值非唯一且保留恶意违约例外，直接依据一致。"
+    }
+  }
+}

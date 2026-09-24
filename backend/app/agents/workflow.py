@@ -6,12 +6,14 @@ from uuid import UUID, uuid4
 
 from langgraph.graph import END, START, StateGraph
 from pydantic import ValidationError
+from fastapi.concurrency import run_in_threadpool
+from app.rag.catalog_profiles import catalog_warning, catalog_identity
 
 from app.agents.evidence import Evidence, INSUFFICIENT, retrieve_evidence, retrieval_query, select_evidence, source_summary
 from app.agents.intent import classify_intent
 from app.agents.qa import generate_qa
 from app.agents.tasks import advance_task, action_for, task_reply, QA_FIELDS, COMMANDS
-from app.agents.intent import IntentDecision, DOCUMENT_NAMES, SEARCH_REQUEST
+from app.agents.intent import IntentDecision, DOCUMENT_NAMES, SEARCH_REQUEST, DOCUMENT_REQUEST
 from app.agents.legal_evidence import legal_evidence
 from app.rag.legal_catalog import event_interval
 from app.schemas.tasks import TaskState
@@ -54,7 +56,15 @@ def build_workflow(database: Database, retriever: HybridCaseRetriever, llm: LLMC
         previous = state.get("task")
         request = state["payload"]
         action = action_for(request)
-        if previous and previous.kind == "document" and previous.phase != "cancelled" and action != "restart" and not request.document_type and not SEARCH_REQUEST.search(request.message):
+        active = previous and previous.phase != "cancelled" and action != "restart"
+        explicit_new = request.document_type or request.document_params is not None or SEARCH_REQUEST.search(request.message) or DOCUMENT_REQUEST.search(request.message)
+        if active and action in {"confirm", "accept_changes", "reject_changes", "cancel"}:
+            decision = IntentDecision(intent=previous.kind, document_type=previous.document_type)
+        elif active and previous.kind == "qa" and not explicit_new:
+            # A correction/follow-up cannot destroy a task through a context-free classifier.
+            # QA topic changes are handled by the grounded extractor, or explicit restart.
+            decision = IntentDecision(intent="qa")
+        elif active and previous.kind == "document" and not explicit_new:
             names = [value for name, value in DOCUMENT_NAMES.items() if request.message.strip(" 。") == name]
             decision = IntentDecision(intent="document", document_type=names[0] if names else previous.document_type)
         else:
@@ -67,7 +77,16 @@ def build_workflow(database: Database, retriever: HybridCaseRetriever, llm: LLMC
         query = state["payload"].message
         history = state["conversation_messages"]
         task, _ = await advance_task(state["payload"], state.get("task"), kind="qa", turn_id=state.get("turn_id", uuid4()), llm=llm)
-        if task.domain or action_for(state["payload"]) == "cancel":
+        if task.requires_local_material and task.phase not in {'conflict', 'cancelled'}:
+            profile = await run_in_threadpool(catalog_identity, database)
+            if profile['profile'] != 'custom':
+                task.phase, task.missing_fields, task.questions = 'completed', [], []
+                response = ('结论\n本资料集未收录所需地方文件或统计数额，资料不足，不能给出准确金额或地方政策结论。\n\n'
+                            '风险\n全国一般条文不能替代对应地区、年份的官方文件，补充普通案情也不能填补该缺口。\n\n'
+                            '下一步\n请先取得对应地区与时期的官方文件；必要时再补充影响计算或适用的事实。')
+                await emit('content', {'delta': response})
+                return {'task': task, 'response': response, 'missing_fields': [], 'sources': []}
+        if task.domain or task.mode == 'general' or action_for(state["payload"]) == "cancel":
             # Old task facts cannot be carried into a different topic through prose history.
             history = [message for i in range(0, len(history) - 1, 2)
                        if history[i + 1].task and history[i + 1].task.task_id == task.task_id
@@ -85,14 +104,15 @@ def build_workflow(database: Database, retriever: HybridCaseRetriever, llm: LLMC
                 response = task_reply(task)
                 await emit("content", {"delta": response})
                 return {"task": task, "response": response, "missing_fields": task.missing_fields}
-            legal, missing = await legal_evidence(database, query, task, llm)
-            if missing:
-                task.phase, task.missing_fields = "collecting", list(missing)
-                task.questions = list(missing.values())
+            decision = await legal_evidence(database, query, task, llm)
+            if decision.status == 'clarify':
+                task.phase, task.missing_fields = "collecting", list(decision.missing)
+                task.questions = list(decision.missing.values())
                 response = task_reply(task)
                 await emit("content", {"delta": response})
-                return {"task": task, "response": response, "missing_fields": list(missing)}
-            if legal:
+                return {"task": task, "response": response, "missing_fields": list(decision.missing)}
+            if decision.status == 'answer':
+                legal = decision.evidence
                 parts = []
                 grounded_query = query + "\n用户此前提供并保留的事实（数据）：\n" + "\n".join(f"{k}: {v.value}" for k, v in task.fields.items())
                 async for part in generate_qa(grounded_query, history, legal, llm):
@@ -101,6 +121,12 @@ def build_workflow(database: Database, retriever: HybridCaseRetriever, llm: LLMC
                 response = "".join(parts)
                 return {"task": task, "response": response, "sources": [e.source for e in legal if f"[{e.source.citation_id}]" in response],
                         "warnings": state["warnings"] + ["法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。"]}
+            response = ("结论\n现有资料不足以支持本次争点的法律结论。\n\n风险\n"
+                        "本地知识库未找到可确认适用且直接支持问题的依据；可能缺少地方规定、历史版本或相关条文，不能用最新法或演示案例补足。\n\n"
+                        "下一步\n请核对对应地区、事项和时期的官方资料。补充普通案情不一定能解决资料覆盖缺口。")
+            await emit('content', {'delta': response})
+            return {'task': task, 'response': response, 'sources': [],
+                    'warnings': state['warnings'] + ['依据不足：' + decision.reason]}
         else:
             task = None
         candidates = await retrieve_evidence(retrieval_query(query, history), database, retriever)
@@ -150,6 +176,7 @@ def build_workflow(database: Database, retriever: HybridCaseRetriever, llm: LLMC
 
     async def finalize(state: AgentState):
         warnings = list(dict.fromkeys([CHAT_DISCLAIMER, *state["warnings"]]))
+        warnings.append(await run_in_threadpool(catalog_warning, database))
         if any(source.is_demo for source in state["sources"]):
             warnings.append(DEMO_CASE_WARNING)
         prepared = state.get("document")

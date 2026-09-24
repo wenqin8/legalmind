@@ -287,3 +287,5 @@ Chroma 不是来源事实的唯一存储。API 展示前必须使用 `source_id`
 `20260918_0004` 只新增 `legal_provisions.verification` 可空 JSON/JSONB。内容包括 `version/effective_from/effective_until/verified_at/status_as_of/status_source_url/original_text/text_sha256/domains/keywords`。有效区间左闭右开；同条不同版本不能重叠。未经核验的旧行保留，但不进入法条检索。引用正文取 `original_text`，不取经过 NFKC 规范化的搜索文本。
 
 `ConversationMessage.task` 保存最新 `TaskState`：任务 UUID、修订 UUID、问答/文书类型、阶段、模板、领域、字段、待确认冲突、缺项与最多三个问题。每个值都带原句、来源用户 turn UUID 和 message/parameters 类型。原始用户消息被裁剪时，最新快照仍保存来源原句；历史与任务共享 TTL。任务不另建 Redis key，追加、补偿和关系提交标记沿用现有机制。取消清空当前快照字段，历史消息本身仍按原保留规则处理。
+
+RAG-v2 在现有JSON中增加可选 `temporal_rule` 和 `transition_text`，前者默认为按事件日期筛选，新交通解释使用 `pending_after_effective`；后者保留官方过渡原文。来源响应带相同字段，不新建关系表、不新增数据库迁移。任务增加 `requires_local_material`，QA字段可包含带用户消息出处的 `case_status`，用于终审/再审状态核对；这些值与历史共同过期。资料版本与指纹由已核验法条清单计算，区分原60条演示版、197条旧评估版与209条新评估版。

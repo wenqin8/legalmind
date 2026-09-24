@@ -5,6 +5,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
+from typing import Literal
 from urllib.parse import urlparse
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -32,6 +33,8 @@ class Verification(BaseModel):
     text_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
     domains: list[Domain] = Field(min_length=1, max_length=4)
     keywords: list[str] = Field(min_length=1, max_length=30)
+    temporal_rule: Literal['event_date', 'pending_after_effective'] = 'event_date'
+    transition_text: str | None = None
 
     @model_validator(mode="after")
     def validate_version(self):
@@ -127,8 +130,18 @@ def tokens(value: str) -> list[str]:
     return [text[i:i+2] for i in range(len(text)-1)]
 
 
-def retrieve_provisions(database: Database, query: str, domain: Domain, *, event_date: str | None,
-                        general: bool = False) -> list[tuple[LegalProvision, Verification]]:
+def uncertain_case_status(value: str | None) -> bool:
+    return bool(value and re.search(r'是否|不(?:清楚|知道|确定|是)|可能|也许|或许|记不清|[?？]', value))
+
+
+def pending_case(value: str | None) -> bool:
+    return bool(value and re.search(r'尚未终审|未终审|没有生效裁判|未有生效裁判', value)
+                and not re.search(r'已经终审|已终审|再审', value) and not uncertain_case_status(value))
+
+
+def retrieve_provisions(database: Database, query: str, domain: Domain | None, *, event_date: str | None,
+                        general: bool = False, case_status: str | None = None,
+                        include_transition_questions: bool = False) -> list[tuple[LegalProvision, Verification]]:
     interval = event_interval(event_date or "")
     if not general and interval is None:
         return []
@@ -138,22 +151,30 @@ def retrieve_provisions(database: Database, query: str, domain: Domain, *, event
         candidates = []
         for row in rows:
             metadata = Verification.model_validate(row.verification)
-            if domain not in metadata.domains:
+            if domain is not None and domain not in metadata.domains:
                 continue
             if row.legal_status == "unknown" or (row.legal_status in {"amended", "repealed"} and metadata.effective_until is None):
                 continue
             if general:
                 if row.legal_status != "effective" or metadata.effective_from > date.today() or (metadata.effective_until and metadata.effective_until <= date.today()):
                     continue
-            elif metadata.effective_from > interval[0] or (metadata.effective_until and metadata.effective_until <= interval[1]):
-                continue
+            else:
+                pending_rule = metadata.temporal_rule == 'pending_after_effective' and metadata.effective_from <= date.today()
+                status_missing = not case_status or uncertain_case_status(case_status)
+                if pending_rule and not status_missing and not pending_case(case_status) and metadata.effective_from > interval[0]:
+                    continue
+                if metadata.effective_from > interval[0] and not (pending_rule and (pending_case(case_status) or (include_transition_questions and status_missing))):
+                    continue
+                if metadata.effective_until and metadata.effective_until <= interval[1]:
+                    continue
             candidates.append((row, metadata))
         if not candidates:
             return []
         corpus = [BM25Document(row.record_id, " ".join(m.keywords) + " " + m.original_text) for row, m in candidates]
         lookup = {row.record_id: (row, m) for row, m in candidates}
         ranked = [(lookup[key], score) for key, score in BM25Index(corpus).search(query, limit=len(corpus))]
-        # Keyword relevance is a retrieval gate, not a legal confidence score.
-        return [pair for pair, score in ranked if score > 0 and any(k in query for k in pair[1].keywords)][:5]
+        # Keywords contribute to ranking, but lexical synonyms must not delete top hits.
+        # Candidate scores do not authorize an answer: direct support is checked downstream.
+        return [pair for pair, score in ranked if score > 0][:5]
     except (SQLAlchemyError, ValueError, TypeError) as exc:
         raise RetrievalUnavailableError() from exc

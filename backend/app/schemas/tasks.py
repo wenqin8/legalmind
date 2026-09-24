@@ -32,6 +32,7 @@ class TaskState(BaseModel):
     missing_fields: list[str] = Field(default_factory=list, max_length=16)
     questions: list[str] = Field(default_factory=list, max_length=3)
     document_id: UUID | None = None
+    requires_local_material: bool = False
 
     @model_validator(mode="after")
     def bounded_state(self):

@@ -1,0 +1,48 @@
+{
+  "scope": "synthetic_development_probes_not_legal_certification",
+  "model": "deepseek-v4-flash",
+  "prompt_sha256": "9742b750fd7b37cc0534ff2588e2f3616fd1370d813bd8c4b808a71d7342441e",
+  "all_passed": true,
+  "items": [
+    {
+      "id": "omitted_exception",
+      "claim": "用人单位解散时，法院可以认定劳动合同已经不能继续履行，不存在例外。",
+      "record_id": "labor_ii-2025-07-31-16",
+      "original_text_sha256": "9b30c0ae0ac0e9d28d2b3a6ae2dbf3eaa6d0ac7049ffe8992923fc557fff3ad7",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "or_changed_to_and",
+      "claim": "劳动者已与其他单位建立劳动关系时，仅在同时满足严重影响原工作且经原单位提出仍不解除这两个条件时，法院才可以认定合同不能继续履行。",
+      "record_id": "labor_ii-2025-07-31-16",
+      "original_text_sha256": "9b30c0ae0ac0e9d28d2b3a6ae2dbf3eaa6d0ac7049ffe8992923fc557fff3ad7",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "unsupported_evidence_requirement",
+      "claim": "医疗意见只有明确写出营养必要性、期限和标准，才可以作为营养费认定依据。",
+      "record_id": "personal_injury-2022-04-24-11",
+      "original_text_sha256": "ca756e3a3424c6deb1cfaa3ecaf8fe548204d3571f57f2a5111dcd86cb869474",
+      "expected_supported": false,
+      "observed_supported": false,
+      "reason": "unsupported_claim",
+      "passed": true
+    },
+    {
+      "id": "supported_conditional_rule",
+      "claim": "营养费根据受害人伤残情况参照医疗机构的意见确定。",
+      "record_id": "personal_injury-2022-04-24-11",
+      "original_text_sha256": "ca756e3a3424c6deb1cfaa3ecaf8fe548204d3571f57f2a5111dcd86cb869474",
+      "expected_supported": true,
+      "observed_supported": true,
+      "reason": null,
+      "passed": true
+    }
+  ]
+}

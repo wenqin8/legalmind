@@ -18,6 +18,7 @@ _STRUCTURED_FIELDS = (
     "user_id",
     "exception_type",
     "response_completed",
+    "reason_code",
 )
 
 

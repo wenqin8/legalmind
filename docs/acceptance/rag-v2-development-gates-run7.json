@@ -1,0 +1,158 @@
+{
+  "scope": "development_regression_not_blind_legal_certification",
+  "quality_gate_passed": false,
+  "checks": {
+    "development_only": true,
+    "complete_runs": true,
+    "direct_hit_at_5": true,
+    "behavior_match": true,
+    "safe_nonanswer": true,
+    "four_corrections": true,
+    "structural_safety": true,
+    "semantic_review": false,
+    "same_evaluation_corpus": true
+  },
+  "metrics": {
+    "planned_turns": 52,
+    "http_successes": 49,
+    "scenario_structural_passes": 32,
+    "expected_answer_behavior_counts": {
+      "answer": 25,
+      "service_error": 3
+    },
+    "behavior_match_including_errors": {
+      "value": 0.9230769230769231,
+      "denominator": 52
+    },
+    "answerable_but_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "answerable_but_clarifying_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "hard_check_failures": {
+      "source_integrity": 0,
+      "known_citations": 0,
+      "verbatim_quotes": 0,
+      "no_model_urls": 0,
+      "version_interval": 0,
+      "field_provenance": 0,
+      "conflict_preserved": 0,
+      "confirmed_field": 0
+    },
+    "candidate_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "candidate_recall_on_expected_answers": {
+      "value": 0.7351190476190476,
+      "denominator": 28
+    },
+    "selected_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "selected_recall_on_expected_answers": {
+      "value": 0.6904761904761905,
+      "denominator": 28
+    },
+    "returned_hit_on_expected_answers": {
+      "value": 0.8928571428571429,
+      "denominator": 28
+    },
+    "returned_recall_on_expected_answers": {
+      "value": 0.6190476190476191,
+      "denominator": 28
+    },
+    "by_domain": {
+      "contract_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 13
+      },
+      "labor_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "marriage_family": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "traffic_accident": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      }
+    }
+  },
+  "corrections": {
+    "E-L-MF-06": true,
+    "E-L-LD-06": true,
+    "E-L-TA-06": true,
+    "E-L-CD-06": true
+  },
+  "direct_hit_at_5": {
+    "value": 1.0,
+    "hits": 44,
+    "denominator": 44
+  },
+  "safe_nonanswer": {
+    "value": 1.0,
+    "safe": 8,
+    "denominator": 8
+  },
+  "semantic_reviews": {
+    "E-L-MF-01:1": true,
+    "E-L-MF-02:1": true,
+    "E-L-MF-03:1": true,
+    "E-L-MF-05:2": true,
+    "E-L-MF-06:1": true,
+    "E-L-MF-06:3": true,
+    "E-L-LD-02:1": true,
+    "E-L-LD-03:1": true,
+    "E-L-LD-04:1": true,
+    "E-L-LD-05:2": false,
+    "E-L-LD-06:1": true,
+    "E-L-LD-06:3": true,
+    "E-L-TA-01:1": true,
+    "E-L-TA-03:1": true,
+    "E-L-TA-04:1": true,
+    "E-L-TA-05:2": true,
+    "E-L-TA-06:1": true,
+    "E-L-TA-06:3": true,
+    "E-L-CD-01:1": true,
+    "E-L-CD-02:1": true,
+    "E-L-CD-03:1": true,
+    "E-L-CD-04:1": true,
+    "E-L-CD-05:2": false,
+    "E-L-CD-06:1": true,
+    "E-L-CD-06:3": true
+  },
+  "reviewer": "development_agent_not_legal_expert",
+  "expert_review": "not performed",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "gate_definition_sha256": "5ca79f80f894a9a971f2ec4407f4788fcae3405c1532c9f9509af1cf4e097a0f",
+  "raw_report_sha256": "8530d07657b652256fd80dd9f9a3516f79be76f67f924a3a1eeb53d799eebb25",
+  "retrieval_report_sha256": "ad5e9d227b5ad9f29e9f30d868628d5e57c01e49fb6897b4912dc7915986d042",
+  "semantic_review_sha256": "ddc933e9ceda2c43ba00476379acee9a8956a3ba70fed730946782d4f266aac0"
+}

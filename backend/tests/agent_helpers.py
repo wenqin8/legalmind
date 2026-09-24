@@ -26,6 +26,20 @@ class AgentLLM(FakeLLMClient):
         if "TASK:EVIDENCE" in messages[0].content:
             candidates = json.loads(messages[1].content)["candidates"]
             return json.dumps({"in_scope": self.selection, "source_ids": [candidates[0]["source_id"]] if self.selection and candidates else []})
+        if 'TASK:CONDITIONS' in messages[0].content:
+            data = json.loads(messages[1].content)
+            return json.dumps({'items': [{'unit_id': u['unit_id'], 'verdict': 'consistent'} for u in data['units']]})
+        if 'TASK:GROUNDING' in messages[0].content:
+            # Explicitly scripted verifier for transport/state tests; semantic rejection
+            # is tested independently with adversarial checker responses.
+            data = json.loads(messages[1].content)
+            import re
+            items = []
+            for unit in data['units']:
+                labels = re.findall(r'\[(S[1-5])\]', unit['text'])
+                spans = [{'citation_id': e['citation_id'], 'quote': e['text']} for e in data['evidence'] if e['citation_id'] in labels]
+                items.append({'unit_id': unit['unit_id'], 'verdict': 'supported' if spans else 'neutral', 'supports': spans})
+            return json.dumps({'items': items})
         return self.response
 
     async def stream(self, messages):

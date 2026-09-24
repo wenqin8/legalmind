@@ -108,8 +108,12 @@ def validate_citations(text: str, evidence: list[Evidence]) -> None:
             label = match[2][1:-1] if match[2] else None
             # Quoting an ordinary phrase is not quoting a statute. Only a quotation
             # attributed to a citation or introduced as legal text is an original quote.
-            if label is None and not re.search(r"(?:原文|条文|规定|法条|法律).{0,6}$", text[max(0, match.start()-14):match.start()]):
-                continue
+            prefix = text[max(0, match.start()-24):match.start()]
+            if label is None:
+                attributed = re.search(r"(?:原文|条文|规定|法条|法律).{0,6}$", prefix)
+                denied = re.search(r"(?:未|并未|没有|并没有|尚未)(?:直接|明确)?规定[：:、，\s]*$", prefix)
+                if not attributed or denied:
+                    continue
             source = next((e.source for e in evidence if e.source.citation_id == label), None)
             if source is None or not source.original_text or match[1] not in source.original_text:
                 raise ModelUnavailableError()
@@ -143,6 +147,7 @@ def source_summary(sources: list[SourceReference]) -> str:
         (f"\n{DEMO_CASE_WARNING}" if s.is_demo else
          (f"\n版本：{s.version}；生效：{s.effective_from}；核验日期：{s.verified_at}；有效状态资料截至：{s.status_as_of}。"
           f"\n{'一般规则参考' if s.applicability == 'general_reference' else '事件时间候选依据，仍需核对具体适用条件'}。"
+          + (f"\n过渡适用原文：{s.transition_text}" if s.transition_text else "") +
           f"\n官方原文：{s.original_text}\n来源：{s.source_url}" if s.original_text else "\n请核对原始来源。"))
         for s in sources
     )

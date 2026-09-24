@@ -51,6 +51,8 @@ class SourceReference(BaseModel):
     legal_status: Literal["effective", "amended", "repealed", "unknown"] | None = None
     original_text: str | None = Field(default=None, max_length=30000)
     applicability: Literal["general_reference", "event_candidate"] | None = None
+    temporal_rule: Literal['event_date', 'pending_after_effective'] = 'event_date'
+    transition_text: str | None = None
 
     @model_validator(mode="after")
     def preserve_source_boundary(self):
