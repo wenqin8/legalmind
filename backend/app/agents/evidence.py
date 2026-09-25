@@ -31,6 +31,8 @@ INSUFFICIENT = (
 class Evidence:
     source: SourceReference
     text: str
+    role: str | None = None
+    support_span_ids: tuple[int, ...] = ()
 
 
 class Selection(BaseModel):

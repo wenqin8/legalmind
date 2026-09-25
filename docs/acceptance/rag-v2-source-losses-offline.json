@@ -1,0 +1,1504 @@
+{
+  "scope": "current retrieval on archived development facts; selection/generation not re-run",
+  "archive": "../docs/acceptance/rag-v2-development-answers-run9.json",
+  "archive_sha256": "188766dc7737f80ac4879ebde2e1bdbe3f94ee20fd1d6c684083cf9678dba9ba",
+  "real_model_calls": 0,
+  "current_final_source_recall": null,
+  "current_real_model_quality_passed": null,
+  "archived_metrics": {
+    "planned_turns": 52,
+    "http_successes": 48,
+    "scenario_structural_passes": 32,
+    "expected_answer_behavior_counts": {
+      "answer": 24,
+      "service_error": 4
+    },
+    "behavior_match_including_errors": {
+      "value": 0.9230769230769231,
+      "denominator": 52
+    },
+    "answerable_but_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "answerable_but_clarifying_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "hard_check_failures": {
+      "source_integrity": 0,
+      "known_citations": 0,
+      "verbatim_quotes": 0,
+      "no_model_urls": 0,
+      "version_interval": 0,
+      "field_provenance": 0,
+      "conflict_preserved": 0,
+      "confirmed_field": 0
+    },
+    "candidate_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "candidate_recall_on_expected_answers": {
+      "value": 0.8482142857142857,
+      "denominator": 28
+    },
+    "selected_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "selected_recall_on_expected_answers": {
+      "value": 0.7589285714285714,
+      "denominator": 28
+    },
+    "returned_hit_on_expected_answers": {
+      "value": 0.8571428571428571,
+      "denominator": 28
+    },
+    "returned_recall_on_expected_answers": {
+      "value": 0.6636904761904762,
+      "denominator": 28
+    },
+    "by_domain": {
+      "contract_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 1.0,
+          "denominator": 13
+        },
+        "http_successes": 13
+      },
+      "labor_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.8461538461538461,
+          "denominator": 13
+        },
+        "http_successes": 11
+      },
+      "marriage_family": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "traffic_accident": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      }
+    },
+    "source_recall_by_grade": {
+      "3": {
+        "candidate": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "selected": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "returned": {
+          "macro_recall": 0.8571428571428571,
+          "turns_with_grade": 28,
+          "matched_sources": 25,
+          "gold_sources": 29
+        }
+      },
+      "2": {
+        "candidate": {
+          "macro_recall": 0.6842105263157895,
+          "turns_with_grade": 19,
+          "matched_sources": 16,
+          "gold_sources": 23
+        },
+        "selected": {
+          "macro_recall": 0.5263157894736842,
+          "turns_with_grade": 19,
+          "matched_sources": 12,
+          "gold_sources": 23
+        },
+        "returned": {
+          "macro_recall": 0.47368421052631576,
+          "turns_with_grade": 19,
+          "matched_sources": 10,
+          "gold_sources": 23
+        }
+      },
+      "1": {
+        "candidate": {
+          "macro_recall": 0.5,
+          "turns_with_grade": 9,
+          "matched_sources": 5,
+          "gold_sources": 10
+        },
+        "selected": {
+          "macro_recall": 0.16666666666666666,
+          "turns_with_grade": 9,
+          "matched_sources": 2,
+          "gold_sources": 10
+        },
+        "returned": {
+          "macro_recall": 0.16666666666666666,
+          "turns_with_grade": 9,
+          "matched_sources": 2,
+          "gold_sources": 10
+        }
+      }
+    }
+  },
+  "current_candidate_recall": 0.9196428571428571,
+  "current_candidate_hit": 1.0,
+  "expected_answer_turns": 28,
+  "rows": [
+    {
+      "scenario_id": "E-L-MF-01",
+      "turn": 1,
+      "gold": {
+        "marriage_ii-2025-01-15-16": 3,
+        "civil_code-2020-05-28-1085": 2,
+        "civil_code-2020-05-28-1084": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-16",
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-3"
+      ],
+      "archived_selected": [
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-16"
+      ],
+      "archived_returned": [
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-16"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [
+          "civil_code-2020-05-28-1084"
+        ],
+        "generation": []
+      },
+      "current_candidates": [
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-16",
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-3"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.6,
+        "ndcg": 0.8354477690556398,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-02",
+      "turn": 1,
+      "gold": {
+        "marriage_ii-2025-01-15-17": 3,
+        "civil_code-2020-05-28-1085": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-16",
+        "civil_code-2020-05-28-1076"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085"
+      ],
+      "archived_returned": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-16",
+        "civil_code-2020-05-28-1076"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-03",
+      "turn": 1,
+      "gold": {
+        "marriage_ii-2025-01-15-8": 3,
+        "civil_code-2020-05-28-1062": 2,
+        "civil_code-2020-05-28-1087": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-6",
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-14"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-8"
+      ],
+      "archived_returned": [
+        "marriage_ii-2025-01-15-8"
+      ],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-1062",
+          "civil_code-2020-05-28-1087"
+        ],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-6",
+        "civil_code-2020-05-28-1087",
+        "civil_code-2020-05-28-1085"
+      ],
+      "current_missing": [
+        "civil_code-2020-05-28-1062"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.6666666666666666,
+        "precision": 0.4,
+        "ndcg": 0.7978637366933587,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-04",
+      "turn": 1,
+      "gold": {
+        "marriage_ii-2025-01-15-7": 3,
+        "civil_code-2020-05-28-153": 2,
+        "civil_code-2020-05-28-1062": 1
+      },
+      "archived_status": 424,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-6",
+        "marriage_ii-2025-01-15-7",
+        "civil_code-2020-05-28-1079",
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-14"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-7"
+      ],
+      "archived_returned": [],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-1062",
+          "civil_code-2020-05-28-153"
+        ],
+        "selection": [],
+        "generation": [
+          "marriage_ii-2025-01-15-7"
+        ]
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-6",
+        "marriage_ii-2025-01-15-7",
+        "civil_code-2020-05-28-1079",
+        "civil_code-2020-05-28-1062",
+        "civil_code-2020-05-28-1085"
+      ],
+      "current_missing": [
+        "civil_code-2020-05-28-153"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.6666666666666666,
+        "precision": 0.4,
+        "ndcg": 0.5160538258158408,
+        "reciprocal_rank": 0.5,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-05",
+      "turn": 2,
+      "gold": {
+        "marriage_ii-2025-01-15-21": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-23",
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1087",
+        "marriage_ii-2025-01-15-5"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-23"
+      ],
+      "archived_returned": [
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-23"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-23",
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1084",
+        "civil_code-2020-05-28-1087"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-06",
+      "turn": 1,
+      "gold": {
+        "marriage_ii-2025-01-15-4": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-4",
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1087",
+        "civil_code-2020-05-28-1062",
+        "marriage_ii-2025-01-15-7"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-4"
+      ],
+      "archived_returned": [
+        "marriage_ii-2025-01-15-4"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-4",
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1087",
+        "civil_code-2020-05-28-1062",
+        "marriage_ii-2025-01-15-7"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-MF-06",
+      "turn": 3,
+      "gold": {
+        "marriage_ii-2025-01-15-4": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "marriage_ii-2025-01-15-4",
+        "marriage_ii-2025-01-15-7",
+        "civil_code-2020-05-28-1062",
+        "civil_code-2020-05-28-1087",
+        "marriage_ii-2025-01-15-8"
+      ],
+      "archived_selected": [
+        "marriage_ii-2025-01-15-4"
+      ],
+      "archived_returned": [
+        "marriage_ii-2025-01-15-4"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "marriage_ii-2025-01-15-4",
+        "marriage_ii-2025-01-15-7",
+        "civil_code-2020-05-28-1062",
+        "civil_code-2020-05-28-1087",
+        "marriage_ii-2025-01-15-8"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-01",
+      "turn": 1,
+      "gold": {
+        "labor_ii-2025-07-31-19": 3,
+        "labor_contract-2012-12-28-38": 2,
+        "labor_contract-2012-12-28-46": 1
+      },
+      "archived_status": 424,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-19",
+        "labor_ii-2025-07-31-15",
+        "labor_ii-2025-07-31-21",
+        "labor_contract-2012-12-28-38",
+        "labor_arbitration-2007-12-29-47"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-19",
+        "labor_ii-2025-07-31-21"
+      ],
+      "archived_returned": [],
+      "losses": {
+        "retrieval": [
+          "labor_contract-2012-12-28-46"
+        ],
+        "selection": [
+          "labor_contract-2012-12-28-38"
+        ],
+        "generation": [
+          "labor_ii-2025-07-31-19"
+        ]
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-19",
+        "labor_ii-2025-07-31-15",
+        "labor_ii-2025-07-31-21",
+        "labor_contract-2012-12-28-46",
+        "labor_contract-2012-12-28-38"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.6,
+        "ndcg": 0.9146628058302255,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-02",
+      "turn": 1,
+      "gold": {
+        "labor_ii-2025-07-31-13": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-13",
+        "labor_ii-2025-07-31-14",
+        "labor_ii-2025-07-31-15",
+        "labor_contract-2012-12-28-40",
+        "labor_arbitration-2007-12-29-27"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-13"
+      ],
+      "archived_returned": [
+        "labor_ii-2025-07-31-13"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-13",
+        "labor_ii-2025-07-31-14",
+        "labor_ii-2025-07-31-15",
+        "labor_contract-2012-12-28-38",
+        "labor_contract-2012-12-28-40"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-03",
+      "turn": 1,
+      "gold": {
+        "labor_ii-2025-07-31-3": 3,
+        "labor_contract-2012-12-28-7": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-3",
+        "labor_ii-2025-07-31-6",
+        "labor_contract-2012-12-28-10",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-82"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-3",
+        "labor_ii-2025-07-31-6",
+        "labor_contract-2012-12-28-10",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-82"
+      ],
+      "archived_returned": [
+        "labor_ii-2025-07-31-3",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "losses": {
+        "retrieval": [
+          "labor_contract-2012-12-28-7"
+        ],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-3",
+        "labor_ii-2025-07-31-6",
+        "labor_contract-2012-12-28-10",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-82"
+      ],
+      "current_missing": [
+        "labor_contract-2012-12-28-7"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.5,
+        "precision": 0.2,
+        "ndcg": 0.7871546029909718,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-04",
+      "turn": 1,
+      "gold": {
+        "labor_ii-2025-07-31-6": 3,
+        "labor_ii-2025-07-31-7": 2,
+        "labor_contract-2012-12-28-82": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-6",
+        "labor_contract-2012-12-28-82",
+        "labor_contract-2012-12-28-47",
+        "labor_ii-2025-07-31-7",
+        "labor_arbitration-2007-12-29-47"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-6"
+      ],
+      "archived_returned": [
+        "labor_ii-2025-07-31-6"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [
+          "labor_contract-2012-12-28-82",
+          "labor_ii-2025-07-31-7"
+        ],
+        "generation": []
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-6",
+        "labor_contract-2012-12-28-82",
+        "labor_contract-2012-12-28-47",
+        "labor_ii-2025-07-31-7",
+        "labor_arbitration-2007-12-29-47"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.6,
+        "ndcg": 0.9799889788426704,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-05",
+      "turn": 2,
+      "gold": {
+        "labor_ii-2025-07-31-18": 3
+      },
+      "archived_status": 424,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-18",
+        "labor_ii-2025-07-31-16",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-87",
+        "labor_arbitration-2007-12-29-6"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-18",
+        "labor_ii-2025-07-31-16",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "archived_returned": [],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": [
+          "labor_ii-2025-07-31-18"
+        ]
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-18",
+        "labor_ii-2025-07-31-16",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-87",
+        "labor_arbitration-2007-12-29-6"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-06",
+      "turn": 1,
+      "gold": {
+        "labor_ii-2025-07-31-1": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-6",
+        "labor_contract-2012-12-28-7",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "archived_returned": [
+        "labor_ii-2025-07-31-1",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-6",
+        "labor_contract-2012-12-28-30",
+        "labor_contract-2012-12-28-7"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-LD-06",
+      "turn": 3,
+      "gold": {
+        "labor_ii-2025-07-31-1": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-6",
+        "labor_contract-2012-12-28-7",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "archived_selected": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-6",
+        "labor_contract-2012-12-28-7",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "archived_returned": [
+        "labor_ii-2025-07-31-1",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "labor_ii-2025-07-31-1",
+        "labor_ii-2025-07-31-2",
+        "labor_arbitration-2007-12-29-6",
+        "labor_contract-2012-12-28-30",
+        "labor_contract-2012-12-28-7"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-01",
+      "turn": 1,
+      "gold": {
+        "personal_injury-2022-04-24-6": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-6",
+        "traffic_ii-2026-05-06-7",
+        "traffic_ii-2026-05-06-10",
+        "civil_code-2020-05-28-1179",
+        "road_safety-2021-04-29-76"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-6",
+        "civil_code-2020-05-28-1179"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-6",
+        "civil_code-2020-05-28-1179"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-6",
+        "traffic_ii-2026-05-06-7",
+        "traffic_ii-2026-05-06-10",
+        "civil_code-2020-05-28-1179",
+        "road_safety-2021-04-29-76"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-02",
+      "turn": 1,
+      "gold": {
+        "personal_injury-2022-04-24-7": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-7",
+        "personal_injury-2022-04-24-8",
+        "traffic_ii-2026-05-06-6",
+        "civil_code-2020-05-28-1165",
+        "road_safety-2021-04-29-76"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-7"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-7"
+      ],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-1179"
+        ],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-7",
+        "personal_injury-2022-04-24-8",
+        "traffic_ii-2026-05-06-6",
+        "civil_code-2020-05-28-1179",
+        "civil_code-2020-05-28-1165"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-03",
+      "turn": 1,
+      "gold": {
+        "personal_injury-2022-04-24-8": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 424,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-8",
+        "traffic_ii-2026-05-06-7",
+        "personal_injury-2022-04-24-23",
+        "road_safety-2021-04-29-73",
+        "civil_code-2020-05-28-1209"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-8"
+      ],
+      "archived_returned": [],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-1179"
+        ],
+        "selection": [],
+        "generation": [
+          "personal_injury-2022-04-24-8"
+        ]
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-8",
+        "traffic_ii-2026-05-06-7",
+        "personal_injury-2022-04-24-23",
+        "civil_code-2020-05-28-1179",
+        "road_safety-2021-04-29-73"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-04",
+      "turn": 1,
+      "gold": {
+        "personal_injury-2022-04-24-9": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-9",
+        "traffic_ii-2026-05-06-7",
+        "personal_injury-2022-04-24-23",
+        "road_safety-2021-04-29-76",
+        "civil_code-2020-05-28-1179"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-9"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-9"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [
+          "civil_code-2020-05-28-1179"
+        ],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-9",
+        "traffic_ii-2026-05-06-7",
+        "personal_injury-2022-04-24-23",
+        "civil_code-2020-05-28-1179",
+        "road_safety-2021-04-29-76"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-05",
+      "turn": 2,
+      "gold": {
+        "personal_injury-2022-04-24-11": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-11",
+        "traffic_ii-2026-05-06-3",
+        "road_safety-2021-04-29-73",
+        "civil_code-2020-05-28-1179",
+        "traffic_ii-2026-05-06-10"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-11",
+        "civil_code-2020-05-28-1179"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-11",
+        "civil_code-2020-05-28-1179"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-11",
+        "traffic_ii-2026-05-06-3",
+        "road_safety-2021-04-29-73",
+        "civil_code-2020-05-28-1173",
+        "civil_code-2020-05-28-1179"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9176601606601069,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-06",
+      "turn": 1,
+      "gold": {
+        "personal_injury-2022-04-24-13": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-13",
+        "road_safety-2021-04-29-73",
+        "traffic_ii-2026-05-06-3",
+        "civil_code-2020-05-28-1179",
+        "personal_injury-2022-04-24-19"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-13",
+        "civil_code-2020-05-28-1179"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-13",
+        "civil_code-2020-05-28-1179"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-13",
+        "road_safety-2021-04-29-73",
+        "traffic_ii-2026-05-06-3",
+        "civil_code-2020-05-28-1179",
+        "personal_injury-2022-04-24-19"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-TA-06",
+      "turn": 3,
+      "gold": {
+        "personal_injury-2022-04-24-13": 3,
+        "civil_code-2020-05-28-1179": 2
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "personal_injury-2022-04-24-13",
+        "road_safety-2021-04-29-73",
+        "traffic_ii-2026-05-06-3",
+        "civil_code-2020-05-28-1179",
+        "personal_injury-2022-04-24-19"
+      ],
+      "archived_selected": [
+        "personal_injury-2022-04-24-13",
+        "civil_code-2020-05-28-1179"
+      ],
+      "archived_returned": [
+        "personal_injury-2022-04-24-13",
+        "civil_code-2020-05-28-1179"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "personal_injury-2022-04-24-13",
+        "road_safety-2021-04-29-73",
+        "traffic_ii-2026-05-06-3",
+        "civil_code-2020-05-28-1179",
+        "personal_injury-2022-04-24-19"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.4,
+        "ndcg": 0.9324441894571632,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-01",
+      "turn": 1,
+      "gold": {
+        "contract_general-2023-12-04-2": 3,
+        "contract_general-2023-12-04-1": 2,
+        "civil_code-2020-05-28-509": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-2",
+        "contract_general-2023-12-04-23",
+        "civil_code-2020-05-28-680",
+        "civil_code-2020-05-28-509",
+        "contract_general-2023-12-04-3"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-2"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-2"
+      ],
+      "losses": {
+        "retrieval": [
+          "contract_general-2023-12-04-1"
+        ],
+        "selection": [
+          "civil_code-2020-05-28-509"
+        ],
+        "generation": []
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-2",
+        "contract_general-2023-12-04-23",
+        "civil_code-2020-05-28-680",
+        "civil_code-2020-05-28-509",
+        "contract_general-2023-12-04-3"
+      ],
+      "current_missing": [
+        "contract_general-2023-12-04-1"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.6666666666666666,
+        "precision": 0.4,
+        "ndcg": 0.7911043622741993,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-02",
+      "turn": 1,
+      "gold": {
+        "contract_general-2023-12-04-6": 3
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-6",
+        "contract_general-2023-12-04-3",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-496",
+        "contract_general-2023-12-04-8"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-6",
+        "contract_general-2023-12-04-3"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-6",
+        "contract_general-2023-12-04-3"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-6",
+        "contract_general-2023-12-04-3",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-509",
+        "civil_code-2020-05-28-496"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-03",
+      "turn": 1,
+      "gold": {
+        "contract_general-2023-12-04-7": 3,
+        "contract_general-2023-12-04-8": 3,
+        "contract_general-2023-12-04-6": 1,
+        "civil_code-2020-05-28-577": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-7",
+        "contract_general-2023-12-04-8",
+        "contract_general-2023-12-04-4",
+        "civil_code-2020-05-28-577",
+        "civil_code-2020-05-28-496"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-7",
+        "contract_general-2023-12-04-8",
+        "civil_code-2020-05-28-577"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-7",
+        "contract_general-2023-12-04-8",
+        "civil_code-2020-05-28-577"
+      ],
+      "losses": {
+        "retrieval": [
+          "contract_general-2023-12-04-6"
+        ],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-7",
+        "contract_general-2023-12-04-8",
+        "contract_general-2023-12-04-4",
+        "civil_code-2020-05-28-509",
+        "civil_code-2020-05-28-577"
+      ],
+      "current_missing": [
+        "contract_general-2023-12-04-6"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.75,
+        "precision": 0.6,
+        "ndcg": 0.9559556483367653,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-04",
+      "turn": 1,
+      "gold": {
+        "contract_general-2023-12-04-10": 3,
+        "civil_code-2020-05-28-496": 2,
+        "contract_general-2023-12-04-9": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-10",
+        "civil_code-2020-05-28-496",
+        "civil_code-2020-05-28-497",
+        "contract_general-2023-12-04-9",
+        "labor_ii-2025-07-31-14"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-10",
+        "civil_code-2020-05-28-496"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-10",
+        "civil_code-2020-05-28-496"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [
+          "contract_general-2023-12-04-9"
+        ],
+        "generation": []
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-10",
+        "civil_code-2020-05-28-496",
+        "contract_general-2023-12-04-9",
+        "civil_code-2020-05-28-497",
+        "contract_general-2023-12-04-59"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.6,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-05",
+      "turn": 2,
+      "gold": {
+        "contract_general-2023-12-04-13": 3,
+        "civil_code-2020-05-28-153": 2,
+        "civil_code-2020-05-28-143": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-13",
+        "contract_general-2023-12-04-16",
+        "contract_general-2023-12-04-24",
+        "civil_code-2020-05-28-143",
+        "civil_code-2020-05-28-153"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-13",
+        "civil_code-2020-05-28-143",
+        "civil_code-2020-05-28-153"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-13",
+        "civil_code-2020-05-28-143",
+        "civil_code-2020-05-28-153"
+      ],
+      "losses": {
+        "retrieval": [],
+        "selection": [],
+        "generation": []
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-13",
+        "contract_general-2023-12-04-16",
+        "contract_general-2023-12-04-24",
+        "civil_code-2020-05-28-143",
+        "civil_code-2020-05-28-153"
+      ],
+      "current_missing": [],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.6,
+        "ndcg": 0.9146628058302255,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-06",
+      "turn": 1,
+      "gold": {
+        "contract_general-2023-12-04-65": 3,
+        "contract_general-2023-12-04-64": 2,
+        "civil_code-2020-05-28-585": 2,
+        "civil_code-2020-05-28-584": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "contract_general-2023-12-04-66",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-566"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "civil_code-2020-05-28-585"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64"
+      ],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-584"
+        ],
+        "selection": [],
+        "generation": [
+          "civil_code-2020-05-28-585"
+        ]
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "contract_general-2023-12-04-66",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-566"
+      ],
+      "current_missing": [
+        "civil_code-2020-05-28-584"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.75,
+        "precision": 0.6,
+        "ndcg": 0.9409942346984062,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    },
+    {
+      "scenario_id": "E-L-CD-06",
+      "turn": 3,
+      "gold": {
+        "contract_general-2023-12-04-65": 3,
+        "contract_general-2023-12-04-64": 2,
+        "civil_code-2020-05-28-585": 2,
+        "civil_code-2020-05-28-584": 1
+      },
+      "archived_status": 200,
+      "archived_candidates": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "contract_general-2023-12-04-66",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-566"
+      ],
+      "archived_selected": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "civil_code-2020-05-28-585"
+      ],
+      "archived_returned": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64"
+      ],
+      "losses": {
+        "retrieval": [
+          "civil_code-2020-05-28-584"
+        ],
+        "selection": [],
+        "generation": [
+          "civil_code-2020-05-28-585"
+        ]
+      },
+      "current_candidates": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "contract_general-2023-12-04-66",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-566"
+      ],
+      "current_missing": [
+        "civil_code-2020-05-28-584"
+      ],
+      "current_candidate_metrics": {
+        "hit": 1.0,
+        "recall": 0.75,
+        "precision": 0.6,
+        "ndcg": 0.9409942346984062,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      }
+    }
+  ],
+  "unexpected_network_attempts": 0
+}

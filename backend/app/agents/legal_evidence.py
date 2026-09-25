@@ -30,6 +30,7 @@ class Applicability(BaseModel):
     missing_fields: list[str] = Field(default_factory=list, max_length=3)
     questions: dict[str, str] = Field(default_factory=dict, max_length=3)
     direct_support: dict[str, SpanIds] = Field(default_factory=dict, max_length=5)
+    supporting_support: dict[str, SpanIds] = Field(default_factory=dict, max_length=5)
     blocking_reasons: dict[str, str] = Field(default_factory=dict, max_length=3)
 
 
@@ -77,6 +78,10 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
                     "先识别用户实际争点，逐项选择直接规定该问题的条文，不能只选背景条文。直接条文明确支持有条件分析即可回答。"
                     "direct_support按source_id给出直接支持争点的服务端span_id列表，至少一条；所有相关直接依据应保留在source_ids中。"
                     "片段只能选候选spans里已有编号，不自行复制或拼接原文；可选择同一来源的多个非连续片段，涵盖前提、正文及但书。"
+                    "逐一检查候选：除直接规则外，还要保留解释该规则的权利基础、例外、计算范围或被其明确引用的配套条文；"
+                    "这些必要配套依据放入supporting_support，并在source_ids中保留。不得仅因司法解释已有具体规则就删除对应法律基础。"
+                    "direct_support与supporting_support不重叠；泛泛相关、重复而无补充作用或无关条文不选择。"
+                    "source_ids中的每条都必须在两种support之一列出片段。后续答案需实际解释其与争点的关系，不得为了凑来源而引用。"
                     "只有可作有条件分析的候选才能选择。general只用于一般规则介绍；不得将样本事实当用户事实。"
                     "缺少影响具体适用判断的事实时，missing_fields选择给定字段；questions为这些字段提供具体、简短的中文追问，每题不超过120字、以问号结尾。"
                     "已有信息不得重复索取；只整理材料或有条件介绍时，不要求补齐计算具体金额等其他目的所需的所有事实。"
@@ -96,14 +101,17 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
         if not set(result.source_ids).issubset(allowed) or not set(result.missing_fields).issubset(QA_FIELDS):
             raise ValueError('Invalid applicability selection')
         lookup = {str(e.source.source_id): e for e in candidates}
-        direct = {key for key, spans in result.direct_support.items()
+        supports = {**result.direct_support, **result.supporting_support}
+        if set(result.direct_support) & set(result.supporting_support):
+            raise ValueError('Ambiguous evidence role')
+        grounded = {key for key, spans in supports.items()
                   if key in lookup and set(spans).issubset(range(len(evidence_spans(lookup[key].text))))}
-        if set(result.direct_support) - direct:
+        if set(supports) - grounded:
             raise ValueError('Ungrounded direct support')
-        direct_ids = {UUID(key) for key in direct}
-        if not direct_ids.issubset(set(result.source_ids)):
-            raise ValueError('Direct evidence was dropped')
-        if direct_ids & needs_case_status:
+        grounded_ids = {UUID(key) for key in grounded}
+        if grounded_ids != set(result.source_ids):
+            raise ValueError('Every selected source needs grounded support')
+        if grounded_ids & needs_case_status:
             return LegalDecision('clarify', missing={'case_status': '案件在2026年6月30日前是否已经终审？请说明终审日期，或明确目前尚未终审；是否属于再审？'}, reason='transition_case_status')
         missing = [name for name in result.missing_fields if name not in facts and task.mode != 'general'
                    and (name != 'discovery_date' or any(word in search for word in ('时效', '诉讼期限', '仲裁期限')))
@@ -120,9 +128,12 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
             return LegalDecision('clarify', missing=questions, reason='blocking_fact')
         if result.assessment == "insufficient" or (result.assessment == "general" and task.mode != "general"):
             return LegalDecision('insufficient', reason='unsupported_issue')
-        if not direct:
+        if not result.direct_support:
             return LegalDecision('insufficient', reason='no_direct_support')
-        return LegalDecision('answer', evidence=[e for e in candidates if e.source.source_id in result.source_ids and e.source.source_id not in needs_case_status])
+        return LegalDecision('answer', evidence=[Evidence(e.source, e.text,
+            'direct' if str(e.source.source_id) in result.direct_support else 'supporting',
+            tuple(supports[str(e.source.source_id)]))
+            for e in candidates if e.source.source_id in result.source_ids and e.source.source_id not in needs_case_status])
     except (TimeoutError, ValueError, TypeError) as exc:
         # A failed dependency is not a genuine finding that no law covers the query.
         raise ModelUnavailableError() from exc

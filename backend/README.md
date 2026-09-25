@@ -150,7 +150,9 @@ smoke test 会分别执行 PostgreSQL 查询、Redis `PING` 与带 TTL 的临时
 
 复核文件使用 `raw_report_sha256` 绑定答案报告，`reviewer` 记录复核身份，`turns` 以 `场景ID:轮次` 为键，每项包含 `faithfulness`、`applicability`（`pass/fail`）和具体 `notes`。不能仅根据引用真实或自动检查通过批量标记为通过。
 
-当前法条候选保留BM25前三条，剩余两项按分数除以“已选同法规数量+1”排序，最多五条；日期与终审状态参与版本过滤，不额外重复加入检索词。案例检索参数未变。离线复核新增 `source_recall_by_grade`：按冻结的3级直接依据、2级补充依据、1级背景分别统计各阶段召回，并保留原全相关来源Recall和错误请求分母，不能用直接依据指标替代完整召回。
+当前法条候选保留BM25前三条，预留一个位置给与首条原文及已核验主题词相关的其他法规，再按原多样性策略补齐，最多五条；所有候选仍须在原查询中得正分，并先通过领域和版本过滤。日期与终审状态不额外重复加入检索词。案例检索参数未变。离线复核新增 `source_recall_by_grade`：按冻结的3级直接依据、2级补充依据、1级背景分别统计各阶段召回，并保留原全相关来源Recall和错误请求分母，不能用直接依据指标替代完整召回。
+
+剩余拦截和来源漏用修复见 [交付验证记录](../docs/acceptance/rag-v2-delivery.md)。`python -m scripts.diagnose_source_losses --input <原始报告> --output <新路径>` 可离线定位候选→选择→最终回答各环节丢失的来源，并用已保存事实重跑当前检索；它不会生成新的最终答案成绩。真实评估另可用重复的 `--scenario <开发场景ID>` 限定场景，保留该场景所有轮次；仍必须显式 `--allow-real-model`，局部验收不代表全量门槛通过。
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest

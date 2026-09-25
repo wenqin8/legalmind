@@ -98,7 +98,7 @@ def evaluate(split: str = 'development', corpus_profile: str = 'eval-rag-v2-209'
                 'catalog':catalog_identity(database), 'split':split,
                 'retrieval_parameters':{'bm25_k1':BM25_K1,'bm25_b':BM25_B,'rrf_k':RRF_K,'route_candidates':PER_ROUTE_CANDIDATES,
                     'vector_chunk_pool':VECTOR_CHUNK_CANDIDATES,'top_k':5,'case_domain_filter':None,'law_domain_filter':'gold domain supplied',
-                    'law_candidate_policy':'top 3 BM25 preserved; remaining 2 selected by score/(1+same regulation count)'},
+                    'law_candidate_policy':'top 3 BM25 preserved; one complementary regulation from anchor-text BM25 with reviewed-keyword boost; remaining slot diversified; maximum 5 positive query hits'},
                 'groups':groups,'results':results}
     finally:
         database.dispose()

@@ -159,6 +159,35 @@ def diversify_provisions(ranked: list[tuple[tuple[LegalProvision, Verification],
     return selected
 
 
+def complementary_provisions(ranked, index: BM25Index):
+    """Reserve one of five slots for a lexically related, different regulation.
+
+    Query hits remain mandatory. The strongest hit supplies vocabulary (e.g.
+    colloquial care costs -> statutory nursing expenses), not legal authority.
+    Version/domain filtering has already happened; this never adds a new row.
+    """
+    if not ranked:
+        return []
+    base = diversify_provisions(ranked)
+    anchor, _ = ranked[0]
+    lookup = {row.record_id: (row, version) for (row, version), score in ranked if score > 0}
+    related = index.search(anchor[1].original_text, limit=len(lookup))
+    # Exact reviewed subject keywords distinguish property division from debt,
+    # which share many character bigrams. They boost ranking, never authorize use.
+    related.sort(key=lambda hit: -(hit[1] * (1 + sum(
+        word in anchor[1].original_text for word in lookup[hit[0]][1].keywords)))
+        if hit[0] in lookup else 0)
+    complement = next((lookup[key] for key, score in related
+                       if key in lookup and score > 0
+                       and lookup[key][0].regulation_name != anchor[0].regulation_name), None)
+    if complement is None or complement in base[:3]:
+        return base
+    # Preserve the top three direct candidates. Do not expand model context beyond five.
+    selected = base[:3] + [complement]
+    selected.extend(pair for pair in base[3:] if pair != complement)
+    return selected[:5]
+
+
 def retrieve_provisions(database: Database, query: str, domain: Domain | None, *, event_date: str | None,
                         general: bool = False, case_status: str | None = None,
                         include_transition_questions: bool = False) -> list[tuple[LegalProvision, Verification]]:
@@ -192,9 +221,10 @@ def retrieve_provisions(database: Database, query: str, domain: Domain | None, *
             return []
         corpus = [BM25Document(row.record_id, " ".join(m.keywords) + " " + m.original_text) for row, m in candidates]
         lookup = {row.record_id: (row, m) for row, m in candidates}
-        ranked = [(lookup[key], score) for key, score in BM25Index(corpus).search(query, limit=len(corpus))]
+        index = BM25Index(corpus)
+        ranked = [(lookup[key], score) for key, score in index.search(query, limit=len(corpus))]
         # Keywords contribute to ranking, but lexical synonyms must not delete top hits.
         # Candidate scores do not authorize an answer: direct support is checked downstream.
-        return diversify_provisions(ranked)
+        return complementary_provisions(ranked, index)
     except (SQLAlchemyError, ValueError, TypeError) as exc:
         raise RetrievalUnavailableError() from exc

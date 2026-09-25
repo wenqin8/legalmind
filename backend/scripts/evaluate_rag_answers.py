@@ -89,10 +89,21 @@ def summarize(report):
         'semantic_quality_passed':None,'expert_review':'not performed'}
 
 
-async def evaluate(output: Path, split: str = 'development', corpus_profile: str = 'eval-rag-v2-209'):
+def select_scenarios(split, scenario_ids=None):
+    scenarios = [json.loads(line) for line in (BENCHMARK_DIR/'scenarios.jsonl').read_text(encoding='utf-8').splitlines()]
+    scenarios = [s for s in scenarios if s['split'] == split]
+    if scenario_ids is not None:
+        if not scenario_ids or len(set(scenario_ids)) != len(scenario_ids):
+            raise ValueError('Scenario selection must be nonempty and unique')
+        if set(scenario_ids) - {s['id'] for s in scenarios}:
+            raise ValueError('Only known development scenarios may be selected')
+        scenarios = [s for s in scenarios if s['id'] in scenario_ids]
+    return scenarios
+
+
+async def evaluate(output: Path, split: str = 'development', corpus_profile: str = 'eval-rag-v2-209', scenario_ids=None):
     query_by_id={q.id:q for q in load_queries()}
-    scenarios=[json.loads(line) for line in (BENCHMARK_DIR/'scenarios.jsonl').read_text(encoding='utf-8').splitlines()]
-    scenarios=[s for s in scenarios if s['split']==split]
+    scenarios=select_scenarios(split, scenario_ids)
     workspace=BACKEND_DIR.parent/'tmp'/('rag-answers-'+uuid4().hex)
     settings,database,embedding,store,retriever=await asyncio.to_thread(prepare,workspace,corpus_profile)
     settings=settings.model_copy(update={'llm_backend':'deepseek'})
@@ -105,7 +116,9 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
                 'source_url':row.source_url,**{k:row.verification.get(k) for k in ('version','original_text','effective_from','effective_until','verified_at','status_as_of')}}
     report={'started_at':datetime.now(timezone.utc).isoformat(),'configuration':provenance(settings),'transport':'real_loopback_http',
         'model_attempts_per_turn':1,'complete':False,'scenarios':[], 'cleanup':{},'annotation_status':'agent_draft_pending_expert',
-        'split':split, 'catalog':catalog_identity(database),'planned_scenarios':len(scenarios)}
+        'split':split, 'catalog':catalog_identity(database),'planned_scenarios':len(scenarios),
+        'scope':'targeted_development_subset' if scenario_ids is not None else 'full_development',
+        'requested_scenarios':scenario_ids}
     def save():
         summarize(report)
         output.parent.mkdir(parents=True,exist_ok=True)
@@ -190,11 +203,12 @@ def main():
     parser.add_argument('--split',choices=['development'],default='development')
     parser.add_argument('--corpus-profile',choices=['eval-rag-v1-197','eval-rag-v2-209'],default='eval-rag-v2-209')
     parser.add_argument('--allow-real-model',action='store_true',help='Explicitly enable paid model acceptance')
+    parser.add_argument('--scenario',action='append',help='Limit to these development scenario IDs; repeat for multiple scenarios')
     args=parser.parse_args()
     if not args.allow_real_model:
         raise SystemExit('Use evaluate_offline for daily development; real acceptance requires --allow-real-model')
     if args.output.exists():raise SystemExit('Choose a new output path; prior raw runs must be preserved')
-    report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile))
+    report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile,args.scenario))
     print(json.dumps({'complete':report['complete'],'summary':report['summary'],'cleanup':report['cleanup']},ensure_ascii=False))
     return 0 if report['complete'] and report['cleanup'].get('synthetic_redis_keys_removed') else 2
 
