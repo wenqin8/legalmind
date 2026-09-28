@@ -52,6 +52,18 @@ async def test_valid_support_is_rendered_with_its_own_citation():
     assert result == '结论\n[S1] 申请人需要提供证明材料。'
 
 
+async def test_repeated_sentences_are_rendered_once_at_each_original_position():
+    first = evidence()[0]
+    second = Evidence(first.source.model_copy(update={'citation_id': 'S2'}), first.text)
+    raw = json.dumps({'items': [
+        {'unit_id': 1, 'verdict': 'supported', 'supports': [{'citation_id': 'S2', 'span_id': 0}]},
+        {'unit_id': 0, 'verdict': 'supported', 'supports': [{'citation_id': 'S1', 'span_id': 0}]},
+    ]})
+    result = await validate_grounding('结论\n申请人需要提供材料。申请人需要提供材料。',
+        [first, second], '材料', CheckedFake(raw))
+    assert result == '结论\n[S1] 申请人需要提供材料。[S2] 申请人需要提供材料。'
+
+
 async def test_server_added_label_does_not_turn_a_quoted_term_into_a_verbatim_quote():
     from app.agents.evidence import validate_citations
     raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [

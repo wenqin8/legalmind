@@ -116,7 +116,7 @@ def test_targeted_acceptance_retains_all_turns_without_running_other_scenarios()
 
 
 @pytest.mark.anyio
-@pytest.mark.parametrize('mode', ['valid', 'missing_support', 'dropped_source', 'overlap', 'unknown_span'])
+@pytest.mark.parametrize('mode', ['valid', 'missing_support', 'dropped_source', 'overlap', 'unknown_span', 'invalid_direct_hidden_by_support', 'schema_echo', 'schema_true', 'unknown_extra'])
 async def test_selection_preserves_only_explicitly_grounded_direct_and_supporting_sources(app, mode):
     from app.agents.legal_evidence import legal_evidence
     from app.llm.fake import FakeLLMClient
@@ -137,11 +137,18 @@ async def test_selection_preserves_only_explicitly_grounded_direct_and_supportin
                 result['supporting_support'][first['source_id']] = [0]
             if mode == 'unknown_span':
                 result['supporting_support'][second['source_id']] = [99999]
+            if mode == 'invalid_direct_hidden_by_support':
+                result['direct_support'][first['source_id']] = [99999]
+                result['supporting_support'][first['source_id']] = [0]
+            if mode in {'schema_echo', 'schema_true'}:
+                result['additionalProperties'] = mode == 'schema_true'
+            if mode == 'unknown_extra':
+                result['unverified_decision'] = True
             return json.dumps(result)
 
     call = legal_evidence(app.state.database, '护理人数和护理费',
                           TaskState(kind='qa', mode='general', domain='traffic_accident'), Selector())
-    if mode == 'valid':
+    if mode in {'valid', 'overlap', 'schema_echo'}:
         result = await call
         assert result.status == 'answer'
         assert [e.role for e in result.evidence] == ['direct', 'supporting']

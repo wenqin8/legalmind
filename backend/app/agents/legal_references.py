@@ -21,6 +21,17 @@ def reference_context(evidence: list[Evidence]) -> list[dict]:
     return result
 
 
+def normalize_cross_references(text: str, evidence: list[Evidence]) -> str:
+    """Resolve only cross-references actually present in the selected originals.
+
+    This changes an identifier, never its surrounding legal assertion. The result
+    still requires citation and semantic audits. Unknown identifiers stay visible
+    to the rejecting validator; a missing provision never becomes a source.
+    """
+    known = {item['reference'] for item in reference_context(evidence)}
+    return REFERENCE.sub(lambda match: '该依据援引的条款' if match.group() in known else match.group(), text)
+
+
 REFERENCE_RULE = (
     'reference_context由服务端解析原文交叉引用。provided表示对应原文已在本轮提供，可用target_citation核对具体条件；'
     'not_provided表示仅知道存在该引用，不能补出该条的内容或结果。'

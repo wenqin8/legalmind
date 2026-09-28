@@ -1,0 +1,35 @@
+{
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "Read archived original outputs and supplied source versions; retain failures rather than infer quality from HTTP 200.",
+  "runs": {
+    "rag-v2-targeted-run11.json": {
+      "sha256": "df3540c7f434b9190235258bc4182702d6a3b479e22e75b070e623e7313ad1c2",
+      "delivery_quality_passed": false,
+      "issues": {
+        "E-L-TA-03:1": "HTTP 424: same source appears in direct and supporting roles with different valid spans.",
+        "E-L-CD-02:1": "HTTP 424: same role-overlap rejection.",
+        "E-L-LD-03:1": "Semantic failure: a calculation rule was expanded into an unconditional double-wage obligation."
+      }
+    },
+    "rag-v2-targeted-run12.json": {
+      "sha256": "3c111d4d2386da91619d2d392d4f35163dc76cd0d776c28333a808082642257d",
+      "delivery_quality_passed": false,
+      "issues": {
+        "E-L-MF-04:1": "Semantic failure: enumerated marital-property definition was summarized as all income during marriage.",
+        "E-L-TA-03:1": "Semantic failure: optional institutional opinion became a necessary condition in the risk paragraph.",
+        "E-L-CD-02:1": "HTTP 424: revision still omitted the contract-formation exception.",
+        "E-L-CD-06:1": "HTTP 424: coverage paragraph repeated a referenced but unprovided article number."
+      }
+    },
+    "rag-v2-development-answers-run13.json": {
+      "sha256": "07014b3d7824055fd8a0860a74f0ff0999df190710ced73609955434f96cac46",
+      "delivery_quality_passed": false,
+      "issues": {
+        "E-L-LD-06:1": "HTTP 424: literal additionalProperties:false schema annotation appeared in an otherwise valid selection.",
+        "E-L-TA-06:3": "HTTP 424: revised optional-reference inference remained blocked.",
+        "E-L-MF-05:2": "Semantic review unresolved: effective-date supplement introduced a procedural-stage prerequisite absent from the cited article.",
+        "revision_format": "Several revisions copied fixed risk/next paragraphs and an instruction, duplicating headings; prompt now provides only the applicable section."
+      }
+    }
+  }
+}

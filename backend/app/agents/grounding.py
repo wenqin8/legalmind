@@ -13,6 +13,7 @@ from app.core.errors import ModelUnavailableError
 from app.llm.base import LLMClient, LLMMessage
 from app.agents.support_spans import evidence_spans
 from app.agents.legal_references import reference_context, REFERENCE_RULE
+from app.agents.claim_rules import deterministic_rejections
 
 
 class SupportSpan(BaseModel):
@@ -58,6 +59,7 @@ async def validate_conditions(payload, paragraph, llm):
                     '重点：原文存在一个前提，候选删掉后是否会覆盖前提不成立的情况？原文有但书、除外、一般、可以，候选是否变成无条件或必然？'
                     '原文或者与候选且是否改变条件？风险段举例也不能把有例外的情形写成普遍导致某后果。'
                     '尤其区分可以参照某意见与必须具备该意见：候选用取决于、只有、必须将可选参考变成必要条件时，判unsupported。'
+                    '计算规则不能创设支付义务：原文“应当支付的某项款项按月计算”只规定已应付金额的算法，不能改写成只要出现某事实就必须支付；必须另有完整的成立条件。'
                     '检查并列范围：原文A、B以及其他满足C的事项，不得写成A、B等满足C的事项，把仅修饰最后一项的条件施加到全部项目。'
                     '候选列举的每个法律情形必须包含该情形自己的例外，不能用等、例如、可能、不作判断掩盖错误概括。'
                     '句子中确实仅说本次材料不足、不作判断，或者只建议收集材料，不赋予权利义务/证明标准，可判consistent。'
@@ -105,6 +107,9 @@ async def validate_grounding(paragraph: str, evidence: list[Evidence], query: st
         return paragraph
     if len(units) > 40:
         grounding_failure('too_many_claims')
+    rejected = deterministic_rejections(units, evidence)
+    if rejected:
+        grounding_failure('unsupported_logic', rejected)
     payload = {'query': query, 'paragraph': paragraph, 'validated_context': validated_context,
                'reference_context': reference_context(evidence),
                'units': [{'unit_id': i, 'text': text} for i, text in enumerate(units)],
@@ -130,6 +135,7 @@ async def validate_grounding(paragraph: str, evidence: list[Evidence], query: st
                     '允许语义等价的转述，不要求重复法条编号；必须拒绝改变实质条件、例外或逻辑的转述。'
                     '当句中列举若干可导致法律后果的情形时，每个列举情形自己的限定、例外都须保留；不是穷尽清单也不能省略单项例外。'
                     '特别检查推论是否把材料建议变成法定必备证据、把原文未覆盖的证据形式说成不能替代，或自行断定程序后果。'
+                    '原文“应当支付的某项款项按月计算”等计算规则，不等于所有相关情形都应支付；若候选从算法推导无条件支付义务，必须判unsupported。'
                     'neutral仅用于复述用户事实、资料不足说明、通用核实提醒、收集材料建议；'
                     '准确复述给定metadata中的版本、生效日期、过渡文本也是neutral，不因其不在条文正文而拒绝。'
                     '不把不能确认某结论等同于断言没有该权利；若实际排除权利则需直接依据。'
@@ -163,12 +169,22 @@ async def validate_grounding(paragraph: str, evidence: list[Evidence], query: st
     await validate_conditions(payload, paragraph, llm)
     # Labels are rendered from checked support rather than their accidental location
     # in a generated paragraph. No ungrounded claim is repaired by merely adding a label.
-    for item in check.items:
-        original = units[item.unit_id]
+    by_unit = {item.unit_id: item for item in check.items}
+    pieces, cursor = [], 0
+    for index, original in enumerate(units):
+        item = by_unit[index]
         clean = re.sub(r'\[S[1-5]\]', '', original)
         labels = ''.join(f'[{label}]' for label in dict.fromkeys(s.citation_id for s in item.supports)) if item.verdict == 'supported' else ''
         # Prefix labels do not accidentally turn a quoted concept at the sentence end
         # into a purported verbatim statutory quotation.
         replacement = (labels + ' ' if labels else '') + clean
-        paragraph = paragraph.replace(original, replacement, 1)
-    return paragraph
+        position = paragraph.index(original, cursor)
+        pieces.extend([paragraph[cursor:position], replacement])
+        cursor = position + len(original)
+    rendered = ''.join([*pieces, paragraph[cursor:]])
+    # Re-check using server-assigned support labels too: model-chosen labels may
+    # have pointed at unrelated evidence before the audit corrected them.
+    rejected = deterministic_rejections(sentence_units(rendered), evidence)
+    if rejected:
+        grounding_failure('unsupported_logic', rejected)
+    return rendered

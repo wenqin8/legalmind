@@ -26,6 +26,11 @@ QUICK_TESTS = [
     'tests/unit/test_traffic_transition.py', 'tests/unit/test_tasks.py',
     'tests/unit/test_evaluation_answers.py', 'tests/unit/test_offline_evaluation.py',
     'tests/unit/test_evidence_coverage.py', 'tests/unit/test_archived_validation.py',
+    'tests/unit/test_archived_applicability.py',
+    'tests/unit/test_archived_claim_rules.py',
+    'tests/unit/test_sentence_revision.py',
+    'tests/unit/test_evaluation_provider_stop.py',
+    'tests/unit/test_source_limitations.py',
     'tests/integration/test_grounded_stream.py', 'tests/integration/test_multiturn_laws.py',
 ]
 

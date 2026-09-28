@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-09-27T18:35:34.664186+00:00",
+  "checks": {
+    "frozen_hashes": {
+      "backend/data/demo/cases.jsonl": true,
+      "backend/data/evaluation/week2_queries.jsonl": true,
+      "docs/acceptance/week2-retrieval-evaluation.json": true,
+      "output/pdf/法律咨询Agent一个月开发计划.pdf": true,
+      "backend/data/legal/verified_provisions.jsonl": true
+    },
+    "queries_locked": true,
+    "default_original_tables_match_m3_baseline": {
+      "users": true,
+      "conversations": true,
+      "cases": true,
+      "knowledge_chunks": true,
+      "generated_documents": true
+    },
+    "default_counts": {
+      "users": 1,
+      "conversations": 4,
+      "cases": 16,
+      "knowledge_chunks": 64,
+      "generated_documents": 0
+    },
+    "default_law_count": 60,
+    "default_law_verification_unchanged": true,
+    "migration_head": "20260918_0004",
+    "default_vector_count": 64,
+    "default_vectors_match_m3_baseline": true,
+    "m3_tag": "c399d780ea73a8e829a4a0e0b0128e6c1f373ccf",
+    "m3_tag_unchanged": true,
+    "frozen_v1_data_unchanged": true,
+    "document_links_valid": true
+  },
+  "missing_links": []
+}

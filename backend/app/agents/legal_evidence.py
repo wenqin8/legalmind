@@ -80,8 +80,9 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
                     "片段只能选候选spans里已有编号，不自行复制或拼接原文；可选择同一来源的多个非连续片段，涵盖前提、正文及但书。"
                     "逐一检查候选：除直接规则外，还要保留解释该规则的权利基础、例外、计算范围或被其明确引用的配套条文；"
                     "这些必要配套依据放入supporting_support，并在source_ids中保留。不得仅因司法解释已有具体规则就删除对应法律基础。"
-                    "direct_support与supporting_support不重叠；泛泛相关、重复而无补充作用或无关条文不选择。"
+                    "同一法条的不同片段可分别承担直接与配套作用，服务器合并片段并以direct角色优先；泛泛相关、重复而无补充作用或无关条文不选择。"
                     "source_ids中的每条都必须在两种support之一列出片段。后续答案需实际解释其与争点的关系，不得为了凑来源而引用。"
+                    "配套条文必须服务用户已经询问的争点；不能因主题接近而纳入新增请求、额外赔偿或未问程序。计算条文不能单独当作请求权或支付义务成立的依据。"
                     "只有可作有条件分析的候选才能选择。general只用于一般规则介绍；不得将样本事实当用户事实。"
                     "缺少影响具体适用判断的事实时，missing_fields选择给定字段；questions为这些字段提供具体、简短的中文追问，每题不超过120字、以问号结尾。"
                     "已有信息不得重复索取；只整理材料或有条件介绍时，不要求补齐计算具体金额等其他目的所需的所有事实。"
@@ -96,14 +97,21 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
                     "candidates": [{"source_id": str(e.source.source_id), "source": e.source.model_dump(mode="json"),
                                     "spans": evidence_spans(e.text)} for e in candidates]}, ensure_ascii=False)),
             ])
-        result = Applicability.model_validate_json(raw)
+        data = json.loads(raw)
+        # Some providers echo this literal JSON Schema annotation into an
+        # otherwise valid instance. It has no decision content. All other extra
+        # fields (including a different value here) remain forbidden.
+        if isinstance(data, dict) and data.get('additionalProperties') is False:
+            data.pop('additionalProperties')
+        result = Applicability.model_validate(data)
         allowed = {e.source.source_id for e in candidates}
         if not set(result.source_ids).issubset(allowed) or not set(result.missing_fields).issubset(QA_FIELDS):
             raise ValueError('Invalid applicability selection')
         lookup = {str(e.source.source_id): e for e in candidates}
-        supports = {**result.direct_support, **result.supporting_support}
-        if set(result.direct_support) & set(result.supporting_support):
-            raise ValueError('Ambiguous evidence role')
+        supports = {}
+        for group in (result.direct_support, result.supporting_support):
+            for key, spans in group.items():
+                supports[key] = list(dict.fromkeys([*supports.get(key, []), *spans]))
         grounded = {key for key, spans in supports.items()
                   if key in lookup and set(spans).issubset(range(len(evidence_spans(lookup[key].text))))}
         if set(supports) - grounded:

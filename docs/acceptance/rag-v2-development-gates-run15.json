@@ -1,0 +1,196 @@
+{
+  "scope": "development_regression_not_blind_legal_certification",
+  "quality_gate_passed": false,
+  "checks": {
+    "development_only": true,
+    "complete_runs": true,
+    "direct_hit_at_5": true,
+    "behavior_match": false,
+    "safe_nonanswer": false,
+    "four_corrections": false,
+    "structural_safety": true,
+    "semantic_review": false,
+    "same_evaluation_corpus": true
+  },
+  "metrics": {
+    "planned_turns": 52,
+    "http_successes": 1,
+    "scenario_structural_passes": 1,
+    "expected_answer_behavior_counts": {
+      "answer": 1,
+      "service_error": 27
+    },
+    "behavior_match_including_errors": {
+      "value": 0.019230769230769232,
+      "denominator": 52
+    },
+    "answerable_but_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "answerable_but_clarifying_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "hard_check_failures": {
+      "source_integrity": 0,
+      "known_citations": 0,
+      "verbatim_quotes": 0,
+      "no_model_urls": 0,
+      "version_interval": 0,
+      "field_provenance": 0,
+      "conflict_preserved": 0,
+      "confirmed_field": 0
+    },
+    "candidate_hit_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "candidate_recall_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "selected_hit_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "selected_recall_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "returned_hit_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "returned_recall_on_expected_answers": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "by_domain": {
+      "contract_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.0,
+          "denominator": 13
+        },
+        "http_successes": 0
+      },
+      "labor_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.0,
+          "denominator": 13
+        },
+        "http_successes": 0
+      },
+      "marriage_family": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.07692307692307693,
+          "denominator": 13
+        },
+        "http_successes": 1
+      },
+      "traffic_accident": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.0,
+          "denominator": 13
+        },
+        "http_successes": 0
+      }
+    },
+    "source_recall_by_grade": {
+      "3": {
+        "candidate": {
+          "macro_recall": 0.03571428571428571,
+          "turns_with_grade": 28,
+          "matched_sources": 1,
+          "gold_sources": 29
+        },
+        "selected": {
+          "macro_recall": 0.03571428571428571,
+          "turns_with_grade": 28,
+          "matched_sources": 1,
+          "gold_sources": 29
+        },
+        "returned": {
+          "macro_recall": 0.03571428571428571,
+          "turns_with_grade": 28,
+          "matched_sources": 1,
+          "gold_sources": 29
+        }
+      },
+      "2": {
+        "candidate": {
+          "macro_recall": 0.05263157894736842,
+          "turns_with_grade": 19,
+          "matched_sources": 1,
+          "gold_sources": 23
+        },
+        "selected": {
+          "macro_recall": 0.05263157894736842,
+          "turns_with_grade": 19,
+          "matched_sources": 1,
+          "gold_sources": 23
+        },
+        "returned": {
+          "macro_recall": 0.05263157894736842,
+          "turns_with_grade": 19,
+          "matched_sources": 1,
+          "gold_sources": 23
+        }
+      },
+      "1": {
+        "candidate": {
+          "macro_recall": 0.1111111111111111,
+          "turns_with_grade": 9,
+          "matched_sources": 1,
+          "gold_sources": 10
+        },
+        "selected": {
+          "macro_recall": 0.1111111111111111,
+          "turns_with_grade": 9,
+          "matched_sources": 1,
+          "gold_sources": 10
+        },
+        "returned": {
+          "macro_recall": 0.1111111111111111,
+          "turns_with_grade": 9,
+          "matched_sources": 1,
+          "gold_sources": 10
+        }
+      }
+    }
+  },
+  "corrections": {
+    "E-L-MF-06": false,
+    "E-L-LD-06": false,
+    "E-L-TA-06": false,
+    "E-L-CD-06": false
+  },
+  "direct_hit_at_5": {
+    "value": 1.0,
+    "hits": 44,
+    "denominator": 44
+  },
+  "safe_nonanswer": {
+    "value": 0.0,
+    "safe": 0,
+    "denominator": 8
+  },
+  "semantic_reviews": {
+    "E-L-MF-01:1": false
+  },
+  "reviewer": null,
+  "expert_review": "not performed",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "gate_definition_sha256": "5ca79f80f894a9a971f2ec4407f4788fcae3405c1532c9f9509af1cf4e097a0f",
+  "raw_report_sha256": "8aa8d51d1f764abbc4e6cb5d8bdf591dd92b55dea6d1e0e6fac071b8d5126a42",
+  "retrieval_report_sha256": "1273c48b9a02e678ac8b7f556ccf71f0aa90eb051978f234c07029d4fb6d1ec7",
+  "semantic_review_sha256": null
+}

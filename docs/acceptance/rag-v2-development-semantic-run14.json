@@ -1,0 +1,149 @@
+{
+  "reviewer": "development_agent_not_legal_expert",
+  "method": "逐条阅读第14轮最终正文和对应来源原文；未调用模型复评，不将第14轮结果作为当前局部修订实现的最终验收。",
+  "limitations": [
+    "开发集已观察，不是盲测或法律专家认证。",
+    "评价支持性与适用条件，不表示覆盖所有法律或回答完备性。"
+  ],
+  "turns": {
+    "E-L-MF-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "1085、解释二16、1084：必要合理费用显著增加、请求主体与数额因素完整，一般规则未承诺个案结果。"
+    },
+    "E-L-MF-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二17区分未成年/不能独立生活的成年子女与成年能独立生活后的直接抚养方；1085、1084仅补充基本义务。"
+    },
+    "E-L-MF-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二8的一方父母婚内全额出资、赠与约定不明和补偿酌定因素保留；1087协议优先与照顾原则一致。"
+    },
+    "E-L-MF-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二7保留目的、共同财产、赠与或不合理价格处分与无效主张；1062仅用于平等处理权，157处理后果缺失明确不判断。"
+    },
+    "E-L-MF-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二21诉讼、证据、较多义务及请求前提和考量因素保留；23仅说明生效日期，不增加程序门槛。"
+    },
+    "E-L-MF-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "解释二4区分个人所得、共同经营及无法区分财产，保留双方无配偶、无约定且协商不成的条件。"
+    },
+    "E-L-MF-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "更正确认后仍按解释二4完整条件说明，不确定个案财产性质；版本与更正日期相容。"
+    },
+    "E-L-LD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "劳动解释二13的秘密接触范围及请求确认不生效条件保留；未推断未请求时自动失效。"
+    },
+    "E-L-LD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "关联用工确认因素、共同责任与劳动者同意例外保留；新增二倍工资说明有82完整期间依据，不再仅以算法创设义务，但存在超出主问题的延伸。"
+    },
+    "E-L-LD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "劳动解释二6仅作为计算规则，82明确超过一个月不满一年的支付条件，未混同用工未满一个月与应付期间尾月。"
+    },
+    "E-L-LD-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "劳动解释二18正常工资、请求、可以继续履行、双方过错均保留；16列举保留续订、合并分立及严重影响/拒绝解除条件；21仅说明日期和效力衔接。"
+    },
+    "E-L-LD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "劳动解释二1保留合法承包人、转包分包、不合法承接方、承接方招用与请求责任前提；30只说明报酬义务。"
+    },
+    "E-L-LD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "更正确认后责任主体规则条件完整，未引入个案金额或其他责任；本轮版本与时间匹配。"
+    },
+    "E-L-TA-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释6保留收款凭证结合病历诊断的规则；1179仅说明合理费用范围，未断定个案凭证已经充分。回答较保守。"
+    },
+    "E-L-TA-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释7保留无固定收入且不能举证三年收入、同地同行上一年、医疗证明与持续误工边界；1179为误工赔偿基础。"
+    },
+    "E-L-TA-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释8保留一人原则、意见可参照、护理费与护工标准；1179只说明项目范围，不把意见改为法定必备。"
+    },
+    "E-L-TA-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释9的必要陪护、就医转院实际费用、正式票据和地点时间人数次数一致；1179补充合理费用。"
+    },
+    "E-L-TA-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释11按伤残情况参照机构意见，未承诺自行报价；24时间适用基于已提供2026日期，1179仅补充范围。"
+    },
+    "E-L-TA-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "人损解释13普通适用标准及特殊需要可参照意见保留，1179补充残疾项目；豪华器具个案不作无条件判断。"
+    },
+    "E-L-TA-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "更正后同一规则仍以特殊需要可参照为条件，未再写成必须有意见；日期版本一致。"
+    },
+    "E-L-CD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同解释2的强制性、公序良俗、惯常做法/同行且对方知道条件与举证主体保留；有重复表达，对个人习惯问题回答偏保守。"
+    },
+    "E-L-CD-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同解释6区分预约/意向/本约，期限、主体标的、履行接受条件保留；3在同段说明合同成立但书，不靠删条号删实质条件。"
+    },
+    "E-L-CD-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同解释7的拒签或违诚信致未订立、合理努力因素及8的赔偿约定优先、完备与成就程度保留；577作为一般责任补充。"
+    },
+    "E-L-CD-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同解释10保留仅勾选不当然充分及举证符合条件的例外；496说明基础义务与注意理解受影响后的主张，不承诺具体合同后果。"
+    },
+    "E-L-CD-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "合同解释13明确先存在无效/可撤销情形；143有效条件与153强制性例外、公序良俗完整，不因备案保证有效。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "uncertain",
+      "applicability": "pass",
+      "notes": "损失基础、综合因素、30%一般判断与请求条件有来源，但未提示同一65条恶意违约一般不支持的限制；主要规则是否因遗漏限制而不完整保留待复核，不能仅凭HTTP200判语义通过。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "确认更正后的65条综合因素、30%一般判断、恶意违约例外均有说明；584原文不足明确披露，64举证和585请求调整对应。"
+    }
+  },
+  "service_failures": {
+    "E-L-LD-01:1": "修订后退款规则遗漏前款条件，HTTP424；已改按失败句定点修订，当前需真实复验。"
+  },
+  "raw_report_sha256": "00bd7dd0201fa481049e534aea84a012c460f53c4178b124f819be26ca19e671"
+}

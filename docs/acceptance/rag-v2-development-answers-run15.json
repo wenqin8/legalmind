@@ -1,0 +1,4666 @@
+{
+  "started_at": "2026-09-28T04:50:05.372936+00:00",
+  "configuration": {
+    "implementation_sha256": "4f6c957ac65ecedc753dbc41bc3c18914a0ce9803c08fcfdff7ff3efecc3367b",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/claim_rules.py": "a21bb67a9e54b8454ea7661e6e30d3bb80d659e23dc769a4dd8f7a6bb6f42028",
+      "app/agents/evidence.py": "46e9156ab2494001a0e7bedf87e539f06389a51e618df53b757809fd09ae2875",
+      "app/agents/grounding.py": "e57f7b4f570df5b9cdb515bd3e8724d96ce087aba6431a9062899bed6cfff099",
+      "app/agents/intent.py": "002ad4bb586e6f9bef63cfd2981556d530a13a3feeec86f29e9db12c941383c2",
+      "app/agents/legal_evidence.py": "43761fa9abe1fa406efe55a679e2e287156ae0a727270b2507e6538a5ef62a8a",
+      "app/agents/legal_references.py": "cb3dc62a0102e14d2ee79ec1b52953b219468d354e7b197f1b5a314ba77a39ca",
+      "app/agents/paragraph_revision.py": "65d084787c90e2a164b93cd86ea0d3ca549915bf4a4adc2384958e1b44c7df1f",
+      "app/agents/qa.py": "e32ea3ff036e30427ae2bca1794b141adfd9e35099cb2a91148f15a4b8e3e5d9",
+      "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+      "app/agents/tasks.py": "4be727fe1222c3687f02231fbcba0726f88a0934d1e973ed73d93db17078d055",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+      "app/evaluation/dataset.py": "ad989e043c543975791578cadcf9dada29ebf538202cf30838229f88be3a9950",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+      "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "b920f5c34dfddb1f07058c0ec66e57dab40d909000d46977a3b3f6c523a6c63e",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/diagnose_source_losses.py": "414a3b6f91242b9383421b7c595afadc81c110e6d15d3066bc3f1766bf3074d4",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_offline.py": "eaae9f7a3309f546de55158acf756fb9cf72ef44202da066b26d3a42bf89eb41",
+      "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+      "scripts/evaluate_rag.py": "c240338f3931bf7ed2d4a8cafa3ede4db0470f7879f6ff013a58b2abe25f0046",
+      "scripts/evaluate_rag_answers.py": "a1965e5a138d766dae6efe4a9504cbfdb83bdcbecb60fa8e361e6db198a327d2",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": true,
+  "scenarios": [
+    {
+      "id": "E-L-MF-01",
+      "query_id": "L-MF-01",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-16",
+        "civil_code-2020-05-28-1085",
+        "civil_code-2020-05-28-1084"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 13.578,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？",
+              "output": "{\"intent\": \"qa\", \"confidence\": 1.0, \"document_type\": null}",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "elapsed_seconds": 0.777
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"marriage_family\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.382
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？",
+                "mode": "general",
+                "facts": {},
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十五条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "97fcf5b4-214b-5781-9a0f-d7695c313562",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "97fcf5b4-214b-5781-9a0f-d7695c313562",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "372657fa-2fda-5f19-b68a-df3c0d5c6014",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "372657fa-2fda-5f19-b68a-df3c0d5c6014",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第十七条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十四条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "1c8661bd-4fe3-5b89-9dc8-1b4e3df65b3b",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "1c8661bd-4fe3-5b89-9dc8-1b4e3df65b3b",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第三条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第三条  夫妻一方的债权人有证据证明离婚协议中财产分割条款影响其债权实现，请求参照适用民法典第五百三十八条或者第五百三十九条规定撤销相关条款的，人民法院应当综合考虑夫妻共同财产整体分割及履行情况、子女抚养费负担、离婚过错等因素，依法予以支持。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条  夫妻一方的债权人有证据证明离婚协议中财产分割条款影响其债权实现，请求参照适用民法典第五百三十八条或者第五百三十九条规定撤销相关条款的，人民法院应当综合考虑夫妻共同财产整体分割及履行情况、子女抚养费负担、离婚过错等因素，依法予以支持。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\n  \"source_ids\": [\n    \"b465fc0a-5ae3-555d-b897-dbf5de24e817\",\n    \"97fcf5b4-214b-5781-9a0f-d7695c313562\",\n    \"1286cc34-5353-5c58-b4eb-300cd5ad7663\"\n  ],\n  \"assessment\": \"general\",\n  \"direct_support\": {\n    \"b465fc0a-5ae3-555d-b897-dbf5de24e817\": [\n      3\n    ],\n    \"97fcf5b4-214b-5781-9a0f-d7695c313562\": [\n      0,\n      1\n    ]\n  },\n  \"supporting_support\": {\n    \"1286cc34-5353-5c58-b4eb-300cd5ad7663\": [\n      2\n    ],\n    \"97fcf5b4-214b-5781-9a0f-d7695c313562\": [\n      2\n    ]\n  },\n  \"missing_fields\": [],\n  \"questions\": {},\n  \"blocking_reasons\": {}\n}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.228
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "history": [],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S2",
+                    "is_demo": false,
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "version": "2025年制定",
+                    "effective_from": "2025-02-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S4",
+                    "is_demo": false,
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "81f990a6df1cbf1ab0520fe08aa3d71e2fe17384c3055756ac08e86bf961d77d",
+              "chunks": [
+                "结论",
+                "\n",
+                "离婚",
+                "协议",
+                "约定",
+                "另一方",
+                "不",
+                "负担",
+                "抚养",
+                "费",
+                "，",
+                "对",
+                "双方",
+                "具有",
+                "法律",
+                "约束",
+                "力",
+                "[S",
+                "2",
+                "]。",
+                "但",
+                "子女",
+                "生活",
+                "、",
+                "教育",
+                "、",
+                "医疗",
+                "等",
+                "必要",
+                "合理",
+                "费用",
+                "确有",
+                "显著",
+                "增加",
+                "时",
+                "，",
+                "未成年",
+                "子女",
+                "或",
+                "不能",
+                "独立",
+                "生活的",
+                "成年",
+                "子女",
+                "请求",
+                "另一方",
+                "支付",
+                "抚养",
+                "费的",
+                "，",
+                "人民法院",
+                "依法",
+                "予以",
+                "支持",
+                "[S",
+                "2",
+                "]",
+                "；",
+                "子女",
+                "必要时",
+                "也可",
+                "向",
+                "父母",
+                "任何",
+                "一方",
+                "提出",
+                "超过",
+                "协议",
+                "原",
+                "定",
+                "数额",
+                "的",
+                "合理",
+                "要求",
+                "[S",
+                "1",
+                "]。",
+                "抚养",
+                "费",
+                "数额",
+                "综合考虑",
+                "离婚",
+                "协议",
+                "整体",
+                "约定",
+                "、",
+                "子女",
+                "实际",
+                "需要",
+                "、",
+                "另一方",
+                "负担",
+                "能力",
+                "、",
+                "当地",
+                "生活",
+                "水平",
+                "等因素",
+                "确定",
+                "[S",
+                "2",
+                "]。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 7.445
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S2\",\"span_id\":0}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S2\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":2,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":3}],\"explanation\":\"\"},{\"unit_id\":3,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S2\",\"span_id\":1}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "de2fcfdebec7205bd820bfa665961df33a69480d3d8838b9344f9d2e234a3187",
+              "elapsed_seconds": 1.169
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"与S2第一句一致：离婚协议中一方直接抚养、另一方不负担抚养费的约定对双方具有法律约束力。候选虽未复写“直接抚养”等限定，但未扩大或改变法律含义。\"}, {\"unit_id\": 1, \"verdict\": \"unsupported\", \"explanation\": \"S2但书规定两种并列触发情形：直接抚养一方经济状况变化导致原生活水平显著降低，或者子女必要合理费用确有显著增加。候选仅保留后者，删除了前者，使规则覆盖范围不完整；虽未把例外写成无条件，但遗漏了原文并列的独立前提。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"与S1第二款一致：协议或判决不妨碍子女在必要时向父母任何一方提出超过原定数额的合理要求。候选保留“必要时”条件，未改为无条件。\"}, {\"unit_id\": 3, \"verdict\": \"consistent\", \"explanation\": \"与S2但书后段一致：确定抚养费数额应综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素。候选未改变条件或范围。\"}]}",
+              "system_prompt_sha256": "9999aac99f55b0d16b6604f2da2dd26f110487b5582c133885fd4906e51eec3c",
+              "elapsed_seconds": 1.819
+            },
+            {
+              "task": "TASK:REVISE",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n",
+                "failure": "unsupported_condition",
+                "feedback": [
+                  {
+                    "unit_id": 1,
+                    "text": "但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；",
+                    "explanation": "S2但书规定两种并列触发情形：直接抚养一方经济状况变化导致原生活水平显著降低，或者子女必要合理费用确有显著增加。候选仅保留后者，删除了前者，使规则覆盖范围不完整；虽未把例外写成无条件，但遗漏了原文并列的独立前提。"
+                  }
+                ],
+                "validated_context": "",
+                "repair_units": [
+                  {
+                    "unit_id": 1,
+                    "text": "但子女生活、教育、医疗等必要合理费用确有显著增加时，未成年子女或不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；"
+                  }
+                ],
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。"
+                  }
+                ]
+              },
+              "output": "{\"replacements\":[{\"unit_id\":1,\"text\":\"但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；\"}]}",
+              "system_prompt_sha256": "f5420c8cb40ae7c58c146c63cc0dd42d8440eacb01e87cc10b75896b99ea6c0e",
+              "elapsed_seconds": 0.766
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S2\", \"span_id\": 0}], \"explanation\": \"\"}, {\"unit_id\": 1, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S2\", \"span_id\": 1}], \"explanation\": \"\"}, {\"unit_id\": 2, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 3}], \"explanation\": \"\"}, {\"unit_id\": 3, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S2\", \"span_id\": 1}], \"explanation\": \"\"}]}",
+              "system_prompt_sha256": "de2fcfdebec7205bd820bfa665961df33a69480d3d8838b9344f9d2e234a3187",
+              "elapsed_seconds": 1.089
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚协议约定另一方不负担抚养费，对双方具有法律约束力[S2]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持[S2]；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "子女必要时也可向父母任何一方提出超过协议原定数额的合理要求[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"与S2第一句一致：离婚协议中一方直接抚养、另一方不负担抚养费的约定对双方具有法律约束力，未改变条件或范围。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"完整保留S2但书条件：直接抚养方经济状况变化致原生活水平显著降低，或子女必要合理费用显著增加，且请求主体为未成年子女或不能独立生活的成年子女，法院支持。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"与S1第二款一致：协议或判决不妨碍子女在必要时向父母任何一方提出超过原定数额的合理要求，未改为无条件。\"}, {\"unit_id\": 3, \"verdict\": \"consistent\", \"explanation\": \"与S2但书后段一致：法院综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定抚养费数额。\"}]}",
+              "system_prompt_sha256": "9999aac99f55b0d16b6604f2da2dd26f110487b5582c133885fd4906e51eec3c",
+              "elapsed_seconds": 1.538
+            },
+            {
+              "task": "TASK:COVERAGE",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "validated_context": "结论\n[S2] 离婚协议约定另一方不负担抚养费，对双方具有法律约束力。[S2] 但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持；[S1] 子女必要时也可向父母任何一方提出超过协议原定数额的合理要求。[S2] 抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+                "missing_citations": [
+                  "S4"
+                ],
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。",
+              "system_prompt_sha256": "742618027aea463ef581ca4cdf5283ba83746a9b7ac1827c9b4bef1908b1580a",
+              "elapsed_seconds": 1.176
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。",
+                "validated_context": "结论\n[S2] 离婚协议约定另一方不负担抚养费，对双方具有法律约束力。[S2] 但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持；[S1] 子女必要时也可向父母任何一方提出超过协议原定数额的合理要求。[S2] 抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S4\",\"span_id\":0},{\"citation_id\":\"S4\",\"span_id\":2}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S4\",\"span_id\":0},{\"citation_id\":\"S4\",\"span_id\":2}],\"explanation\":\"\"},{\"unit_id\":2,\"verdict\":\"neutral\",\"supports\":[],\"explanation\":\"该句为对S4证明范围的评价及审查方法建议，非法律主张；S4未规定协议不付抚养费后可否再要求分担或必要医疗开支增加的处理标准。\"}]}",
+              "system_prompt_sha256": "de2fcfdebec7205bd820bfa665961df33a69480d3d8838b9344f9d2e234a3187",
+              "elapsed_seconds": 1.265
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。",
+                "validated_context": "结论\n[S2] 离婚协议约定另一方不负担抚养费，对双方具有法律约束力。[S2] 但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持；[S1] 子女必要时也可向父母任何一方提出超过协议原定数额的合理要求。[S2] 抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+                "reference_context": [
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第一千零八十四条",
+                    "target_citation": "S4",
+                    "status": "provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"S4原文确实仅明示父母子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务，候选转述与原文一致。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"S4未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则；候选仅限缩S4对本次争点的作用，未扩大或改变条件。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"候选称S4本身依据不足，应结合已说明的协议约束力及其例外条件审查；这与S2但书及S1必要时的规则一致，未将可选参考变成必要条件。\"}]}",
+              "system_prompt_sha256": "9999aac99f55b0d16b6604f2da2dd26f110487b5582c133885fd4906e51eec3c",
+              "elapsed_seconds": 1.24
+            }
+          ],
+          "response": {
+            "response": "结论\n[S2] 离婚协议约定另一方不负担抚养费，对双方具有法律约束力。[S2] 但离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持；[S1] 子女必要时也可向父母任何一方提出超过协议原定数额的合理要求。[S2] 抚养费数额综合考虑离婚协议整体约定、子女实际需要、另一方负担能力、当地生活水平等因素确定。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n[S4] 补充说明：S4仅明示父母与子女关系不因离婚消除，以及离婚后父母对子女仍有抚养、教育、保护的权利和义务；[S4] 该条对本次争点的直接作用限于说明父母身份和抚养义务不因离婚而消灭，并未规定协议约定不付抚养费后可否再要求分担、必要医疗开支增加的处理标准或数额确定规则。就“必要医疗开支明显增加能否再要求分担”的具体判断，S4本身依据不足，仍应结合已说明的协议约束力及其例外条件审查。\n\n参考材料\n[S1] 中华人民共和国民法典（第一千零八十五条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n一般规则参考。\n官方原文：第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html\n\n[S2] 最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)（第十六条）\n版本：2025年制定；生效：2025-02-01；核验日期：2026-09-19；有效状态资料截至：2025-02-01。\n一般规则参考。\n官方原文：第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。\n来源：https://www.court.gov.cn/zixun/xiangqing/452771.html\n\n[S4] 中华人民共和国民法典（第一千零八十四条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n一般规则参考。\n官方原文：第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一千零八十五条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "97fcf5b4-214b-5781-9a0f-d7695c313562",
+                "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                "reference_number": "第十六条",
+                "publisher": "最高人民法院",
+                "date": "2025-01-15",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S2",
+                "version": "2025年制定",
+                "effective_from": "2025-02-01",
+                "effective_until": null,
+                "verified_at": "2026-09-19",
+                "status_as_of": "2025-02-01",
+                "legal_status": "effective",
+                "original_text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一千零八十四条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S4",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "cb770a2c-fe86-4632-b5f3-ccb3226ff48a",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "49b01492-fecc-4f72-8f3d-80f03615fd65",
+              "revision": "87ebadf5-b21b-464a-b5d2-ea2ad028d7b6",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "marriage_family",
+              "mode": "general",
+              "fields": {},
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "f0784296-f71f-4fb8-b0ca-629c4a512735": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：离婚协议说父亲不付抚养费，后来孩子必要医疗开支明显增加，能否再要求分担？"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16",
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-3"
+            ],
+            "selected_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16",
+              "civil_code-2020-05-28-1084"
+            ],
+            "returned_ids": [
+              "civil_code-2020-05-28-1085",
+              "marriage_ii-2025-01-15-16",
+              "civil_code-2020-05-28-1084"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.8354477690556398,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.8428282648809379,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.8428282648809379,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-02",
+      "query_id": "L-MF-02",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.829,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.375
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.432
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-03",
+      "query_id": "L-MF-03",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1062",
+        "civil_code-2020-05-28-1087"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.918,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.513
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.384
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-04",
+      "query_id": "L-MF-04",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-7",
+        "civil_code-2020-05-28-153",
+        "civil_code-2020-05-28-1062"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：夫妻一方偷偷拿共同财产给婚外同居对象，另一方要求返还应考虑什么规则？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.898,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：夫妻一方偷偷拿共同财产给婚外同居对象，另一方要求返还应考虑什么规则？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.382
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：夫妻一方偷偷拿共同财产给婚外同居对象，另一方要求返还应考虑什么规则？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.496
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-05",
+      "query_id": "L-MF-05",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-21"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：离婚时我承担多年育儿和照料老人，家务补偿数额考量哪些因素？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.784,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：离婚时我承担多年育儿和照料老人，家务补偿数额考量哪些因素？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.384
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：离婚时我承担多年育儿和照料老人，家务补偿数额考量哪些因素？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.38
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-06",
+      "query_id": "L-MF-06",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-4"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：关键事件发生日期是2026年6月1日。双方未婚同居，共同出资经营取得收益，没有分配协议，分开时如何处理？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.85,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：关键事件发生日期是2026年6月1日。双方未婚同居，共同出资经营取得收益，没有分配协议，分开时如何处理？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.431
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：关键事件发生日期是2026年6月1日。双方未婚同居，共同出资经营取得收益，没有分配协议，分开时如何处理？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.397
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "更正关键事件发生日期：2026年7月1日。",
+            "expected": "conflict",
+            "preserve_field": "event_date",
+            "preserve_contains": "6月1日"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        },
+        {
+          "expected": {
+            "message": "确认修改",
+            "expected": "answer",
+            "field_contains": {
+              "event_date": "7月1日"
+            }
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-12",
+      "query_id": "L-MF-12",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：我要本市2026年离婚案件律师收费的法定最低价格，能给出准确数字吗？",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.848,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：我要本市2026年离婚案件律师收费的法定最低价格，能给出准确数字吗？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.384
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：我要本市2026年离婚案件律师收费的法定最低价格，能给出准确数字吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.446
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-13",
+      "query_id": "L-MF-13",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：结婚后发生房屋赠与登记争议，哪一年发生记不清，能否直接按现在规则认定？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.865,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：结婚后发生房屋赠与登记争议，哪一年发生记不清，能否直接按现在规则认定？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.457
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：结婚后发生房屋赠与登记争议，哪一年发生记不清，能否直接按现在规则认定？这是婚姻家庭纠纷；相关身份、协议和财产材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求预测裁判或计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.389
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "取消任务",
+            "expected": "cancelled"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-MF-14",
+      "query_id": "L-MF-14",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：1990年发生且当年已终审的离婚房产分割，要求直接按本地最新司法解释改判。 这是当时已经终审、无持续到新法施行后的事实。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.822,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：1990年发生且当年已终审的离婚房产分割，要求直接按本地最新司法解释改判。 这是当时已经终审、无持续到新法施行后的事实。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.421
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：1990年发生且当年已终审的离婚房产分割，要求直接按本地最新司法解释改判。 这是当时已经终审、无持续到新法施行后的事实。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.38
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-01",
+      "query_id": "L-LD-01",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-19",
+        "labor_contract-2012-12-28-38",
+        "labor_contract-2012-12-28-46"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：单位让我签自愿不交社保承诺，约定是否有效，补缴后已发社保补偿怎么办？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.982,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：单位让我签自愿不交社保承诺，约定是否有效，补缴后已发社保补偿怎么办？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.381
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：单位让我签自愿不交社保承诺，约定是否有效，补缴后已发社保补偿怎么办？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.581
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-02",
+      "query_id": "L-LD-02",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-13"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有接触公司的任何商业秘密，单位仍约定离职竞业限制，该条款一定生效吗？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.777,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有接触公司的任何商业秘密，单位仍约定离职竞业限制，该条款一定生效吗？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.383
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有接触公司的任何商业秘密，单位仍约定离职竞业限制，该条款一定生效吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.376
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-03",
+      "query_id": "L-LD-03",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-3",
+        "labor_contract-2012-12-28-7"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有书面劳动合同，却被关联的两家公司轮流管理发工资，如何确认关系和报酬责任？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.844,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有书面劳动合同，却被关联的两家公司轮流管理发工资，如何确认关系和报酬责任？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.412
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：没有书面劳动合同，却被关联的两家公司轮流管理发工资，如何确认关系和报酬责任？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.412
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-04",
+      "query_id": "L-LD-04",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-6",
+        "labor_ii-2025-07-31-7",
+        "labor_contract-2012-12-28-82"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：公司没依法签书面劳动合同，不满一个月的二倍工资如何按工作日计算？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.808,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：公司没依法签书面劳动合同，不满一个月的二倍工资如何按工作日计算？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.377
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：公司没依法签书面劳动合同，不满一个月的二倍工资如何按工作日计算？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.405
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-05",
+      "query_id": "L-LD-05",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-18"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：用人单位本身违法解除，合同还能继续履行，复职前这段时间工资怎么处理？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.836,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：用人单位本身违法解除，合同还能继续履行，复职前这段时间工资怎么处理？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.443
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：用人单位本身违法解除，合同还能继续履行，复职前这段时间工资怎么处理？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.373
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-06",
+      "query_id": "L-LD-06",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [
+        "labor_ii-2025-07-31-1"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：关键事件发生日期是2026年6月1日。有合法经营资格的承包人把业务转给无资质个人，后者招工，劳动报酬责任可向谁主张？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.79,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：关键事件发生日期是2026年6月1日。有合法经营资格的承包人把业务转给无资质个人，后者招工，劳动报酬责任可向谁主张？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.393
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：关键事件发生日期是2026年6月1日。有合法经营资格的承包人把业务转给无资质个人，后者招工，劳动报酬责任可向谁主张？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.378
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "更正关键事件发生日期：2026年7月1日。",
+            "expected": "conflict",
+            "preserve_field": "event_date",
+            "preserve_contains": "6月1日"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        },
+        {
+          "expected": {
+            "message": "确认修改",
+            "expected": "answer",
+            "field_contains": {
+              "event_date": "7月1日"
+            }
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-12",
+      "query_id": "L-LD-12",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：请给出本县2026年最低工资标准准确金额和最新文件，不能用其他地区代替。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.769,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：请给出本县2026年最低工资标准准确金额和最新文件，不能用其他地区代替。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.376
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：请给出本县2026年最低工资标准准确金额和最新文件，不能用其他地区代替。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.373
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-13",
+      "query_id": "L-LD-13",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：公司前几年没签合同，具体用工日期不清，能马上确定适用版本和双倍工资吗？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.835,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：公司前几年没签合同，具体用工日期不清，能马上确定适用版本和双倍工资吗？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.432
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：公司前几年没签合同，具体用工日期不清，能马上确定适用版本和双倍工资吗？这是境内劳动争议，用工和相应书面材料已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.385
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "取消任务",
+            "expected": "cancelled"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-LD-14",
+      "query_id": "L-LD-14",
+      "domain": "labor_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：1995年已经终审的辞退纠纷，能否只凭本库现有新法计算当年赔偿？ 这是当时已经终审、无持续到新法施行后的事实。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.767,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：1995年已经终审的辞退纠纷，能否只凭本库现有新法计算当年赔偿？ 这是当时已经终审、无持续到新法施行后的事实。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.376
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：1995年已经终审的辞退纠纷，能否只凭本库现有新法计算当年赔偿？ 这是当时已经终审、无持续到新法施行后的事实。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.373
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-01",
+      "query_id": "L-TA-01",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-6",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故医疗费仅有收费单据够吗，病历和诊断证明的作用是什么？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.833,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故医疗费仅有收费单据够吗，病历和诊断证明的作用是什么？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.419
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故医疗费仅有收费单据够吗，病历和诊断证明的作用是什么？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.394
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-02",
+      "query_id": "L-TA-02",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-7",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故伤者无固定收入，也不能证明最近三年平均收入，误工费参考什么？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.846,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故伤者无固定收入，也不能证明最近三年平均收入，误工费参考什么？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.382
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故伤者无固定收入，也不能证明最近三年平均收入，误工费参考什么？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.444
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-03",
+      "query_id": "L-TA-03",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-8",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故需要雇护工，护理人数和费用如何以证据确定，而非一律两人？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.764,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故需要雇护工，护理人数和费用如何以证据确定，而非一律两人？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.375
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：交通事故需要雇护工，护理人数和费用如何以证据确定，而非一律两人？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.37
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-04",
+      "query_id": "L-TA-04",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-9",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：伤者就医产生交通费，票据与时间地点人数次数是否必须对应？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.997,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：伤者就医产生交通费，票据与时间地点人数次数是否必须对应？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.55
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：伤者就医产生交通费，票据与时间地点人数次数是否必须对应？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.426
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-05",
+      "query_id": "L-TA-05",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-11",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：车祸营养费是否只要受伤就按自己报价，医疗机构意见有什么作用？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.801,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：车祸营养费是否只要受伤就按自己报价，医疗机构意见有什么作用？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.404
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：车祸营养费是否只要受伤就按自己报价，医疗机构意见有什么作用？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.377
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-06",
+      "query_id": "L-TA-06",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [
+        "personal_injury-2022-04-24-13",
+        "civil_code-2020-05-28-1179"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：关键事件发生日期是2026年6月1日。交通事故伤残后的辅助器具费用，应选择豪华器具还是普通适用标准？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.773,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：关键事件发生日期是2026年6月1日。交通事故伤残后的辅助器具费用，应选择豪华器具还是普通适用标准？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.375
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：关键事件发生日期是2026年6月1日。交通事故伤残后的辅助器具费用，应选择豪华器具还是普通适用标准？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.377
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "更正关键事件发生日期：2026年7月1日。",
+            "expected": "conflict",
+            "preserve_field": "event_date",
+            "preserve_contains": "6月1日"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        },
+        {
+          "expected": {
+            "message": "确认修改",
+            "expected": "answer",
+            "field_contains": {
+              "event_date": "7月1日"
+            }
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-12",
+      "query_id": "L-TA-12",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：请给出本县2026年交通事故十级伤残最终应赔多少元，未提供年龄收入等材料。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.901,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：请给出本县2026年交通事故十级伤残最终应赔多少元，未提供年龄收入等材料。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.505
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：请给出本县2026年交通事故十级伤残最终应赔多少元，未提供年龄收入等材料。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.377
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-13",
+      "query_id": "L-TA-13",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：一次车祸的时间和年份暂时不清，能先用最新标准算误工赔偿吗？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.802,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：一次车祸的时间和年份暂时不清，能先用最新标准算误工赔偿吗？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.375
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：一次车祸的时间和年份暂时不清，能先用最新标准算误工赔偿吗？这是境内机动车交通事故，已有事故认定书、医疗记录和相应费用材料，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.407
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "取消任务",
+            "expected": "cancelled"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-TA-14",
+      "query_id": "L-TA-14",
+      "domain": "traffic_accident",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：1998年已经处理完的交通事故，要求只用现有2022年人身赔偿解释重新计算。 这是当时已经终审、无持续到新法施行后的事实。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.802,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：1998年已经处理完的交通事故，要求只用现有2022年人身赔偿解释重新计算。 这是当时已经终审、无持续到新法施行后的事实。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.384
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：1998年已经处理完的交通事故，要求只用现有2022年人身赔偿解释重新计算。 这是当时已经终审、无持续到新法施行后的事实。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.392
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-01",
+      "query_id": "L-CD-01",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-2",
+        "contract_general-2023-12-04-1",
+        "civil_code-2020-05-28-509"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：我们多次买卖形成的交易习惯由谁证明，是否任何个人习惯都算？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.85,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：我们多次买卖形成的交易习惯由谁证明，是否任何个人习惯都算？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.421
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：我们多次买卖形成的交易习惯由谁证明，是否任何个人习惯都算？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.409
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-02",
+      "query_id": "L-CD-02",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-6"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.804,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.399
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.386
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-03",
+      "query_id": "L-CD-03",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-7",
+        "contract_general-2023-12-04-8",
+        "contract_general-2023-12-04-6",
+        "civil_code-2020-05-28-577"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：预约成立后拒绝签本约，判断不履行预约义务和赔偿考虑什么？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.771,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：预约成立后拒绝签本约，判断不履行预约义务和赔偿考虑什么？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.381
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：预约成立后拒绝签本约，判断不履行预约义务和赔偿考虑什么？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.371
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-04",
+      "query_id": "L-CD-04",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-10",
+        "civil_code-2020-05-28-496",
+        "contract_general-2023-12-04-9"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：网页弹窗让勾选同意格式条款，就必然履行了异常条款提示说明义务吗？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.916,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：网页弹窗让勾选同意格式条款，就必然履行了异常条款提示说明义务吗？",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.377
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：网页弹窗让勾选同意格式条款，就必然履行了异常条款提示说明义务吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.521
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-05",
+      "query_id": "L-CD-05",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-13",
+        "civil_code-2020-05-28-153",
+        "civil_code-2020-05-28-143"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.842,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.37
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.453
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-06",
+      "query_id": "L-CD-06",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-64",
+        "civil_code-2020-05-28-585",
+        "civil_code-2020-05-28-584"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：关键事件发生日期是2026年6月1日。合同违约金明显高于损失，请求减少时是否只能比较一个固定比例？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.791,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：关键事件发生日期是2026年6月1日。合同违约金明显高于损失，请求减少时是否只能比较一个固定比例？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.374
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：关键事件发生日期是2026年6月1日。合同违约金明显高于损失，请求减少时是否只能比较一个固定比例？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.399
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "更正关键事件发生日期：2026年7月1日。",
+            "expected": "conflict",
+            "preserve_field": "event_date",
+            "preserve_contains": "6月1日"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        },
+        {
+          "expected": {
+            "message": "确认修改",
+            "expected": "answer",
+            "field_contains": {
+              "event_date": "7月1日"
+            }
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-12",
+      "query_id": "L-CD-12",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：请提供2026年本市住宅限购最新政策及我是否具备购买资格的结论。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.807,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：请提供2026年本市住宅限购最新政策及我是否具备购买资格的结论。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.393
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：请提供2026年本市住宅限购最新政策及我是否具备购买资格的结论。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.395
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-13",
+      "query_id": "L-CD-13",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：此前签了一份格式合同，何时签的记不清，现在能直接判定适用哪版规则吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 424,
+          "elapsed_seconds": 0.784,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：此前签了一份格式合同，何时签的记不清，现在能直接判定适用哪版规则吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.382
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：此前签了一份格式合同，何时签的记不清，现在能直接判定适用哪版规则吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.382
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        },
+        {
+          "expected": {
+            "message": "取消任务",
+            "expected": "cancelled"
+          },
+          "status": null,
+          "error": "dependency_failed",
+          "model_trace": []
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-14",
+      "query_id": "L-CD-14",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：1997年已经终审的违约争议，只用本库现有民法典和新解释能否下确定结论？ 这是当时已经终审、无持续到新法施行后的事实。",
+            "expected": "insufficient"
+          },
+          "status": 424,
+          "elapsed_seconds": 0.858,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：1997年已经终审的违约争议，只用本库现有民法典和新解释能否下确定结论？ 这是当时已经终审、无持续到新法施行后的事实。",
+              "output": "",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.462
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：1997年已经终审的违约争议，只用本库现有民法典和新解释能否下确定结论？ 这是当时已经终审、无持续到新法施行后的事实。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "error_type": "ModelUnavailableError",
+              "elapsed_seconds": 0.376
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "synthetic_redis_keys_removed": true
+  },
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 36,
+  "scope": "full_development",
+  "requested_scenarios": null,
+  "summary": {
+    "scenarios_attempted": 36,
+    "turns_planned": 52,
+    "successful_http_turns": 1,
+    "model_calls": 82,
+    "scenario_structural_passes": 1,
+    "behavior_match_including_errors": {
+      "value": 0.019230769230769232,
+      "denominator": 52
+    },
+    "answer_behavior_rate": {
+      "value": 0.03571428571428571,
+      "denominator": 28
+    },
+    "strict_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 8
+    },
+    "safe_nonanswer_rate": {
+      "value": 0.0,
+      "denominator": 8
+    },
+    "http_latency_seconds_p50": 13.578,
+    "http_latency_seconds_p95": 13.578,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  },
+  "completed_at": "2026-09-28T04:50:49.275617+00:00"
+}

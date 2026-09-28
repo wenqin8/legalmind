@@ -27,12 +27,29 @@ from app.llm.factory import create_llm_client
 from app.main import create_app
 from app.rag.catalog_profiles import catalog_identity
 from app.evaluation.replay import prompt_digest
+from app.core.errors import ModelUnavailableError
 
 
 class TraceLLM(LLMClient):
     def __init__(self, client):
         self.client=client
         self.calls=[]
+        self.fatal_provider_status=None
+
+    def record_error(self, item, exc):
+        item['error_type']=type(exc).__name__
+        cause=exc
+        while cause is not None:
+            if isinstance(cause,httpx.HTTPStatusError):
+                status=cause.response.status_code
+                item['provider_http_status']=status
+                if status in (401,402,403):self.fatal_provider_status=status
+                break
+            cause=cause.__cause__
+
+    def require_provider(self):
+        if self.fatal_provider_status is not None:
+            raise ModelUnavailableError()
 
     def begin(self,messages):
         item={'task':messages[0].content.split('\n')[0], 'input':json.loads(messages[1].content), 'output':'',
@@ -41,15 +58,17 @@ class TraceLLM(LLMClient):
         return item
 
     async def complete(self,messages):
+        self.require_provider()
         item=self.begin(messages); start=time.perf_counter()
         try:
             item['output']=await self.client.complete(messages)
             return item['output']
         except BaseException as exc:
-            item['error_type']=type(exc).__name__;raise
+            self.record_error(item,exc);raise
         finally:item['elapsed_seconds']=round(time.perf_counter()-start,3)
 
     async def stream(self,messages):
+        self.require_provider()
         item=self.begin(messages);start=time.perf_counter();item['chunks']=[]
         stream=self.client.stream(messages)
         try:
@@ -58,7 +77,7 @@ class TraceLLM(LLMClient):
                 item['chunks'].append(part)
                 yield part
         except BaseException as exc:
-            item['error_type']=type(exc).__name__;raise
+            self.record_error(item,exc);raise
         finally:
             await stream.aclose()
             item['elapsed_seconds']=round(time.perf_counter()-start,3)
@@ -77,7 +96,9 @@ def summarize(report):
     negatives=[t for t in turns if t['expected']['expected']=='insufficient']
     def rate(items,predicate):
         return {'value':sum(predicate(t) for t in items)/len(items) if items else None,'denominator':len(items)}
-    report['summary']={'scenarios_attempted':len(report['scenarios']), 'turns_planned':len(turns), 'successful_http_turns':len(ok),
+    report['summary']={'scenarios_attempted':sum(any(t.get('status') is not None for t in s['turns']) for s in report['scenarios']),
+        'scenarios_planned':report.get('planned_scenarios',len(report['scenarios'])),
+        'turns_planned':len(turns), 'successful_http_turns':len(ok),
         'model_calls':sum(len(t.get('model_trace',[])) for t in turns),
         'scenario_structural_passes':sum(all(t.get('evaluation',{}).get('structural_passed',False) for t in s['turns']) for s in report['scenarios']),
         'behavior_match_including_errors':rate(turns,lambda t:t.get('evaluation',{}).get('checks',{}).get('expected_behavior',False)),
@@ -139,6 +160,14 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
             registration.raise_for_status();user_id=registration.json()['data']['id']
             token=None; token_at=0
             for scenario in scenarios:
+                if llm.fatal_provider_status is not None:
+                    entry={k:v for k,v in scenario.items() if k!='turns'}
+                    entry['turns']=[{'expected':expected,'status':None,'error':'provider_run_stopped','model_trace':[]}
+                                    for expected in scenario['turns']]
+                    report['scenarios'].append(entry)
+                    report['provider_stop']={'http_status':llm.fatal_provider_status,'not_attempted':True}
+                    save()
+                    continue
                 # Refresh authentication before expiry; model generations are never retried.
                 if needs_login(token, token_at, time.monotonic()):
                     login=await client.post('/api/v1/auth/login',json={'login':username,'password':password})
@@ -176,7 +205,9 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
                 report['scenarios'].append(entry);save()
                 print(json.dumps({'scenario':scenario['id'],'completed':len(report['scenarios']),'statuses':[t.get('status') for t in entry['turns']],
                     'behaviors':[t.get('evaluation',{}).get('observed_behavior') for t in entry['turns']]}),flush=True)
-            report['complete']=len(report['scenarios'])==len(scenarios)
+            report['complete']=len(report['scenarios'])==len(scenarios) and llm.fatal_provider_status is None
+            if llm.fatal_provider_status is not None:
+                report.setdefault('provider_stop',{'http_status':llm.fatal_provider_status,'not_attempted':False})
     except Exception as exc:
         report['infrastructure_error']=type(exc).__name__
         report['infrastructure_frames']=[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name}
