@@ -65,3 +65,24 @@ async def test_negative_statement_with_term_quotes_is_not_a_statutory_quote():
         original_text='应当提供材料。', effective_from='2025-01-01', verified_at='2026-09-01',
         status_as_of='2026-09-01', source_url='https://www.court.gov.cn/test', applicability='general_reference')
     validate_citations('材料未规定“某项返还”的具体条件，依据不足[S1]。', [Evidence(source, source.original_text)])
+
+
+async def test_empty_extraction_does_not_discard_explicit_legal_domain(app):
+    from pathlib import Path
+    report = json.loads((Path(__file__).resolve().parents[3] /
+        'docs/acceptance/rag-v2-development-answers-run19.json').read_text(encoding='utf-8'))
+    turn = next(s for s in report['scenarios'] if s['id'] == 'E-L-CD-14')['turns'][0]
+    extraction = next(c for c in turn['model_trace'] if c['task'] == 'TASK:EXTRACT')
+    class Replay(FakeLLMClient):
+        async def complete(self, messages):
+            if messages[0].content.startswith('TASK:INTENT'):
+                return '{"intent":"qa","confidence":1.0,"document_type":null}'
+            assert messages[0].content.startswith('TASK:EXTRACT')
+            return extraction['output']
+    graph = build_workflow(app.state.database, None, Replay())
+    state = await graph.ainvoke({'request_id': uuid4(), 'user_id': uuid4(), 'session_id': uuid4(),
+        'conversation_messages': [], 'warnings': [],
+        'payload': ChatRequest(message=turn['expected']['message'])})
+    assert state['result'].task.domain == 'contract_dispute'
+    assert state['result'].task.phase == 'collecting'
+    assert state['result'].sources == []

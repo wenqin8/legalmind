@@ -1,0 +1,221 @@
+{
+  "scope": "development_regression_not_blind_legal_certification",
+  "quality_gate_passed": true,
+  "checks": {
+    "development_only": true,
+    "complete_runs": true,
+    "direct_hit_at_5": true,
+    "behavior_match": true,
+    "safe_nonanswer": true,
+    "four_corrections": true,
+    "structural_safety": true,
+    "semantic_review": true,
+    "same_evaluation_corpus": true
+  },
+  "metrics": {
+    "planned_turns": 52,
+    "http_successes": 50,
+    "scenario_structural_passes": 34,
+    "expected_answer_behavior_counts": {
+      "answer": 26,
+      "service_error": 2
+    },
+    "behavior_match_including_errors": {
+      "value": 0.9615384615384616,
+      "denominator": 52
+    },
+    "answerable_but_insufficient_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "answerable_but_clarifying_rate": {
+      "value": 0.0,
+      "denominator": 28
+    },
+    "hard_check_failures": {
+      "source_integrity": 0,
+      "known_citations": 0,
+      "verbatim_quotes": 0,
+      "no_model_urls": 0,
+      "version_interval": 0,
+      "field_provenance": 0,
+      "conflict_preserved": 0,
+      "confirmed_field": 0
+    },
+    "candidate_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "candidate_recall_on_expected_answers": {
+      "value": 0.9196428571428571,
+      "denominator": 28
+    },
+    "selected_hit_on_expected_answers": {
+      "value": 1.0,
+      "denominator": 28
+    },
+    "selected_recall_on_expected_answers": {
+      "value": 0.8839285714285714,
+      "denominator": 28
+    },
+    "returned_hit_on_expected_answers": {
+      "value": 0.9285714285714286,
+      "denominator": 28
+    },
+    "returned_recall_on_expected_answers": {
+      "value": 0.8125,
+      "denominator": 28
+    },
+    "by_domain": {
+      "contract_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "labor_dispute": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 1.0,
+          "denominator": 13
+        },
+        "http_successes": 13
+      },
+      "marriage_family": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 0.9230769230769231,
+          "denominator": 13
+        },
+        "http_successes": 12
+      },
+      "traffic_accident": {
+        "turns": 13,
+        "behavior_match_including_errors": {
+          "value": 1.0,
+          "denominator": 13
+        },
+        "http_successes": 13
+      }
+    },
+    "source_recall_by_grade": {
+      "3": {
+        "candidate": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "selected": {
+          "macro_recall": 1.0,
+          "turns_with_grade": 28,
+          "matched_sources": 29,
+          "gold_sources": 29
+        },
+        "returned": {
+          "macro_recall": 0.9285714285714286,
+          "turns_with_grade": 28,
+          "matched_sources": 27,
+          "gold_sources": 29
+        }
+      },
+      "2": {
+        "candidate": {
+          "macro_recall": 0.8157894736842105,
+          "turns_with_grade": 19,
+          "matched_sources": 19,
+          "gold_sources": 23
+        },
+        "selected": {
+          "macro_recall": 0.7894736842105263,
+          "turns_with_grade": 19,
+          "matched_sources": 18,
+          "gold_sources": 23
+        },
+        "returned": {
+          "macro_recall": 0.7368421052631579,
+          "turns_with_grade": 19,
+          "matched_sources": 17,
+          "gold_sources": 23
+        }
+      },
+      "1": {
+        "candidate": {
+          "macro_recall": 0.7222222222222222,
+          "turns_with_grade": 9,
+          "matched_sources": 7,
+          "gold_sources": 10
+        },
+        "selected": {
+          "macro_recall": 0.5,
+          "turns_with_grade": 9,
+          "matched_sources": 5,
+          "gold_sources": 10
+        },
+        "returned": {
+          "macro_recall": 0.5,
+          "turns_with_grade": 9,
+          "matched_sources": 5,
+          "gold_sources": 10
+        }
+      }
+    }
+  },
+  "corrections": {
+    "E-L-MF-06": true,
+    "E-L-LD-06": true,
+    "E-L-TA-06": true,
+    "E-L-CD-06": true
+  },
+  "direct_hit_at_5": {
+    "value": 1.0,
+    "hits": 44,
+    "denominator": 44
+  },
+  "safe_nonanswer": {
+    "value": 1.0,
+    "safe": 8,
+    "denominator": 8
+  },
+  "semantic_reviews": {
+    "E-L-MF-01:1": true,
+    "E-L-MF-03:1": true,
+    "E-L-MF-04:1": true,
+    "E-L-MF-05:2": true,
+    "E-L-MF-06:1": true,
+    "E-L-MF-06:3": true,
+    "E-L-LD-01:1": true,
+    "E-L-LD-02:1": true,
+    "E-L-LD-03:1": true,
+    "E-L-LD-04:1": true,
+    "E-L-LD-05:2": true,
+    "E-L-LD-06:1": true,
+    "E-L-LD-06:3": true,
+    "E-L-TA-01:1": true,
+    "E-L-TA-02:1": true,
+    "E-L-TA-03:1": true,
+    "E-L-TA-04:1": true,
+    "E-L-TA-05:2": true,
+    "E-L-TA-06:1": true,
+    "E-L-TA-06:3": true,
+    "E-L-CD-01:1": true,
+    "E-L-CD-03:1": true,
+    "E-L-CD-04:1": true,
+    "E-L-CD-05:2": true,
+    "E-L-CD-06:1": true,
+    "E-L-CD-06:3": true
+  },
+  "reviewer": "development_agent_not_legal_expert",
+  "expert_review": "not performed",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "gate_definition_sha256": "5ca79f80f894a9a971f2ec4407f4788fcae3405c1532c9f9509af1cf4e097a0f",
+  "raw_report_sha256": "893cac408e3886e530f3889141805fc037237ef07a212773b3a3d6884bb04372",
+  "retrieval_report_sha256": "cf9459e477706cce91db80102deef2f46a22554984b0fbe00be361a4562242d8",
+  "semantic_review_sha256": "6fbfef278ac3895268bddce7685d497631f4c38932973c22e0e86806c2f522df"
+}

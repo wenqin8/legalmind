@@ -1,0 +1,34 @@
+{
+  "reviewer": "development_agent_not_legal_expert",
+  "raw_report_sha256": "60714ae567d4f32c04a90d846269e84dfd7fba2a0413c8065d85880192aba8bd",
+  "scope": "targeted_development_subset_not_full_acceptance",
+  "targeted_semantic_passed": true,
+  "turns": {
+    "E-L-LD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "无效、解除经济补偿及返还规则均对应19、38、46；返还明确保留有前款规定情形和依法补缴/已付/请求。"
+    },
+    "E-L-TA-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "营养费根据伤残情况参照机构意见，1179支持合理费用范围；不再从参照推断意见非必要或其他证据可替代。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "65条损失基础、综合因素、30%一般认定及恶意违约限制完整，64举证及585依请求调整有来源。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "更正确认后65、64、585的主要条件保留；恶意违约限制由同一版本原文风险补充呈现，未作个案断言。"
+    }
+  },
+  "nonanswer_review": {
+    "E-L-CD-14:1": "正确返回历史资料不足，无来源、无确定结论。"
+  },
+  "limitations": [
+    "7轮定向运行，不是完整门槛；领域后备分类之后收窄，最终实现须以Run21复验为准。"
+  ]
+}

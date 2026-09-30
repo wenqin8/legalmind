@@ -1,0 +1,27 @@
+{
+  "reviewer": "development_agent_not_legal_expert",
+  "raw_report_sha256": "00dc80833748aeee5666356928c9c110c0bfeffb589a38d40679f14ca922ce32",
+  "method": "逐条阅读最终正文并与本轮来源原文核对；不以模型自审或HTTP成功替代复核。",
+  "scope": "targeted_development_subset_not_full_acceptance",
+  "targeted_semantic_passed": true,
+  "turns": {
+    "E-L-LD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "返还分支明确保留有前款情形、依法补缴、请求及已支付的社保补偿；前段完整说明约定无效和未依法缴费解除/经济补偿，未推断前款各分支逻辑。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "65条损失基础、综合因素、30%一般标准与恶意违约限制保留；64、585条支持举证和请求调整。补充段局部资料不足措辞偏保守且有重复，不改变主要结论。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "日期纠正确认成功，主要规则、恶意违约限制、举证及依请求调整均有本轮原文支持；对缺失交叉条文不作具体推断。"
+    }
+  },
+  "limitations": [
+    "仅2场景4轮，不是完整门槛或法律专家认证。"
+  ]
+}

@@ -95,6 +95,10 @@ async def extract(payload: ChatRequest, task: TaskState, llm: LLMClient) -> Extr
                 "task_kind": task.kind, "domain": task.domain, "requested_fields": task.missing_fields[:3],
             }, ensure_ascii=False))])
         result = Extraction.model_validate_json(raw)
+        # Resolve the topic before rejecting duplicate or ungrounded fields.
+        # Dropping facts must not also discard an identifiable legal domain.
+        if result.domain is None and (result.general_question or result.fields):
+            result.domain = explicit_domain(payload.message)
         duplicates = {f.name for f in result.fields if sum(item.name == f.name for item in result.fields) > 1}
         for field in result.fields:
             # A model may summarize a long field; use its grounded full span instead,

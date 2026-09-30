@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-09-30T06:00:47.182869+00:00",
+  "scope": "read_only_file_hashes_profiles_and_default_database_counts_not_full_row_or_vector_audit",
+  "checks": {
+    "backend/data/demo/cases.jsonl": true,
+    "backend/data/evaluation/week2_queries.jsonl": true,
+    "docs/acceptance/week2-retrieval-evaluation.json": true,
+    "backend/data/legal/verified_provisions.jsonl": true,
+    "pdf_sha256": "9A49723FEE1AD8BB1610A92BC5C088D5F73E12F622859681F2CC2669C61EBC1D",
+    "profiles": {
+      "demo-m3-60": 60,
+      "eval-rag-v2-209": 209
+    },
+    "default_counts": {
+      "users": 1,
+      "conversations": 4,
+      "cases": 16,
+      "knowledge_chunks": 64,
+      "legal_provisions": 60,
+      "generated_documents": 0
+    },
+    "migration_head": "20260918_0004",
+    "m3_tag_object": "5091c6d4980c45b2ec88028e85621b7f63a9ea8c",
+    "m3_commit": "c399d780ea73a8e829a4a0e0b0128e6c1f373ccf",
+    "m3_commit_unchanged": true
+  }
+}

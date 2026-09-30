@@ -31,6 +31,8 @@ QUICK_TESTS = [
     'tests/unit/test_sentence_revision.py',
     'tests/unit/test_evaluation_provider_stop.py',
     'tests/unit/test_source_limitations.py',
+    'tests/unit/test_refund_condition.py',
+    'tests/unit/test_nutrition_inference.py',
     'tests/integration/test_grounded_stream.py', 'tests/integration/test_multiturn_laws.py',
 ]
 
