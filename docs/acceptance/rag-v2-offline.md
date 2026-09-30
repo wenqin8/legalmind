@@ -1,58 +1,53 @@
-# RAG 离线回归与本轮修复
+# RAG验证方法
 
-后续状态见[额度恢复后的修复记录](rag-v2-resumed.md)：最新410项离线测试通过，真实验收与离线结果继续分开记录；下文323项为较早历史记录。
+以下命令在`backend`目录执行，输出路径必须尚不存在。日常使用离线回归；最新结论和证据见[最终验收](rag-v2-final-acceptance.md)。
 
-日常开发现在使用 `scripts.evaluate_offline`，无需DeepSeek额度或真实Redis。离线结果验证代码、检索和固定输入的处理；不冒充新模型答案的质量分数。真实模型评估只在用户明确要求时运行，两个入口都必须显式加 `--allow-real-model`。
+## 离线回归
 
-## 一条命令运行
-
-从 `backend` 目录执行，输出文件必须尚不存在：
+无需真实模型额度或Redis。测试使用假模型、假Redis和隔离数据库，不修改默认数据。
 
 ```powershell
-# 每次修改后：相关回归测试 + 60条法条开发查询
+# 相关回归和60条法条开发查询
 .\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite quick --output ../tmp/offline-quick-new.json
 
-# 合并一批改动后：全部测试 + 案例三路检索 + 法条检索
+# 全部测试和120条开发查询（案例三路检索+法条检索）
 .\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite full --include-vectors --output ../tmp/offline-full-new.json
 
-# 可附加已保存答案的离线复算；不会重新生成答案
-.\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite quick --recording ../docs/acceptance/rag-v2-development-answers-run10.json --output ../tmp/offline-with-archive-new.json
+# 附加旧答案指标复算，不生成新答案
+.\.venv\Scripts\python.exe -m scripts.evaluate_offline --suite quick --recording ../docs/acceptance/rag-v2-development-answers-run21.json --output ../tmp/offline-recording-new.json
 ```
 
-默认 `--suite full` 运行全部测试和法条检索；`--include-vectors` 使用已缓存BGE权重，未缓存时直接失败，不自动下载。SQLite、Chroma、测试日志位于独立临时目录，默认用户库、法条库和向量不改动。测试使用注入的假模型和假Redis，并通过本地TCP检查SSE首段、断开、错误及资源释放。
+`--include-vectors`要求已缓存BGE权重，缺失时失败，不自动下载。临时数据库和日志位于隔离临时目录。HTTP/DNS与真实模型请求受拦截，非预期联网会使验证失败；本地业务TCP和MockTransport允许，用于SSE及接口测试。
 
-## 各层验证的含义
+| 验证层 | 能确认的内容 |
+| --- | --- |
+| 自动化测试 | 固定输入下的路由、状态、引用、保存补偿及SSE行为 |
+| 冻结检索 | 当前实现对固定语料和标签的Hit/Recall等指标；法条领域由金标准提供 |
+| 严格节点回放 | 旧模型输出在当前节点中的处理；提示哈希、输入和顺序不匹配即报错，无真实模型兜底 |
+| 旧答案复算 | 对该份原始输出重新计算指标，不代表当前代码生成新答案的质量 |
 
-| 层次 | 离线执行内容 | 能说明什么 |
-| --- | --- | --- |
-| 自动化测试 | 意图/任务路由、冲突确认、来源编号、原文片段、保存补偿、失败不入历史、SSE | 固定输入和审查结果下，代码与协议是否回归 |
-| 冻结检索 | 60条案例、60条法条开发查询；Hit、Recall、Precision、MRR、NDCG与负例误召回 | 当前检索实现和固定资料的效果，法条领域由金标准提供 |
-| 节点回放 | 从已保存报告回放成功提取及服务故障；任务、输入、提示词哈希和顺序检查 | 旧模型输出交给当前节点时的处理，不预测新模型输出 |
-| 旧答案复算 | 来源真实性、版本、行为、分阶段/分级召回 | 该份原始报告的质量，不能当作当前代码的新端到端成绩 |
+离线报告的`real_model_quality_passed`始终为`null`。放宽旧录制提示校验会标明`prompt_verified=false`；离线通过不能代替真实模型、Redis或新答案语义验收。
 
-`offline_regression_passed` 与 `real_model_quality_passed` 分开；后者在离线报告中始终为 `null`。脚本化审查结果不能证明模型能自行识别所有法律错误，真实Redis、模型语义表现及专家审查仍是独立验收项。不会按已经看过的保留集调优。
+## 真实开发集复验
 
-外网HTTP与DNS在父进程及pytest子进程中受拦截，真实 `/chat/completions` 请求即使通过本地代理也被禁止；MockTransport和本地业务HTTP允许。任何非测试预期的外网尝试都会导致离线验收失败。该机制覆盖本项目HTTP/DNS客户端，不是操作系统防火墙。
+需要明确调用授权、可用的Redis与后端DeepSeek配置；会消耗API额度。只使用合成输入及隔离SQLite/Chroma，结束后精确清理本轮Redis键；不修改`.env`或默认运行库。
 
-严格回放默认要求提示词哈希匹配，输入、调用顺序变更或记录用尽直接报错，没有真实模型兜底。旧录制显式放宽提示词校验时会标注 `prompt_verified=false`；旧录制的模拟切段不冒充实际网络分段或延迟。新录制已补充系统提示词哈希和原始delta列表。
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-retrieval-new.json
+.\.venv\Scripts\python.exe -m scripts.evaluate_rag_answers --allow-real-model --split development --corpus-profile eval-rag-v2-209 --output ../tmp/rag-answers-new.json
+.\.venv\Scripts\python.exe -m scripts.review_rag_answers --input ../tmp/rag-answers-new.json --output ../tmp/rag-review-new.json
+```
 
-## 本轮离线验证
+前两条分别运行120条检索查询和36场景/52轮真实对话，第三条离线复算结构指标。定向排查可给第二条追加`--scenario <开发场景ID>`，可重复指定；局部通过不代表全量通过。401/402/403会停止后续模型请求，保留未执行题目与分母，不自动换模型或重试。检查报告的`complete`、失败轮次与`cleanup`，不能仅依据进程退出码判断质量。
 
-[完整报告](rag-v2-offline-regression.json)：323项测试全部通过，120条开发查询产生240条路线结果，共73.20秒；真实模型调用0，外网尝试0。法条直接依据Hit@5为44/44，全相关来源Recall@5为91.29%；案例融合Hit@5为100%、Recall@5为98.96%。法条/案例负例候选误召回仍分别为50%/100%，不能等同最终误答率。
+逐条阅读新回答及对应来源后，另建`semantic-review.json`：`raw_report_sha256`绑定答案文件，`reviewer`记录复核身份，`turns`以`场景ID:轮次`为键，每项记录`faithfulness`、`applicability`（`pass/fail`）及具体`notes`。然后执行：
 
-完整运行后新增真实模型命令开关和本地代理阻断测试，100项相关测试全部通过，见 [快速报告](rag-v2-offline-quick.json)。后端依赖检查和编译检查均已通过；前端本轮未修改。
+```powershell
+.\.venv\Scripts\python.exe -m scripts.evaluate_quality_gates --answers ../tmp/rag-answers-new.json --retrieval ../tmp/rag-retrieval-new.json --reviews ../tmp/semantic-review.json --output ../tmp/rag-gates-new.json
+```
 
-## 本轮代码修复与真实记录
+检索、回答须使用同一实现与语料版本。门槛以[配置](../../backend/data/evaluation/rag-v2/quality-gates.json)为准；不得复用旧语义结论、删除失败分母、拼接最佳答案或使用已观察保留集调优。
 
-- 保留法条BM25前三条，其余两位按同法规已选数量降低重复占位；日期与终审状态用于版本过滤，不额外重复拼接到检索词。案例参数、冻结标签不变。
-- 两次段落审核共享本次已验证前文，按完整段落裁到12000字符；前文不能充当新法律证据。引用格式与语义错误共用一次修订机会，并检查完整已发送前缀，防止跨段拆分非法编号。
-- 适用性筛选及逐句审核都选择服务端原文片段编号，消除模型把非连续文字拼成逐字引文的格式故障；不放宽实际原文或条件核验。额外检查可选参考变必要条件、并列项目限定范围改变等问题。
-- 字段提取服务故障、超时或非法结构现在返回依赖错误，不再用空结果冒充依据不足；同步424、流中error，本轮消息与任务变化不保存。真实本地TCP和已录制故障回放覆盖这一问题。
+## 排查入口
 
-第八轮到第九轮，同一28条可回答轮次的候选Recall从72.32%升至84.82%，最终来源Recall从53.57%升至66.37%。但[第九轮门槛](rag-v2-development-gates-run9.json)未通过：复核发现条件扩张，不将数值改善视作成功验收。
-
-[第十轮原始报告](rag-v2-development-answers-run10.json)全部失败原样保留。婚姻家庭与交通分支的一些旧424恢复，但适用性节点仍出现非连续引文问题，另发现同居财产并列范围压缩问题；随后接口返回402，经[单独连通性检查](rag-v2-provider-status-run10.json)确认余额不足。旧提取逻辑吞掉该故障，使后半段产生虚假的“资料不足”，总体行为41/52（78.85%）、最终Recall55.36%；[门槛明确未通过](rag-v2-development-gates-run10.json)。
-
-适用性片段编号、提取失败传播及并列范围提示在第十轮之后修复，已通过离线回归，尚未取得新的真实模型质量成绩。第十轮之前的9项真实语义探针通过；新增第10项并列范围反例未再次调用模型。本轮按用户要求转为离线开发，不再自动重跑付费模型。
-
-[数据保留核对](rag-v2-preservation-offline.json)确认原用户/会话/案例/知识块、默认60条法条、64个向量、M3标签及冻结文件不变。原始PDF继续作为Git外独立文件保留，SHA-256仍为 `9A49723FEE1AD8BB1610A92BC5C088D5F73E12F622859681F2CC2669C61EBC1D`。
+`python -m scripts.diagnose_source_losses --input <原始报告> --output <新路径>`可离线分析候选→筛选→最终回答的来源损失；不会生成新答案。数据定义见[评估集](../../backend/data/evaluation/rag-v1/README.md)，回放约束见[离线样本](../../backend/data/evaluation/offline-v1/README.md)，接口错误和状态语义见[API合同](../api-contract.md)。
