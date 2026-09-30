@@ -1,0 +1,24 @@
+{
+  "reviewer": "development_agent_not_legal_expert",
+  "raw_report_sha256": "aeac19edc19b2e6409cd664bb8e2938631f8db2fdaf85343d9ef20f7cfba9204",
+  "method": "逐条对照最终正文与本轮所选原文；自动行为成功不替代语义复核。",
+  "turns": {
+    "E-L-LD-01:1": {
+      "faithfulness": "fail",
+      "applicability": "pass",
+      "notes": "返还结论仅保留依法补缴、已支付和请求，未明确承接原文有前款规定情形；前文分别说明无效与解除规则不足以表明返还结论仍受该回指条件约束。原两项模型审核未阻断，作为确定性回归保留。"
+    },
+    "E-L-CD-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "65条损失基础、综合因素、30%一般标准与恶意违约限制完整；64条举证及反诉/抗辩、585条请求调整有直接依据，未计算个案金额。"
+    },
+    "E-L-CD-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "更正确认后保留65条综合因素与恶意违约限制；64、585条支持程序和依请求调整，日期更新有出处。"
+    }
+  },
+  "quality_gate_passed": false,
+  "scope": "targeted_development_subset_not_full_acceptance"
+}

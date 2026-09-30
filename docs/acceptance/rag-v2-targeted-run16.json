@@ -1,0 +1,170 @@
+{
+  "started_at": "2026-09-30T05:44:12.154874+00:00",
+  "configuration": {
+    "implementation_sha256": "a87029d4e22f113633d09fe81f9cc1ab81aafd8f4ec37b0e0b2a6b0183f25f31",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/claim_rules.py": "a21bb67a9e54b8454ea7661e6e30d3bb80d659e23dc769a4dd8f7a6bb6f42028",
+      "app/agents/evidence.py": "46e9156ab2494001a0e7bedf87e539f06389a51e618df53b757809fd09ae2875",
+      "app/agents/grounding.py": "e57f7b4f570df5b9cdb515bd3e8724d96ce087aba6431a9062899bed6cfff099",
+      "app/agents/intent.py": "002ad4bb586e6f9bef63cfd2981556d530a13a3feeec86f29e9db12c941383c2",
+      "app/agents/legal_evidence.py": "43761fa9abe1fa406efe55a679e2e287156ae0a727270b2507e6538a5ef62a8a",
+      "app/agents/legal_references.py": "cb3dc62a0102e14d2ee79ec1b52953b219468d354e7b197f1b5a314ba77a39ca",
+      "app/agents/limitations.py": "57e6c2793b84c6d57977a15bdcfb3c1675e85a27217684fb7be006dabed01c9d",
+      "app/agents/paragraph_revision.py": "65d084787c90e2a164b93cd86ea0d3ca549915bf4a4adc2384958e1b44c7df1f",
+      "app/agents/qa.py": "ed42b54ff10790566e93fbab9781836f364cff5906769b9ea7a816d7304b2213",
+      "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+      "app/agents/tasks.py": "4be727fe1222c3687f02231fbcba0726f88a0934d1e973ed73d93db17078d055",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+      "app/evaluation/dataset.py": "ad989e043c543975791578cadcf9dada29ebf538202cf30838229f88be3a9950",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+      "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "b920f5c34dfddb1f07058c0ec66e57dab40d909000d46977a3b3f6c523a6c63e",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/diagnose_source_losses.py": "414a3b6f91242b9383421b7c595afadc81c110e6d15d3066bc3f1766bf3074d4",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_offline.py": "700451fec445dd0ca00b8dee5818986eb9fb53530e3fd5b06c4a562b51f461f9",
+      "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+      "scripts/evaluate_rag.py": "c240338f3931bf7ed2d4a8cafa3ede4db0470f7879f6ff013a58b2abe25f0046",
+      "scripts/evaluate_rag_answers.py": "e879cae8877cd251dda0b9c855fda1bcb930386930f10997bbdd5a4498dad25f",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": false,
+  "scenarios": [],
+  "cleanup": {},
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 2,
+  "scope": "targeted_development_subset",
+  "requested_scenarios": [
+    "E-L-LD-01",
+    "E-L-CD-06"
+  ],
+  "infrastructure_error": "TimeoutError",
+  "infrastructure_frames": [
+    {
+      "file": "evaluate_rag_answers.py",
+      "line": 152,
+      "function": "evaluate"
+    },
+    {
+      "file": "client.py",
+      "line": 929,
+      "function": "execute_command"
+    },
+    {
+      "file": "utils.py",
+      "line": 249,
+      "function": "async_wrapper"
+    },
+    {
+      "file": "connection.py",
+      "line": 2824,
+      "function": "get_connection"
+    },
+    {
+      "file": "connection.py",
+      "line": 2865,
+      "function": "ensure_connection"
+    },
+    {
+      "file": "connection.py",
+      "line": 819,
+      "function": "connect"
+    },
+    {
+      "file": "retry.py",
+      "line": 81,
+      "function": "call_with_retry"
+    },
+    {
+      "file": "retry.py",
+      "line": 69,
+      "function": "call_with_retry"
+    },
+    {
+      "file": "connection.py",
+      "line": 864,
+      "function": "connect_check_health"
+    }
+  ],
+  "completed_at": "2026-09-30T05:44:14.636875+00:00",
+  "summary": {
+    "scenarios_attempted": 0,
+    "scenarios_planned": 2,
+    "turns_planned": 0,
+    "successful_http_turns": 0,
+    "model_calls": 0,
+    "scenario_structural_passes": 0,
+    "behavior_match_including_errors": {
+      "value": null,
+      "denominator": 0
+    },
+    "answer_behavior_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "strict_insufficient_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "safe_nonanswer_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "http_latency_seconds_p50": null,
+    "http_latency_seconds_p95": null,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  }
+}
