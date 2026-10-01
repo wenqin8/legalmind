@@ -32,6 +32,7 @@ tmp/
 # Original plan and delivery archives are delivered outside Git.
 /output/pdf/
 /output/delivery/*.zip
+/output/repository-backups/
 
 # Editors and operating systems
 .idea/

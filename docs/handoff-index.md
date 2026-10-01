@@ -9,6 +9,7 @@
 | [项目README](../README.md) | 项目做什么、如何启动 |
 | [HANDOFF](../HANDOFF.md) | 做到哪里、还有什么待办、交付边界是什么 |
 | [M4项目方验收决定](acceptance/m4-project-acceptance-20261002.md)、[机器记录](acceptance/m4-project-acceptance-20261002.json) | AI复核24/24通过、新验收口径、原证据绑定和本地m4标签范围 |
+| [作业提交前复验](acceptance/m4-submission-closeout-20261002.md) | 当前Docker烟测14/14、运行9/9，新完整包与远端refs核对要求 |
 | [M4课程收尾](acceptance/m4-course-mvp-closeout-20261001.md)、[详细证据](acceptance/m4-progress.md) | 工程交付、部署回归与未完成的法律质量验收 |
 | [复核后收尾](acceptance/m4-reviewed-closeout-20261001.md)、[实际答案人工表](review/m4-v17-actual-answer-review-20261001.md) | 修订定稿、首次24/24测量、人工与独立专家未完成项及补充交付 |
 | [M4安全复核](acceptance/m4-security-review-20261001.md) | 依赖修复、Chroma剩余公告与当前部署边界 |
