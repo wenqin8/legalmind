@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     environment: Literal["development", "test", "production"] = "development"
     debug: bool = False
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
+    auth_rate_limit_per_minute: int = Field(default=20, ge=1, le=10000)
+    business_rate_limit_per_minute: int = Field(default=120, ge=1, le=10000)
     cors_origins: tuple[str, ...] = ("http://localhost:5173",)
 
     database_url: SecretStr = SecretStr(DEFAULT_DATABASE_URL)

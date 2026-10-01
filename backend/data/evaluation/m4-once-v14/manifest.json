@@ -1,0 +1,57 @@
+{
+  "version": "m4-once-reserved-v14-assisted-review-draft",
+  "created_at": "2026-10-01T13:46:30.957569+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "marriage_family": 6,
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent",
+  "annotation_status": "partial_assisted_review_pending_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "1a03633c90ce72f985bb932207dd430b21fa58585cd621fa9e7d2b8e11b50368",
+    "scenarios.jsonl": "2b3b26ffcb46aee14feea7adc512e19d3214f111dcbe692be6241627ba4e49d9",
+    "rubric.json": "48419e8dd8346f16e5565cabe7e314166ccfc64603eb3ad15a07a28f309f8de9",
+    "review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d",
+    "labor-review-record.json": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+  },
+  "exclusion_evidence": {
+    "observed_v6_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+    "exact_question_overlap": 0,
+    "topic_independence_expert_verified": false
+  },
+  "limitations": [
+    "All 24 questions remain unsubmitted; two assisted review batches are not independent legal gold or third-party blindness.",
+    "Original decisions remain nine passes/three revision requests; edits are drafts and do not auto-change the passed count.",
+    "Independent expert annotation and actual-answer semantic review remain incomplete."
+  ],
+  "rebind_reason": "Labor assisted review clarifies subsidy recipient in one question and refines six criteria; earlier marriage revisions retained; no runtime change",
+  "source_unexecuted_manifest_sha256": "04603b92091d9916999aee47c65c6469d9dfae7a0d46cf8540d121ad0c2e94e7",
+  "assisted_annotation_review": {
+    "reviewed": 12,
+    "passed_as_submitted": 9,
+    "revisions_requested": 3,
+    "question_edits_applied": 3,
+    "remaining_unreviewed": 12,
+    "expert_review_complete": false,
+    "actual_answers_reviewed": 0,
+    "record_files": [
+      "review-record.json",
+      "labor-review-record.json"
+    ]
+  }
+}

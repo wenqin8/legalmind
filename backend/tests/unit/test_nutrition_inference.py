@@ -49,6 +49,12 @@ def test_negative_requirement_needs_its_own_evidence(claim):
     assert deterministic_rejections(sentence_units(claim), evidence)
 
 
+def test_reference_rule_does_not_establish_an_opposite_mandatory_requirement():
+    _, evidence = archived_nutrition()
+    claim = '医疗机构意见的作用是作为确定营养费的参照依据，而非可有可无的材料[S1]。'
+    assert deterministic_rejections(sentence_units(claim), evidence)
+
+
 def test_rule_does_not_override_another_selected_source():
     _, evidence = archived_nutrition()
     other = evidence[0].source.model_copy(update={'citation_id': 'S2'})

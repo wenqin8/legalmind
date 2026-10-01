@@ -1,0 +1,14 @@
+{
+  "version": "offline-m4-v1",
+  "scope": "observed immutable audit-node regression; no new model quality",
+  "reports": {
+    "docs/acceptance/m4-real-development-20261001-run3.json": "68b73bb91e61375057aff80b4784a2ff4f6b307d8d0c71602127c3b7bd1ae5f4",
+    "docs/acceptance/m4-real-development-20261001-run10.json": "f785f17a0a8df51fcef06fdb698e687d86ab3c9de7d5618fc07c7d41ef17ea8a",
+    "docs/acceptance/m4-real-development-20261001-run11.json": "164184f91a85c278e2783ab3f77b249b66b64302a982cb62ac837c2482575ae9",
+    "docs/acceptance/m4-real-targeted-20261001-run6.json": "ee38761fbbb38ae3abc2d107fd53c24ca34f49754e4ec2010fd008d3b0f29896",
+    "docs/acceptance/m4-once-v6-first-observation.json": "638812b0cdf326a2d28b37c9de144ab59ebb4f3943587f40292d5a55d4204565",
+    "docs/acceptance/m4-observed-v6-development-20261001-run5.json": "6ed2ab308f5ac55a26013d1dff4a87d6c4cc9a2e59922ea3f6ee304ff9a47bfe"
+  },
+  "model_calls": 0,
+  "independent_legal_review": false
+}

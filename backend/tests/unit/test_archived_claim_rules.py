@@ -68,7 +68,7 @@ def test_recorded_cross_reference_keeps_assertion_for_audit_without_false_source
     with pytest.raises(ModelUnavailableError):
         validate_citations(original, evidence)
     normalized = normalize_cross_references(original, evidence)
-    assert normalized == original.replace('民法典第五百八十四条', '该依据援引的条款')
+    assert normalized == original.replace('民法典第五百八十四条', '该依据援引的条款（被引用全文本轮未提供）（配套引用1）')
     assert '本轮未提供' in normalized
     validate_citations(normalized, evidence)
     with pytest.raises(ModelUnavailableError):

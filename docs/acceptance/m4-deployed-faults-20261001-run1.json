@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-10-01T04:42:07.806329+00:00",
+  "scope": "real_nginx_storage_with_client_transport_faults",
+  "provider_faults_injected": false,
+  "client_deadline_seconds": 0.1,
+  "real_model_requested": true,
+  "consultation_requests": 2,
+  "model_call_count": null,
+  "checks": {
+    "invalid_token_rejected_before_stream": true,
+    "empty_official_case_index": true,
+    "client_read_timeout_observed": true,
+    "timeout_preserves_history_and_releases_lease": true,
+    "disconnect_after_real_stream_meta": true,
+    "disconnect_preserves_history_and_releases_lease": true
+  },
+  "cleanup": {
+    "only_created_consultations_deleted": true
+  },
+  "limitations": [
+    "The imposed timeout belongs to the HTTP client, not the model provider.",
+    "Disconnect is deliberate. UI timeout handling is verified separately.",
+    "No legal answer quality or provider outage rate is established."
+  ],
+  "passed": true,
+  "completed_at": "2026-10-01T04:42:21.288850+00:00"
+}

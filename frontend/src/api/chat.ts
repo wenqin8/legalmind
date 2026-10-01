@@ -3,7 +3,7 @@ import type { ApiSuccess } from '@/types/api'
 import type { ChatResponseData, ChatSendRequest, DeletedConversationData, SourceReference, TaskState, TaskAction } from '@/types/chat'
 
 export const CHAT_REQUEST_TIMEOUT_MS = 72_000
-const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+export const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 
 export function hasChatCredential(): boolean {
   return readAccessToken() !== null
@@ -17,7 +17,7 @@ function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((item) => typeof item === 'string')
 }
 
-function isSource(value: unknown): value is SourceReference {
+export function isSource(value: unknown): value is SourceReference {
   if (!value || typeof value !== 'object') return false
   const source = value as Partial<SourceReference>
   const optionalText = (item: unknown) => item === null || typeof item === 'string'
@@ -61,7 +61,7 @@ function isTask(value: unknown): value is TaskState {
     (task.document_id === null || (typeof task.document_id === 'string' && UUID_PATTERN.test(task.document_id)))
 }
 
-function parseChatEnvelope(value: unknown): ApiSuccess<ChatResponseData> {
+export function parseChatEnvelope(value: unknown): ApiSuccess<ChatResponseData> {
   if (!value || typeof value !== 'object') throw invalidChatResponse()
   const candidate = value as Partial<ApiSuccess<ChatResponseData>>
   const data = candidate.data as Partial<ChatResponseData> | undefined

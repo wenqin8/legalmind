@@ -2,7 +2,7 @@
 
 文档状态：已确认
 适用阶段：首月 MVP
-当前进度与验收：[项目交接](../HANDOFF.md)、[最终验收](acceptance/rag-v2-final-acceptance.md)
+当前进度与验收：[项目交接](../HANDOFF.md)、[M4课程MVP收尾](acceptance/m4-course-mvp-closeout-20261001.md)；[Run21验收](acceptance/rag-v2-final-acceptance.md)为M3历史记录。
 目标环境：Windows 本地开发，最终通过 Docker Desktop 验收
 
 本文定义四周MVP目标；实际完成范围以交接文档为准。

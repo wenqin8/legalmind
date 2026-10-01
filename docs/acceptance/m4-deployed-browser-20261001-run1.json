@@ -1,0 +1,18 @@
+{
+  "scope": "real_compose_browser_acceptance",
+  "real_redis": true,
+  "simulated_faults": false,
+  "consultation_requests": 1,
+  "model_call_count": null,
+  "tests": [
+    {
+      "name": "production browser: register, live SSE, source and history reload",
+      "passed": false,
+      "error": "locator.waitFor: Timeout 80000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section[aria-label=\"依据与提示\"]').last() to be visible\u001b[22m\n"
+    }
+  ],
+  "started_at": "2026-09-30T18:29:48.873Z",
+  "passed": false,
+  "error": "locator.waitFor: Timeout 80000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section[aria-label=\"依据与提示\"]').last() to be visible\u001b[22m\n",
+  "completed_at": "2026-09-30T18:31:10.523Z"
+}

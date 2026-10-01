@@ -1,6 +1,35 @@
 # These new artifacts carry byte-level SHA-256 bindings. Preserve original bytes.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /backend/data/legal/traffic-ii-2026/*.json* -text
 /backend/data/legal/traffic-ii-2026/*.txt -text
 /backend/data/evaluation/rag-v2/*.json -text
 /backend/data/evaluation/offline-v1/*.json -text
 /docs/acceptance/rag-v2*.json -text
+
+# M4 freezes bind implementation, inputs and evidence by their original bytes.
+# Preserve mixed LF/CRLF files so checkout does not invalidate those bindings.
+/backend/app/** -text
+/backend/scripts/** -text
+/backend/data/evaluation/** -text
+/backend/data/legal/** -text
+/backend/data/demo/** -text
+/backend/requirements.txt -text
+/backend/constraints.txt -text
+/backend/Dockerfile -text
+/frontend/src/** -text
+/frontend/scripts/** -text
+/frontend/package.json -text
+/frontend/package-lock.json -text
+/frontend/Dockerfile -text
+/compose.yml -text
+/deployment/nginx.conf -text
+/docs/acceptance/m4* -text
+/docs/review/** -text
+/tools/*.py -text
+/output/delivery/*.manifest.json -text
+
+# Generated failure transcripts and quoted answers retain original whitespace.
+/docs/acceptance/m4*.xml -whitespace
+/docs/acceptance/m4*.txt -whitespace
+/docs/acceptance/m4-once-v5-incomplete-rubric-generation.json -whitespace
+/docs/review/m4-v17-actual-answer-review-20261001.md -whitespace

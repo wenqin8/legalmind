@@ -33,6 +33,9 @@ class Evidence:
     text: str
     role: str | None = None
     support_span_ids: tuple[int, ...] = ()
+    # Supporting-only spans in a source that also has direct support supply
+    # context/conditions, rather than authorizing additional independent claims.
+    context_span_ids: tuple[int, ...] = ()
 
 
 class Selection(BaseModel):

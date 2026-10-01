@@ -29,6 +29,10 @@ backend/data/*.db*
 logs/
 tmp/
 
+# Original plan and delivery archives are delivered outside Git.
+/output/pdf/
+/output/delivery/*.zip
+
 # Editors and operating systems
 .idea/
 .vscode/

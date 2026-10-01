@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-10-01T10:25:54.596746+00:00",
+  "scope": "deployed_RAG_file_digests",
+  "project": "legalmind-clean-20261001",
+  "host": {
+    "app/agents/evidence.py": "565e962e1d0e599316c00f05b80f8e64938e110e0fdc1703421b3d0bddabb9a2",
+    "app/agents/legal_evidence.py": "747bbc283e03b6350db3e4817b5716721c3e7054c21e9ad78f2015cefc43aa64",
+    "app/agents/legal_references.py": "127ab9807eb48ca84fc6cec35cfc1e3a4e9fc8f7f4a2c9dac4810216ca96f782",
+    "app/agents/qa.py": "7aa78bb9e73767739d3e883edfb12848bd393a981bf6ecf0767d97a16d6a281b",
+    "app/agents/grounding.py": "e4f1e42f00abedfb7e09f63ed7045f97703df8f1975f0b6fe8468e12563c2d88",
+    "app/agents/claim_rules.py": "24c33c97e713e4249155612a5dd67e9f56b356eede177a3ea4882f20b9ffb6cf",
+    "app/agents/support_spans.py": "fdad421c08f9f926b48aefadc7f0fa251414f3f2d464e36c256ad2079f7086d3",
+    "app/rag/legal_catalog.py": "2cb5a5ee84ec8354acf2ecd7b616c57d873e77fa170edfe32da179be58d42ae8",
+    "scripts/evaluate_offline.py": "8c873accd11270c75b91b720d0995e9ddeceed964f72208452df35dcf145c550"
+  },
+  "deployed": {
+    "app/agents/evidence.py": "565e962e1d0e599316c00f05b80f8e64938e110e0fdc1703421b3d0bddabb9a2",
+    "app/agents/legal_evidence.py": "747bbc283e03b6350db3e4817b5716721c3e7054c21e9ad78f2015cefc43aa64",
+    "app/agents/legal_references.py": "127ab9807eb48ca84fc6cec35cfc1e3a4e9fc8f7f4a2c9dac4810216ca96f782",
+    "app/agents/qa.py": "7aa78bb9e73767739d3e883edfb12848bd393a981bf6ecf0767d97a16d6a281b",
+    "app/agents/grounding.py": "e4f1e42f00abedfb7e09f63ed7045f97703df8f1975f0b6fe8468e12563c2d88",
+    "app/agents/claim_rules.py": "24c33c97e713e4249155612a5dd67e9f56b356eede177a3ea4882f20b9ffb6cf",
+    "app/agents/support_spans.py": "fdad421c08f9f926b48aefadc7f0fa251414f3f2d464e36c256ad2079f7086d3",
+    "app/rag/legal_catalog.py": "2cb5a5ee84ec8354acf2ecd7b616c57d873e77fa170edfe32da179be58d42ae8",
+    "scripts/evaluate_offline.py": "8c873accd11270c75b91b720d0995e9ddeceed964f72208452df35dcf145c550"
+  },
+  "passed": true,
+  "real_model_calls": 0
+}

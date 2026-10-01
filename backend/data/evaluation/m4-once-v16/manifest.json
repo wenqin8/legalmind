@@ -1,0 +1,63 @@
+{
+  "version": "m4-once-reserved-v16-assisted-review-draft",
+  "created_at": "2026-10-01T14:40:48.109702+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "marriage_family": 6,
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent",
+  "annotation_status": "first_round_assisted_review_complete_pending_revision_confirmation_and_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c",
+    "scenarios.jsonl": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b",
+    "rubric.json": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd",
+    "review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d",
+    "labor-review-record.json": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4",
+    "traffic-review-record.json": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49",
+    "contract-review-record.json": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+  },
+  "exclusion_evidence": {
+    "observed_v6_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+    "exact_question_overlap": 0,
+    "topic_independence_expert_verified": false
+  },
+  "limitations": [
+    "All 24 first-round question/criterion decisions are recorded, but all questions remain unsubmitted to the model.",
+    "Original decisions remain eighteen passes/six revision requests; six edits are drafts pending confirmation, not automatically passed.",
+    "Non-independent assisted review does not complete expert annotation or actual-answer semantic acceptance; gates remain unchanged."
+  ],
+  "rebind_reason": "Contract assisted review clarifies two prerequisites/recipients and refines six criteria; all four batches recorded; no runtime change",
+  "source_unexecuted_manifest_sha256": "9598fe86ba3884948c0f6e567729aff05931d63874c2ce51dea25b56a9e6d56e",
+  "assisted_annotation_review": {
+    "reviewed": 24,
+    "passed_as_submitted": 18,
+    "revisions_requested": 6,
+    "question_edits_applied": 6,
+    "remaining_unreviewed": 0,
+    "first_round_complete": true,
+    "revision_confirmations_pending": 6,
+    "expert_review_complete": false,
+    "actual_answers_reviewed": 0,
+    "record_files": [
+      "review-record.json",
+      "labor-review-record.json",
+      "traffic-review-record.json",
+      "contract-review-record.json"
+    ]
+  }
+}

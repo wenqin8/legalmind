@@ -1,0 +1,274 @@
+{
+  "NEW-labor_dispute-01": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "协商、调解、仲裁、诉讼依各自触发条件；起诉保留本法另有规定例外。"
+    ],
+    "direct_sources": [
+      "labor_arbitration-2007-12-29-5"
+    ],
+    "official_source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-01": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "使用人全部侵权责任，车主管理人对损害有过错时仅其过错范围；实际支付总和不得超损失、先付超出自身责任部分可追偿。"
+    ],
+    "direct_sources": [
+      "traffic_ii-2026-05-06-1"
+    ],
+    "official_source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-02": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "各自过错；明确拒绝时不承担赔偿但可在受益范围适当补偿；第三人赔偿与被帮工人适当补偿、补偿后可追偿。"
+    ],
+    "direct_sources": [
+      "personal_injury-2022-04-24-5"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-02": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "不合理免责减责加重对方责任限制主要权利与排除主要权利，不能说所有免责均无效，不编造被交叉引用规则。"
+    ],
+    "direct_sources": [
+      "civil_code-2020-05-28-497"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+    "source_check": "local_snapshot_checked_live_fetch_unavailable",
+    "expert_review": "not_performed"
+  },
+  "NEW-labor_dispute-02": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "用人单位与劳动者协商一致，可以解除；不扩写经济补偿或提前通知义务。"
+    ],
+    "direct_sources": [
+      "labor_contract-2012-12-28-36"
+    ],
+    "official_source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-04": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "分别保留判决不准离婚后又分居一年且再起诉，以及因感情不和分居两年且调解无效，不混用年限。"
+    ],
+    "direct_sources": [
+      "civil_code-2020-05-28-1079"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+    "source_check": "local_snapshot_checked_live_fetch_unavailable",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-03": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "限定依法应参加统筹的用人单位劳动者及工伤事故；对单位转工伤规则方向，对单位以外第三人可请求民事赔偿，不编造工伤待遇。"
+    ],
+    "direct_sources": [
+      "personal_injury-2022-04-24-3"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-06": {
+    "expected_behavior": "insufficient",
+    "must_preserve": [
+      "评估库未收录成都2026相关地方政策，说明地方资料不足，不编造政策存在性或金额。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-05": {
+    "expected_behavior": "clarify",
+    "must_preserve": [
+      "缺具体事实日期，先明确提问，不猜测事实或给个案结论。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-06": {
+    "expected_behavior": "insufficient",
+    "must_preserve": [
+      "评估库未收录成都2026相关地方政策，说明地方资料不足，不编造政策存在性或金额。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-03": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "只确认2025-02-01施行，不从日期推导事件或终审的过渡规则。"
+    ],
+    "direct_sources": [
+      "marriage_ii-2025-01-15-23"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-02": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "限定共同财产出资且登记单方；仅未同意不支持无效请求，恶意串通损害另一方权益为例外。"
+    ],
+    "direct_sources": [
+      "marriage_ii-2025-01-15-9"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-labor_dispute-05": {
+    "expected_behavior": "clarify",
+    "must_preserve": [
+      "缺具体事实日期，先明确提问，不猜测事实或给个案结论。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-04": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "超过法定退休年龄、有证据证明因事故误工损失且请求赔偿，保留全部前提，不捏造退休年龄或金额。"
+    ],
+    "direct_sources": [
+      "traffic_ii-2026-05-06-6"
+    ],
+    "official_source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-labor_dispute-06": {
+    "expected_behavior": "insufficient",
+    "must_preserve": [
+      "评估库未收录成都2026相关地方政策，说明地方资料不足，不编造政策存在性或金额。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-03": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "不拘泥名称而依内容；不一致时缔约背景目的结构履行及虚构标的等事实，不能替用户确定实际关系。"
+    ],
+    "direct_sources": [
+      "contract_general-2023-12-04-15"
+    ],
+    "official_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-labor_dispute-03": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "书面申请及按被申请人人数提交副本、身份信息请求事实理由证据；确有书写困难可口头并记入笔录告知对方。"
+    ],
+    "direct_sources": [
+      "labor_arbitration-2007-12-29-28"
+    ],
+    "official_source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-traffic_accident-05": {
+    "expected_behavior": "clarify",
+    "must_preserve": [
+      "缺具体事实日期，先明确提问，不猜测事实或给个案结论。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-04": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "抗辩未请求调减的释明，二审可释明或客观原因未到庭的分支；依请求且充分举证质证辩论才可适当减少，不当然减少。"
+    ],
+    "direct_sources": [
+      "contract_general-2023-12-04-66"
+    ],
+    "official_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-01": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "三类公序良俗情形及综合认定；生活需要、无重大公共秩序影响、不影响国安且不违善良风俗的限制不能省略。"
+    ],
+    "direct_sources": [
+      "contract_general-2023-12-04-17"
+    ],
+    "official_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-contract_dispute-05": {
+    "expected_behavior": "clarify",
+    "must_preserve": [
+      "缺具体事实日期，先明确提问，不猜测事实或给个案结论。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-labor_dispute-04": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "受理起45日、复杂且主任批准并书面通知、延期最多15日、逾期可起诉、部分事实清楚可先行裁决。"
+    ],
+    "direct_sources": [
+      "labor_arbitration-2007-12-29-43"
+    ],
+    "official_source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-06": {
+    "expected_behavior": "insufficient",
+    "must_preserve": [
+      "评估库未收录成都2026相关地方政策，说明地方资料不足，不编造政策存在性或金额。"
+    ],
+    "direct_sources": [],
+    "official_source_url": null,
+    "source_check": "task_or_corpus_boundary",
+    "expert_review": "not_performed"
+  },
+  "NEW-marriage_family-01": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "离婚诉讼、双方争取直接抚养、满两周岁、最有利原则、抢夺藏匿及另一方没有相应严重侵害情形；优先考虑不等于确定裁判。"
+    ],
+    "direct_sources": [
+      "marriage_ii-2025-01-15-14"
+    ],
+    "official_source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+    "source_check": "official_full_text_checked",
+    "expert_review": "not_performed"
+  }
+}

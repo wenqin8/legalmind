@@ -8,10 +8,16 @@ import GuideView from '@/views/GuideView.vue'
 import HomeView from '@/views/HomeView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import PrivacyView from '@/views/PrivacyView.vue'
+import CasesView from '@/views/CasesView.vue'
+import CaseDetailView from '@/views/CaseDetailView.vue'
+import DocumentsView from '@/views/DocumentsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/cases', name: 'cases', component: CasesView, meta: { requiresAuth: true } },
+    { path: '/cases/:id', name: 'case-detail', component: CaseDetailView, meta: { requiresAuth: true } },
+    { path: '/documents', name: 'documents', component: DocumentsView, meta: { requiresAuth: true } },
     {
       path: '/',
       name: 'home',

@@ -1,0 +1,10 @@
+{
+  "scope": "isolated_browser_e2e",
+  "workspace": "C:\\Users\\段文钦\\Documents\\ChatGPT\\法律咨询Agent\\tmp\\browser-3dc75306-3756-4d28-b2fe-2a74c4c137b7",
+  "real_model_calls": 0,
+  "real_redis": false,
+  "embedding": "deterministic_hash",
+  "tests": [],
+  "passed": false,
+  "failure": "browserType.launch: Executable doesn't exist at C:\\Users\\段文钦\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1234\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+}

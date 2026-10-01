@@ -1,0 +1,47 @@
+{
+  "verification_date": "2026-10-02",
+  "timezone": "Asia/Shanghai",
+  "scope": "precommit_offline_and_evidence_verification",
+  "passed": true,
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "implementation_unchanged_from_v17": true,
+  "frozen_v17_package_and_receipt_verified": true,
+  "historical_model_reports_verified": true,
+  "ai_review_evidence_verified": true,
+  "related_offline_tests_passed": 50,
+  "offline_input_checks_passed": 24,
+  "positive_source_top5_hits": 16,
+  "blocked_network_attempts": 0,
+  "real_model_calls": 0,
+  "git_diff_check_passed": true,
+  "candidate_file_count": 761,
+  "secret_scan_passed": true,
+  "forbidden_candidate_paths": [],
+  "preserved_external_assets": {
+    "output/delivery/LegalMind-M4-course-MVP-20261001.zip": "68afcbccd8a5b4fce84c070499522283d79212176853104e3cb8309bf505c892",
+    "output/delivery/LegalMind-M4-reviewed-supplement-20261001.zip": "538ae79f1442ffc7fcc84cedad70cdfe24337a4e29398c9d40f05aad1f8ca34e",
+    "output/pdf/法律咨询Agent一个月开发计划.pdf": "9a49723fee1ad8bb1610a92bc5c088d5f73e12f622859681f2cc2669c61ebc1d"
+  },
+  "evidence": [
+    {
+      "path": "docs/acceptance/m4-project-acceptance-20261002.json",
+      "sha256": "ef426eda57db23724ed64f3d8c5ab7fc2858f86c40da6f3e05ba2c538e31a449"
+    },
+    {
+      "path": "docs/acceptance/m4-release-offline-tests-20261002.xml",
+      "sha256": "9dd08552a9bf918db9029447d7a69ec1eb2569542661796d55b7fb35fba38c13"
+    },
+    {
+      "path": "docs/acceptance/m4-release-offline-network-20261002.json",
+      "sha256": "013403a08caeb0e1dddad6cb7a782126f507aca1575d0ab5c8dd0146a4f99b73"
+    },
+    {
+      "path": "docs/acceptance/m4-release-input-offline-20261002.json",
+      "sha256": "7d0733bd0118bf41c63bf60cee80f45cac1e2449d972afd7cec28bfc7fa304d5"
+    }
+  ],
+  "limits": [
+    "No new model run, provider probe, dependency network audit or deployment performed.",
+    "Prior 686 backend, 58 frontend and deployment checks are reused for the unchanged runtime."
+  ]
+}

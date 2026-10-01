@@ -8,10 +8,28 @@ const chatApi = vi.hoisted(() => ({
   deleteSession: vi.fn(),
 }))
 
-vi.mock('@/api/chat', () => ({
+vi.mock('@/api/chat', async (importOriginal) => ({
+  ...await importOriginal<typeof import('@/api/chat')>(),
   hasChatCredential: chatApi.hasCredential,
   sendChatMessage: chatApi.send,
   deleteChatSession: chatApi.deleteSession,
+}))
+
+vi.mock('@/api/chat-stream', () => ({
+  streamChat: async (payload: any, _signal: AbortSignal, handlers: any) => {
+    const action = payload.task_action ? { action: payload.task_action, revision: payload.task_revision } : undefined
+    const result = action ? await chatApi.send(payload.message, payload.session_id, action) : await chatApi.send(payload.message, payload.session_id)
+    handlers.meta(result.data.session_id, result.data.intent)
+    handlers.content(result.data.response)
+    return result.data
+  },
+}))
+vi.mock('@/api/chat-session', () => ({
+  listConversations: async () => ({ items: [], total: 0 }),
+  readHistory: async () => ({ messages: [
+    { id: 'user-history', role: 'user', content: '公司拖欠工资，我应该准备什么材料？', isDemo: false },
+    { id: 'assistant-history', role: 'assistant', content: '请先保存劳动合同、工资记录和催告沟通记录。', isDemo: false },
+  ], warnings: [], history_expired: false }),
 }))
 
 import { useChatStore } from '@/stores/chat'

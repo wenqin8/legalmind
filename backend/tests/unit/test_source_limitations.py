@@ -61,6 +61,6 @@ async def test_generator_preserves_limitation_only_after_primary_answer_passes(r
         assert not parts
     else:
         await collect()
-        assert '风险补充' in parts[-2] and '恶意违约' in parts[-2]
+        assert any('风险补充' in part and '恶意违约' in part for part in parts)
         assert '参考材料' in parts[-1]
         assert not any(call[0].content.startswith('TASK:COVERAGE') for call in model.requests)

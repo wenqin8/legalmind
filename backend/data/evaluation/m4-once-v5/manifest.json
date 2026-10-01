@@ -1,0 +1,41 @@
+{
+  "version": "m4-once-candidate-v5",
+  "created_at": "2026-10-01T04:48:01.623829+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "34200b64b68d8d0bc717ad1f9e12004e9e4962c3fe608c2a235fca432253b58e",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6,
+    "marriage_family": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent_generator",
+  "annotation_status": "agent_draft_pending_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "85128eac4edef772196c1c0df7b8f0c1c0989ae2b9409448e531ade7dad33297",
+    "scenarios.jsonl": "33dd6f2474eef44618c252493c2012dff086129f8a115e00ef47580b48f1fb0d",
+    "rubric.json": "f2bc6f8ff91a2ea227bcf586b32fbf1b7f693b30aede010e2e5887d80c529b0b"
+  },
+  "old_benchmark_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+  "limitations": [
+    "Exact questions have not been submitted to the tested model; previous packages were never executed.",
+    "Specific disputes replace keyword-only questions; source selection remains from previously unlabelled provisions.",
+    "The same development agent authored and checked labels; expert annotation and topic independence remain pending.",
+    "Two Civil Code pages could not be fetched live; local snapshots checked with the limitation preserved.",
+    "Initial rubric write failed on URL object serialization; partial generated file retained in tmp, then corrected."
+  ],
+  "supersedes": "m4-once-v4",
+  "reused_unexecuted_questions": false,
+  "previous_manifest_sha256": "2cbc3e962d9f3b6e2c15ff34de4db7758ccb69ed866de13612618e90dde3655e"
+}

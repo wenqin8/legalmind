@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="7" time="0.419" timestamp="2026-10-01T15:48:10.830981+08:00" hostname="阿龟的传家宝"><testcase classname="tests.unit.test_evaluation_call_budget" name="test_cap_counts_all_attempts_and_never_starts_a_following_provider_call[False-False]" time="0.002"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">fail = False, stream_first = False
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize('fail', [False, True])
+    @pytest.mark.parametrize('stream_first', [False, True])
+    async def test_cap_counts_all_attempts_and_never_starts_a_following_provider_call(fail, stream_first):
+        provider = CountingProvider(fail)
+&gt;       client = TraceLLM(provider, max_model_calls=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:32: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_cap_counts_all_attempts_and_never_starts_a_following_provider_call[False-True]" time="0.002"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">fail = True, stream_first = False
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize('fail', [False, True])
+    @pytest.mark.parametrize('stream_first', [False, True])
+    async def test_cap_counts_all_attempts_and_never_starts_a_following_provider_call(fail, stream_first):
+        provider = CountingProvider(fail)
+&gt;       client = TraceLLM(provider, max_model_calls=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:32: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_cap_counts_all_attempts_and_never_starts_a_following_provider_call[True-False]" time="0.002"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">fail = False, stream_first = True
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize('fail', [False, True])
+    @pytest.mark.parametrize('stream_first', [False, True])
+    async def test_cap_counts_all_attempts_and_never_starts_a_following_provider_call(fail, stream_first):
+        provider = CountingProvider(fail)
+&gt;       client = TraceLLM(provider, max_model_calls=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:32: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_cap_counts_all_attempts_and_never_starts_a_following_provider_call[True-True]" time="0.001"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">fail = True, stream_first = True
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize('fail', [False, True])
+    @pytest.mark.parametrize('stream_first', [False, True])
+    async def test_cap_counts_all_attempts_and_never_starts_a_following_provider_call(fail, stream_first):
+        provider = CountingProvider(fail)
+&gt;       client = TraceLLM(provider, max_model_calls=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:32: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_invalid_call_limit_is_rejected[0]" time="0.001"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">limit = 0
+
+    @pytest.mark.parametrize('limit', [0, -1, True])
+    def test_invalid_call_limit_is_rejected(limit):
+        with pytest.raises(ValueError, match='positive'):
+&gt;           TraceLLM(CountingProvider(), max_model_calls=limit)
+E           TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:57: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_invalid_call_limit_is_rejected[-1]" time="0.001"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">limit = -1
+
+    @pytest.mark.parametrize('limit', [0, -1, True])
+    def test_invalid_call_limit_is_rejected(limit):
+        with pytest.raises(ValueError, match='positive'):
+&gt;           TraceLLM(CountingProvider(), max_model_calls=limit)
+E           TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:57: TypeError</failure></testcase><testcase classname="tests.unit.test_evaluation_call_budget" name="test_invalid_call_limit_is_rejected[True]" time="0.001"><failure message="TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'">limit = True
+
+    @pytest.mark.parametrize('limit', [0, -1, True])
+    def test_invalid_call_limit_is_rejected(limit):
+        with pytest.raises(ValueError, match='positive'):
+&gt;           TraceLLM(CountingProvider(), max_model_calls=limit)
+E           TypeError: TraceLLM.__init__() got an unexpected keyword argument 'max_model_calls'
+
+tests\unit\test_evaluation_call_budget.py:57: TypeError</failure></testcase></testsuite></testsuites>

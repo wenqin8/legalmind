@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-01T14:26:53.079039+00:00",
+  "review_date": "2026-10-01",
+  "submitted_via": "project_user_message",
+  "scope": "Questions, expected behavior and criteria only; no generated answers",
+  "reviewer": {
+    "role": "开发 Agent 辅助复核",
+    "qualification": "未提供、未核验执业律师或法律专家资质",
+    "independence": "非独立盲审，不能登记为独立法律专家复核",
+    "expert_qualification_verified": false,
+    "independent_of_development": false
+  },
+  "source_review_worksheet_package": "backend/data/evaluation/m4-once-v12",
+  "source_revision_package": "backend/data/evaluation/m4-once-v14",
+  "source_manifest_sha256": "9c0f82d23773c1b187d080c58d812d31d7023034df3acd941578b1035bd54362",
+  "revision_package": "backend/data/evaluation/m4-once-v15",
+  "summary": {
+    "reviewed": 6,
+    "passed": 5,
+    "revision_requests": 1,
+    "pending_in_this_batch": 0,
+    "behavior_changes": 0,
+    "model_answers_reviewed": 0
+  },
+  "selected_revision": {
+    "query_id": "RESERVE-traffic_accident-06",
+    "choice": "specify_civil_affairs_urgent_assistance_and_keep_insufficient",
+    "replacement_question": "只查询深圳市2026年现行临时救助制度：因交通事故导致基本生活暂时严重困难时，能否申请《深圳市临时救助办法》规定的急难型救助，救助金额如何按照2026年最低生活保障标准计算？若冻结语料未收录该办法、有效期延长文件或2026年最低生活保障标准，请明确说明资料不足。",
+    "reason": "Separate civil-affairs temporary assistance from accident rescue-fund advances",
+    "alternative_not_applied": "Retain the ambiguous policy question and allow clarification of the policy type"
+  },
+  "clarification_checklist_for_traffic_05": [
+    "事故时间、地点和机动车、电动自行车或其他非机动车类型",
+    "受伤或死亡、医疗、伤残和财产损失情况",
+    "责任认定及相关逃逸、酒驾等情况",
+    "交强险、商业三者险和其他保险情况",
+    "已支付费用、现有票据和具体赔偿请求"
+  ],
+  "clarification_application": "The five groups are a conditional checklist; ask at most three groups per turn across turns as needed",
+  "source_checks": [
+    {
+      "url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+      "result": "official_text_read",
+      "scope": "Articles 9 and 10"
+    },
+    {
+      "url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+      "result": "official_text_read",
+      "scope": "Articles 9, 11 and 12; effective date and pending/final case transition"
+    },
+    {
+      "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/zcfg/content/post_12173667.html",
+      "result": "official_text_read",
+      "scope": "Extension to 2027-05-31 and attached method articles 22-24; reference only, not frozen answer evidence"
+    },
+    {
+      "url": "https://szfb.sz.gov.cn/zwgk/zcfg/qt/content/post_11540939.html",
+      "result": "official_text_read",
+      "scope": "Rescue/funeral advances and article 57 five-year validity; not full 2026 policy investigation"
+    }
+  ],
+  "items": [
+    {
+      "query_id": "RESERVE-traffic_accident-01",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "只介绍交通事故赔偿的一般规则：交通费覆盖受害人和哪些陪护人员、哪些实际支出？正式票据和就医地点、时间、人数、次数应怎样对应？不计算金额。",
+      "replacement_question": null,
+      "revised_criterion": "交通费限于受害人及必要的陪护人员因就医或转院治疗实际发生的费用；保留必要陪护、就医或转院用途、实际发生以及正式票据四项限制。有关凭据应与就医地点、时间、人数、次数相符，不把所有陪护或出行费用当然纳入，不计算金额。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/zixun/xiangqing/357071.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-02",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般规则咨询：交通人身损害的住院伙食补助如何参照标准？确需外地治疗却因客观原因无法住院时，本人及陪护人员的住宿伙食费有哪些限制？不查询当地金额。",
+      "replacement_question": null,
+      "revised_criterion": "住院伙食补助费可以参照当地国家机关一般工作人员出差伙食补助标准，不将参照标准表述为固定金额。受害人确有必要到外地治疗，因客观原因不能住院时，本人和陪护人员实际发生的住宿费、伙食费只赔偿合理部分；同时保留必要外地治疗、客观不能住院、实际发生、合理部分，不泛化为所有外地费用均赔偿，不查询当地金额。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/zixun/xiangqing/357071.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-03",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "不涉及个案，请说明现行一般规则：道路交通事故诉讼中侵权人和保险人败诉时案件受理费如何决定负担？保险人只凭合同约定不负担该费用提出抗辩，原文如何处理？",
+      "replacement_question": null,
+      "revised_criterion": "在侵权人和保险人败诉的题设下，人民法院根据各方与诉讼标的的利害关系分别决定案件受理费负担数额，不机械平均分担；保险人只凭合同约定不负担案件受理费提出抗辩，法院不予支持。保留第十二条时间边界：2026年6月30日起施行；施行后尚未终审案件适用；施行前已经终审后申请再审或按审判监督程序决定再审的案件不适用本解释。只说明一般规则及边界，不虚构个案日期或改为追问。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/499051.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-04",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般规则咨询：非机动车事故同时起诉侵权人及商业第三者保险人并要求赔偿时，合并审理和保险赔偿、不足部分赔偿的条文明示前提分别是什么？不讨论具体保险条款。",
+      "replacement_question": null,
+      "revised_criterion": "区分两层前提：因非机动车事故以侵权人为被告，同时将承保该非机动车商业第三者责任险的保险人列为被告并请求其承担赔偿责任时，人民法院应当合并审理；属于该非机动车一方责任时，保险人按照保险合同约定赔偿，不足部分由侵权人赔偿。不泛化为所有非机动车事故保险人先赔。保留第十二条时间边界：2026年6月30日起施行；施行后尚未终审案件适用；施行前已终审后申请再审或按审判监督程序决定再审的案件不适用本解释。不讨论具体保险条款，不假设个案日期。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/499051.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-05",
+      "submitted_decision": "pass",
+      "expected_behavior": "clarify",
+      "behavior_change_applied": false,
+      "original_question": "我想讨论一宗交通事故赔偿，但何时发生、谁受损、责任情况都还没有说明，请先向我提问。",
+      "replacement_question": null,
+      "revised_criterion": "事故关键事实不足时先追问，不先定责任比例、赔偿项目或金额。核对清单包括发生时间、地点和车辆类型；伤亡、医疗、伤残及财产损失；责任认定及相关逃逸、酒驾情况；交强险、商业三者险及其他保险；已付款、票据和具体赔偿请求。按相关性和已答内容分轮补充，每轮最多三组，不一次性强制收集五组或无关敏感事实，不预设责任和请求。",
+      "supplied_source_urls": [],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-06",
+      "submitted_decision": "needs_revision",
+      "expected_behavior": "insufficient",
+      "behavior_change_applied": false,
+      "original_question": "只了解深圳市2026年交通事故受害者地方临时救助政策及资助金额，不问民事赔偿原则，缺少当地文件时请明确说明。",
+      "replacement_question": "只查询深圳市2026年现行临时救助制度：因交通事故导致基本生活暂时严重困难时，能否申请《深圳市临时救助办法》规定的急难型救助，救助金额如何按照2026年最低生活保障标准计算？若冻结语料未收录该办法、有效期延长文件或2026年最低生活保障标准，请明确说明资料不足。",
+      "revised_criterion": "问题限定深圳民政临时救助制度中的急难型救助，不是道路交通事故社会救助基金垫付。冻结语料未收录相应办法、有效期延长文件及2026年最低生活保障标准，保持insufficient，说明当前依据不足，无法据本冻结证据确认适用条件、公式或具体金额；需补充并核验地方现行文件及年度参数。资料不足不等于深圳不存在救助，不以全国民事赔偿条文、模型记忆、外部复核参考或2008年旧办法替代本轮证据，不生成统一现金资助结论。",
+      "supplied_source_urls": [
+        "https://www.sz.gov.cn/cn/xxgk/zfxxgj/zcfg/content/post_12173667.html",
+        "https://szfb.sz.gov.cn/zwgk/zcfg/qt/content/post_11540939.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    }
+  ],
+  "real_model_calls": 0,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "limitations": [
+    "Five passes/one revision are supplied annotation decisions, not model-answer quality results.",
+    "The adopted edit is a draft pending reviewer confirmation; independent expert and semantic review remain incomplete.",
+    "External local-policy texts were not added to the frozen corpus; 2026 annual monetary parameters were not verified."
+  ]
+}

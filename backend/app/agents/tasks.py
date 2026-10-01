@@ -161,7 +161,11 @@ async def advance_task(payload: ChatRequest, previous: TaskState | None, *, kind
         task.conflicts = {}
     elif action != "confirm":
         extracted = await extract(payload, task, llm)
-        is_general = extracted.general_question and bool(re.search(r"一般|现行|普法|不涉及具体|了解.{0,8}(?:规则|规定)", payload.message))
+        general_request = re.search(r"一般|现行|普法|不涉及具体|了解.{0,8}(?:规则|规定)", payload.message)
+        statutory_date = (re.search(r'法律|法典|法规|司法解释|解释[（(]|条例', payload.message)
+                          and re.search(r'施行|生效', payload.message)
+                          and re.search(r'哪.{0,3}(?:天|日|年)|何时|什么时候|日期', payload.message))
+        is_general = extracted.general_question and bool(general_request or statutory_date)
         if task.kind == "qa" and extracted.domain and task.domain and extracted.domain != task.domain:
             task = TaskState(kind="qa", domain=extracted.domain)
             previous = None

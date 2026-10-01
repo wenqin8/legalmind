@@ -31,10 +31,14 @@ from app.core.errors import ModelUnavailableError
 
 
 class TraceLLM(LLMClient):
-    def __init__(self, client):
+    def __init__(self, client, *, max_model_calls=16):
+        if type(max_model_calls) is not int or max_model_calls <= 0:
+            raise ValueError('Model call limit must be a positive integer')
         self.client=client
         self.calls=[]
         self.fatal_provider_status=None
+        self.max_model_calls=max_model_calls
+        self.call_limit_reached=False
 
     def record_error(self, item, exc):
         item['error_type']=type(exc).__name__
@@ -49,6 +53,9 @@ class TraceLLM(LLMClient):
 
     def require_provider(self):
         if self.fatal_provider_status is not None:
+            raise ModelUnavailableError()
+        if len(self.calls) >= self.max_model_calls:
+            self.call_limit_reached=True
             raise ModelUnavailableError()
 
     def begin(self,messages):
@@ -122,13 +129,30 @@ def select_scenarios(split, scenario_ids=None):
     return scenarios
 
 
-async def evaluate(output: Path, split: str = 'development', corpus_profile: str = 'eval-rag-v2-209', scenario_ids=None):
-    query_by_id={q.id:q for q in load_queries()}
-    scenarios=select_scenarios(split, scenario_ids)
+async def evaluate(output: Path, split: str = 'development', corpus_profile: str = 'eval-rag-v2-209', scenario_ids=None, acceptance_package: Path | None = None, observed_development_package: Path | None = None, max_model_calls=16):
+    if type(max_model_calls) is not int or max_model_calls <= 0:
+        raise ValueError('Model call limit must be a positive integer')
+    package_manifest = None
+    if acceptance_package and observed_development_package:
+        raise ValueError('Choose either first observation or observed development')
+    if acceptance_package:
+        from app.evaluation.once_acceptance import consume_package
+        package_manifest, queries, scenarios = consume_package(acceptance_package, output)
+        split = 'acceptance'
+    elif observed_development_package:
+        from app.evaluation.once_acceptance import load_observed_package
+        _, queries, scenarios = load_observed_package(observed_development_package)
+        if scenario_ids:
+            if set(scenario_ids) - {s['id'] for s in scenarios}:
+                raise ValueError('Unknown observed-development scenario')
+            scenarios = [s for s in scenarios if s['id'] in scenario_ids]
+    else:
+        queries, scenarios = load_queries(), select_scenarios(split, scenario_ids)
+    query_by_id={q.id:q for q in queries}
     workspace=BACKEND_DIR.parent/'tmp'/('rag-answers-'+uuid4().hex)
     settings,database,embedding,store,retriever=await asyncio.to_thread(prepare,workspace,corpus_profile)
     settings=settings.model_copy(update={'llm_backend':'deepseek'})
-    llm=TraceLLM(create_llm_client(settings))
+    llm=TraceLLM(create_llm_client(settings), max_model_calls=max_model_calls)
     app=create_app(settings,database=database,embedding_client=embedding,vector_store=store,case_retriever=retriever,llm_client=llm)
     known={}
     with database.session() as session:
@@ -140,8 +164,21 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
         'split':split, 'catalog':catalog_identity(database),'planned_scenarios':len(scenarios),
         'scope':'targeted_development_subset' if scenario_ids is not None else 'full_development',
         'requested_scenarios':scenario_ids}
+    if package_manifest:
+        report.update(scope='fresh_one_shot_candidate_acceptance', package_manifest=package_manifest,
+                      unseen_before_this_run=True, independent_blind_test=False,
+                      annotation_status='agent_draft_pending_expert')
+    if observed_development_package:
+        from app.evaluation.once_acceptance import implementation_digest
+        from app.evaluation.dataset import sha256
+        report.update(scope='observed_candidate_development', unseen_before_this_run=False,
+                      independent_blind_test=False, implementation_sha256=implementation_digest(),
+                      source_manifest_sha256=sha256(observed_development_package/'manifest.json'),
+                      first_observation_receipt_sha256=sha256(observed_development_package/'observation-receipt.json'))
     def save():
         summarize(report)
+        report['call_budget']={'maximum_model_calls':llm.max_model_calls,
+                              'attempted_model_calls':len(llm.calls),'limit_reached':llm.call_limit_reached}
         output.parent.mkdir(parents=True,exist_ok=True)
         output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     listener=socket.socket();listener.bind(('127.0.0.1',0));listener.listen(128);listener.setblocking(False)
@@ -160,12 +197,14 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
             registration.raise_for_status();user_id=registration.json()['data']['id']
             token=None; token_at=0
             for scenario in scenarios:
-                if llm.fatal_provider_status is not None:
+                if llm.fatal_provider_status is not None or len(llm.calls) >= llm.max_model_calls:
+                    budget_stop=llm.fatal_provider_status is None
+                    if budget_stop:llm.call_limit_reached=True
                     entry={k:v for k,v in scenario.items() if k!='turns'}
-                    entry['turns']=[{'expected':expected,'status':None,'error':'provider_run_stopped','model_trace':[]}
+                    entry['turns']=[{'expected':expected,'status':None,'error':'model_call_budget_reached' if budget_stop else 'provider_run_stopped','model_trace':[]}
                                     for expected in scenario['turns']]
                     report['scenarios'].append(entry)
-                    report['provider_stop']={'http_status':llm.fatal_provider_status,'not_attempted':True}
+                    if not budget_stop:report['provider_stop']={'http_status':llm.fatal_provider_status,'not_attempted':True}
                     save()
                     continue
                 # Refresh authentication before expiry; model generations are never retried.
@@ -177,6 +216,9 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
                 sid=None; messages={}; previous_failed=False
                 query=query_by_id[scenario['query_id']]
                 for expected in scenario['turns']:
+                    if llm.call_limit_reached:
+                        entry['turns'].append({'expected':expected,'status':None,'error':'model_call_budget_reached','model_trace':[]})
+                        continue
                     if previous_failed:
                         entry['turns'].append({'expected':expected,'status':None,'error':'dependency_failed','model_trace':[]})
                         continue
@@ -205,7 +247,7 @@ async def evaluate(output: Path, split: str = 'development', corpus_profile: str
                 report['scenarios'].append(entry);save()
                 print(json.dumps({'scenario':scenario['id'],'completed':len(report['scenarios']),'statuses':[t.get('status') for t in entry['turns']],
                     'behaviors':[t.get('evaluation',{}).get('observed_behavior') for t in entry['turns']]}),flush=True)
-            report['complete']=len(report['scenarios'])==len(scenarios) and llm.fatal_provider_status is None
+            report['complete']=len(report['scenarios'])==len(scenarios) and llm.fatal_provider_status is None and not llm.call_limit_reached
             if llm.fatal_provider_status is not None:
                 report.setdefault('provider_stop',{'http_status':llm.fatal_provider_status,'not_attempted':False})
     except Exception as exc:
@@ -234,12 +276,22 @@ def main():
     parser.add_argument('--split',choices=['development'],default='development')
     parser.add_argument('--corpus-profile',choices=['eval-rag-v1-197','eval-rag-v2-209'],default='eval-rag-v2-209')
     parser.add_argument('--allow-real-model',action='store_true',help='Explicitly enable paid model acceptance')
+    parser.add_argument('--max-model-calls',type=int,help='Hard cap including failed complete/stream calls; development default 16, mandatory for fresh packages')
     parser.add_argument('--scenario',action='append',help='Limit to these development scenario IDs; repeat for multiple scenarios')
+    parser.add_argument('--acceptance-package',type=Path,help='Frozen fresh one-shot package; never tune against its answers')
+    parser.add_argument('--observed-development-package',type=Path,help='Replay an already consumed package as development; keeps the first result and receipt')
     args=parser.parse_args()
     if not args.allow_real_model:
         raise SystemExit('Use evaluate_offline for daily development; real acceptance requires --allow-real-model')
+    if args.max_model_calls is not None and args.max_model_calls <= 0:raise SystemExit('--max-model-calls must be positive')
+    if args.acceptance_package and args.max_model_calls is None:
+        raise SystemExit('Fresh acceptance requires explicit --max-model-calls; a partial run consumes the package')
     if args.output.exists():raise SystemExit('Choose a new output path; prior raw runs must be preserved')
-    report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile,args.scenario))
+    if args.acceptance_package and (args.scenario or args.corpus_profile != 'eval-rag-v2-209'):
+        raise SystemExit('Fresh acceptance requires the whole package and its frozen corpus profile')
+    if args.observed_development_package and (args.acceptance_package or args.corpus_profile != 'eval-rag-v2-209'):
+        raise SystemExit('Observed development uses only the original candidate corpus profile')
+    report=asyncio.run(evaluate(args.output,args.split,args.corpus_profile,args.scenario,args.acceptance_package,args.observed_development_package,args.max_model_calls if args.max_model_calls is not None else 16))
     print(json.dumps({'complete':report['complete'],'summary':report['summary'],'cleanup':report['cleanup']},ensure_ascii=False))
     return 0 if report['complete'] and report['cleanup'].get('synthetic_redis_keys_removed') else 2
 

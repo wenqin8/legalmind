@@ -1,0 +1,446 @@
+{
+  "recorded_at": "2026-10-01T04:28:28.531137+00:00",
+  "scope": "stage evidence index; not final model or security acceptance",
+  "implementation_sha256": "c14954ba374602b3f3ca42c4c2baecc6c4da836becad9924f83e9d11d8b7f64c",
+  "final_model_quality_passed": false,
+  "blocking_observations": [
+    "Latest full model run was interrupted by provider HTTP 402.",
+    "Final implementation has not completed a full real-model run.",
+    "Independent legal annotation and semantic review are pending.",
+    "Chroma upstream advisories remain; Python dependency audits explicitly failed."
+  ],
+  "unobserved_package": "backend/data/evaluation/m4-once-v4",
+  "observation_receipt_count": 0,
+  "original_pdf": {
+    "path": "output/pdf/法律咨询Agent一个月开发计划.pdf",
+    "git_external": true,
+    "sha256": "9a49723fee1ad8bb1610a92bc5c088d5f73e12f622859681f2cc2669c61ebc1d"
+  },
+  "files": [
+    {
+      "path": "backend/constraints.txt",
+      "bytes": 199,
+      "sha256": "94717aa544bda2a0263f4692c673aa98b83176abce08090ca01e381c51a3366f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v1/manifest.json",
+      "bytes": 1331,
+      "sha256": "0432408734f39fc26817d02f53d2b9706f00fb55ba6a729df5ea289f814c6abd"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v1/queries.jsonl",
+      "bytes": 16526,
+      "sha256": "46584b4e12e29d3c810db44d26b5ca0e795d3e7be653f2a6bb2e0d5cc1e2bb5f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v1/README.md",
+      "bytes": 1948,
+      "sha256": "18b3029cabdc2ae70baf89ae93a48aadf0557595c3ee758920545929f93014c1"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v1/scenarios.jsonl",
+      "bytes": 9701,
+      "sha256": "f534facf46f64967e79a8850a9e062904a36635658708e15798d0ec585f8ec39"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v2/manifest.json",
+      "bytes": 1550,
+      "sha256": "8f6bcb440e1faf727f69485ea3e36ec045ceec05085fa7b3f686a6e15d2bae86"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v2/queries.jsonl",
+      "bytes": 16526,
+      "sha256": "46584b4e12e29d3c810db44d26b5ca0e795d3e7be653f2a6bb2e0d5cc1e2bb5f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v2/README.md",
+      "bytes": 1499,
+      "sha256": "9656fe06234118bb4ad6b3eac556353e463813df883267b9e9a9a7ab40dabf85"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v2/scenarios.jsonl",
+      "bytes": 9701,
+      "sha256": "f534facf46f64967e79a8850a9e062904a36635658708e15798d0ec585f8ec39"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v3/manifest.json",
+      "bytes": 1647,
+      "sha256": "72a6cf56ecd173af57ed4dc0d5ce6662e4a4de62cf927d17e6170b4e04e10e90"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v3/queries.jsonl",
+      "bytes": 16526,
+      "sha256": "46584b4e12e29d3c810db44d26b5ca0e795d3e7be653f2a6bb2e0d5cc1e2bb5f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v3/README.md",
+      "bytes": 1686,
+      "sha256": "e21835f79403e11b18dcee85faf00787e94e557f7b0c35565377ae061c94bc46"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v3/scenarios.jsonl",
+      "bytes": 9701,
+      "sha256": "f534facf46f64967e79a8850a9e062904a36635658708e15798d0ec585f8ec39"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v4/manifest.json",
+      "bytes": 1788,
+      "sha256": "2cbc3e962d9f3b6e2c15ff34de4db7758ccb69ed866de13612618e90dde3655e"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v4/queries.jsonl",
+      "bytes": 16526,
+      "sha256": "46584b4e12e29d3c810db44d26b5ca0e795d3e7be653f2a6bb2e0d5cc1e2bb5f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v4/README.md",
+      "bytes": 1801,
+      "sha256": "b190a4c4ab2f1c20d6519e5f9a2b60d918a7628423e15f77fc158d0cb1f50aba"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v4/scenarios.jsonl",
+      "bytes": 9701,
+      "sha256": "f534facf46f64967e79a8850a9e062904a36635658708e15798d0ec585f8ec39"
+    },
+    {
+      "path": "backend/Dockerfile",
+      "bytes": 1018,
+      "sha256": "dd513bfea1332a92dce20ff1c6cdcf8353dd29b70d4d564583b074334a4092a3"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "bytes": 329,
+      "sha256": "1cbaa72fddb674e47eaabb2cc1049ea342346acf39fade9241499f117635788f"
+    },
+    {
+      "path": "compose.yml",
+      "bytes": 3031,
+      "sha256": "ae94a45c8d80cb7be8ddf426cc2b7c41519f1a4f4fbf44a9a76deb5c5a3f3008"
+    },
+    {
+      "path": "deployment/audit_python_packages.py",
+      "bytes": 3617,
+      "sha256": "2b8174b6e869649f0808afcfd71f758d8b99e13671767f986d89c81ff48d20ac"
+    },
+    {
+      "path": "deployment/collect_evidence.py",
+      "bytes": 5221,
+      "sha256": "9aef5bff92ac95b99629dd3c329db55260eb939fa04772b3965b8125119a2008"
+    },
+    {
+      "path": "deployment/nginx.conf",
+      "bytes": 1217,
+      "sha256": "2d6d3b8da03d127a1e914e9bc401d3130556d37924d6a76d8b7e38b95abe6915"
+    },
+    {
+      "path": "deployment/README.md",
+      "bytes": 5558,
+      "sha256": "d3213400100880c3249ae9239a05a1f36eb48415c2d6bbe1bcdfc38ddbb92564"
+    },
+    {
+      "path": "docs/acceptance/m4-browser-e2e-20261001-run5.json",
+      "bytes": 1411,
+      "sha256": "b9188e575d4dda0ed754d893c8a44295984a3bef66375b8633caba10b51c5664"
+    },
+    {
+      "path": "docs/acceptance/m4-browser-e2e-20261001-run6.json",
+      "bytes": 1411,
+      "sha256": "5a2cd4d57d6028b49899d238d47f876ed2159885cafa71a7465e9b6f41577752"
+    },
+    {
+      "path": "docs/acceptance/m4-browser-e2e-failed-run1.json",
+      "bytes": 677,
+      "sha256": "07117d30d3b1fcac16bc9ea5ffd37c65ac3eba12a15fff41e979c69ac7eaf58a"
+    },
+    {
+      "path": "docs/acceptance/m4-browser-e2e.json",
+      "bytes": 1280,
+      "sha256": "571ec6f792c04859e6db08a9fff82b55010c7c916a4767e62afd5738d4b55664"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run1.json",
+      "bytes": 762,
+      "sha256": "8b87481da2b495c4de5e8ac4868a6d42721e38a93452e3e38cd5159080676100"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run2.json",
+      "bytes": 2400,
+      "sha256": "67301964848995e360441dd6cafa9a82503a0251742304ca1fb1db4223dfe944"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run3.json",
+      "bytes": 824,
+      "sha256": "cc65a700b690cbdbc975d83c75b59fa596ae390dbbbb682896246b8fdd367e18"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run4.json",
+      "bytes": 839,
+      "sha256": "de99049b2b69ad115560697e3e56505f810864c64732c33c252768c27296057d"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run5.json",
+      "bytes": 839,
+      "sha256": "21ebc61362e9268c51ab6fb1e7c79b2dd1fe6063f7a21b7c98dad4ca78ddce45"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run5.json.320.png",
+      "bytes": 39913,
+      "sha256": "f31ef50a93ee5cb0f45cf99876350d07fa1e8876e7f51f4ca60dd90bdade0824"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run5.json.390.png",
+      "bytes": 40455,
+      "sha256": "a71408812f3a1b429e3fba5507500e7f171c8846fcb67faf5462fbdaaa9cf7e0"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run5.json.640.png",
+      "bytes": 47340,
+      "sha256": "b8674b1ee0ca38efa64bcb5d27b1531ee86a0a6a86189d180cb9a135e71e9251"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run6.json",
+      "bytes": 839,
+      "sha256": "481e47a48d62ba4277afb44ce66a9b8cb59aa13aa5c25885997c32796ed500ec"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run6.json.320.png",
+      "bytes": 39913,
+      "sha256": "f31ef50a93ee5cb0f45cf99876350d07fa1e8876e7f51f4ca60dd90bdade0824"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run6.json.390.png",
+      "bytes": 40455,
+      "sha256": "a71408812f3a1b429e3fba5507500e7f171c8846fcb67faf5462fbdaaa9cf7e0"
+    },
+    {
+      "path": "docs/acceptance/m4-deployed-browser-20261001-run6.json.640.png",
+      "bytes": 47340,
+      "sha256": "b8674b1ee0ca38efa64bcb5d27b1531ee86a0a6a86189d180cb9a135e71e9251"
+    },
+    {
+      "path": "docs/acceptance/m4-deployment-runtime-20261001-run1.json",
+      "bytes": 5086,
+      "sha256": "09f7fa60a946c0bc42098452054ac82836bb9da1c4717f9787ffb9932c284df3"
+    },
+    {
+      "path": "docs/acceptance/m4-deployment-runtime-20261001-run2.json",
+      "bytes": 5086,
+      "sha256": "eb153bcff58259c029b530fe077ba8bdbd0418f905d16d5dc389eec515d50fdf"
+    },
+    {
+      "path": "docs/acceptance/m4-deployment-smoke-20261001-run1.json",
+      "bytes": 757,
+      "sha256": "597a9ffa5ba4feaa9d46cd014e9e24d4c34c319a4ac03c2a358fe43e0d7c26de"
+    },
+    {
+      "path": "docs/acceptance/m4-deployment-smoke-20261001-run2.json",
+      "bytes": 757,
+      "sha256": "1136c181d9bea735a2aef15cc4bf2c199dfaf41543dcc0021a0de8ddb7709ea4"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-audit-20261001-run1.json",
+      "bytes": 131122,
+      "sha256": "2beb6e713a84505bfe849b7cf11838e9cd0f099ce42ce54f2322554acb0a001b"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-audit-20261001-run2.json",
+      "bytes": 44684,
+      "sha256": "84ea6abbb63eac7985e5ae2f07d17e769254b2027692bbcf221da9a4e44732e1"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-audit-20261001-run3.json",
+      "bytes": 44959,
+      "sha256": "bed31d1df6a6813ac54440a4b2f4dfba46df3fd4dab561306efe3819aa8dd19f"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-packages-20261001-run2.txt",
+      "bytes": 2708,
+      "sha256": "967026e06cc31afc90255d25f07cb2ae594b5603b4442d0ccd61fde66eeffc2d"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-packages-20261001-run3.txt",
+      "bytes": 2721,
+      "sha256": "27b3c77be9fc4306b8b27f909a23b8372d9780f6d6d119fc6b7791a4811922e1"
+    },
+    {
+      "path": "docs/acceptance/m4-docker-python-packages-20261001.txt",
+      "bytes": 2708,
+      "sha256": "67c9a92a137a552e9e205261d57f221cd06b16e8313f5d4d74211a17e1e08f5a"
+    },
+    {
+      "path": "docs/acceptance/m4-evidence-manifest-20261001.json",
+      "bytes": 2478,
+      "sha256": "60468730dcdf9b29c369194e2db83885978bdf95f4d25ec81657db6a8ea9aec0"
+    },
+    {
+      "path": "docs/acceptance/m4-frontend-audit-20261001.json",
+      "bytes": 1007,
+      "sha256": "7b1cd8d9b784a6bd516d6b280b09e4fbc9de601c7cee10bf77b78d832aa5e74b"
+    },
+    {
+      "path": "docs/acceptance/m4-frontend-audit-official-20261001-utf8.json",
+      "bytes": 385,
+      "sha256": "c00a2b2697a5591629e33c2d09bb4cd87e2c75509d684191a5d2aa4aa5a285b0"
+    },
+    {
+      "path": "docs/acceptance/m4-frontend-audit-official-20261001.json",
+      "bytes": 387,
+      "sha256": "10c60616739a8033b135cb43de981d73c036c59189c0e6fa8ea18ec3b9df7329"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-audit-20261001-run1.json",
+      "bytes": 137848,
+      "sha256": "425410f70b03a4d956c7cf9ab1575d657bf3ebbfd7d7990d202c349def136f89"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-audit-20261001-run2.json",
+      "bytes": 56456,
+      "sha256": "c115d463e45386edf964e46a3a61696430558834391c1fc4fecd464bc8128aaa"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-audit-20261001-run3.json",
+      "bytes": 45740,
+      "sha256": "b3f9f4e082642e1614cef1b97971c51f661f1c95e5896c55822a45e6713f64b9"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-packages-20261001-run2.txt",
+      "bytes": 3438,
+      "sha256": "b56454194eed2956d8446097fe9da085cffcad3067785105c5dec681095c53fa"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-packages-20261001-run3.txt",
+      "bytes": 2738,
+      "sha256": "e6ec850261025f0a345d70bcda3216135608116ada567d3462a90f5fbccc7b8c"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-packages-20261001-run4.txt",
+      "bytes": 2738,
+      "sha256": "21466ef855bd8ab8121fcde74b3a100a8046b4f4e8eff12df816cd3a851bff73"
+    },
+    {
+      "path": "docs/acceptance/m4-local-python-packages-20261001.txt",
+      "bytes": 2725,
+      "sha256": "7b49eb1ab64773ab159ae4ed52a60323d4336be55db5b5d429f0556c26cd937a"
+    },
+    {
+      "path": "docs/acceptance/m4-offline-full-20261001-run8.json",
+      "bytes": 462649,
+      "sha256": "e35700d419efcf194344c4b21750468e4f69037d358b417e3fa7777c9902cda0"
+    },
+    {
+      "path": "docs/acceptance/m4-offline-full-20261001-run9.json",
+      "bytes": 462519,
+      "sha256": "2699b744a548ff0029c8b529f267c450506b6c081d52b3769f647b6fda03150b"
+    },
+    {
+      "path": "docs/acceptance/m4-offline-full.json",
+      "bytes": 462564,
+      "sha256": "6367b326b6bf080841e57fd1210898b79036a703e1b0ad99ef23b52eb63f55ba"
+    },
+    {
+      "path": "docs/acceptance/m4-progress.md",
+      "bytes": 7503,
+      "sha256": "14b6cdc406ae19a983e84dbf082ef4f5dcb712284c925e182a8208722372de8e"
+    },
+    {
+      "path": "docs/acceptance/m4-quality-gates-20261001-run3.json",
+      "bytes": 6180,
+      "sha256": "10bec6a7e4051a7e4e8086956c80148f347568f6d000801da967d37fdabdba65"
+    },
+    {
+      "path": "docs/acceptance/m4-real-development-20261001-run1.json",
+      "bytes": 2201625,
+      "sha256": "c43e9646dad39b8ea843a7ed2e75d94570f08897f419c2330f3b9d474182e8f6"
+    },
+    {
+      "path": "docs/acceptance/m4-real-development-20261001-run2.json",
+      "bytes": 2024080,
+      "sha256": "90e5458e7a0f4e30de595e9861c77c0474de8cd91216b6d6656e22b9572c98ce"
+    },
+    {
+      "path": "docs/acceptance/m4-real-development-20261001-run3.json",
+      "bytes": 2011725,
+      "sha256": "68b73bb91e61375057aff80b4784a2ff4f6b307d8d0c71602127c3b7bd1ae5f4"
+    },
+    {
+      "path": "docs/acceptance/m4-real-targeted-20261001-run1.json",
+      "bytes": 184214,
+      "sha256": "0ffaf4511a771167368ddfa6442d7ebc934daa53f0337fe92be68ae790d36289"
+    },
+    {
+      "path": "docs/acceptance/m4-real-targeted-20261001-run2.json",
+      "bytes": 218782,
+      "sha256": "682d4a1754d13677c8d7ffa5f7170eeb5b4f2d9747de8e8c34e2611794b7d111"
+    },
+    {
+      "path": "docs/acceptance/m4-real-targeted-20261001-run3.json",
+      "bytes": 254740,
+      "sha256": "7772586e5d2d914c9be4c77939650dc68ed336405564239e8867f96321ae5674"
+    },
+    {
+      "path": "docs/acceptance/m4-real-targeted-20261001-run4.json",
+      "bytes": 342387,
+      "sha256": "e856c3660bf8a1fa02c56448909bbdab381a020e19dde157555b4a5a9aab83c0"
+    },
+    {
+      "path": "docs/acceptance/m4-retrieval-20261001-run1.json",
+      "bytes": 423152,
+      "sha256": "39083df4a506138c53cb5da6ff588490e63476b1433c2372a97002a99f077750"
+    },
+    {
+      "path": "docs/acceptance/m4-retrieval-20261001-run2.json",
+      "bytes": 423177,
+      "sha256": "158ef419fb11832867fad357411a7b2ed91660d915919af6b23af86a39271f86"
+    },
+    {
+      "path": "docs/acceptance/m4-retrieval-20261001-run3.json",
+      "bytes": 423202,
+      "sha256": "67da146f732f99246c43ab5fbe0d62e136d4f953b24bc155d8d330ba25439ccc"
+    },
+    {
+      "path": "docs/acceptance/m4-security-boundary-20261001.json",
+      "bytes": 571,
+      "sha256": "9b7606e7ac85062b664ec6a20c54ba7a783a2f0442a1beaf9d606d9e65f3bfd0"
+    },
+    {
+      "path": "docs/acceptance/m4-security-review-20261001.md",
+      "bytes": 4921,
+      "sha256": "40ad6f4949d075142d13faa428d997af6f6b7701fd7d1ea4f684b47af41b32d1"
+    },
+    {
+      "path": "docs/acceptance/m4-semantic-draft-20261001-run3.json",
+      "bytes": 6076,
+      "sha256": "f000caea02c329657bed9f93d7fffc0a6eeb38977c4ad1d6169ca5bbb7668fac"
+    },
+    {
+      "path": "docs/handoff-index.md",
+      "bytes": 2903,
+      "sha256": "6cd01f6b2a44a1b7367ad06246eba9f395b82f2505bdc9a93706daf6baf4bbd3"
+    },
+    {
+      "path": "docs/m4-demo.md",
+      "bytes": 2432,
+      "sha256": "050d7fcdb244b5c0930bbbf012f4a66fd98d75058ddbd07eeded22f4858ef3d1"
+    },
+    {
+      "path": "frontend/Dockerfile",
+      "bytes": 289,
+      "sha256": "facd00cd5298104aec3b7a3c19ac948e6952493be40ce542e41b58019e9a0aa7"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 3718,
+      "sha256": "c83e6f2b39e37b65a8332de2c46d8e51a5a422ccbe5b528457bf4fc88a2de20e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2428,
+      "sha256": "828c848dcba9a438c5b104ea7db97bb7766a6c24180a1088e63e7df6c77532f9"
+    }
+  ],
+  "limitations": [
+    "Hashes detect file changes, not substantive quality.",
+    "Reports retain their original successes, failures, incomplete runs and scopes.",
+    "No secrets or live customer records are included."
+  ]
+}

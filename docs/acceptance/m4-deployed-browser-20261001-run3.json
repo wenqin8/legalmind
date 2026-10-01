@@ -1,0 +1,30 @@
+{
+  "scope": "real_compose_browser_acceptance",
+  "real_redis": true,
+  "simulated_faults": false,
+  "live_model_requested": false,
+  "legal_answer_quality_verified": false,
+  "consultation_requests": 1,
+  "model_call_count": 0,
+  "tests": [
+    {
+      "name": "production browser: register, cancellation SSE and Redis history reload",
+      "passed": true
+    },
+    {
+      "name": "production browser: real case index and document confirmation/download",
+      "passed": true
+    },
+    {
+      "name": "restart: previous account, Redis history, document and index survive",
+      "passed": true
+    },
+    {
+      "name": "production browser: mobile layout at 320px and 390px",
+      "passed": true
+    }
+  ],
+  "started_at": "2026-09-30T18:36:17.210Z",
+  "passed": true,
+  "completed_at": "2026-09-30T18:36:32.342Z"
+}

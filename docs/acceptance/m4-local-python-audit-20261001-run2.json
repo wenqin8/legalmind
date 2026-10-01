@@ -1,0 +1,1542 @@
+{
+  "recorded_at": "2026-09-30T19:28:45.282803+00:00",
+  "source": "PyPI per-release JSON API",
+  "package_list": "m4-local-python-packages-20261001-run3.txt",
+  "planned": 138,
+  "checked": 138,
+  "vulnerable_packages": 2,
+  "coverage_complete": true,
+  "passed": false,
+  "results": [
+    {
+      "name": "aiohappyeyeballs",
+      "installed_version": "2.7.1",
+      "public_version": "2.7.1",
+      "source_url": "https://pypi.org/pypi/aiohappyeyeballs/2.7.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "aiohttp",
+      "installed_version": "3.14.3",
+      "public_version": "3.14.3",
+      "source_url": "https://pypi.org/pypi/aiohttp/3.14.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "aiosignal",
+      "installed_version": "1.4.0",
+      "public_version": "1.4.0",
+      "source_url": "https://pypi.org/pypi/aiosignal/1.4.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "alembic",
+      "installed_version": "1.19.2",
+      "public_version": "1.19.2",
+      "source_url": "https://pypi.org/pypi/alembic/1.19.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "annotated-doc",
+      "installed_version": "0.0.5",
+      "public_version": "0.0.5",
+      "source_url": "https://pypi.org/pypi/annotated-doc/0.0.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "annotated-types",
+      "installed_version": "0.8.0",
+      "public_version": "0.8.0",
+      "source_url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "anyio",
+      "installed_version": "4.15.1",
+      "public_version": "4.15.1",
+      "source_url": "https://pypi.org/pypi/anyio/4.15.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "argon2-cffi",
+      "installed_version": "25.1.0",
+      "public_version": "25.1.0",
+      "source_url": "https://pypi.org/pypi/argon2-cffi/25.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "argon2-cffi-bindings",
+      "installed_version": "26.1.0",
+      "public_version": "26.1.0",
+      "source_url": "https://pypi.org/pypi/argon2-cffi-bindings/26.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "attrs",
+      "installed_version": "26.1.0",
+      "public_version": "26.1.0",
+      "source_url": "https://pypi.org/pypi/attrs/26.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "bcrypt",
+      "installed_version": "5.0.0",
+      "public_version": "5.0.0",
+      "source_url": "https://pypi.org/pypi/bcrypt/5.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "build",
+      "installed_version": "1.6.1",
+      "public_version": "1.6.1",
+      "source_url": "https://pypi.org/pypi/build/1.6.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "certifi",
+      "installed_version": "2026.7.22",
+      "public_version": "2026.7.22",
+      "source_url": "https://pypi.org/pypi/certifi/2026.7.22/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "cffi",
+      "installed_version": "2.1.1",
+      "public_version": "2.1.1",
+      "source_url": "https://pypi.org/pypi/cffi/2.1.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "charset-normalizer",
+      "installed_version": "3.5.1",
+      "public_version": "3.5.1",
+      "source_url": "https://pypi.org/pypi/charset-normalizer/3.5.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "chromadb",
+      "installed_version": "1.5.9",
+      "public_version": "1.5.9",
+      "source_url": "https://pypi.org/pypi/chromadb/1.5.9/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": [
+        {
+          "aliases": [
+            "CVE-2026-45829",
+            "PYSEC-2026-311"
+          ],
+          "details": "A pre-authentication, code injection vulnerability in version 1.0.0 or later of the ChromaDB Python project allows an unauthenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/{tenant}/databases/{db}/collections endpoint.",
+          "fixed_in": [],
+          "id": "GHSA-f4j7-r4q5-qw2c",
+          "link": "https://osv.dev/vulnerability/GHSA-f4j7-r4q5-qw2c",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45829",
+            "GHSA-f4j7-r4q5-qw2c"
+          ],
+          "details": "A pre-authentication, code injection vulnerability in version 1.0.0 or later of the ChromaDB Python project allows an unauthenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/{tenant}/databases/{db}/collections endpoint.",
+          "fixed_in": [],
+          "id": "PYSEC-2026-311",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-311",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45830"
+          ],
+          "details": "A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant's collection regardless of which tenant they belong to.",
+          "fixed_in": [],
+          "id": "GHSA-2wm9-hf6c-p5cr",
+          "link": "https://osv.dev/vulnerability/GHSA-2wm9-hf6c-p5cr",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45833"
+          ],
+          "details": "A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.",
+          "fixed_in": [],
+          "id": "GHSA-36p7-vc44-83pf",
+          "link": "https://osv.dev/vulnerability/GHSA-36p7-vc44-83pf",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45831"
+          ],
+          "details": "The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.",
+          "fixed_in": [],
+          "id": "GHSA-xph7-9rjv-w5fr",
+          "link": "https://osv.dev/vulnerability/GHSA-xph7-9rjv-w5fr",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45833",
+            "GHSA-36p7-vc44-83pf"
+          ],
+          "details": "A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.",
+          "fixed_in": [],
+          "id": "PYSEC-2026-3814",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-3814",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45831",
+            "GHSA-xph7-9rjv-w5fr"
+          ],
+          "details": "The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.",
+          "fixed_in": [],
+          "id": "PYSEC-2026-3815",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-3815",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-45830",
+            "GHSA-2wm9-hf6c-p5cr"
+          ],
+          "details": "A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant's collection regardless of which tenant they belong to.",
+          "fixed_in": [],
+          "id": "PYSEC-2026-3813",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-3813",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "installed_version": "8.5.0",
+      "public_version": "8.5.0",
+      "source_url": "https://pypi.org/pypi/click/8.5.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "cloudpickle",
+      "installed_version": "3.1.2",
+      "public_version": "3.1.2",
+      "source_url": "https://pypi.org/pypi/cloudpickle/3.1.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "colorama",
+      "installed_version": "0.4.6",
+      "public_version": "0.4.6",
+      "source_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "distro",
+      "installed_version": "1.9.0",
+      "public_version": "1.9.0",
+      "source_url": "https://pypi.org/pypi/distro/1.9.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "dnspython",
+      "installed_version": "2.8.0",
+      "public_version": "2.8.0",
+      "source_url": "https://pypi.org/pypi/dnspython/2.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "durationpy",
+      "installed_version": "0.11",
+      "public_version": "0.11",
+      "source_url": "https://pypi.org/pypi/durationpy/0.11/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "email-validator",
+      "installed_version": "2.3.0",
+      "public_version": "2.3.0",
+      "source_url": "https://pypi.org/pypi/email-validator/2.3.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "fastapi",
+      "installed_version": "0.141.1",
+      "public_version": "0.141.1",
+      "source_url": "https://pypi.org/pypi/fastapi/0.141.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "filelock",
+      "installed_version": "3.32.6",
+      "public_version": "3.32.6",
+      "source_url": "https://pypi.org/pypi/filelock/3.32.6/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "flatbuffers",
+      "installed_version": "25.12.19",
+      "public_version": "25.12.19",
+      "source_url": "https://pypi.org/pypi/flatbuffers/25.12.19/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "frozenlist",
+      "installed_version": "1.8.0",
+      "public_version": "1.8.0",
+      "source_url": "https://pypi.org/pypi/frozenlist/1.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "fsspec",
+      "installed_version": "2026.7.0",
+      "public_version": "2026.7.0",
+      "source_url": "https://pypi.org/pypi/fsspec/2026.7.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "googleapis-common-protos",
+      "installed_version": "1.75.3",
+      "public_version": "1.75.3",
+      "source_url": "https://pypi.org/pypi/googleapis-common-protos/1.75.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "greenlet",
+      "installed_version": "3.5.5",
+      "public_version": "3.5.5",
+      "source_url": "https://pypi.org/pypi/greenlet/3.5.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "grpcio",
+      "installed_version": "1.83.1",
+      "public_version": "1.83.1",
+      "source_url": "https://pypi.org/pypi/grpcio/1.83.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "h11",
+      "installed_version": "0.16.0",
+      "public_version": "0.16.0",
+      "source_url": "https://pypi.org/pypi/h11/0.16.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "hf-xet",
+      "installed_version": "1.6.0",
+      "public_version": "1.6.0",
+      "source_url": "https://pypi.org/pypi/hf-xet/1.6.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "httpcore",
+      "installed_version": "1.0.9",
+      "public_version": "1.0.9",
+      "source_url": "https://pypi.org/pypi/httpcore/1.0.9/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "httpcore2",
+      "installed_version": "2.12.0",
+      "public_version": "2.12.0",
+      "source_url": "https://pypi.org/pypi/httpcore2/2.12.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "httptools",
+      "installed_version": "0.8.0",
+      "public_version": "0.8.0",
+      "source_url": "https://pypi.org/pypi/httptools/0.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "httpx",
+      "installed_version": "0.28.1",
+      "public_version": "0.28.1",
+      "source_url": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "httpx2",
+      "installed_version": "2.12.0",
+      "public_version": "2.12.0",
+      "source_url": "https://pypi.org/pypi/httpx2/2.12.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "huggingface_hub",
+      "installed_version": "1.31.0",
+      "public_version": "1.31.0",
+      "source_url": "https://pypi.org/pypi/huggingface_hub/1.31.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "idna",
+      "installed_version": "3.19",
+      "public_version": "3.19",
+      "source_url": "https://pypi.org/pypi/idna/3.19/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "importlib_resources",
+      "installed_version": "7.1.0",
+      "public_version": "7.1.0",
+      "source_url": "https://pypi.org/pypi/importlib_resources/7.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "iniconfig",
+      "installed_version": "2.3.0",
+      "public_version": "2.3.0",
+      "source_url": "https://pypi.org/pypi/iniconfig/2.3.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "Jinja2",
+      "installed_version": "3.1.6",
+      "public_version": "3.1.6",
+      "source_url": "https://pypi.org/pypi/Jinja2/3.1.6/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "joblib",
+      "installed_version": "1.6.0",
+      "public_version": "1.6.0",
+      "source_url": "https://pypi.org/pypi/joblib/1.6.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "jsonpatch",
+      "installed_version": "1.33",
+      "public_version": "1.33",
+      "source_url": "https://pypi.org/pypi/jsonpatch/1.33/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "jsonpointer",
+      "installed_version": "3.1.1",
+      "public_version": "3.1.1",
+      "source_url": "https://pypi.org/pypi/jsonpointer/3.1.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "jsonschema",
+      "installed_version": "4.26.0",
+      "public_version": "4.26.0",
+      "source_url": "https://pypi.org/pypi/jsonschema/4.26.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "jsonschema-specifications",
+      "installed_version": "2025.9.1",
+      "public_version": "2025.9.1",
+      "source_url": "https://pypi.org/pypi/jsonschema-specifications/2025.9.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "kubernetes",
+      "installed_version": "36.0.3",
+      "public_version": "36.0.3",
+      "source_url": "https://pypi.org/pypi/kubernetes/36.0.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langchain",
+      "installed_version": "1.4.0",
+      "public_version": "1.4.0",
+      "source_url": "https://pypi.org/pypi/langchain/1.4.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langchain-core",
+      "installed_version": "1.6.3",
+      "public_version": "1.6.3",
+      "source_url": "https://pypi.org/pypi/langchain-core/1.6.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langchain-protocol",
+      "installed_version": "0.0.19",
+      "public_version": "0.0.19",
+      "source_url": "https://pypi.org/pypi/langchain-protocol/0.0.19/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langgraph",
+      "installed_version": "1.2.11",
+      "public_version": "1.2.11",
+      "source_url": "https://pypi.org/pypi/langgraph/1.2.11/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langgraph-checkpoint",
+      "installed_version": "4.2.0",
+      "public_version": "4.2.0",
+      "source_url": "https://pypi.org/pypi/langgraph-checkpoint/4.2.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langgraph-prebuilt",
+      "installed_version": "1.1.0",
+      "public_version": "1.1.0",
+      "source_url": "https://pypi.org/pypi/langgraph-prebuilt/1.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langgraph-sdk",
+      "installed_version": "0.4.4",
+      "public_version": "0.4.4",
+      "source_url": "https://pypi.org/pypi/langgraph-sdk/0.4.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "langsmith",
+      "installed_version": "0.12.4",
+      "public_version": "0.12.4",
+      "source_url": "https://pypi.org/pypi/langsmith/0.12.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "Mako",
+      "installed_version": "1.4.1",
+      "public_version": "1.4.1",
+      "source_url": "https://pypi.org/pypi/Mako/1.4.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "markdown-it-py",
+      "installed_version": "4.2.0",
+      "public_version": "4.2.0",
+      "source_url": "https://pypi.org/pypi/markdown-it-py/4.2.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "MarkupSafe",
+      "installed_version": "3.0.3",
+      "public_version": "3.0.3",
+      "source_url": "https://pypi.org/pypi/MarkupSafe/3.0.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "mdurl",
+      "installed_version": "0.1.2",
+      "public_version": "0.1.2",
+      "source_url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "mmh3",
+      "installed_version": "5.3.0",
+      "public_version": "5.3.0",
+      "source_url": "https://pypi.org/pypi/mmh3/5.3.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "mpmath",
+      "installed_version": "1.3.0",
+      "public_version": "1.3.0",
+      "source_url": "https://pypi.org/pypi/mpmath/1.3.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "multidict",
+      "installed_version": "6.8.0",
+      "public_version": "6.8.0",
+      "source_url": "https://pypi.org/pypi/multidict/6.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "narwhals",
+      "installed_version": "2.26.0",
+      "public_version": "2.26.0",
+      "source_url": "https://pypi.org/pypi/narwhals/2.26.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "networkx",
+      "installed_version": "3.6.1",
+      "public_version": "3.6.1",
+      "source_url": "https://pypi.org/pypi/networkx/3.6.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "numpy",
+      "installed_version": "2.5.3",
+      "public_version": "2.5.3",
+      "source_url": "https://pypi.org/pypi/numpy/2.5.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "oauthlib",
+      "installed_version": "4.0.0",
+      "public_version": "4.0.0",
+      "source_url": "https://pypi.org/pypi/oauthlib/4.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "onnxruntime",
+      "installed_version": "1.30.0",
+      "public_version": "1.30.0",
+      "source_url": "https://pypi.org/pypi/onnxruntime/1.30.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-api",
+      "installed_version": "1.44.0",
+      "public_version": "1.44.0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-api/1.44.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "installed_version": "1.44.0",
+      "public_version": "1.44.0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-common/1.44.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-grpc",
+      "installed_version": "1.44.0",
+      "public_version": "1.44.0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-grpc/1.44.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-proto",
+      "installed_version": "1.44.0",
+      "public_version": "1.44.0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-proto/1.44.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "installed_version": "1.44.0",
+      "public_version": "1.44.0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-sdk/1.44.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "installed_version": "0.65b0",
+      "public_version": "0.65b0",
+      "source_url": "https://pypi.org/pypi/opentelemetry-semantic-conventions/0.65b0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "orjson",
+      "installed_version": "3.12.0",
+      "public_version": "3.12.0",
+      "source_url": "https://pypi.org/pypi/orjson/3.12.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "ormsgpack",
+      "installed_version": "1.12.2",
+      "public_version": "1.12.2",
+      "source_url": "https://pypi.org/pypi/ormsgpack/1.12.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "overrides",
+      "installed_version": "7.7.0",
+      "public_version": "7.7.0",
+      "source_url": "https://pypi.org/pypi/overrides/7.7.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "packaging",
+      "installed_version": "26.3",
+      "public_version": "26.3",
+      "source_url": "https://pypi.org/pypi/packaging/26.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pip",
+      "installed_version": "25.0.1",
+      "public_version": "25.0.1",
+      "source_url": "https://pypi.org/pypi/pip/25.0.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": [
+        {
+          "aliases": [
+            "CVE-2025-8869",
+            "PYSEC-2026-1795"
+          ],
+          "details": "When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists) before installation as is already a best-practice.",
+          "fixed_in": [
+            "25.3"
+          ],
+          "id": "GHSA-4xh5-x5gv-qwph",
+          "link": "https://osv.dev/vulnerability/GHSA-4xh5-x5gv-qwph",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-1703",
+            "PYSEC-2026-1796"
+          ],
+          "details": "When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.",
+          "fixed_in": [
+            "26.0"
+          ],
+          "id": "GHSA-6vgw-5pg2-w6jp",
+          "link": "https://osv.dev/vulnerability/GHSA-6vgw-5pg2-w6jp",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-3219",
+            "PYSEC-2026-2875"
+          ],
+          "details": "pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.",
+          "fixed_in": [
+            "26.1"
+          ],
+          "id": "GHSA-58qw-9mgm-455v",
+          "link": "https://osv.dev/vulnerability/GHSA-58qw-9mgm-455v",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-6357",
+            "PYSEC-2026-2876"
+          ],
+          "details": "pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.",
+          "fixed_in": [
+            "26.1"
+          ],
+          "id": "GHSA-jp4c-xjxw-mgf9",
+          "link": "https://osv.dev/vulnerability/GHSA-jp4c-xjxw-mgf9",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-8643",
+            "GHSA-wf93-45jw-7689"
+          ],
+          "details": "pip would treat console_scripts and gui_scripts as paths instead of file names without sanitizing the resolved absolute path to the installation directory, leading to entry points being installed outside the installation directory.",
+          "fixed_in": [
+            "26.1.2"
+          ],
+          "id": "PYSEC-2026-196",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-196",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2025-8869",
+            "GHSA-4xh5-x5gv-qwph"
+          ],
+          "details": "When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists) before installation as is already a best-practice.",
+          "fixed_in": [
+            "25.3"
+          ],
+          "id": "PYSEC-2026-1795",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-1795",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-1703",
+            "GHSA-6vgw-5pg2-w6jp"
+          ],
+          "details": "When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.",
+          "fixed_in": [
+            "26.0"
+          ],
+          "id": "PYSEC-2026-1796",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-1796",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-8643",
+            "PYSEC-2026-196"
+          ],
+          "details": "pip would treat console_scripts and gui_scripts as paths instead of file names without sanitizing the resolved absolute path to the installation directory, leading to entry points being installed outside the installation directory.",
+          "fixed_in": [
+            "26.1.2"
+          ],
+          "id": "GHSA-wf93-45jw-7689",
+          "link": "https://osv.dev/vulnerability/GHSA-wf93-45jw-7689",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-3219",
+            "GHSA-58qw-9mgm-455v"
+          ],
+          "details": "pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.",
+          "fixed_in": [
+            "26.1"
+          ],
+          "id": "PYSEC-2026-2875",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-2875",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-6357",
+            "GHSA-jp4c-xjxw-mgf9"
+          ],
+          "details": "pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.",
+          "fixed_in": [
+            "26.1"
+          ],
+          "id": "PYSEC-2026-2876",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-2876",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-13346",
+            "GHSA-qwm4-qh6w-59xr"
+          ],
+          "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\n\n\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+          "fixed_in": [
+            "26.2"
+          ],
+          "id": "PYSEC-2026-3721",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-3721",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-13346",
+            "PYSEC-2026-3721"
+          ],
+          "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+          "fixed_in": [
+            "26.2.0"
+          ],
+          "id": "GHSA-qwm4-qh6w-59xr",
+          "link": "https://osv.dev/vulnerability/GHSA-qwm4-qh6w-59xr",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        }
+      ]
+    },
+    {
+      "name": "pluggy",
+      "installed_version": "1.6.0",
+      "public_version": "1.6.0",
+      "source_url": "https://pypi.org/pypi/pluggy/1.6.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "propcache",
+      "installed_version": "0.5.2",
+      "public_version": "0.5.2",
+      "source_url": "https://pypi.org/pypi/propcache/0.5.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "protobuf",
+      "installed_version": "7.36.1",
+      "public_version": "7.36.1",
+      "source_url": "https://pypi.org/pypi/protobuf/7.36.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "psycopg",
+      "installed_version": "3.3.5",
+      "public_version": "3.3.5",
+      "source_url": "https://pypi.org/pypi/psycopg/3.3.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "psycopg-binary",
+      "installed_version": "3.3.5",
+      "public_version": "3.3.5",
+      "source_url": "https://pypi.org/pypi/psycopg-binary/3.3.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pwdlib",
+      "installed_version": "0.3.1",
+      "public_version": "0.3.1",
+      "source_url": "https://pypi.org/pypi/pwdlib/0.3.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pybase64",
+      "installed_version": "1.5.0",
+      "public_version": "1.5.0",
+      "source_url": "https://pypi.org/pypi/pybase64/1.5.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pycparser",
+      "installed_version": "3.0",
+      "public_version": "3.0",
+      "source_url": "https://pypi.org/pypi/pycparser/3.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pydantic",
+      "installed_version": "2.13.5",
+      "public_version": "2.13.5",
+      "source_url": "https://pypi.org/pypi/pydantic/2.13.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pydantic_core",
+      "installed_version": "2.46.5",
+      "public_version": "2.46.5",
+      "source_url": "https://pypi.org/pypi/pydantic_core/2.46.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pydantic-settings",
+      "installed_version": "2.15.0",
+      "public_version": "2.15.0",
+      "source_url": "https://pypi.org/pypi/pydantic-settings/2.15.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "Pygments",
+      "installed_version": "2.21.0",
+      "public_version": "2.21.0",
+      "source_url": "https://pypi.org/pypi/Pygments/2.21.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "PyJWT",
+      "installed_version": "2.15.0",
+      "public_version": "2.15.0",
+      "source_url": "https://pypi.org/pypi/PyJWT/2.15.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "PyPika",
+      "installed_version": "0.51.1",
+      "public_version": "0.51.1",
+      "source_url": "https://pypi.org/pypi/PyPika/0.51.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pyproject_hooks",
+      "installed_version": "1.2.0",
+      "public_version": "1.2.0",
+      "source_url": "https://pypi.org/pypi/pyproject_hooks/1.2.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "pytest",
+      "installed_version": "9.1.1",
+      "public_version": "9.1.1",
+      "source_url": "https://pypi.org/pypi/pytest/9.1.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "python-dateutil",
+      "installed_version": "2.9.0.post0",
+      "public_version": "2.9.0.post0",
+      "source_url": "https://pypi.org/pypi/python-dateutil/2.9.0.post0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "python-dotenv",
+      "installed_version": "1.2.3",
+      "public_version": "1.2.3",
+      "source_url": "https://pypi.org/pypi/python-dotenv/1.2.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "PyYAML",
+      "installed_version": "6.0.3",
+      "public_version": "6.0.3",
+      "source_url": "https://pypi.org/pypi/PyYAML/6.0.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "redis",
+      "installed_version": "8.1.0",
+      "public_version": "8.1.0",
+      "source_url": "https://pypi.org/pypi/redis/8.1.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "referencing",
+      "installed_version": "0.37.0",
+      "public_version": "0.37.0",
+      "source_url": "https://pypi.org/pypi/referencing/0.37.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "regex",
+      "installed_version": "2026.9.10",
+      "public_version": "2026.9.10",
+      "source_url": "https://pypi.org/pypi/regex/2026.9.10/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "requests",
+      "installed_version": "2.34.2",
+      "public_version": "2.34.2",
+      "source_url": "https://pypi.org/pypi/requests/2.34.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "requests-oauthlib",
+      "installed_version": "2.0.0",
+      "public_version": "2.0.0",
+      "source_url": "https://pypi.org/pypi/requests-oauthlib/2.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "requests-toolbelt",
+      "installed_version": "1.0.0",
+      "public_version": "1.0.0",
+      "source_url": "https://pypi.org/pypi/requests-toolbelt/1.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "rich",
+      "installed_version": "15.0.0",
+      "public_version": "15.0.0",
+      "source_url": "https://pypi.org/pypi/rich/15.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "rpds-py",
+      "installed_version": "2026.6.3",
+      "public_version": "2026.6.3",
+      "source_url": "https://pypi.org/pypi/rpds-py/2026.6.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "safetensors",
+      "installed_version": "0.8.0",
+      "public_version": "0.8.0",
+      "source_url": "https://pypi.org/pypi/safetensors/0.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "scikit-learn",
+      "installed_version": "1.9.1",
+      "public_version": "1.9.1",
+      "source_url": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "scipy",
+      "installed_version": "1.18.1",
+      "public_version": "1.18.1",
+      "source_url": "https://pypi.org/pypi/scipy/1.18.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "sentence-transformers",
+      "installed_version": "6.0.1",
+      "public_version": "6.0.1",
+      "source_url": "https://pypi.org/pypi/sentence-transformers/6.0.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "setuptools",
+      "installed_version": "84.0.0",
+      "public_version": "84.0.0",
+      "source_url": "https://pypi.org/pypi/setuptools/84.0.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "shellingham",
+      "installed_version": "1.5.4",
+      "public_version": "1.5.4",
+      "source_url": "https://pypi.org/pypi/shellingham/1.5.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "six",
+      "installed_version": "1.17.0",
+      "public_version": "1.17.0",
+      "source_url": "https://pypi.org/pypi/six/1.17.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "sniffio",
+      "installed_version": "1.3.1",
+      "public_version": "1.3.1",
+      "source_url": "https://pypi.org/pypi/sniffio/1.3.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "SQLAlchemy",
+      "installed_version": "2.0.52",
+      "public_version": "2.0.52",
+      "source_url": "https://pypi.org/pypi/SQLAlchemy/2.0.52/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "starlette",
+      "installed_version": "1.6.0",
+      "public_version": "1.6.0",
+      "source_url": "https://pypi.org/pypi/starlette/1.6.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "sympy",
+      "installed_version": "1.14.0",
+      "public_version": "1.14.0",
+      "source_url": "https://pypi.org/pypi/sympy/1.14.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "tenacity",
+      "installed_version": "9.1.4",
+      "public_version": "9.1.4",
+      "source_url": "https://pypi.org/pypi/tenacity/9.1.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "threadpoolctl",
+      "installed_version": "3.6.0",
+      "public_version": "3.6.0",
+      "source_url": "https://pypi.org/pypi/threadpoolctl/3.6.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "tokenizers",
+      "installed_version": "0.23.2",
+      "public_version": "0.23.2",
+      "source_url": "https://pypi.org/pypi/tokenizers/0.23.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "torch",
+      "installed_version": "2.14.0",
+      "public_version": "2.14.0",
+      "source_url": "https://pypi.org/pypi/torch/2.14.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "tqdm",
+      "installed_version": "4.70.1",
+      "public_version": "4.70.1",
+      "source_url": "https://pypi.org/pypi/tqdm/4.70.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "transformers",
+      "installed_version": "5.17.0",
+      "public_version": "5.17.0",
+      "source_url": "https://pypi.org/pypi/transformers/5.17.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "truststore",
+      "installed_version": "0.10.4",
+      "public_version": "0.10.4",
+      "source_url": "https://pypi.org/pypi/truststore/0.10.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "typer",
+      "installed_version": "0.27.2",
+      "public_version": "0.27.2",
+      "source_url": "https://pypi.org/pypi/typer/0.27.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "typing_extensions",
+      "installed_version": "4.16.0",
+      "public_version": "4.16.0",
+      "source_url": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "typing-inspection",
+      "installed_version": "0.4.4",
+      "public_version": "0.4.4",
+      "source_url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "tzdata",
+      "installed_version": "2026.3",
+      "public_version": "2026.3",
+      "source_url": "https://pypi.org/pypi/tzdata/2026.3/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "urllib3",
+      "installed_version": "2.8.0",
+      "public_version": "2.8.0",
+      "source_url": "https://pypi.org/pypi/urllib3/2.8.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "uuid_utils",
+      "installed_version": "0.17.1",
+      "public_version": "0.17.1",
+      "source_url": "https://pypi.org/pypi/uuid_utils/0.17.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "uvicorn",
+      "installed_version": "0.52.4",
+      "public_version": "0.52.4",
+      "source_url": "https://pypi.org/pypi/uvicorn/0.52.4/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "watchfiles",
+      "installed_version": "1.2.0",
+      "public_version": "1.2.0",
+      "source_url": "https://pypi.org/pypi/watchfiles/1.2.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "websocket-client",
+      "installed_version": "1.9.2",
+      "public_version": "1.9.2",
+      "source_url": "https://pypi.org/pypi/websocket-client/1.9.2/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "websockets",
+      "installed_version": "16.1.1",
+      "public_version": "16.1.1",
+      "source_url": "https://pypi.org/pypi/websockets/16.1.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "xxhash",
+      "installed_version": "4.0.1",
+      "public_version": "4.0.1",
+      "source_url": "https://pypi.org/pypi/xxhash/4.0.1/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "yarl",
+      "installed_version": "1.24.5",
+      "public_version": "1.24.5",
+      "source_url": "https://pypi.org/pypi/yarl/1.24.5/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    },
+    {
+      "name": "zstandard",
+      "installed_version": "0.25.0",
+      "public_version": "0.25.0",
+      "source_url": "https://pypi.org/pypi/zstandard/0.25.0/json",
+      "local_version_suffix_removed": false,
+      "status": "checked",
+      "vulnerabilities": []
+    }
+  ],
+  "limitations": [
+    "Advisories reflect PyPI known vulnerabilities at the recorded time; not a security certification.",
+    "Local suffixes such as +cpu are checked against the matching public version.",
+    "OS/base-image packages, configuration and unknown vulnerabilities are outside this check."
+  ]
+}

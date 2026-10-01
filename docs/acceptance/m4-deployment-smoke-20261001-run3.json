@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-10-01T10:17:59.269923+00:00",
+  "scope": "deployed_http_smoke",
+  "real_model_calls": 0,
+  "checks": {
+    "health": true,
+    "spa_deep_link": true,
+    "production_docs_closed": true,
+    "anonymous_rejected": true,
+    "bad_token_rejected": true,
+    "case_retrieval": true,
+    "case_detail_demo_boundary": true,
+    "three_templates": true,
+    "downloads": true,
+    "document_ownership": true,
+    "sse_proxy_and_redis_commit": true,
+    "server_history": true,
+    "session_ownership": true,
+    "delete_history": true
+  },
+  "limitations": [
+    "Does not establish legal answer quality or a clean environment by itself."
+  ],
+  "passed": true,
+  "completed_at": "2026-10-01T10:18:08.848097+00:00"
+}

@@ -53,18 +53,21 @@ const featureEntries = [
     title: '法律咨询',
     description: '梳理事实、法律关系、所需材料和下一步。',
     available: true,
+    path: '/chat',
   },
   {
     icon: 'search',
     title: '案例检索',
     description: '按领域和关键事实查找可核验的参考资料。',
-    available: false,
+    available: true,
+    path: '/cases',
   },
   {
     icon: 'file',
     title: '文书生成',
     description: '根据结构化信息生成可复核的法律文书草稿。',
-    available: false,
+    available: true,
+    path: '/documents',
   },
 ]
 
@@ -185,7 +188,7 @@ function startConsultation(seed = question.value): void {
         <template v-for="entry in featureEntries" :key="entry.title">
           <RouterLink
             v-if="entry.available"
-            to="/chat"
+            :to="entry.path"
             class="focus-ring group col-span-2 rounded-2xl border border-ink-950/8 bg-white/62 p-5 transition hover:-translate-y-1 hover:border-jade-800/18 hover:bg-white hover:shadow-[0_18px_45px_rgba(18,33,29,0.08)] md:col-span-1"
           >
             <div class="flex items-start justify-between gap-4">

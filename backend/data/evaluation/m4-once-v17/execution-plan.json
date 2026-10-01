@@ -1,0 +1,18 @@
+{
+  "scope": "One bounded first model measurement; inputs already inspected during assisted development review",
+  "maximum_model_calls": 160,
+  "planned_questions": 24,
+  "corpus_profile": "eval-rag-v2-209",
+  "automatic_reruns": 0,
+  "failed_and_stream_requests_count_toward_cap": true,
+  "stop_on_provider_status": [
+    401,
+    402,
+    403
+  ],
+  "independent_blind_test": false,
+  "final_legal_acceptance_requires_expert_and_semantic_review": true,
+  "output": "docs/acceptance/m4-reviewed-first-model-20261001-run1.json",
+  "budget_basis": "Prior observed 24-question package used 120 calls; this run has a hard 160-call ceiling and no automatic increase",
+  "authorization_context": "User previously authorized restored-balance evaluation and now requested remaining work; offline-first and infrequent real-call preference retained"
+}

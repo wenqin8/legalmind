@@ -1,0 +1,38 @@
+{
+  "version": "m4-once-candidate-v3",
+  "created_at": "2026-09-30T18:54:31.057307+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "ec6e9b7a6fc9893abc47c483325f6023f6157218078106b7b1093edd823e18b8",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6,
+    "marriage_family": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent_generator",
+  "annotation_status": "agent_draft_pending_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "46584b4e12e29d3c810db44d26b5ca0e795d3e7be653f2a6bb2e0d5cc1e2bb5f",
+    "scenarios.jsonl": "f534facf46f64967e79a8850a9e062904a36635658708e15798d0ec585f8ec39"
+  },
+  "old_benchmark_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+  "limitations": [
+    "New exact questions and previously unlabelled provisions; topic independence is not expert-verified.",
+    "The same development agent wrote the generator; this is not an independent third-party blind test.",
+    "Version 2 rebinds the never-executed questions after the logout race fix; version 1 is retained and invalid for the current implementation."
+  ],
+  "supersedes": "m4-once-v2",
+  "reused_unexecuted_questions": true,
+  "previous_manifest_sha256": "8f6bcb440e1faf727f69485ea3e36ec045ceec05085fa7b3f686a6e15d2bae86"
+}

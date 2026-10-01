@@ -1,0 +1,53 @@
+{
+  "version": "m4-once-reserved-v13-assisted-review-draft",
+  "created_at": "2026-10-01T13:11:48.682967+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "marriage_family": 6,
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent",
+  "annotation_status": "partial_assisted_review_pending_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "69e165f02fd2baa914e235429f9e43f066de03f218773cc8c41cf68d0f90afe9",
+    "scenarios.jsonl": "b6d56b1008726b6c79def2de373b6761c6bea1abc20ac6f1dfe3720bac61793b",
+    "rubric.json": "429b4c0348c7674a894224c60d4ee0209dc1773b91d6d084aac1fd00a0678582",
+    "review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+  },
+  "exclusion_evidence": {
+    "observed_v6_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+    "exact_question_overlap": 0,
+    "topic_independence_expert_verified": false
+  },
+  "limitations": [
+    "All 24 questions are unsubmitted; revision records assisted review only, not independent gold or third-party blindness.",
+    "Submitted decisions remain four passes and two revision requests; changes are applied as a draft, not auto-approved as six passes.",
+    "Independent legal annotation and actual-answer semantic review remain incomplete."
+  ],
+  "rebind_reason": "Submitted non-independent marriage-family review revises two questions and records six more specific criteria; runtime unchanged",
+  "source_unexecuted_manifest_sha256": "3eae02d76b67f2a13838c7cdeb3299c8091d0f796ceb9caf23a1de9627072344",
+  "assisted_annotation_review": {
+    "reviewed": 6,
+    "passed_as_submitted": 4,
+    "minor_revisions_requested": 2,
+    "question_edits_applied": 2,
+    "remaining_unreviewed": 18,
+    "expert_review_complete": false,
+    "actual_answers_reviewed": 0,
+    "record_file": "review-record.json"
+  }
+}

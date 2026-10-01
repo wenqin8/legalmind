@@ -1,0 +1,74 @@
+{
+  "recorded_at": "2026-10-01T13:46:31.070940+00:00",
+  "passed": true,
+  "question_ids_changed_from_v13": [
+    "RESERVE-labor_dispute-06"
+  ],
+  "unchanged_questions_from_v13": 23,
+  "rubric_ids_refined": [
+    "RESERVE-labor_dispute-01",
+    "RESERVE-labor_dispute-02",
+    "RESERVE-labor_dispute-03",
+    "RESERVE-labor_dispute-04",
+    "RESERVE-labor_dispute-05",
+    "RESERVE-labor_dispute-06"
+  ],
+  "cumulative_reviewed": 12,
+  "passed_as_submitted": 9,
+  "revisions_requested": 3,
+  "remaining_unreviewed": 12,
+  "behavior_counts": {
+    "answer": 16,
+    "clarify": 4,
+    "insufficient": 4
+  },
+  "old_packages_and_delivery_unchanged": true,
+  "runtime_implementation_unchanged": true,
+  "old_and_new_observation_receipts_absent": true,
+  "real_model_calls": 0,
+  "actual_answers_reviewed": 0,
+  "expert_review_complete": false,
+  "broken_local_links": [],
+  "files": [
+    {
+      "path": "docs/review/m4-labor-review-round1-20261001.json",
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "docs/review/m4-labor-review-round1-20261001.md",
+      "sha256": "3ab35eed78f2e3f13cf6aae8448ad5a3f3dc005a9c5eabb8ef071390f7116980"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round2.json",
+      "sha256": "f78b63fc1f13765d89610640e18e96811670fb6ae272b744095ee8620fc1ccec"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/labor-review-record.json",
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/manifest.json",
+      "sha256": "9c0f82d23773c1b187d080c58d812d31d7023034df3acd941578b1035bd54362"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/queries.jsonl",
+      "sha256": "1a03633c90ce72f985bb932207dd430b21fa58585cd621fa9e7d2b8e11b50368"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/README.md",
+      "sha256": "4f3bd3b7cd774780dc0cf230d0778293bb20f08cf2a9ac6cdd3e7e120fe98f17"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/review-record.json",
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/rubric.json",
+      "sha256": "48419e8dd8346f16e5565cabe7e314166ccfc64603eb3ad15a07a28f309f8de9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/scenarios.jsonl",
+      "sha256": "2b3b26ffcb46aee14feea7adc512e19d3214f111dcbe692be6241627ba4e49d9"
+    }
+  ]
+}

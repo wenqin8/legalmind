@@ -1,0 +1,10 @@
+{
+  "NEW-labor_dispute-01": {
+    "expected_behavior": "answer",
+    "must_preserve": [
+      "协商、调解、仲裁、诉讼依各自触发条件；起诉保留本法另有规定例外。"
+    ],
+    "direct_sources": [
+      "labor_arbitration-2007-12-29-5"
+    ],
+    "official_source_url": 

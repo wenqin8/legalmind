@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-01T14:40:48.096528+00:00",
+  "review_date": "2026-10-01",
+  "submitted_via": "project_user_message",
+  "scope": "Questions, expected behavior and criteria only; no generated answers",
+  "reviewer": {
+    "role": "开发 Agent 辅助复核",
+    "qualification": "未提供、未核验执业律师或法律专家资质",
+    "independence": "非独立盲审，不能登记为独立法律专家复核",
+    "expert_qualification_verified": false,
+    "independent_of_development": false
+  },
+  "source_review_worksheet_package": "backend/data/evaluation/m4-once-v12",
+  "source_revision_package": "backend/data/evaluation/m4-once-v15",
+  "source_manifest_sha256": "9598fe86ba3884948c0f6e567729aff05931d63874c2ce51dea25b56a9e6d56e",
+  "revision_package": "backend/data/evaluation/m4-once-v16",
+  "summary": {
+    "reviewed": 6,
+    "passed": 4,
+    "revision_requests": 2,
+    "pending_in_this_batch": 0,
+    "behavior_changes": 0,
+    "model_answers_reviewed": 0
+  },
+  "selected_revisions": [
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "replacement_question": "一般规则咨询：当事人一方依据《民法典》第五百八十条第二款，请求人民法院终止合同权利义务关系时，一般以何时作为终止时间？法院选取更符合公平原则和诚信原则的其他时间时，存在哪些明示限制？不展开第五百八十条第二款的具体适用事由。",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "reason": "Add the article 580 paragraph 2 prerequisite"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "replacement_question": "只查询深圳市2026年地方政策：小微企业作为合同争议当事人参加商事调解时，是否存在由政府向该企业补助或减免调解服务费的政策，适用条件和金额是多少？不把支付给人民调解员、调解委员会或商事调解机构的工作经费视为企业获得的补贴；冻结语料缺少相应地方文件时，应明确说明资料不足。",
+      "expected_behavior": "insufficient",
+      "behavior_change_applied": false,
+      "reason": "Specify the enterprise recipient and commercial mediation policy"
+    }
+  ],
+  "alternative_not_applied_for_contract_06": "Retain the ambiguous question and clarify recipient/mediation type",
+  "clarification_checklist_for_contract_05": [
+    "合同类型、签订主体、签订日期和主要条款",
+    "各方已履行内容及争议行为发生时间",
+    "未付款、迟延、质量不符或拒绝履行等具体行为",
+    "催告、解除通知或其他书面通知",
+    "合同、付款凭证、交付记录和沟通材料",
+    "继续履行、解除合同、退款或索赔等具体诉求"
+  ],
+  "clarification_application": "Six conditional groups, at most three groups per turn across turns as needed",
+  "source_checks": [
+    {
+      "url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "result": "official_text_read",
+      "scope": "Articles 40, 54, 57 and 59"
+    },
+    {
+      "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/zcfg/content/post_11027402.html",
+      "result": "official_text_read",
+      "scope": "Articles 5 and 7: market pricing and published fees; article 19: effective 2023-12-10 for three years; reference only"
+    },
+    {
+      "url": "https://www.sz.gov.cn/hdjl/zxft/zqt/ftgj/content/post_10844693.html",
+      "result": "official_text_read",
+      "scope": "Published Q&A 3 lists four case-subsidy caps; Q&A 7 pays mediators; not enterprise subsidy proof or full 2026 status verification"
+    }
+  ],
+  "items": [
+    {
+      "query_id": "RESERVE-contract_dispute-01",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般合同规则咨询：债权人代位权主张不符合行使条件时如何处理，基于新事实再次起诉是否受影响？相对人仅称债权债务关系未被生效文书确认的抗辩怎样处理？不分析个案。",
+      "replacement_question": null,
+      "revised_criterion": "代位权诉讼经法院审理，债权人主张不符合行使条件时，应当驳回诉讼请求，不是驳回起诉；不影响债权人根据新的事实再次起诉。债务人的相对人仅以起诉时基础债权债务关系未经生效法律文书确认为由提出不符合代位权行使条件的抗辩，法院不予支持。三项后果均保留，不展开其他代位权条件或预判个案。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/419382.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-02",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "只问一般规则：未通知解除而直接起诉，撤诉后再次起诉且解除主张获支持，合同何时解除？撤诉后另发通知并到达对方这一例外怎样保留？不问我的合同。",
+      "replacement_question": null,
+      "revised_criterion": "限定未通知对方而直接起诉主张解除、撤诉后再次起诉且法院经审理支持解除主张；解除时点为再次起诉的起诉状副本送达对方时，不是再次起诉之日。保留撤诉后另行通知解除且通知已经到达对方的例外，不将该情形强套第二次送达规则。实际适用仍需确认解除权及法院支持条件，不把直接起诉或发通知当然视为享有解除权；本题只问一般规则，不分析虚构个案或补写其他解除事由。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/419382.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-03",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般合同知识咨询：侵害自然人人身权益产生的赔偿债务，与故意或重大过失侵害他人财产权益的赔偿债务，侵权人主张抵销时有什么明示规则？不扩写其他抵销事由。",
+      "replacement_question": null,
+      "revised_criterion": "区分侵害自然人人身权益产生的损害赔偿债务，与因故意或重大过失侵害他人财产权益产生的损害赔偿债务；第二类保留故意或重大过失，不将其扩大为一切财产侵权，也不将该过错限制额外套到第一类。符合这两类情形时，侵权人主张抵销，法院不予支持，不扩写其他抵销事由。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/419382.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "submitted_decision": "needs_revision",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般规则咨询：请求终止合同权利义务关系的诉讼，一般以何时作为终止时间？法院选取更符合公平诚信的其他时间时有哪些原文明示限制？不展开被援引条文的适用事由。",
+      "replacement_question": "一般规则咨询：当事人一方依据《民法典》第五百八十条第二款，请求人民法院终止合同权利义务关系时，一般以何时作为终止时间？法院选取更符合公平原则和诚信原则的其他时间时，存在哪些明示限制？不展开第五百八十条第二款的具体适用事由。",
+      "revised_criterion": "规则仅适用于当事人一方依据民法典第五百八十条第二款请求法院终止合同权利义务关系，不泛化为所有合同终止诉讼。一般以起诉状副本送达对方时间为终止时间；根据具体案件，以其他时间更加符合公平原则和诚信原则时，法院可以另行确定，但应在裁判文书中充分说明理由。不漏送达对象、裁量条件或说理义务，不展开被援引款项的具体适用事由。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/fabu/xiangqing/419382.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-05",
+      "submitted_decision": "pass",
+      "expected_behavior": "clarify",
+      "behavior_change_applied": false,
+      "original_question": "我有合同履行争议，但合同内容、事件时间及想解决的问题均未提供，请先询问需要的信息。",
+      "replacement_question": null,
+      "revised_criterion": "合同内容、履行过程、争议日期和诉求不明时先补关键事实，不预定继续履行、解除、违约赔偿或退款结论。核对清单包括合同类型、签订主体、日期和主要条款；各方履行及争议行为日期；未付款、迟延、质量不符或拒绝履行等具体行为；催告、解除等书面通知；合同、付款、交付和沟通证据；继续履行、解除、退款或索赔等具体诉求。六组按相关性及已答事实分轮追问，每轮最多三组，不一次性强制收集全部或无关敏感资料。",
+      "supplied_source_urls": [],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "submitted_decision": "needs_revision",
+      "expected_behavior": "insufficient",
+      "behavior_change_applied": false,
+      "original_question": "查询深圳市2026年小微企业合同争议调解费地方补贴标准及金额，只问地方一般政策，不使用全国规则推算。",
+      "replacement_question": "只查询深圳市2026年地方政策：小微企业作为合同争议当事人参加商事调解时，是否存在由政府向该企业补助或减免调解服务费的政策，适用条件和金额是多少？不把支付给人民调解员、调解委员会或商事调解机构的工作经费视为企业获得的补贴；冻结语料缺少相应地方文件时，应明确说明资料不足。",
+      "revised_criterion": "对象限定小微企业作为合同争议商事调解当事人，查询政府向该企业补助或减免调解服务费的地方政策。冻结语料缺相应地方文件，保持insufficient，说明当前依据不足，无法确认该政策是否存在及适用条件、金额，建议核验深圳市或具体区的现行文件。不把人民调解员个案补贴、委员会或机构工作经费、商事组织自行收费/减免混作企业获得的政府补贴；不从全国规定、模型记忆或外部复核网页推算统一金额，不以未检索到文件断言深圳不存在政策。",
+      "supplied_source_urls": [
+        "https://www.sz.gov.cn/cn/xxgk/zfxxgj/zcfg/content/post_11027402.html",
+        "https://www.sz.gov.cn/hdjl/zxft/zqt/ftgj/content/post_10844693.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    }
+  ],
+  "real_model_calls": 0,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "limitations": [
+    "Four passes/two revisions are supplied annotation decisions, not actual-answer quality results.",
+    "All first-round decisions are now recorded; six revised questions remain drafts pending confirmation.",
+    "External local-policy pages were not added to the frozen corpus; no complete 2026 subsidy-policy investigation was performed.",
+    "Published source text checks do not certify professional qualifications or independent expert annotation."
+  ]
+}

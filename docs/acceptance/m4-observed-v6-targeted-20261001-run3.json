@@ -1,0 +1,898 @@
+{
+  "started_at": "2026-10-01T05:26:20.873463+00:00",
+  "configuration": {
+    "implementation_sha256": "5373ec9e492ddd978ccb3bea1df46454f3d4de4ccca8aecee8f986cd11fd59d8",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/claim_rules.py": "514507b1229462712d2a56e0b3a4b5705c0e0baad234d157a85072ce8d5c320c",
+      "app/agents/evidence.py": "46e9156ab2494001a0e7bedf87e539f06389a51e618df53b757809fd09ae2875",
+      "app/agents/grounding.py": "528846ae9c96bb3fd114a80a4b8fd128f732d50db22ae78ca8cab284e15729ad",
+      "app/agents/intent.py": "2da5de0a93c0ead1acbbf4be2b04f275e9b00b2ed7d387688f8dd2b90cad8c13",
+      "app/agents/legal_evidence.py": "1e23fb8a4b14083d5bfae527196612fc5382214064355dcd8cf11a444c9aa649",
+      "app/agents/legal_references.py": "7945005a58d16e97f5f8c083e45aa7c2d3e2c88feafc4f84df6281269b709b72",
+      "app/agents/limitations.py": "57e6c2793b84c6d57977a15bdcfb3c1675e85a27217684fb7be006dabed01c9d",
+      "app/agents/paragraph_revision.py": "8b7f24ee10c198e7498d59de649826e09a3c8ea41044d6aea763916b278882e3",
+      "app/agents/qa.py": "40b7fbabedb037cf2610e6b654bf9a63ff01babb6481d6d9d910d50adb75c94b",
+      "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+      "app/agents/tasks.py": "817a5106a0d772236037f681e97074ceeae35e23d413bc2977cd12d55ca404a7",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+      "app/evaluation/dataset.py": "369c3dafed038067d8ecc01327a15e478a3ec12e57e9874f165a7feabd8b8ecf",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+      "app/evaluation/once_acceptance.py": "c300ab6a9a21c93f643f7fba6dd86296015bd0ab36d570948b811ba6ab8e09fc",
+      "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "b920f5c34dfddb1f07058c0ec66e57dab40d909000d46977a3b3f6c523a6c63e",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/create_once_acceptance.py": "13880e03d2d269dd30f913c90c115558ee320caef71c0a41b3512e0b51af31b0",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/diagnose_source_losses.py": "414a3b6f91242b9383421b7c595afadc81c110e6d15d3066bc3f1766bf3074d4",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_offline.py": "6cad819f7bba99bd02e541bd6c941553460197a394f6bf6628ee86d506838d8c",
+      "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+      "scripts/evaluate_rag.py": "c240338f3931bf7ed2d4a8cafa3ede4db0470f7879f6ff013a58b2abe25f0046",
+      "scripts/evaluate_rag_answers.py": "20eea6bea3730980cd3914b39c30d9961a6fc15435beeb127f1ea8ebd5ba8662",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/initialize_deployment.py": "6cbc5e64043c318bc7449d4f6ea3fd49bc3f97921a5169463d4e3fefc1c0de72",
+      "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+      "scripts/serve_e2e.py": "bdb2564660fd1242e9293a467a17ca5a0367db3f685a86fad2cb5ecd0ccc91cc",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_deployment.py": "7242d407514e311e402b7cd6aded3e1dc6b365e88895900df03ad2b0fb9a744f",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": true,
+  "scenarios": [
+    {
+      "id": "E-NEW-contract_dispute-02",
+      "query_id": "NEW-contract_dispute-02",
+      "domain": "contract_dispute",
+      "split": "acceptance",
+      "gold_sources": [
+        "civil_code-2020-05-28-497"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "turns": [
+        {
+          "expected": {
+            "message": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 5.377,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。",
+              "output": "{\"intent\": \"qa\", \"confidence\": 1.0, \"document_type\": null}",
+              "system_prompt_sha256": "48968e995facab09136f75cb0526a26919b13741a6d2fb69721af376f7ab88cc",
+              "elapsed_seconds": 0.551
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.789
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。",
+                "mode": "general",
+                "facts": {},
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "847ef962-2a02-5399-b5c6-4785de46475d",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "847ef962-2a02-5399-b5c6-4785de46475d",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第四百九十七条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十七条　有下列情形之一的，该格式条款无效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）提供格式条款一方排除对方主要权利。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "c850d36b-c479-5894-9bed-332c26596014",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "c850d36b-c479-5894-9bed-332c26596014",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第四百九十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第四百九十六条　格式条款是当事人为了重复使用而预先拟定，并在订立合同时未与对方协商的条款。\n采用格式条款订立合同的，提供格式条款的一方应当遵循公平原则确定当事人之间的权利和义务，并采取合理的方式提示对方注意免除或者减轻其责任等与对方有重大利害关系的条款，按照对方的要求，对该条款予以说明。提供格式条款的一方未履行提示或者说明义务，致使对方没有注意或者理解与其有重大利害关系的条款的，对方可以主张该条款不成为合同的内容。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十六条　格式条款是当事人为了重复使用而预先拟定，并在订立合同时未与对方协商的条款。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "采用格式条款订立合同的，提供格式条款的一方应当遵循公平原则确定当事人之间的权利和义务，并采取合理的方式提示对方注意免除或者减轻其责任等与对方有重大利害关系的条款，按照对方的要求，对该条款予以说明。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "提供格式条款的一方未履行提示或者说明义务，致使对方没有注意或者理解与其有重大利害关系的条款的，对方可以主张该条款不成为合同的内容。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "16fac49b-976b-5426-a42e-0e5bac7acf9b",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "16fac49b-976b-5426-a42e-0e5bac7acf9b",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第十条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第十条 提供格式条款的一方在合同订立时采用通常足以引起对方注意的文字、符号、字体等明显标识，提示对方注意免除或者减轻其责任、排除或者限制对方权利等与对方有重大利害关系的异常条款的，人民法院可以认定其已经履行民法典第四百九十六条第二款规定的提示义务。\n提供格式条款的一方按照对方的要求，就与对方有重大利害关系的异常条款的概念、内容及其法律后果以书面或者口头形式向对方作出通常能够理解的解释说明的，人民法院可以认定其已经履行民法典第四百九十六条第二款规定的说明义务。\n提供格式条款的一方对其已经尽到提示义务或者说明义务承担举证责任。对于通过互联网等信息网络订立的电子合同，提供格式条款的一方仅以采取了设置勾选、弹窗等方式为由主张其已经履行提示义务或者说明义务的，人民法院不予支持，但是其举证符合前两款规定的除外。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十条 提供格式条款的一方在合同订立时采用通常足以引起对方注意的文字、符号、字体等明显标识，提示对方注意免除或者减轻其责任、排除或者限制对方权利等与对方有重大利害关系的异常条款的，人民法院可以认定其已经履行民法典第四百九十六条第二款规定的提示义务。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "提供格式条款的一方按照对方的要求，就与对方有重大利害关系的异常条款的概念、内容及其法律后果以书面或者口头形式向对方作出通常能够理解的解释说明的，人民法院可以认定其已经履行民法典第四百九十六条第二款规定的说明义务。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "提供格式条款的一方对其已经尽到提示义务或者说明义务承担举证责任。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "对于通过互联网等信息网络订立的电子合同，提供格式条款的一方仅以采取了设置勾选、弹窗等方式为由主张其已经履行提示义务或者说明义务的，人民法院不予支持，但是其举证符合前两款规定的除外。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "6157a2fe-68bd-597d-a276-bae9a3bfad95",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "6157a2fe-68bd-597d-a276-bae9a3bfad95",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第九条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第九条 合同条款符合民法典第四百九十六条第一款规定的情形，当事人仅以合同系依据合同示范文本制作或者双方已经明确约定合同条款不属于格式条款为由主张该条款不是格式条款的，人民法院不予支持。\n从事经营活动的当事人一方仅以未实际重复使用为由主张其预先拟定且未与对方协商的合同条款不是格式条款的，人民法院不予支持。但是，有证据证明该条款不是为了重复使用而预先拟定的除外。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第九条 合同条款符合民法典第四百九十六条第一款规定的情形，当事人仅以合同系依据合同示范文本制作或者双方已经明确约定合同条款不属于格式条款为由主张该条款不是格式条款的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "从事经营活动的当事人一方仅以未实际重复使用为由主张其预先拟定且未与对方协商的合同条款不是格式条款的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "但是，有证据证明该条款不是为了重复使用而预先拟定的除外。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "604ab705-2562-559b-a651-9f56f97a78a5",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "604ab705-2562-559b-a651-9f56f97a78a5",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第五百六十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第五百六十三条　有下列情形之一的，当事人可以解除合同：\n（一）因不可抗力致使不能实现合同目的；\n（二）在履行期限届满前，当事人一方明确表示或者以自己的行为表明不履行主要债务；\n（三）当事人一方迟延履行主要债务，经催告后在合理期限内仍未履行；\n（四）当事人一方迟延履行债务或者有其他违约行为致使不能实现合同目的；\n（五）法律规定的其他情形。\n以持续履行的债务为内容的不定期合同，当事人可以随时解除合同，但是应当在合理期限之前通知对方。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第五百六十三条　有下列情形之一的，当事人可以解除合同："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）因不可抗力致使不能实现合同目的；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）在履行期限届满前，当事人一方明确表示或者以自己的行为表明不履行主要债务；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）当事人一方迟延履行主要债务，经催告后在合理期限内仍未履行；"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "（四）当事人一方迟延履行债务或者有其他违约行为致使不能实现合同目的；"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "（五）法律规定的其他情形。"
+                      },
+                      {
+                        "span_id": 6,
+                        "text": "以持续履行的债务为内容的不定期合同，当事人可以随时解除合同，但是应当在合理期限之前通知对方。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\"source_ids\": [\"847ef962-2a02-5399-b5c6-4785de46475d\"], \"assessment\": \"general\", \"direct_support\": {\"847ef962-2a02-5399-b5c6-4785de46475d\": [0, 2, 3]}, \"supporting_support\": {}, \"missing_fields\": [], \"questions\": {}, \"blocking_reasons\": {}}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 0.755
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。\n用户此前提供并保留的事实（数据）：\n",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本法第五百零六条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "history": [],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十七条　有下列情形之一的，该格式条款无效："
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）提供格式条款一方排除对方主要权利。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效[S1]；提供格式条款一方排除对方主要权利的，该格式条款无效[S1]。本次仅说明这两个分支，其他无效情形本次不展开。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "73169598d8cf8c773748dec3f16ecb1368765c7c308a92df8367dab51f629819",
+              "chunks": [
+                "结论",
+                "\n",
+                "就",
+                "用户",
+                "所",
+                "问",
+                "争",
+                "点",
+                "，",
+                "原",
+                "文明",
+                "示",
+                "：",
+                "提供",
+                "格式",
+                "条款",
+                "一方",
+                "不合理",
+                "地",
+                "免除",
+                "或者",
+                "减轻",
+                "其",
+                "责任",
+                "、",
+                "加重",
+                "对方",
+                "责任",
+                "、",
+                "限制",
+                "对方",
+                "主要",
+                "权利的",
+                "，",
+                "该",
+                "格式",
+                "条款",
+                "无效",
+                "[S",
+                "1",
+                "]",
+                "；",
+                "提供",
+                "格式",
+                "条款",
+                "一方",
+                "排除",
+                "对方",
+                "主要",
+                "权利的",
+                "，",
+                "该",
+                "格式",
+                "条款",
+                "无效",
+                "[S",
+                "1",
+                "]。",
+                "本次",
+                "仅",
+                "说明",
+                "这两个",
+                "分支",
+                "，",
+                "其他",
+                "无效",
+                "情形",
+                "本次",
+                "不",
+                "展开",
+                "。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 3.216
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效[S1]；提供格式条款一方排除对方主要权利的，该格式条款无效[S1]。本次仅说明这两个分支，其他无效情形本次不展开。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本法第五百零六条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效[S1]；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "提供格式条款一方排除对方主要权利的，该格式条款无效[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "本次仅说明这两个分支，其他无效情形本次不展开。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十七条　有下列情形之一的，该格式条款无效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）提供格式条款一方排除对方主要权利。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 0}, {\"citation_id\": \"S1\", \"span_id\": 2}], \"explanation\": \"\"}, {\"unit_id\": 1, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 0}, {\"citation_id\": \"S1\", \"span_id\": 3}], \"explanation\": \"\"}, {\"unit_id\": 2, \"verdict\": \"neutral\", \"supports\": [], \"explanation\": \"该句为对本次说明范围的限定，不构成独立法律主张。\"}]}",
+              "system_prompt_sha256": "83c851a2f98a797840597e0fc64f3594772b3dd530b1d780c3849f3e46851088",
+              "elapsed_seconds": 0.903
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效[S1]；提供格式条款一方排除对方主要权利的，该格式条款无效[S1]。本次仅说明这两个分支，其他无效情形本次不展开。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本法第五百零六条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效[S1]；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "提供格式条款一方排除对方主要权利的，该格式条款无效[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "本次仅说明这两个分支，其他无效情形本次不展开。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十七条　有下列情形之一的，该格式条款无效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）提供格式条款一方排除对方主要权利。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"候选句完整保留原文第（二）项前提：提供格式条款一方、不合理地免除或减轻责任、加重对方责任、限制对方主要权利，并得出该格式条款无效，未遗漏或改变条件。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"候选句与原文第（三）项一致，保留“提供格式条款一方排除对方主要权利”这一前提，并得出该格式条款无效。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"该句仅说明本次不展开其他无效情形，未否认或虚构原文内容，属于范围限定说明，与原文并列列举结构不冲突。\"}]}",
+              "system_prompt_sha256": "0d0d6f97da842b0977cd94d1e6c47a5d606bed7ef4230f01a4f4ffb536bb8f69",
+              "elapsed_seconds": 1.155
+            }
+          ],
+          "response": {
+            "response": "结论\n[S1] 就用户所问争点，原文明示：提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效；[S1] 提供格式条款一方排除对方主要权利的，该格式条款无效。本次仅说明这两个分支，其他无效情形本次不展开。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n参考材料\n[S1] 中华人民共和国民法典（第四百九十七条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n一般规则参考。\n官方原文：第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "847ef962-2a02-5399-b5c6-4785de46475d",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第四百九十七条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第四百九十七条　有下列情形之一的，该格式条款无效：\n（一）具有本法第一编第六章第三节和本法第五百零六条规定的无效情形；\n（二）提供格式条款一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利；\n（三）提供格式条款一方排除对方主要权利。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "a96e1620-b00a-4c5b-bfb1-056adfb5529e",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "c6b2755e-7fe0-4922-82a3-2c932ad00282",
+              "revision": "1a4b804e-e9b0-4702-ac9f-83c1f0e53d29",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "contract_dispute",
+              "mode": "general",
+              "fields": {},
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "52fffa8c-84ab-4ebf-9acd-54385f4b20d9": "一般合同规则咨询：一方提供的格式条款不合理免除自己责任、限制对方主要权利，或者排除对方主要权利，原文明示的效力规则是什么？不展开未给出的交叉条文内容。"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "civil_code-2020-05-28-497",
+              "civil_code-2020-05-28-496",
+              "contract_general-2023-12-04-10",
+              "contract_general-2023-12-04-9",
+              "civil_code-2020-05-28-563"
+            ],
+            "selected_ids": [
+              "civil_code-2020-05-28-497"
+            ],
+            "returned_ids": [
+              "civil_code-2020-05-28-497"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "synthetic_redis_keys_removed": true
+  },
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 1,
+  "scope": "observed_candidate_development",
+  "requested_scenarios": [
+    "E-NEW-contract_dispute-02"
+  ],
+  "unseen_before_this_run": false,
+  "independent_blind_test": false,
+  "implementation_sha256": "5d54ab4adb5e041724781f470d9e5b4f99268bf04f2e3f7ab2039819adf30402",
+  "source_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+  "first_observation_receipt_sha256": "56fa969fd1cfb7cdf311c34cd0d84e734c4c3c21996d82994760229176187add",
+  "summary": {
+    "scenarios_attempted": 1,
+    "scenarios_planned": 1,
+    "turns_planned": 1,
+    "successful_http_turns": 1,
+    "model_calls": 6,
+    "scenario_structural_passes": 1,
+    "behavior_match_including_errors": {
+      "value": 1.0,
+      "denominator": 1
+    },
+    "answer_behavior_rate": {
+      "value": 1.0,
+      "denominator": 1
+    },
+    "strict_insufficient_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "safe_nonanswer_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "http_latency_seconds_p50": 5.377,
+    "http_latency_seconds_p95": 5.377,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  },
+  "completed_at": "2026-10-01T05:26:27.159178+00:00"
+}

@@ -1,0 +1,59 @@
+{
+  "version": "m4-once-reserved-v15-assisted-review-draft",
+  "created_at": "2026-10-01T14:26:53.092045+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "marriage_family": 6,
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent",
+  "annotation_status": "partial_assisted_review_pending_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "queries.jsonl": "d5ff90c5c04ed4a28c88cadd8366082e7a798d0a31f099df93dfda88af9e3f58",
+    "scenarios.jsonl": "72f4153c13e39c13019a1a8201c937cc5f59402a3c3bae42e06040405bb5d5b7",
+    "rubric.json": "0f9bb264bd180b5132c66b45588e8fb334abcad817d277258a6945b93cea0fb9",
+    "review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d",
+    "labor-review-record.json": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4",
+    "traffic-review-record.json": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+  },
+  "exclusion_evidence": {
+    "observed_v6_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+    "exact_question_overlap": 0,
+    "topic_independence_expert_verified": false
+  },
+  "limitations": [
+    "All 24 questions remain unsubmitted; three assisted review batches are not independent legal gold or third-party blindness.",
+    "Original decisions remain fourteen passes/four revision requests; edits are drafts and do not auto-change the passed count.",
+    "Independent expert annotation and actual-answer semantic review remain incomplete."
+  ],
+  "rebind_reason": "Traffic assisted review specifies one local-policy question and refines six criteria; marriage and labor revisions retained; no runtime change",
+  "source_unexecuted_manifest_sha256": "9c0f82d23773c1b187d080c58d812d31d7023034df3acd941578b1035bd54362",
+  "assisted_annotation_review": {
+    "reviewed": 18,
+    "passed_as_submitted": 14,
+    "revisions_requested": 4,
+    "question_edits_applied": 4,
+    "remaining_unreviewed": 6,
+    "expert_review_complete": false,
+    "actual_answers_reviewed": 0,
+    "record_files": [
+      "review-record.json",
+      "labor-review-record.json",
+      "traffic-review-record.json"
+    ]
+  }
+}

@@ -52,6 +52,20 @@ async def test_valid_support_is_rendered_with_its_own_citation():
     assert result == '结论\n[S1] 申请人需要提供证明材料。'
 
 
+@pytest.mark.parametrize('label', ['[ S1]', '[S 1]', '[S1 ]', '[Ｓ１]', '［S1］'])
+async def test_model_label_variants_are_replaced_by_checked_server_labels(label):
+    raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'supported', 'supports': [
+        {'citation_id': 'S1', 'span_id': 0}]}]})
+    result = await validate_grounding(f'结论\n申请人需要提供证明材料{label}。', evidence(), '材料', CheckedFake(raw))
+    assert result == '结论\n[S1] 申请人需要提供证明材料。'
+
+
+async def test_neutral_sentence_drops_model_label_with_whitespace():
+    raw = json.dumps({'items': [{'unit_id': 0, 'verdict': 'neutral', 'supports': []}]})
+    result = await validate_grounding('风险\n请整理已有材料[ S1]。', evidence(), '材料', CheckedFake(raw))
+    assert result == '风险\n请整理已有材料。'
+
+
 async def test_repeated_sentences_are_rendered_once_at_each_original_position():
     first = evidence()[0]
     second = Evidence(first.source.model_copy(update={'citation_id': 'S2'}), first.text)

@@ -1,0 +1,665 @@
+{
+  "reviewer": "development_agent",
+  "independent_review": false,
+  "items": [
+    {
+      "query_id": "RESERVE-marriage_family-01",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "限定婚姻关系存续期间、个人名义及超出家庭日常生活需要；原则不属于夫妻共同债务，但债权人能够证明用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示的除外。保留债权人的证明要求和三个并列例外，不泛化至婚前或离婚后债务；仅说明所问一般规则。",
+      "source_record_id": "civil_code-2020-05-28-1064",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零六十四条",
+      "original_text": "第一千零六十四条　夫妻双方共同签名或者夫妻一方事后追认等共同意思表示所负的债务，以及夫妻一方在婚姻关系存续期间以个人名义为家庭日常生活需要所负的债务，属于夫妻共同债务。\n夫妻一方在婚姻关系存续期间以个人名义超出家庭日常生活需要所负的债务，不属于夫妻共同债务；但是，债权人能够证明该债务用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示的除外。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "source_verification": {
+        "version": "2020年制定",
+        "effective_from": "2021-01-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第一千零六十四条　夫妻双方共同签名或者夫妻一方事后追认等共同意思表示所负的债务，以及夫妻一方在婚姻关系存续期间以个人名义为家庭日常生活需要所负的债务，属于夫妻共同债务。\n夫妻一方在婚姻关系存续期间以个人名义超出家庭日常生活需要所负的债务，不属于夫妻共同债务；但是，债权人能够证明该债务用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示的除外。",
+        "text_sha256": "daabe5694b559cc8d1ba0a490408d0233d71e219c076caefbbbaa6d765f78796",
+        "domains": [
+          "marriage_family"
+        ],
+        "keywords": [
+          "共同债务",
+          "欠债",
+          "借款"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-01",
+        "submitted_decision": "needs_minor_revision",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-marriage_family-02",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留双方自愿离婚、书面离婚协议、双方亲自到婚姻登记机关申请；协议载明自愿离婚意思表示及对子女抚养、财产、债务处理协商一致的意见。不能只写签协议，题目不问办理时间，不扩展冷静期等程序。",
+      "source_record_id": "civil_code-2020-05-28-1076",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零七十六条",
+      "original_text": "第一千零七十六条　夫妻双方自愿离婚的，应当签订书面离婚协议，并亲自到婚姻登记机关申请离婚登记。\n离婚协议应当载明双方自愿离婚的意思表示和对子女抚养、财产以及债务处理等事项协商一致的意见。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "source_verification": {
+        "version": "2020年制定",
+        "effective_from": "2021-01-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第一千零七十六条　夫妻双方自愿离婚的，应当签订书面离婚协议，并亲自到婚姻登记机关申请离婚登记。\n离婚协议应当载明双方自愿离婚的意思表示和对子女抚养、财产以及债务处理等事项协商一致的意见。",
+        "text_sha256": "df170cdaa0b16067ea5164778e3dbc16d4d1dc057e892c9c956dc64daeb010c1",
+        "domains": [
+          "marriage_family"
+        ],
+        "keywords": [
+          "协议离婚",
+          "自愿离婚"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-02",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-marriage_family-03",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "限定父母双方以法定代理人身份、用夫妻共同财产购买且登记在未成年子女名下的房屋、处分后向相对人主张行为无效。原文所述请求理由为违反民法典第三十五条规定损害未成年子女利益，结果为人民法院不予支持。只转述该限定规则，不扩展缺失的被引全文，不概括为任何处分均有效或任何无效事由均不支持。",
+      "source_record_id": "marriage_ii-2025-01-15-15",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释（二）",
+      "article": "第十五条",
+      "original_text": "第十五条  父母双方以法定代理人身份处分用夫妻共同财产购买并登记在未成年子女名下的房屋后，又以违反民法典第三十五条规定损害未成年子女利益为由向相对人主张该民事法律行为无效的，人民法院不予支持。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+      "source_verification": {
+        "version": "2025年制定",
+        "effective_from": "2025-02-01",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2025-02-01",
+        "status_source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+        "original_text": "第十五条  父母双方以法定代理人身份处分用夫妻共同财产购买并登记在未成年子女名下的房屋后，又以违反民法典第三十五条规定损害未成年子女利益为由向相对人主张该民事法律行为无效的，人民法院不予支持。",
+        "text_sha256": "fb11d35717f37c98a617d88bc323248aa7cfdc91bad6467fbd2be7a318db6eed",
+        "domains": [
+          "marriage_family"
+        ],
+        "keywords": [
+          "共同财产",
+          "房屋",
+          "子女"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-03",
+        "submitted_decision": "needs_minor_revision",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-marriage_family-04",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "限定离婚诉讼中一方存在年老、残疾、重病等生活困难情形，请求有负担能力的另一方适当帮助；保留人民法院根据当事人请求、结合对方财产状况、可以依法支持。不得写成一定支持，不展开其他补偿或分割请求。",
+      "source_record_id": "marriage_ii-2025-01-15-22",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释（二）",
+      "article": "第二十二条",
+      "original_text": "第二十二条  离婚诉讼中，一方存在年老、残疾、重病等生活困难情形，依据民法典第一千零九十条规定请求有负担能力的另一方给予适当帮助的，人民法院可以根据当事人请求，结合另一方财产状况，依法予以支持。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+      "source_verification": {
+        "version": "2025年制定",
+        "effective_from": "2025-02-01",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2025-02-01",
+        "status_source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+        "original_text": "第二十二条  离婚诉讼中，一方存在年老、残疾、重病等生活困难情形，依据民法典第一千零九十条规定请求有负担能力的另一方给予适当帮助的，人民法院可以根据当事人请求，结合另一方财产状况，依法予以支持。",
+        "text_sha256": "7319ed16c3d4f94cd0ce5a4c66f90478ff824b8f9ec752bdc3f1a8249340548d",
+        "domains": [
+          "marriage_family"
+        ],
+        "keywords": [
+          "离婚",
+          "生活困难"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-04",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-marriage_family-05",
+      "expected": "clarify",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "缺少能够确定法律分支的事情经过、事件日期和具体请求，先追问，不直接判断财产归属或分割。可按需要优先询问财产种类/取得/登记/资金来源、婚姻及相关事件日期、用户希望确认归属/分割/追回/补偿；每轮最多三组，不机械收集无关事实，不预先绑定某条实体法。",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-05",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-marriage_family-06",
+      "expected": "insufficient",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "资料不足指冻结语料没有足以回答深圳2026年此项地方政策的文件，不表示深圳不存在相关政策。不得用民法典替代地方住房政策，不确认统一额外资助或编造金额。说明需补充市或区住房、民政部门适用文件；找到政策后再按文件核对资格，不把户籍/收入财产/住房/子女年龄等可能相关因素说成已确认的一项统一政策条件。",
+      "assisted_review": {
+        "record": "review-record.json",
+        "query_id": "RESERVE-marriage_family-06",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-01",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "明确双方为用人单位与劳动者；协商一致可以变更劳动合同约定内容，变更采用书面形式，变更后的文本双方各执一份。不扩展未问的个人纠纷。",
+      "source_record_id": "labor_contract-2012-12-28-35",
+      "title": "中华人民共和国劳动合同法",
+      "article": "第三十五条",
+      "original_text": "第三十五条　用人单位与劳动者协商一致，可以变更劳动合同约定的内容。变更劳动合同，应当采用书面形式。\n变更后的劳动合同文本由用人单位和劳动者各执一份。",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html",
+      "source_verification": {
+        "version": "2012年修正",
+        "effective_from": "2013-07-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第三十五条　用人单位与劳动者协商一致，可以变更劳动合同约定的内容。变更劳动合同，应当采用书面形式。\n变更后的劳动合同文本由用人单位和劳动者各执一份。",
+        "text_sha256": "87c6cfd0aaaaac1ee94f8b33e89cb2c39c5ea31ea3254205d2256ef602c52b8c",
+        "domains": [
+          "labor_dispute"
+        ],
+        "keywords": [
+          "变更",
+          "调岗",
+          "协商"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-01",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-02",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "直接说明用人单位不得强迫或变相强迫劳动者加班；安排加班应按照国家有关规定向劳动者支付加班费。只陈述所问全国条文明示原则，不缺依据计算工资基数、工时类型或地方具体金额。",
+      "source_record_id": "labor_contract-2012-12-28-31",
+      "title": "中华人民共和国劳动合同法",
+      "article": "第三十一条",
+      "original_text": "第三十一条　用人单位应当严格执行劳动定额标准，不得强迫或者变相强迫劳动者加班。用人单位安排加班的，应当按照国家有关规定向劳动者支付加班费。",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html",
+      "source_verification": {
+        "version": "2012年修正",
+        "effective_from": "2013-07-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第三十一条　用人单位应当严格执行劳动定额标准，不得强迫或者变相强迫劳动者加班。用人单位安排加班的，应当按照国家有关规定向劳动者支付加班费。",
+        "text_sha256": "3d59d0c0be5104e98085ff106e75a3c25ec8dc7378a5e05f48d939f2c0e00d2a",
+        "domains": [
+          "labor_dispute"
+        ],
+        "keywords": [
+          "加班",
+          "加班费"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-02",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-03",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "同时保留当事人对自己主张提供证据的一般责任、与争议有关证据由单位掌握管理时单位应提供的义务，以及单位不提供应承担的不利后果。不把一般责任和特殊证据提供义务相互替代。",
+      "source_record_id": "labor_arbitration-2007-12-29-6",
+      "title": "中华人民共和国劳动争议调解仲裁法",
+      "article": "第六条",
+      "original_text": "第六条 发生劳动争议，当事人对自己提出的主张，有责任提供证据。与争议事项有关的证据属于用人单位掌握管理的，用人单位应当提供；用人单位不提供的，应当承担不利后果。",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+      "source_verification": {
+        "version": "2007年制定",
+        "effective_from": "2008-05-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第六条 发生劳动争议，当事人对自己提出的主张，有责任提供证据。与争议事项有关的证据属于用人单位掌握管理的，用人单位应当提供；用人单位不提供的，应当承担不利后果。",
+        "text_sha256": "d97f4a61526ca124fb7d1ab9cca80c6afb8cc7115d8c98e4ca54296fe179c2c3",
+        "domains": [
+          "labor_dispute"
+        ],
+        "keywords": [
+          "证据",
+          "举证",
+          "材料"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-03",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-04",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "在单位违反国家规定拖欠或未足额支付劳动报酬，或者拖欠工伤医疗费、经济补偿、赔偿金的原文明示范围内，保留劳动者可以向劳动行政部门投诉、部门应当依法处理。题目只问投诉处理方向，未要求展开其他救济、具体时限或诉讼结果；不因只问拖欠分支而判题目错误。",
+      "source_record_id": "labor_arbitration-2007-12-29-9",
+      "title": "中华人民共和国劳动争议调解仲裁法",
+      "article": "第九条",
+      "original_text": "第九条 用人单位违反国家规定，拖欠或者未足额支付劳动报酬，或者拖欠工伤医疗费、经济补偿或者赔偿金的，劳动者可以向劳动行政部门投诉，劳动行政部门应当依法处理。",
+      "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+      "source_verification": {
+        "version": "2007年制定",
+        "effective_from": "2008-05-01",
+        "effective_until": null,
+        "verified_at": "2026-09-18",
+        "status_as_of": "2026-03-12",
+        "status_source_url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+        "original_text": "第九条 用人单位违反国家规定，拖欠或者未足额支付劳动报酬，或者拖欠工伤医疗费、经济补偿或者赔偿金的，劳动者可以向劳动行政部门投诉，劳动行政部门应当依法处理。",
+        "text_sha256": "161acd7ca8bf1d07e9fb029fb830b2de79b8e66efd09caefc51d569ff8785f25",
+        "domains": [
+          "labor_dispute"
+        ],
+        "keywords": [
+          "拖欠",
+          "工资",
+          "投诉",
+          "欠薪"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-04",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-05",
+      "expected": "clarify",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "解除主体、理由、时间和证据等关键事实不明，先追问，不先判断合法性或绑定解除条款。核对清单包括单位解除/辞职/协商解除；理由、通知与生效日期和通知方式；合同、通知、制度及考勤工资沟通证据；入职、期限、工资、诉求；相关医疗期、工伤、孕产哺乳状态。按相关性和已答内容分轮补充，每轮最多三组，不一次性强制收集五组或无关敏感事实。",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-05",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-06",
+      "expected": "insufficient",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "对象明确为劳动争议法律援助案件承办人员的办案补贴，不是向受援劳动者发放现金。冻结语料缺少能确认2026年适用规则的地方政策原文与计算参数，保持insufficient；不能用全国条文、模型记忆或外部复核参考替代本轮证据给出公式和金额，也不能说深圳没有补贴。说明需核对广东省/深圳市适用文件、年度工资等参数及案件类型、跨区域因素；这些是待核信息，不是本轮已确定的统一公式。",
+      "assisted_review": {
+        "record": "labor-review-record.json",
+        "query_id": "RESERVE-labor_dispute-06",
+        "submitted_decision": "needs_revision",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-01",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "交通费限于受害人及必要的陪护人员因就医或转院治疗实际发生的费用；保留必要陪护、就医或转院用途、实际发生以及正式票据四项限制。有关凭据应与就医地点、时间、人数、次数相符，不把所有陪护或出行费用当然纳入，不计算金额。",
+      "source_record_id": "personal_injury-2022-04-24-9",
+      "title": "最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释",
+      "article": "第九条",
+      "original_text": "第九条  交通费根据受害人及其必要的陪护人员因就医或者转院治疗实际发生的费用计算。交通费应当以正式票据为凭；有关凭据应当与就医地点、时间、人数、次数相符合。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+      "source_verification": {
+        "version": "2022年修正",
+        "effective_from": "2022-05-01",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2022-05-01",
+        "status_source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+        "original_text": "第九条  交通费根据受害人及其必要的陪护人员因就医或者转院治疗实际发生的费用计算。交通费应当以正式票据为凭；有关凭据应当与就医地点、时间、人数、次数相符合。",
+        "text_sha256": "225566c6ef60df00187c421e405c13b5ef82d465a59922ec8ad1ab1b8e9cb7cf",
+        "domains": [
+          "traffic_accident"
+        ],
+        "keywords": [
+          "交通费"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-01",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-02",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "住院伙食补助费可以参照当地国家机关一般工作人员出差伙食补助标准，不将参照标准表述为固定金额。受害人确有必要到外地治疗，因客观原因不能住院时，本人和陪护人员实际发生的住宿费、伙食费只赔偿合理部分；同时保留必要外地治疗、客观不能住院、实际发生、合理部分，不泛化为所有外地费用均赔偿，不查询当地金额。",
+      "source_record_id": "personal_injury-2022-04-24-10",
+      "title": "最高人民法院关于审理人身损害赔偿案件适用法律若干问题的解释",
+      "article": "第十条",
+      "original_text": "第十条  住院伙食补助费可以参照当地国家机关一般工作人员的出差伙食补助标准予以确定。\n受害人确有必要到外地治疗，因客观原因不能住院，受害人本人及其陪护人员实际发生的住宿费和伙食费，其合理部分应予赔偿。",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+      "source_verification": {
+        "version": "2022年修正",
+        "effective_from": "2022-05-01",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2022-05-01",
+        "status_source_url": "https://www.court.gov.cn/zixun/xiangqing/357071.html",
+        "original_text": "第十条  住院伙食补助费可以参照当地国家机关一般工作人员的出差伙食补助标准予以确定。\n受害人确有必要到外地治疗，因客观原因不能住院，受害人本人及其陪护人员实际发生的住宿费和伙食费，其合理部分应予赔偿。",
+        "text_sha256": "8b4d0acd873638e4431e822151a26f98359fe0b79f4b8b6af2faa7cd0ae144f0",
+        "domains": [
+          "traffic_accident"
+        ],
+        "keywords": [
+          "赔偿",
+          "伙食"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-02",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-03",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "在侵权人和保险人败诉的题设下，人民法院根据各方与诉讼标的的利害关系分别决定案件受理费负担数额，不机械平均分担；保险人只凭合同约定不负担案件受理费提出抗辩，法院不予支持。保留第十二条时间边界：2026年6月30日起施行；施行后尚未终审案件适用；施行前已经终审后申请再审或按审判监督程序决定再审的案件不适用本解释。只说明一般规则及边界，不虚构个案日期或改为追问。",
+      "source_record_id": "traffic_ii-2026-05-06-9",
+      "title": "最高人民法院关于审理道路交通事故损害赔偿案件适用法律若干问题的解释（二）",
+      "article": "第九条",
+      "original_text": "第九条  道路交通事故损害赔偿案件中，侵权人及其保险人败诉的，人民法院应当根据各方对诉讼标的的利害关系决定各自负担的案件受理费数额；保险人仅以保险合同约定其不承担案件受理费为由抗辩的，人民法院不予支持。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+      "source_verification": {
+        "version": "2026年制定",
+        "effective_from": "2026-06-30",
+        "effective_until": null,
+        "verified_at": "2026-09-24",
+        "status_as_of": "2026-06-30",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+        "original_text": "第九条  道路交通事故损害赔偿案件中，侵权人及其保险人败诉的，人民法院应当根据各方对诉讼标的的利害关系决定各自负担的案件受理费数额；保险人仅以保险合同约定其不承担案件受理费为由抗辩的，人民法院不予支持。",
+        "text_sha256": "b1afc4b82a97298f18cece7a1e67b3f6b99fef921f71ddbc2fed7235ac834852",
+        "domains": [
+          "traffic_accident"
+        ],
+        "keywords": [
+          "案件受理费",
+          "保险"
+        ],
+        "temporal_rule": "pending_after_effective",
+        "transition_text": "第十二条  本解释自2026年6月30日起施行。\n本解释施行后尚未终审的案件，适用本解释；本解释施行前已经终审，当事人申请再审或者按照审判监督程序决定再审的案件，不适用本解释。"
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-03",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-04",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "区分两层前提：因非机动车事故以侵权人为被告，同时将承保该非机动车商业第三者责任险的保险人列为被告并请求其承担赔偿责任时，人民法院应当合并审理；属于该非机动车一方责任时，保险人按照保险合同约定赔偿，不足部分由侵权人赔偿。不泛化为所有非机动车事故保险人先赔。保留第十二条时间边界：2026年6月30日起施行；施行后尚未终审案件适用；施行前已终审后申请再审或按审判监督程序决定再审的案件不适用本解释。不讨论具体保险条款，不假设个案日期。",
+      "source_record_id": "traffic_ii-2026-05-06-11",
+      "title": "最高人民法院关于审理道路交通事故损害赔偿案件适用法律若干问题的解释（二）",
+      "article": "第十一条",
+      "original_text": "第十一条  当事人以侵权人为被告提起非机动车交通事故责任纠纷诉讼，同时将承保非机动车商业三者险的保险人列为被告并请求其承担赔偿责任的，人民法院应当合并审理。\n属于该非机动车一方责任，当事人主张由承保非机动车商业三者险的保险人按照保险合同约定予以赔偿、不足部分由侵权人赔偿的，人民法院应予支持。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+      "source_verification": {
+        "version": "2026年制定",
+        "effective_from": "2026-06-30",
+        "effective_until": null,
+        "verified_at": "2026-09-24",
+        "status_as_of": "2026-06-30",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/499051.html",
+        "original_text": "第十一条  当事人以侵权人为被告提起非机动车交通事故责任纠纷诉讼，同时将承保非机动车商业三者险的保险人列为被告并请求其承担赔偿责任的，人民法院应当合并审理。\n属于该非机动车一方责任，当事人主张由承保非机动车商业三者险的保险人按照保险合同约定予以赔偿、不足部分由侵权人赔偿的，人民法院应予支持。",
+        "text_sha256": "ffa869097357e3c318ce06c549236106644734692efd93195bfa5153147b016d",
+        "domains": [
+          "traffic_accident"
+        ],
+        "keywords": [
+          "非机动车",
+          "保险"
+        ],
+        "temporal_rule": "pending_after_effective",
+        "transition_text": "第十二条  本解释自2026年6月30日起施行。\n本解释施行后尚未终审的案件，适用本解释；本解释施行前已经终审，当事人申请再审或者按照审判监督程序决定再审的案件，不适用本解释。"
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-04",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-05",
+      "expected": "clarify",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "事故关键事实不足时先追问，不先定责任比例、赔偿项目或金额。核对清单包括发生时间、地点和车辆类型；伤亡、医疗、伤残及财产损失；责任认定及相关逃逸、酒驾情况；交强险、商业三者险及其他保险；已付款、票据和具体赔偿请求。按相关性和已答内容分轮补充，每轮最多三组，不一次性强制收集五组或无关敏感事实，不预设责任和请求。",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-05",
+        "submitted_decision": "pass",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-06",
+      "expected": "insufficient",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "问题限定深圳民政临时救助制度中的急难型救助，不是道路交通事故社会救助基金垫付。冻结语料未收录相应办法、有效期延长文件及2026年最低生活保障标准，保持insufficient，说明当前依据不足，无法据本冻结证据确认适用条件、公式或具体金额；需补充并核验地方现行文件及年度参数。资料不足不等于深圳不存在救助，不以全国民事赔偿条文、模型记忆、外部复核参考或2008年旧办法替代本轮证据，不生成统一现金资助结论。",
+      "assisted_review": {
+        "record": "traffic-review-record.json",
+        "query_id": "RESERVE-traffic_accident-06",
+        "submitted_decision": "needs_revision",
+        "independent_expert_review": false
+      }
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-01",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。",
+      "source_record_id": "contract_general-2023-12-04-40",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "article": "第四十条",
+      "original_text": "第四十条 代位权诉讼中，人民法院经审理认为债权人的主张不符合代位权行使条件的，应当驳回诉讼请求，但是不影响债权人根据新的事实再次起诉。\n债务人的相对人仅以债权人提起代位权诉讼时债权人与债务人之间的债权债务关系未经生效法律文书确认为由，主张债权人提起的诉讼不符合代位权行使条件的，人民法院不予支持。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "source_verification": {
+        "version": "2023年制定",
+        "effective_from": "2023-12-05",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2023-12-05",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+        "original_text": "第四十条 代位权诉讼中，人民法院经审理认为债权人的主张不符合代位权行使条件的，应当驳回诉讼请求，但是不影响债权人根据新的事实再次起诉。\n债务人的相对人仅以债权人提起代位权诉讼时债权人与债务人之间的债权债务关系未经生效法律文书确认为由，主张债权人提起的诉讼不符合代位权行使条件的，人民法院不予支持。",
+        "text_sha256": "a4f670dadd578f1d80835cfec44384025521b9321ec2aed3bea10167ec6613f5",
+        "domains": [
+          "contract_dispute"
+        ],
+        "keywords": [
+          "债权",
+          "代位权",
+          "债务"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-02",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。",
+      "source_record_id": "contract_general-2023-12-04-54",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "article": "第五十四条",
+      "original_text": "第五十四条 当事人一方未通知对方，直接以提起诉讼的方式主张解除合同，撤诉后再次起诉主张解除合同，人民法院经审理支持该主张的，合同自再次起诉的起诉状副本送达对方时解除。但是，当事人一方撤诉后又通知对方解除合同且该通知已经到达对方的除外。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "source_verification": {
+        "version": "2023年制定",
+        "effective_from": "2023-12-05",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2023-12-05",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+        "original_text": "第五十四条 当事人一方未通知对方，直接以提起诉讼的方式主张解除合同，撤诉后再次起诉主张解除合同，人民法院经审理支持该主张的，合同自再次起诉的起诉状副本送达对方时解除。但是，当事人一方撤诉后又通知对方解除合同且该通知已经到达对方的除外。",
+        "text_sha256": "20af6cfc7cfdbe9bfa6fec4069c385789e36826f5324be31ac2392557970349e",
+        "domains": [
+          "contract_dispute"
+        ],
+        "keywords": [
+          "合同",
+          "解除"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-03",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。",
+      "source_record_id": "contract_general-2023-12-04-57",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "article": "第五十七条",
+      "original_text": "第五十七条 因侵害自然人人身权益，或者故意、重大过失侵害他人财产权益产生的损害赔偿债务，侵权人主张抵销的，人民法院不予支持。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "source_verification": {
+        "version": "2023年制定",
+        "effective_from": "2023-12-05",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2023-12-05",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+        "original_text": "第五十七条 因侵害自然人人身权益，或者故意、重大过失侵害他人财产权益产生的损害赔偿债务，侵权人主张抵销的，人民法院不予支持。",
+        "text_sha256": "8461f33c444de2f86362eb7bc4887993c3d1cf5c5554f238537cde212fa991f2",
+        "domains": [
+          "contract_dispute"
+        ],
+        "keywords": [
+          "赔偿",
+          "抵销",
+          "债务"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "expected": "answer",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。",
+      "source_record_id": "contract_general-2023-12-04-59",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "article": "第五十九条",
+      "original_text": "第五十九条 当事人一方依据民法典第五百八十条第二款的规定请求终止合同权利义务关系的，人民法院一般应当以起诉状副本送达对方的时间作为合同权利义务关系终止的时间。根据案件的具体情况，以其他时间作为合同权利义务关系终止的时间更加符合公平原则和诚信原则的，人民法院可以以该时间作为合同权利义务关系终止的时间，但是应当在裁判文书中充分说明理由。",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+      "source_verification": {
+        "version": "2023年制定",
+        "effective_from": "2023-12-05",
+        "effective_until": null,
+        "verified_at": "2026-09-19",
+        "status_as_of": "2023-12-05",
+        "status_source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+        "original_text": "第五十九条 当事人一方依据民法典第五百八十条第二款的规定请求终止合同权利义务关系的，人民法院一般应当以起诉状副本送达对方的时间作为合同权利义务关系终止的时间。根据案件的具体情况，以其他时间作为合同权利义务关系终止的时间更加符合公平原则和诚信原则的，人民法院可以以该时间作为合同权利义务关系终止的时间，但是应当在裁判文书中充分说明理由。",
+        "text_sha256": "4bee0f8cfb81834a27e57a1123f7bee6143f0956e9b667a3ca10dc1f1a600bd0",
+        "domains": [
+          "contract_dispute"
+        ],
+        "keywords": [
+          "合同",
+          "说明"
+        ],
+        "temporal_rule": "event_date",
+        "transition_text": null
+      },
+      "verification_scope": "repository_verified_snapshot_only; not newly live-verified"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-05",
+      "expected": "clarify",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。"
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "expected": "insufficient",
+      "review_status": "agent_draft_pending_expert",
+      "criterion": "保留所问分支的全部前提、例外、范围和法律后果；缺事实先问，缺地方文件不编造。"
+    }
+  ]
+}

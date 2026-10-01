@@ -70,7 +70,7 @@ onMounted(() => {
           class="grid size-9 place-items-center rounded-[11px] bg-ink-950 font-serif text-lg font-semibold text-paper shadow-sm"
           aria-hidden="true"
         >衡</span>
-        <span class="hidden leading-none min-[360px]:block">
+        <span class="hidden leading-none sm:block">
           <span class="block text-[15px] font-semibold tracking-[0.01em] text-ink-950">LegalMind</span>
           <span class="mt-1 hidden text-[10px] tracking-[0.12em] text-ink-600 sm:block">
             法律信息助手
@@ -78,23 +78,27 @@ onMounted(() => {
         </span>
       </RouterLink>
 
-      <nav class="ml-1 flex items-center gap-0.5 min-[360px]:ml-2 sm:ml-12 sm:gap-1" aria-label="主导航">
+      <nav class="ml-1 flex min-w-0 items-center gap-0 min-[360px]:ml-2 sm:ml-6 lg:ml-12 sm:gap-1 [&_.nav-link]:px-2 sm:[&_.nav-link]:px-3" aria-label="主导航">
+        <span class="hidden sm:contents">
         <RouterLink
-          to="/"
           class="nav-link"
+          to="/"
           active-class="nav-link-active"
           exact-active-class="nav-link-active"
         >
           首页
         </RouterLink>
+        </span>
         <RouterLink to="/chat" class="nav-link" active-class="nav-link-active">
           咨询
         </RouterLink>
+        <RouterLink to="/cases" class="nav-link" active-class="nav-link-active">案例</RouterLink>
+        <RouterLink to="/documents" class="nav-link" active-class="nav-link-active">文书</RouterLink>
       </nav>
 
       <div class="ml-auto flex items-center gap-1.5 sm:gap-2">
         <span
-          class="hidden size-9 items-center justify-center gap-2 rounded-full border border-ink-950/8 bg-white/60 text-[11px] font-medium text-ink-600 min-[360px]:flex sm:h-9 sm:w-auto sm:px-3 sm:text-xs"
+          class="hidden size-9 items-center justify-center gap-2 rounded-full border border-ink-950/8 bg-white/60 text-[11px] font-medium text-ink-600 sm:flex sm:h-9 sm:w-auto sm:px-3 sm:text-xs"
           aria-live="polite"
           :aria-label="statusLabel"
           :title="statusLabel"
@@ -107,7 +111,7 @@ onMounted(() => {
             />
             <span class="relative inline-flex size-2 rounded-full" :class="statusDotClass" />
           </span>
-          <span class="hidden sm:inline" aria-hidden="true">{{ statusLabel }}</span>
+          <span class="hidden md:inline" aria-hidden="true">{{ statusLabel }}</span>
         </span>
 
         <details v-if="isAuthenticated" ref="accountMenu" class="group relative">

@@ -1,0 +1,6 @@
+# Security floors for existing direct/transitive dependencies.
+# Constraints do not install packages that the application does not need.
+setuptools>=83.0.0
+pip>=26.2.0
+urllib3>=2.8.0
+oauthlib>=4.0.0

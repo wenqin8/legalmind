@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-01T13:11:48.660318+00:00",
+  "review_date": "2026-10-01",
+  "submitted_via": "project_user_message",
+  "scope": "Questions, expected behavior and annotation criteria only; no generated-answer review",
+  "reviewer": {
+    "role": "开发 Agent 辅助复核",
+    "qualification": "未提供、未核验执业律师或法律专家资质",
+    "independence": "非独立盲审，不能登记为独立法律专家复核",
+    "expert_qualification_verified": false,
+    "independent_of_development": false
+  },
+  "source_package": "backend/data/evaluation/m4-once-v12",
+  "source_manifest_sha256": "3eae02d76b67f2a13838c7cdeb3299c8091d0f796ceb9caf23a1de9627072344",
+  "revision_package": "backend/data/evaluation/m4-once-v13",
+  "summary": {
+    "reviewed": 6,
+    "passed": 4,
+    "minor_revisions_requested": 2,
+    "pending_in_this_batch": 0,
+    "behavior_changes": 0,
+    "remaining_questions_unreviewed": 18,
+    "answer_semantic_reviewed": 0
+  },
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "real_model_calls": 0,
+  "original_supplied_source_checks": [
+    {
+      "url": "https://gongbao.court.gov.cn/Details/7f184078694d811fb3314f6af9accf.html",
+      "result": "browser_read_failed",
+      "scope": "Original supplied URL preserved; not independently re-read this turn"
+    },
+    {
+      "url": "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf",
+      "result": "browser_read_failed",
+      "scope": "Do not claim fresh confirmation of the 2026 effective-law directory"
+    },
+    {
+      "url": "https://www.cac.gov.cn/2020-06/01/c_15925617772683194.htm",
+      "result": "official_text_read",
+      "scope": "Civil Code articles 1064 and 1076 text comparison only"
+    },
+    {
+      "url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+      "result": "official_text_read",
+      "scope": "Articles 15, 22 and promulgated effective date in article 23"
+    },
+    {
+      "url": "https://zjj.sz.gov.cn/gkmlpt/content/10/10689/post_10689152.html",
+      "result": "official_text_read",
+      "scope": "Published eligibility framework only; not a comprehensive 2026 policy-status search"
+    },
+    {
+      "url": "https://www.sz.gov.cn/szzt2010/zdlyzl/ggsy/mzxx/shjzxx/zcfg/content/post_10596723.html",
+      "result": "official_text_read",
+      "scope": "Published notice covers qualified family assistance; not proof of a uniform divorce-related housing grant"
+    }
+  ],
+  "items": [
+    {
+      "query_id": "RESERVE-marriage_family-01",
+      "submitted_decision": "needs_minor_revision",
+      "expected_behavior": "answer",
+      "behavior_change_requested": false,
+      "findings": "题目缺少婚姻关系存续期间；预期answer不变。保留原则不属于、债权人证明要求和三个并列例外。",
+      "original_question": "只了解一般规则：夫妻一方个人名义所负债务超出家庭日常生活需要时，是否属于共同债务？债权人证明用于共同生活、共同生产经营或双方共同意思表示的例外如何保留？不分析个案。",
+      "proposed_question": "只了解一般规则：夫妻一方在婚姻关系存续期间以个人名义所负债务，超出家庭日常生活需要时，是否属于夫妻共同债务？债权人证明该债务用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示时，例外如何处理？不分析个案。",
+      "supplied_source_urls": [
+        "https://gongbao.court.gov.cn/Details/7f184078694d811fb3314f6af9accf.html",
+        "https://www.npc.gov.cn/c2/c30834/202603/P020260316580245162685.pdf"
+      ],
+      "revision_application": "question_changed_in_v13_draft",
+      "revised_annotation_criterion": "限定婚姻关系存续期间、个人名义及超出家庭日常生活需要；原则不属于夫妻共同债务，但债权人能够证明用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示的除外。保留债权人的证明要求和三个并列例外，不泛化至婚前或离婚后债务；仅说明所问一般规则。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-marriage_family-02",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_requested": false,
+      "findings": "题目通过；实际答案需完整写明自愿、书面协议、亲自申请及协议事项，不扩展个案时间。",
+      "original_question": "一般法律知识咨询：双方自愿协议离婚，对书面协议、亲自申请以及协议应写明的事项有哪些原文明示要求？不问个案办理时间。",
+      "proposed_question": null,
+      "supplied_source_urls": [
+        "https://gongbao.court.gov.cn/Details/7f184078694d811fb3314f6af9accf.html"
+      ],
+      "revision_application": "question_unchanged",
+      "revised_annotation_criterion": "保留双方自愿离婚、书面离婚协议、双方亲自到婚姻登记机关申请；协议载明自愿离婚意思表示及对子女抚养、财产、债务处理协商一致的意见。不能只写签协议，题目不问办理时间，不扩展冷静期等程序。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-marriage_family-03",
+      "submitted_decision": "needs_minor_revision",
+      "expected_behavior": "answer",
+      "behavior_change_requested": false,
+      "findings": "题目须明确父母双方、夫妻共同财产；预期answer不变。保留解释第十五条完整条件及不予支持后果。",
+      "original_question": "一般规则问题：父母以法定代理人身份处分共同财产购买并登记在未成年子女名下的房屋后，又向相对人主张处分损害孩子利益而无效，司法解释明示如何处理？不展开被援引的其他条文。",
+      "proposed_question": "一般规则问题：父母双方以法定代理人身份处分用夫妻共同财产购买并登记在未成年子女名下的房屋后，又以损害未成年子女利益为由向相对人主张该民事法律行为无效，司法解释明示如何处理？不展开被援引的其他条文。",
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/zixun/xiangqing/452771.html"
+      ],
+      "revision_application": "question_changed_in_v13_draft",
+      "revised_annotation_criterion": "限定父母双方以法定代理人身份、用夫妻共同财产购买且登记在未成年子女名下的房屋、处分后向相对人主张行为无效。原文所述请求理由为违反民法典第三十五条规定损害未成年子女利益，结果为人民法院不予支持。只转述该限定规则，不扩展缺失的被引全文，不概括为任何处分均有效或任何无效事由均不支持。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-marriage_family-04",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_requested": false,
+      "findings": "题目通过；将来答案保留可以支持、当事人请求、对方有负担能力及财产状况，不能写成一定支持。",
+      "original_question": "不涉及具体事件，请介绍一般规则：离婚诉讼中一方年老、残疾或重病而生活困难，请求有负担能力的另一方给予适当帮助，法院如何考虑请求与对方财产状况？不展开补偿或分割问题。",
+      "proposed_question": null,
+      "supplied_source_urls": [
+        "https://www.court.gov.cn/zixun/xiangqing/452771.html"
+      ],
+      "revision_application": "question_unchanged",
+      "revised_annotation_criterion": "限定离婚诉讼中一方存在年老、残疾、重病等生活困难情形，请求有负担能力的另一方适当帮助；保留人民法院根据当事人请求、结合对方财产状况、可以依法支持。不得写成一定支持，不展开其他补偿或分割请求。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-marriage_family-05",
+      "submitted_decision": "pass",
+      "expected_behavior": "clarify",
+      "behavior_change_requested": false,
+      "findings": "题目与clarify通过；优先补充争议财产事实、关键日期和具体请求，不人为绑定实体法。",
+      "original_question": "我想分析离婚财产争议，但事情经过、事件日期和具体请求还没说，请先引导我补充。",
+      "proposed_question": null,
+      "supplied_source_urls": [],
+      "revision_application": "question_unchanged",
+      "revised_annotation_criterion": "缺少能够确定法律分支的事情经过、事件日期和具体请求，先追问，不直接判断财产归属或分割。可按需要优先询问财产种类/取得/登记/资金来源、婚姻及相关事件日期、用户希望确认归属/分割/追回/补偿；每轮最多三组，不机械收集无关事实，不预先绑定某条实体法。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-marriage_family-06",
+      "submitted_decision": "pass",
+      "expected_behavior": "insufficient",
+      "behavior_change_requested": false,
+      "findings": "题目与insufficient通过；资料不足不等于政策不存在，不用全国民法典替代深圳文件，不给统一金额。所列地方文件只能提供资格/救助参考。",
+      "original_question": "只查询地方现行政策：深圳市2026年离婚后独立养育子女是否有额外住房资助、标准是多少？请勿把全国民法典当成该地方政策依据。",
+      "proposed_question": null,
+      "supplied_source_urls": [
+        "https://zjj.sz.gov.cn/gkmlpt/content/10/10689/post_10689152.html",
+        "https://www.sz.gov.cn/szzt2010/zdlyzl/ggsy/mzxx/shjzxx/zcfg/content/post_10596723.html"
+      ],
+      "revision_application": "question_unchanged",
+      "revised_annotation_criterion": "资料不足指冻结语料没有足以回答深圳2026年此项地方政策的文件，不表示深圳不存在相关政策。不得用民法典替代地方住房政策，不确认统一额外资助或编造金额。说明需补充市或区住房、民政部门适用文件；找到政策后再按文件核对资格，不把户籍/收入财产/住房/子女年龄等可能相关因素说成已确认的一项统一政策条件。",
+      "model_answer_review_status": "not_generated_not_reviewed"
+    }
+  ],
+  "limitations": [
+    "Submitted four-pass/two-revision decisions are preserved; applying edits does not change them to six reviewed passes.",
+    "Revision draft is not independent expert approval; 18 questions and all generated answers remain unreviewed.",
+    "Official web pages were used only for review references; no local law corpus or verification metadata was updated."
+  ]
+}

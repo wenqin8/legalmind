@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-01T15:02:52.239337+00:00",
+  "passed": true,
+  "six_revisions_match_supplied_recommendations": true,
+  "questions_labels_and_rubric_unchanged_from_v16": true,
+  "runtime_and_prior_evidence_unchanged": true,
+  "expert_requirement_unchanged": true,
+  "real_model_calls_at_freeze": 0,
+  "expert_review_complete": false,
+  "files": {
+    "docs/review/m4-revision-resolution-20261001.json": "1636b60d428b597781c3cf614e0d64d4404b817336f5bb7f9226dc2785a8122f",
+    "docs/review/m4-annotation-review-progress-20261001-round5.json": "1dad8daa15e8bccf8caa6f9ebdf1d82ce1ea36d7e23cf5f56eff891b0a8c8b4e",
+    "docs/review/m4-reviewed-inputs-final-20261001.md": "fc27695006a385659affa448bb9cfc68bbc7278c0a62d214918e94ede876707c",
+    "backend/data/evaluation/m4-once-v17/contract-review-record.json": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483",
+    "backend/data/evaluation/m4-once-v17/execution-plan.json": "56c10f6e3ea48c74593c1b099b0a096ed097b7dbd28a200242ab97760d474afa",
+    "backend/data/evaluation/m4-once-v17/labor-review-record.json": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4",
+    "backend/data/evaluation/m4-once-v17/manifest.json": "8998382058a7626ac6d84e299f8e420ed59703189ae07199c27ce9f7722ae014",
+    "backend/data/evaluation/m4-once-v17/queries.jsonl": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c",
+    "backend/data/evaluation/m4-once-v17/README.md": "54cdecc19d268b268bf6f2d5e6cde4109c62f9020f6ee57f13358e8b64f7259b",
+    "backend/data/evaluation/m4-once-v17/review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d",
+    "backend/data/evaluation/m4-once-v17/revision-resolution.json": "1636b60d428b597781c3cf614e0d64d4404b817336f5bb7f9226dc2785a8122f",
+    "backend/data/evaluation/m4-once-v17/rubric.json": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd",
+    "backend/data/evaluation/m4-once-v17/scenarios.jsonl": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b",
+    "backend/data/evaluation/m4-once-v17/traffic-review-record.json": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+  }
+}

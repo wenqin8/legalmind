@@ -1,0 +1,867 @@
+{
+  "recorded_at": "2026-10-01T16:59:10.660273+00:00",
+  "scope": "offline_input_source_and_candidate_retrieval_preflight",
+  "package": "backend/data/evaluation/m4-once-v17",
+  "package_manifest_sha256": "8998382058a7626ac6d84e299f8e420ed59703189ae07199c27ce9f7722ae014",
+  "checker_sha256": "2eb519eada500657e018a983c436a46e2a97ba06affae8bb9851c70530a91c14",
+  "model_observation_receipt_preexisting": true,
+  "model_observation_receipt_sha256": "abd1703283d1988a2f9c66ca7a0f68c142b994c88a655b76a38ad4ee4229f213",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "corpus_files": {
+    "data/legal/verified_provisions.jsonl": "5df60a1517feb8843b86404c56d11b02e46f01331da83ba0c16f6ed3ff18ee36",
+    "data/legal/expansion-v1/verified_provisions.jsonl": "1f2303a4e0e68f924a26bf3119119872d4cd0cb4f1e06d663048ce280e060609",
+    "data/legal/traffic-ii-2026/verified_provisions.jsonl": "1c2b35fa64405b94e09e5098e5164e6acdae6270ab260bb8303c5fe775dbeaa6"
+  },
+  "complete": true,
+  "input_source_checks_passed": true,
+  "behavior_counts": {
+    "answer": 16,
+    "clarify": 4,
+    "insufficient": 4
+  },
+  "direct_hit_at_5": {
+    "hits": 16,
+    "denominator": 16,
+    "value": 1.0
+  },
+  "retrieval_preflight_passed": true,
+  "blocked_network_attempts": 0,
+  "real_model_calls": 0,
+  "actual_answers_generated": 0,
+  "actual_answers_reviewed": 0,
+  "model_answer_quality_passed": null,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "package_inputs_unchanged": true,
+  "model_observation_receipt_created": false,
+  "independent_blind_test": false,
+  "results": [
+    {
+      "query_id": "RESERVE-marriage_family-01",
+      "domain": "marriage_family",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "civil_code-2020-05-28-1064",
+        "marriage_ii-2025-01-15-6",
+        "civil_code-2020-05-28-1062",
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1063"
+      ],
+      "gold": {
+        "civil_code-2020-05-28-1064": 3
+      },
+      "latency_ms": 10.429,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-marriage_family-02",
+      "domain": "marriage_family",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "civil_code-2020-05-28-1076",
+        "civil_code-2020-05-28-1085",
+        "marriage_ii-2025-01-15-20",
+        "marriage_ii-2025-01-15-16",
+        "civil_code-2020-05-28-1087"
+      ],
+      "gold": {
+        "civil_code-2020-05-28-1076": 3
+      },
+      "latency_ms": 10.236,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-marriage_family-03",
+      "domain": "marriage_family",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "marriage_ii-2025-01-15-15",
+        "marriage_ii-2025-01-15-7",
+        "marriage_ii-2025-01-15-9",
+        "civil_code-2020-05-28-1084",
+        "marriage_ii-2025-01-15-12"
+      ],
+      "gold": {
+        "marriage_ii-2025-01-15-15": 3
+      },
+      "latency_ms": 9.886,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-marriage_family-04",
+      "domain": "marriage_family",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "marriage_ii-2025-01-15-22",
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-5",
+        "civil_code-2020-05-28-1079",
+        "civil_code-2020-05-28-1063"
+      ],
+      "gold": {
+        "marriage_ii-2025-01-15-22": 3
+      },
+      "latency_ms": 10.551,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-marriage_family-05",
+      "domain": "marriage_family",
+      "expected_behavior": "clarify",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [],
+      "gold": {},
+      "latency_ms": 0.105,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-marriage_family-06",
+      "domain": "marriage_family",
+      "expected_behavior": "insufficient",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "marriage_ii-2025-01-15-21",
+        "marriage_ii-2025-01-15-17",
+        "marriage_ii-2025-01-15-16",
+        "civil_code-2020-05-28-1084",
+        "civil_code-2020-05-28-1085"
+      ],
+      "gold": {},
+      "latency_ms": 12.118,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-01",
+      "domain": "labor_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "labor_contract-2012-12-28-35",
+        "labor_contract-2012-12-28-40",
+        "labor_ii-2025-07-31-3",
+        "labor_ii-2025-07-31-6",
+        "labor_arbitration-2007-12-29-2"
+      ],
+      "gold": {
+        "labor_contract-2012-12-28-35": 3
+      },
+      "latency_ms": 42.851,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-02",
+      "domain": "labor_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "labor_contract-2012-12-28-31",
+        "labor_arbitration-2007-12-29-47",
+        "labor_ii-2025-07-31-6",
+        "labor_ii-2025-07-31-18",
+        "labor_contract-2012-12-28-30"
+      ],
+      "gold": {
+        "labor_contract-2012-12-28-31": 3
+      },
+      "latency_ms": 10.021,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-03",
+      "domain": "labor_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "labor_arbitration-2007-12-29-6",
+        "labor_arbitration-2007-12-29-27",
+        "labor_arbitration-2007-12-29-43",
+        "labor_ii-2025-07-31-18",
+        "labor_ii-2025-07-31-5"
+      ],
+      "gold": {
+        "labor_arbitration-2007-12-29-6": 3
+      },
+      "latency_ms": 10.387,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-04",
+      "domain": "labor_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "labor_arbitration-2007-12-29-9",
+        "labor_arbitration-2007-12-29-47",
+        "labor_arbitration-2007-12-29-2",
+        "labor_contract-2012-12-28-30",
+        "labor_contract-2012-12-28-87"
+      ],
+      "gold": {
+        "labor_arbitration-2007-12-29-9": 3
+      },
+      "latency_ms": 9.827,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-05",
+      "domain": "labor_dispute",
+      "expected_behavior": "clarify",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [],
+      "gold": {},
+      "latency_ms": 0.017,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-06",
+      "domain": "labor_dispute",
+      "expected_behavior": "insufficient",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "labor_ii-2025-07-31-21",
+        "labor_arbitration-2007-12-29-2",
+        "labor_arbitration-2007-12-29-47",
+        "labor_arbitration-2007-12-29-43",
+        "labor_contract-2012-12-28-47"
+      ],
+      "gold": {},
+      "latency_ms": 9.86,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-01",
+      "domain": "traffic_accident",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "personal_injury-2022-04-24-9",
+        "personal_injury-2022-04-24-10",
+        "personal_injury-2022-04-24-7",
+        "civil_code-2020-05-28-1179",
+        "civil_code-2020-05-28-1208"
+      ],
+      "gold": {
+        "personal_injury-2022-04-24-9": 3
+      },
+      "latency_ms": 10.008,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-02",
+      "domain": "traffic_accident",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "personal_injury-2022-04-24-10",
+        "civil_code-2020-05-28-1179",
+        "personal_injury-2022-04-24-9",
+        "traffic_ii-2026-05-06-7",
+        "road_safety-2021-04-29-70"
+      ],
+      "gold": {
+        "personal_injury-2022-04-24-10": 3
+      },
+      "latency_ms": 10.85,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-03",
+      "domain": "traffic_accident",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "traffic_ii-2026-05-06-9",
+        "traffic_ii-2026-05-06-10",
+        "traffic_ii-2026-05-06-11",
+        "civil_code-2020-05-28-1213",
+        "personal_injury-2022-04-24-2"
+      ],
+      "gold": {
+        "traffic_ii-2026-05-06-9": 3
+      },
+      "latency_ms": 10.291,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-04",
+      "domain": "traffic_accident",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "traffic_ii-2026-05-06-11",
+        "civil_code-2020-05-28-1213",
+        "traffic_ii-2026-05-06-2",
+        "road_safety-2021-04-29-76",
+        "personal_injury-2022-04-24-3"
+      ],
+      "gold": {
+        "traffic_ii-2026-05-06-11": 3
+      },
+      "latency_ms": 11.175,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-05",
+      "domain": "traffic_accident",
+      "expected_behavior": "clarify",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [],
+      "gold": {},
+      "latency_ms": 0.02,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-06",
+      "domain": "traffic_accident",
+      "expected_behavior": "insufficient",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "traffic_ii-2026-05-06-10",
+        "personal_injury-2022-04-24-18",
+        "traffic_ii-2026-05-06-12",
+        "personal_injury-2022-04-24-3",
+        "personal_injury-2022-04-24-17"
+      ],
+      "gold": {},
+      "latency_ms": 11.626,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-01",
+      "domain": "contract_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "contract_general-2023-12-04-40",
+        "contract_general-2023-12-04-39",
+        "contract_general-2023-12-04-36",
+        "civil_code-2020-05-28-566",
+        "civil_code-2020-05-28-577"
+      ],
+      "gold": {
+        "contract_general-2023-12-04-40": 3
+      },
+      "latency_ms": 16.438,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-02",
+      "domain": "contract_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "contract_general-2023-12-04-54",
+        "contract_general-2023-12-04-53",
+        "contract_general-2023-12-04-48",
+        "civil_code-2020-05-28-563",
+        "civil_code-2020-05-28-566"
+      ],
+      "gold": {
+        "contract_general-2023-12-04-54": 3
+      },
+      "latency_ms": 16.362,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-03",
+      "domain": "contract_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "contract_general-2023-12-04-57",
+        "contract_general-2023-12-04-30",
+        "contract_general-2023-12-04-55",
+        "civil_code-2020-05-28-577",
+        "civil_code-2020-05-28-585"
+      ],
+      "gold": {
+        "contract_general-2023-12-04-57": 3
+      },
+      "latency_ms": 14.766,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "domain": "contract_dispute",
+      "expected_behavior": "answer",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "source_matches_gold": true,
+        "title_matches": true,
+        "article_matches": true,
+        "text_matches": true,
+        "metadata_matches": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "contract_general-2023-12-04-59",
+        "contract_general-2023-12-04-65",
+        "contract_general-2023-12-04-62",
+        "civil_code-2020-05-28-496",
+        "civil_code-2020-05-28-584"
+      ],
+      "gold": {
+        "contract_general-2023-12-04-59": 3
+      },
+      "latency_ms": 17.259,
+      "direct_gold_hit_at_5": true,
+      "ranking_metrics": {
+        "hit": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "ndcg": 1.0,
+        "reciprocal_rank": 1.0,
+        "recall_ceiling": 1.0,
+        "negative_false_retrieval": null
+      },
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-05",
+      "domain": "contract_dispute",
+      "expected_behavior": "clarify",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [],
+      "gold": {},
+      "latency_ms": 0.02,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "domain": "contract_dispute",
+      "expected_behavior": "insufficient",
+      "checks": {
+        "behavior_consistent": true,
+        "gold_sources_exist": true,
+        "criterion_present": true,
+        "nonexpert_status_retained": true,
+        "candidate_count_at_most_five": true,
+        "all_candidates_in_frozen_corpus": true
+      },
+      "ranking": [
+        "contract_general-2023-12-04-27",
+        "contract_general-2023-12-04-61",
+        "contract_general-2023-12-04-4",
+        "civil_code-2020-05-28-563",
+        "contract_general-2023-12-04-19"
+      ],
+      "gold": {},
+      "latency_ms": 20.204,
+      "direct_gold_hit_at_5": null,
+      "ranking_metrics": null,
+      "note": "Candidate retrieval is not an answerability or semantic judgment; empty gold is not automatically an error."
+    }
+  ],
+  "limitations": [
+    "These questions and retrieval results have been examined during development; this is not blind testing.",
+    "Gold domain/general-rule flags are supplied by the input; model extraction and applicability are not tested.",
+    "Sixteen positive sources are checked; four clarification and four corpus-gap cases do not enter that denominator.",
+    "Candidate hits, source equality and offline checks do not certify generated legal answers."
+  ]
+}

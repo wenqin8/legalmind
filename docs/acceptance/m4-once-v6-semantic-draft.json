@@ -1,0 +1,79 @@
+{
+  "raw_report_sha256": "638812b0cdf326a2d28b37c9de144ab59ebb4f3943587f40292d5a55d4204565",
+  "reviewer": "同一开发代理 Codex；逐条初评，不是独立法律专家",
+  "annotation_status": "agent_draft_pending_expert",
+  "scope": "首次观察的12个法律答案初评与7个冻结行为失败分析",
+  "turns": {
+    "E-NEW-labor_dispute-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "协商调解仲裁诉讼的各触发条件及起诉例外保持；额外十五日说明限定特定裁决范围未提供，存在重复表达。"
+    },
+    "E-NEW-contract_dispute-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "按合同内容认定关系，不拘泥名称；不一致时综合事实因素保持。"
+    },
+    "E-NEW-labor_dispute-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "受理起45日、主任批准并书面通知、延期最多15日、逾期可起诉及部分事实可先行裁决保持。"
+    },
+    "E-NEW-traffic_accident-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "各自过错、明确拒绝时不赔偿但可受益补偿、第三人赔偿及被帮工人补偿后追偿保持。"
+    },
+    "E-NEW-labor_dispute-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "通常书面及副本、申请书事项概括、确有困难可口头并记入笔录告知对方保持。"
+    },
+    "E-NEW-traffic_accident-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "退休年龄之外有误工损失证据且请求赔偿的支持规则完整，补充误工算法仍有可选参照条件。"
+    },
+    "E-NEW-traffic_accident-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "租借身份不同、受害人一并请求、车主有过错的范围、赔偿总额上限及先付超自身责任可追偿保持。"
+    },
+    "E-NEW-labor_dispute-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "仅协商一致可以解除，不扩写补偿或其他解除事由。"
+    },
+    "E-NEW-marriage_family-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "两种年限及先前不准离婚判决、又分居、再起诉和感情不和调解无效条件分开；应准予离婚的结果没有明确展开，完整性留待复核。"
+    },
+    "E-NEW-marriage_family-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "单方名下股权、共同财产出资、单纯未同意不支持、恶意串通损害权益例外保持。"
+    },
+    "E-NEW-contract_dispute-04:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "抗辩未请求调减的释明、二审及客观原因未到庭分支、当事人请求和充分举证质证辩论条件保持。"
+    },
+    "E-NEW-marriage_family-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pass",
+      "notes": "离婚、双方要求抚养、满两周岁、最有利原则、抢夺藏匿及另一方不存在严重侵害权益限制保持。"
+    }
+  },
+  "failure_analysis": {
+    "E-NEW-traffic_accident-06": "请求地方政策被intent=search路由到合成案例；没有回答资料不足，冻结行为失败。",
+    "E-NEW-contract_dispute-06": "地方合同补助请求被intent=search路由到合成案例；冻结行为失败。",
+    "E-NEW-marriage_family-06": "地方住房补助请求被intent=search路由到合成案例；冻结行为失败。",
+    "E-NEW-traffic_accident-03": "交叉领域问题提取为劳动争议，过滤后未取得库内交通人身损害规则；安全不足回答仍不符合冻结answer标签。",
+    "E-NEW-marriage_family-03": "提取已general_question=true，但进入补事实分支，不能回答解释施行日期；冻结行为失败。",
+    "E-NEW-contract_dispute-02": "生成及唯一修订仍含禁止的未知交叉条号/章节，安全校验返回424，没有成功保存答案。",
+    "E-NEW-contract_dispute-01": "修订后条件审核仍拒绝合同公序良俗表述，返回424；保留审查失败不放宽条件。"
+  },
+  "label_changes": 0,
+  "model_reruns": 0
+}

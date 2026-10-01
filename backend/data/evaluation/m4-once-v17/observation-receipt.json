@@ -1,0 +1,7 @@
+{
+  "observed_at": "2026-10-01T15:03:36.532317+00:00",
+  "output": "C:\\Users\\\u6bb5\u6587\u94a6\\Documents\\ChatGPT\\\u6cd5\u5f8b\u54a8\u8be2Agent\\docs\\acceptance\\m4-reviewed-first-model-20261001-run1.json",
+  "manifest_sha256": "8998382058a7626ac6d84e299f8e420ed59703189ae07199c27ce9f7722ae014",
+  "status": "consumed_before_execution",
+  "reason": "A failed or partial run is still preserved; this package cannot become unseen again."
+}

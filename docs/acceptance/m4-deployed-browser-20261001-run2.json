@@ -1,0 +1,28 @@
+{
+  "scope": "real_compose_browser_acceptance",
+  "real_redis": true,
+  "simulated_faults": false,
+  "live_model_requested": false,
+  "legal_answer_quality_verified": false,
+  "consultation_requests": 1,
+  "model_call_count": 0,
+  "tests": [
+    {
+      "name": "production browser: register, cancellation SSE and Redis history reload",
+      "passed": true
+    },
+    {
+      "name": "production browser: real case index and document confirmation/download",
+      "passed": true
+    },
+    {
+      "name": "restart: previous account, Redis history, document and index survive",
+      "passed": false,
+      "error": "locator.click: Error: strict mode violation: getByRole('button', { name: '登录', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-pressed=\"true\" class=\"focus-ring flex-1 rounded-lg px-4 py-2.5 text-xs font-semibold transition bg-white text-ink-950 shadow-sm\"> 登录 </button> aka getByLabel('选择登录或注册').getByRole('button', { name: '登录' })\n    2) <button type=\"submit\" class=\"focus-ring inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink-950 px-5 text-sm font-semibold text-white transition enabled:hover:bg-jade-900 disabled:cursor-not-allowed disabled:opacity-40\">…</button> aka locator('form').getByRole('button', { name: '登录' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录', exact: true })\u001b[22m\n"
+    }
+  ],
+  "started_at": "2026-09-30T18:33:03.171Z",
+  "passed": false,
+  "error": "locator.click: Error: strict mode violation: getByRole('button', { name: '登录', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-pressed=\"true\" class=\"focus-ring flex-1 rounded-lg px-4 py-2.5 text-xs font-semibold transition bg-white text-ink-950 shadow-sm\"> 登录 </button> aka getByLabel('选择登录或注册').getByRole('button', { name: '登录' })\n    2) <button type=\"submit\" class=\"focus-ring inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink-950 px-5 text-sm font-semibold text-white transition enabled:hover:bg-jade-900 disabled:cursor-not-allowed disabled:opacity-40\">…</button> aka locator('form').getByRole('button', { name: '登录' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录', exact: true })\u001b[22m\n",
+  "completed_at": "2026-09-30T18:33:18.527Z"
+}

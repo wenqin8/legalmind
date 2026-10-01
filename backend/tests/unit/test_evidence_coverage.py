@@ -71,6 +71,30 @@ async def test_selected_source_omission_gets_one_verified_supplement():
 
 
 @pytest.mark.anyio
+async def test_supplement_receives_only_missing_selected_rules_but_audits_keep_full_text():
+    rows = coverage_evidence()
+    second = rows[1]
+    complete_text = second.text + '但例外情形除外。\n另有与本争点无关的程序规定。'
+    rows[1] = Evidence(second.source.model_copy(update={'original_text': complete_text}), complete_text,
+                       'supporting', (0, 1))
+    class ScopeModel(CoverageLLM):
+        async def complete(self, messages):
+            data = json.loads(messages[1].content)
+            task = messages[0].content.splitlines()[0]
+            if task == 'TASK:COVERAGE':
+                assert [item['citation_id'] for item in data['evidence']] == ['S2']
+                assert data['evidence'][0]['text'] == '申请人应当提供证明材料。但例外情形除外。'
+                assert '无关的程序' not in json.dumps(data, ensure_ascii=False)
+            elif task in {'TASK:GROUNDING', 'TASK:CONDITIONS'} and '补充说明' in data['paragraph']:
+                assert any(item['text'] == complete_text for item in data['evidence'])
+            return await super().complete(messages)
+    model = ScopeModel(supplement='补充说明\n申请人应当提供证明材料，但例外情形除外[S2]。')
+    parts = [part async for part in generate_qa('材料', [], rows, model)]
+    assert len(model.coverage_calls) == 1
+    assert '[S2]' in parts[-2]
+
+
+@pytest.mark.anyio
 @pytest.mark.parametrize('supplement,reject', [
     ('补充说明\n只有编号没有法律内容[S2]。', True),
     ('补充说明\n应当提供材料[S9]。', False),

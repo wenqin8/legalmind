@@ -1,6 +1,7 @@
 """Limit a partial semantic repair to the sentences that failed validation."""
 
 import json
+import re
 
 from app.agents.grounding import sentence_units
 from app.core.errors import ModelUnavailableError
@@ -28,7 +29,13 @@ def apply_sentence_repairs(paragraph, scope, response):
             index, text = item['unit_id'], item['text']
             if type(index) is not int or index in replacements or not isinstance(text, str):
                 raise ValueError('Invalid replacement type or duplicate')
-            if not text.strip() or len(text) > 2000 or '\n' in text or len(sentence_units(text)) != 1:
+            # A semicolon joins clauses within one replacement sentence. Each
+            # clause still becomes an audit unit in the full revalidation.
+            # A canonical citation after terminal punctuation is metadata, not
+            # an extra sentence. Ordinary citation validation still follows.
+            without_citations = re.sub(r'\[S[1-5]\]', '', text)
+            sentences = [part for part in re.split(r'(?<=[。！？])', without_citations) if part.strip()]
+            if not text.strip() or len(text) > 2000 or '\n' in text or '\r' in text or len(sentences) != 1:
                 raise ValueError('Replacement must remain one sentence')
             replacements[index] = text.strip()
         if set(replacements) != {item['unit_id'] for item in scope}:

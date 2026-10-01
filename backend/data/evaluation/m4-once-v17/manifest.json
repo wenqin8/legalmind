@@ -1,0 +1,74 @@
+{
+  "version": "m4-once-reserved-v17-assisted-reviewed-inputs",
+  "created_at": "2026-10-01T15:02:52.120170+00:00",
+  "corpus_profile": "eval-rag-v2-209",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "query_count": 24,
+  "scenario_count": 24,
+  "domain_counts": {
+    "marriage_family": 6,
+    "labor_dispute": 6,
+    "traffic_accident": 6,
+    "contract_dispute": 6
+  },
+  "unrun": true,
+  "independent_blind_test": false,
+  "author": "development_agent",
+  "annotation_status": "assisted_revisions_resolved_pending_independent_expert",
+  "quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "files": {
+    "contract-review-record.json": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483",
+    "execution-plan.json": "56c10f6e3ea48c74593c1b099b0a096ed097b7dbd28a200242ab97760d474afa",
+    "labor-review-record.json": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4",
+    "queries.jsonl": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c",
+    "review-record.json": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d",
+    "revision-resolution.json": "1636b60d428b597781c3cf614e0d64d4404b817336f5bb7f9226dc2785a8122f",
+    "rubric.json": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd",
+    "scenarios.jsonl": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b",
+    "traffic-review-record.json": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+  },
+  "exclusion_evidence": {
+    "observed_v6_manifest_sha256": "0b591c2f2834ce36bfd1dcc08bf3b7997ce6b893686374fbb5f40bc7a2d50bdc",
+    "exact_question_overlap": 0,
+    "topic_independence_expert_verified": false
+  },
+  "limitations": [
+    "All questions and offline retrieval were examined during development; not independent blindness.",
+    "First-round 18 passes/6 revision requests retained; applying recommendations does not claim 24 independent legal passes.",
+    "User reported no legal background/license; expert annotation and actual-answer semantic acceptance remain required."
+  ],
+  "rebind_reason": "Six supplied corrections verified exactly; reviewed inputs finalized without changing runtime, questions, labels or gold",
+  "source_unexecuted_manifest_sha256": "d4b3289ffd75e1ab57d4c78b2d1a2d92ed04dc01d3798acfbba142268cbe2f02",
+  "assisted_annotation_review": {
+    "reviewed": 24,
+    "passed_as_submitted": 18,
+    "revisions_requested": 6,
+    "question_edits_applied": 6,
+    "revisions_resolved_against_supplied_recommendations": 6,
+    "remaining_unreviewed": 0,
+    "first_round_complete": true,
+    "revision_confirmations_pending": 0,
+    "confirmation_scope": "agent exact-application verification; no independent legal approval",
+    "expert_review_complete": false,
+    "actual_answers_reviewed": 0,
+    "record_files": [
+      "review-record.json",
+      "labor-review-record.json",
+      "traffic-review-record.json",
+      "contract-review-record.json"
+    ]
+  },
+  "corpus_files": {
+    "data/legal/verified_provisions.jsonl": "5df60a1517feb8843b86404c56d11b02e46f01331da83ba0c16f6ed3ff18ee36",
+    "data/legal/expansion-v1/verified_provisions.jsonl": "1f2303a4e0e68f924a26bf3119119872d4cd0cb4f1e06d663048ce280e060609",
+    "data/legal/traffic-ii-2026/verified_provisions.jsonl": "1c2b35fa64405b94e09e5098e5164e6acdae6270ab260bb8303c5fe775dbeaa6"
+  },
+  "offline_retrieval_observed": true,
+  "unrun_scope": "Real model execution only; consult observation-receipt.json for subsequent execution state"
+}

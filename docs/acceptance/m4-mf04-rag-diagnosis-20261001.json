@@ -1,0 +1,144 @@
+{
+  "recorded_at": "2026-10-01T10:16:21.256836+00:00",
+  "scope": "observed_MF04_provenance_and_current_offline_guards_not_new_model_quality",
+  "raw_report": "docs/acceptance/m4-real-development-20261001-run11.json",
+  "raw_report_sha256": "164184f91a85c278e2783ab3f77b249b66b64302a982cb62ac837c2482575ae9",
+  "implementation_sha256": "2b255a0797b1405054fe29f66fb6c7736bd94d536d12fbbac782c4ffc0387e72",
+  "real_model_calls": 0,
+  "external_network_attempts": 0,
+  "before_candidates": [
+    {
+      "citation_id": "S1",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+      "article": "第六条"
+    },
+    {
+      "citation_id": "S2",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+      "article": "第七条"
+    },
+    {
+      "citation_id": "S3",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零七十九条"
+    },
+    {
+      "citation_id": "S4",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零六十二条"
+    },
+    {
+      "citation_id": "S5",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零八十五条"
+    }
+  ],
+  "recorded_selection": {
+    "source_ids": [
+      "cf0c2a20-c539-5b51-a0ae-d40e213c9163",
+      "a19d57fa-2960-59ca-8ee3-69a5a6922520"
+    ],
+    "assessment": "general",
+    "direct_support": {
+      "cf0c2a20-c539-5b51-a0ae-d40e213c9163": [
+        0
+      ]
+    },
+    "supporting_support": {
+      "cf0c2a20-c539-5b51-a0ae-d40e213c9163": [
+        1
+      ],
+      "a19d57fa-2960-59ca-8ee3-69a5a6922520": [
+        0,
+        6
+      ]
+    },
+    "missing_fields": [],
+    "questions": {},
+    "blocking_reasons": {}
+  },
+  "after_candidates": [
+    {
+      "record_id": "marriage_ii-2025-01-15-6",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+      "article": "第六条"
+    },
+    {
+      "record_id": "marriage_ii-2025-01-15-7",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+      "article": "第七条"
+    },
+    {
+      "record_id": "civil_code-2020-05-28-1079",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零七十九条"
+    },
+    {
+      "record_id": "civil_code-2020-05-28-1062",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零六十二条"
+    },
+    {
+      "record_id": "civil_code-2020-05-28-1063",
+      "title": "中华人民共和国民法典",
+      "article": "第一千零六十三条"
+    }
+  ],
+  "absent_reviewed_fulltexts": [
+    "民法典第一百五十七条",
+    "民法典第一千零六十六条",
+    "民法典第一千零九十二条"
+  ],
+  "recorded_reference_context": [
+    {
+      "from_citation": "S2",
+      "reference": "民法典第一百五十七条",
+      "target_citation": null,
+      "status": "not_provided"
+    },
+    {
+      "from_citation": "S2",
+      "reference": "民法典第一千零六十六条",
+      "target_citation": null,
+      "status": "not_provided"
+    },
+    {
+      "from_citation": "S2",
+      "reference": "民法典第一千零九十二条",
+      "target_citation": null,
+      "status": "not_provided"
+    },
+    {
+      "from_citation": "S4",
+      "reference": "本法第一千零六十三条",
+      "target_citation": null,
+      "status": "not_provided"
+    }
+  ],
+  "current_rejection_of_original_property_generalization": [
+    {
+      "unit_id": 1,
+      "text": "婚姻关系存续期间所得的相关财产为夫妻共同财产，夫妻对共同财产有平等的处理权[S4]。",
+      "explanation": "原文限定为列举的财产类型并有例外，不能概括为婚姻期间所有所得；请保留列举范围和例外或不作该概括。"
+    }
+  ],
+  "current_distinct_reference_rendering": "依该依据援引的条款（被引用全文本轮未提供）（配套引用1）处理；依该依据援引的条款（被引用全文本轮未提供）（配套引用2）请求。",
+  "diagnosis": [
+    "The direct marriage interpretation was retrieved; the failure was not a complete direct-source miss.",
+    "The property exception full text exists locally but was outside the original five candidates.",
+    "Three other cross-referenced full texts are absent from the reviewed catalog, not merely low-ranked.",
+    "The selector merged direct span 0 and supporting-only division span 1 into one direct source; generation lost span purpose.",
+    "The recorded candidate overgeneralized enumerated property and added an unasked division branch.",
+    "The final recorded rejection treats omitted statutory identifiers as an omitted condition; this alone does not establish a substantive error.",
+    "Old normalization collapsed different missing cross-references to one generic phrase."
+  ],
+  "remaining_boundaries": [
+    "No new provider output has been measured; prompt changes require a bounded final verification.",
+    "No frozen corpus, label, observation receipt or original report was rewritten.",
+    "The current 60-provision application corpus remains distinct from this 209-provision evaluation."
+  ],
+  "official_review_sources": [
+    "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+    "https://www.cac.gov.cn/2020-06/01/c_15925617772683194.htm"
+  ]
+}

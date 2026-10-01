@@ -1,0 +1,3267 @@
+{
+  "started_at": "2026-09-30T18:02:18.964439+00:00",
+  "configuration": {
+    "implementation_sha256": "c574c88a5af4524f228610e233d58240a1da73dfb4f9252e672b28da9033f2f1",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/claim_rules.py": "82ec1064dbb865ee2aca20d9678de6080c9f7cad83f5326604972c7420dcf4b1",
+      "app/agents/evidence.py": "46e9156ab2494001a0e7bedf87e539f06389a51e618df53b757809fd09ae2875",
+      "app/agents/grounding.py": "b62c18c296032fdc0aee4b386041ec4ab353a6ef4805d15f6397df42a60d5f2c",
+      "app/agents/intent.py": "002ad4bb586e6f9bef63cfd2981556d530a13a3feeec86f29e9db12c941383c2",
+      "app/agents/legal_evidence.py": "43761fa9abe1fa406efe55a679e2e287156ae0a727270b2507e6538a5ef62a8a",
+      "app/agents/legal_references.py": "cb3dc62a0102e14d2ee79ec1b52953b219468d354e7b197f1b5a314ba77a39ca",
+      "app/agents/limitations.py": "57e6c2793b84c6d57977a15bdcfb3c1675e85a27217684fb7be006dabed01c9d",
+      "app/agents/paragraph_revision.py": "65d084787c90e2a164b93cd86ea0d3ca549915bf4a4adc2384958e1b44c7df1f",
+      "app/agents/qa.py": "1f177abb33b69dc13c8ec462b3f9e8a8a2d74178feda41d2e132c051ad5194a7",
+      "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+      "app/agents/tasks.py": "4e6c7997e1ad6f3a88c738f0f7e5211e6d65e71ad76a6491ea7c6bfb73a075f6",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+      "app/evaluation/dataset.py": "369c3dafed038067d8ecc01327a15e478a3ec12e57e9874f165a7feabd8b8ecf",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+      "app/evaluation/once_acceptance.py": "292c7f73c47351c6af343be6246f133f756b4d964e9c67c1228ede392ad05c12",
+      "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "b920f5c34dfddb1f07058c0ec66e57dab40d909000d46977a3b3f6c523a6c63e",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/create_once_acceptance.py": "13880e03d2d269dd30f913c90c115558ee320caef71c0a41b3512e0b51af31b0",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/diagnose_source_losses.py": "414a3b6f91242b9383421b7c595afadc81c110e6d15d3066bc3f1766bf3074d4",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_offline.py": "6cad819f7bba99bd02e541bd6c941553460197a394f6bf6628ee86d506838d8c",
+      "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+      "scripts/evaluate_rag.py": "c240338f3931bf7ed2d4a8cafa3ede4db0470f7879f6ff013a58b2abe25f0046",
+      "scripts/evaluate_rag_answers.py": "4d21a7fc29967c26a82357a19690c393f2884f259e786562074a2efa7c9b2dab",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/initialize_deployment.py": "6cbc5e64043c318bc7449d4f6ea3fd49bc3f97921a5169463d4e3fefc1c0de72",
+      "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+      "scripts/serve_e2e.py": "bdb2564660fd1242e9293a467a17ca5a0367db3f685a86fad2cb5ecd0ccc91cc",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_deployment.py": "7242d407514e311e402b7cd6aded3e1dc6b365e88895900df03ad2b0fb9a744f",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": true,
+  "scenarios": [
+    {
+      "id": "E-L-MF-02",
+      "query_id": "L-MF-02",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-17",
+        "civil_code-2020-05-28-1085"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 6.037,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+              "output": "{\"intent\": \"qa\", \"confidence\": 1.0, \"document_type\": null}",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "elapsed_seconds": 0.684
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"marriage_family\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.407
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？",
+                "mode": "general",
+                "facts": {},
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "372657fa-2fda-5f19-b68a-df3c0d5c6014",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "372657fa-2fda-5f19-b68a-df3c0d5c6014",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第十七条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十五条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十四条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "97fcf5b4-214b-5781-9a0f-d7695c313562",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "97fcf5b4-214b-5781-9a0f-d7695c313562",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。\n前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条  离婚协议中关于一方直接抚养未成年子女或者不能独立生活的成年子女、另一方不负担抚养费的约定，对双方具有法律约束力。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，离婚后，直接抚养子女一方经济状况发生变化导致原生活水平显著降低或者子女生活、教育、医疗等必要合理费用确有显著增加，未成年子女或者不能独立生活的成年子女请求另一方支付抚养费的，人民法院依法予以支持，并综合考虑离婚协议整体约定、子女实际需要、另一方的负担能力、当地生活水平等因素，确定抚养费的数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "前款但书规定情形下，另一方以直接抚养子女一方无抚养能力为由请求变更抚养关系的，人民法院依照民法典第一千零八十四条规定处理。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "77ca2ed8-d228-5127-b45f-9f61e9bf2e06",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "77ca2ed8-d228-5127-b45f-9f61e9bf2e06",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零七十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零七十六条　夫妻双方自愿离婚的，应当签订书面离婚协议，并亲自到婚姻登记机关申请离婚登记。\n离婚协议应当载明双方自愿离婚的意思表示和对子女抚养、财产以及债务处理等事项协商一致的意见。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零七十六条　夫妻双方自愿离婚的，应当签订书面离婚协议，并亲自到婚姻登记机关申请离婚登记。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚协议应当载明双方自愿离婚的意思表示和对子女抚养、财产以及债务处理等事项协商一致的意见。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\n  \"source_ids\": [\n    \"372657fa-2fda-5f19-b68a-df3c0d5c6014\",\n    \"b465fc0a-5ae3-555d-b897-dbf5de24e817\"\n  ],\n  \"assessment\": \"general\",\n  \"direct_support\": {\n    \"372657fa-2fda-5f19-b68a-df3c0d5c6014\": [\n      0,\n      1\n    ]\n  },\n  \"supporting_support\": {\n    \"b465fc0a-5ae3-555d-b897-dbf5de24e817\": [\n      0,\n      1\n    ]\n  },\n  \"missing_fields\": [],\n  \"questions\": {},\n  \"blocking_reasons\": {}\n}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.041
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？\n用户此前提供并保留的事实（数据）：\n",
+                "reference_context": [],
+                "history": [],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                    "version": "2025年制定",
+                    "effective_from": "2025-02-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S2",
+                    "is_demo": false,
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费[S1]。前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用[S1]。离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决[S2]。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "3f79efa225f5114ed22ae03ed7bdd01c64f9fde2b75baa12ab1dce55c3b39e6d",
+              "chunks": [
+                "结论",
+                "\n",
+                "离婚",
+                "后",
+                "，",
+                "不",
+                "直接",
+                "抚养",
+                "子女",
+                "一方",
+                "未",
+                "按",
+                "离婚",
+                "协议",
+                "约定",
+                "或以",
+                "其他",
+                "方式",
+                "作出的",
+                "承诺",
+                "给付",
+                "抚养",
+                "费",
+                "，",
+                "未成年",
+                "子女",
+                "或",
+                "不能",
+                "独立",
+                "生活的",
+                "成年",
+                "子女",
+                "可",
+                "请求",
+                "其",
+                "支付",
+                "欠",
+                "付",
+                "的",
+                "抚养",
+                "费",
+                "[S",
+                "1",
+                "]。",
+                "前述",
+                "情形",
+                "下",
+                "，",
+                "子女",
+                "已",
+                "成年",
+                "并",
+                "能够",
+                "独立",
+                "生活",
+                "时",
+                "，",
+                "直接",
+                "抚养",
+                "子女",
+                "一方",
+                "可",
+                "请求",
+                "另一方",
+                "支付",
+                "欠",
+                "付",
+                "的费用",
+                "[S",
+                "1",
+                "]。",
+                "离婚",
+                "后",
+                "子女",
+                "由",
+                "一方",
+                "直接",
+                "抚养",
+                "的",
+                "，",
+                "另一方",
+                "应当",
+                "负担",
+                "部分",
+                "或",
+                "全部",
+                "抚养",
+                "费",
+                "，",
+                "负担",
+                "费用的",
+                "多少",
+                "和",
+                "期限",
+                "长短",
+                "由",
+                "双方",
+                "协议",
+                "，",
+                "协议",
+                "不成",
+                "由",
+                "人民法院",
+                "判决",
+                "[S",
+                "2",
+                "]。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 3.839
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费[S1]。前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用[S1]。离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":0}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":2,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S2\",\"span_id\":0},{\"citation_id\":\"S2\",\"span_id\":1},{\"citation_id\":\"S2\",\"span_id\":2}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "ac79b2daf3c801d2de34a69b23309c4140b4ce052780c73acf97ef8f1b0ed3f5",
+              "elapsed_seconds": 1.27
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费[S1]。前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用[S1]。离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决[S2]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决[S2]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"候选句完整保留原文前提：离婚后、不直接抚养子女一方未按离婚协议约定或以其他方式承诺给付抚养费，且请求主体限于未成年子女或不能独立生活的成年子女，与S1第一款一致。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"候选句保留“前述情形下”即未按约定或承诺给付抚养费，并限定子女已成年且能够独立生活，请求主体为直接抚养子女一方，与S1第二款一致。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"候选句转述S2第一款，保留离婚后、一方直接抚养、另一方负担部分或全部抚养费，以及负担多少和期限长短先由双方协议、协议不成由法院判决的条件，未改变法律含义。\"}]}",
+              "system_prompt_sha256": "5005f75c314e41050dac4959ab40402e4cdb1de136392f702a5083916208c98d",
+              "elapsed_seconds": 1.313
+            }
+          ],
+          "response": {
+            "response": "结论\n[S1] 离婚后，不直接抚养子女一方未按离婚协议约定或以其他方式作出的承诺给付抚养费，未成年子女或不能独立生活的成年子女可请求其支付欠付的抚养费。[S1] 前述情形下，子女已成年并能够独立生活时，直接抚养子女一方可请求另一方支付欠付的费用。[S2] 离婚后子女由一方直接抚养的，另一方应当负担部分或全部抚养费，负担费用的多少和期限长短由双方协议，协议不成由人民法院判决。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n参考材料\n[S1] 最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)（第十七条）\n版本：2025年制定；生效：2025-02-01；核验日期：2026-09-19；有效状态资料截至：2025-02-01。\n一般规则参考。\n官方原文：第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。\n来源：https://www.court.gov.cn/zixun/xiangqing/452771.html\n\n[S2] 中华人民共和国民法典（第一千零八十五条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n一般规则参考。\n官方原文：第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "372657fa-2fda-5f19-b68a-df3c0d5c6014",
+                "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                "reference_number": "第十七条",
+                "publisher": "最高人民法院",
+                "date": "2025-01-15",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2025年制定",
+                "effective_from": "2025-02-01",
+                "effective_until": null,
+                "verified_at": "2026-09-19",
+                "status_as_of": "2025-02-01",
+                "legal_status": "effective",
+                "original_text": "第十七条  离婚后，不直接抚养子女一方未按照离婚协议约定或者以其他方式作出的承诺给付抚养费，未成年子女或者不能独立生活的成年子女请求其支付欠付的抚养费的，人民法院应予支持。\n前款规定情形下，如果子女已经成年并能够独立生活，直接抚养子女一方请求另一方支付欠付的费用的，人民法院依法予以支持。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一千零八十五条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S2",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "fb6a0b20-0e71-4d60-ad24-670787f62e94",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "84e57538-e67f-4ccf-a380-a670db3800eb",
+              "revision": "3beee1c6-92f0-4c8f-9024-43fbad4f4cde",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "marriage_family",
+              "mode": "general",
+              "fields": {},
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "6c65e66b-0fb8-4e42-950c-272c9361f9c6": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：前夫按离婚协议应付的孩子抚养费一直没给，孩子成年后谁可追讨此前欠付部分？"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-16",
+              "civil_code-2020-05-28-1076"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-17",
+              "civil_code-2020-05-28-1085"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.4,
+              "ndcg": 1.0,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-02",
+      "query_id": "L-CD-02",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-6"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+            "expected": "answer"
+          },
+          "status": 424,
+          "elapsed_seconds": 9.987,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+              "output": "{\"intent\": \"qa\", \"confidence\": 0.95, \"document_type\": null}",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "elapsed_seconds": 0.424
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.423
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？",
+                "mode": "general",
+                "facts": {},
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "c55f2677-3a4c-5aeb-973c-f4bb7a0cc037",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "c55f2677-3a4c-5aeb-973c-f4bb7a0cc037",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第六条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "25b2ef12-9bd6-54a1-b6e9-7278cdb84853",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "25b2ef12-9bd6-54a1-b6e9-7278cdb84853",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第三条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "e57461b5-807a-5827-8912-280c267aaf4c",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "e57461b5-807a-5827-8912-280c267aaf4c",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第五百八十五条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第五百八十五条　当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。\n约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。\n当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第五百八十五条　当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "64c5af20-682f-5737-8c25-514891c34173",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "64c5af20-682f-5737-8c25-514891c34173",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第五百零九条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第五百零九条　当事人应当按照约定全面履行自己的义务。\n当事人应当遵循诚信原则，根据合同的性质、目的和交易习惯履行通知、协助、保密等义务。\n当事人在履行合同过程中，应当避免浪费资源、污染环境和破坏生态。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第五百零九条　当事人应当按照约定全面履行自己的义务。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人应当遵循诚信原则，根据合同的性质、目的和交易习惯履行通知、协助、保密等义务。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人在履行合同过程中，应当避免浪费资源、污染环境和破坏生态。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "c850d36b-c479-5894-9bed-332c26596014",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "c850d36b-c479-5894-9bed-332c26596014",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第四百九十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第四百九十六条　格式条款是当事人为了重复使用而预先拟定，并在订立合同时未与对方协商的条款。\n采用格式条款订立合同的，提供格式条款的一方应当遵循公平原则确定当事人之间的权利和义务，并采取合理的方式提示对方注意免除或者减轻其责任等与对方有重大利害关系的条款，按照对方的要求，对该条款予以说明。提供格式条款的一方未履行提示或者说明义务，致使对方没有注意或者理解与其有重大利害关系的条款的，对方可以主张该条款不成为合同的内容。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第四百九十六条　格式条款是当事人为了重复使用而预先拟定，并在订立合同时未与对方协商的条款。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "采用格式条款订立合同的，提供格式条款的一方应当遵循公平原则确定当事人之间的权利和义务，并采取合理的方式提示对方注意免除或者减轻其责任等与对方有重大利害关系的条款，按照对方的要求，对该条款予以说明。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "提供格式条款的一方未履行提示或者说明义务，致使对方没有注意或者理解与其有重大利害关系的条款的，对方可以主张该条款不成为合同的内容。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\n  \"source_ids\": [\n    \"c55f2677-3a4c-5aeb-973c-f4bb7a0cc037\",\n    \"25b2ef12-9bd6-54a1-b6e9-7278cdb84853\"\n  ],\n  \"assessment\": \"general\",\n  \"direct_support\": {\n    \"c55f2677-3a4c-5aeb-973c-f4bb7a0cc037\": [0, 1],\n    \"25b2ef12-9bd6-54a1-b6e9-7278cdb84853\": [0]\n  },\n  \"supporting_support\": {\n    \"c55f2677-3a4c-5aeb-973c-f4bb7a0cc037\": [2],\n    \"25b2ef12-9bd6-54a1-b6e9-7278cdb84853\": [1]\n  },\n  \"missing_fields\": [],\n  \"questions\": {},\n  \"blocking_reasons\": {}\n}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.082
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "history": [],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "version": "2023年制定",
+                    "effective_from": "2023-12-05",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S2",
+                    "is_demo": false,
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "version": "2023年制定",
+                    "effective_from": "2023-12-05",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。故意向书并非一律构成预约，须看是否具备上述条件。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "3f79efa225f5114ed22ae03ed7bdd01c64f9fde2b75baa12ab1dce55c3b39e6d",
+              "chunks": [
+                "结论",
+                "\n",
+                "认购",
+                "书",
+                "、",
+                "订购",
+                "书",
+                "、",
+                "预订",
+                "书",
+                "等形式",
+                "约定",
+                "在",
+                "将来",
+                "一定",
+                "期限内",
+                "订立",
+                "合同",
+                "，",
+                "或者",
+                "为",
+                "担保",
+                "在",
+                "将来",
+                "一定",
+                "期限内",
+                "订立",
+                "合同",
+                "交付",
+                "了",
+                "定金",
+                "，",
+                "且",
+                "能够",
+                "确定",
+                "将来",
+                "所要",
+                "订立",
+                "合同",
+                "的主体",
+                "、",
+                "标的",
+                "等",
+                "内容的",
+                "，",
+                "应",
+                "认定",
+                "预约",
+                "合同",
+                "成立",
+                "[S",
+                "1",
+                "]。",
+                "意向",
+                "书",
+                "或",
+                "备忘录",
+                "仅",
+                "表达",
+                "交易",
+                "意向",
+                "，",
+                "未",
+                "约定",
+                "在",
+                "将来",
+                "一定",
+                "期限内",
+                "订立",
+                "合同",
+                "，",
+                "或者",
+                "虽有",
+                "约定",
+                "但",
+                "难以",
+                "确定",
+                "将来",
+                "所要",
+                "订立",
+                "合同",
+                "的主体",
+                "、",
+                "标的",
+                "等",
+                "内容的",
+                "，",
+                "主张",
+                "预约",
+                "合同",
+                "成立",
+                "不予",
+                "支持",
+                "[S",
+                "1",
+                "]。",
+                "故",
+                "意向",
+                "书",
+                "并非",
+                "一律",
+                "构成",
+                "预约",
+                "，",
+                "须",
+                "看",
+                "是否",
+                "具备",
+                "上述",
+                "条件",
+                "。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 4.521
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。故意向书并非一律构成预约，须看是否具备上述条件。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "故意向书并非一律构成预约，须看是否具备上述条件。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 0}], \"explanation\": \"\"}, {\"unit_id\": 1, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 1}], \"explanation\": \"\"}, {\"unit_id\": 2, \"verdict\": \"unsupported\", \"supports\": [], \"explanation\": \"“故意向书”系“意向书”的笔误，但该句将“并非一律构成预约”表述为一般规则，未完整保留原文对“仅表达交易意向”与“未约定将来订立合同或难以确定主体、标的”等具体条件的限定，且“须看是否具备上述条件”指向不明，超出S1直接支持范围。\"}]}",
+              "system_prompt_sha256": "ac79b2daf3c801d2de34a69b23309c4140b4ce052780c73acf97ef8f1b0ed3f5",
+              "elapsed_seconds": 1.155
+            },
+            {
+              "task": "TASK:REVISE",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。故意向书并非一律构成预约，须看是否具备上述条件。\n\n",
+                "failure": "unsupported_claim",
+                "feedback": [
+                  {
+                    "unit_id": 2,
+                    "text": "故意向书并非一律构成预约，须看是否具备上述条件。",
+                    "explanation": "“故意向书”系“意向书”的笔误，但该句将“并非一律构成预约”表述为一般规则，未完整保留原文对“仅表达交易意向”与“未约定将来订立合同或难以确定主体、标的”等具体条件的限定，且“须看是否具备上述条件”指向不明，超出S1直接支持范围。"
+                  }
+                ],
+                "validated_context": "",
+                "repair_units": [
+                  {
+                    "unit_id": 2,
+                    "text": "故意向书并非一律构成预约，须看是否具备上述条件。"
+                  }
+                ],
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                  }
+                ]
+              },
+              "output": "{\"replacements\":[{\"unit_id\":2,\"text\":\"意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。\"}]}",
+              "system_prompt_sha256": "bf214c9bc121bdcee5904968ac1c371e36fe8168409ca4391b8de5d0455ccee7",
+              "elapsed_seconds": 0.715
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":0}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":2,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "ac79b2daf3c801d2de34a69b23309c4140b4ce052780c73acf97ef8f1b0ed3f5",
+              "elapsed_seconds": 0.757
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。\n\n",
+                "validated_context": "",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持[S1]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"候选句与原文第六条第一款实质一致：保留‘约定将来一定期限内订立合同’或‘为担保订立合同交付定金’以及‘能够确定主体、标的等内容’等全部前提，未改变条件或结论。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"候选句与原文第六条第二款实质一致：保留‘仅表达交易意向’、‘未约定将来一定期限内订立合同’或‘虽有约定但难以确定主体、标的等内容’等前提，结论为不予支持，未扩大或改变条件。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"与unit_id 1相同，候选句与原文第六条第二款实质一致，未遗漏例外或改变逻辑。\"}]}",
+              "system_prompt_sha256": "5005f75c314e41050dac4959ab40402e4cdb1de136392f702a5083916208c98d",
+              "elapsed_seconds": 1.13
+            },
+            {
+              "task": "TASK:COVERAGE",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "validated_context": "结论\n[S1] 认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+                "missing_citations": [
+                  "S2"
+                ],
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "补充说明：当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立，但法律另有规定或者当事人另有约定的除外。[S2]根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。[S2]当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。[S2]上述内容涉及的具体条文内容尚未提供，该部分依据不足。[S2]",
+              "system_prompt_sha256": "09bdd0ea527ab815977631cc4bd38a7efd8511565acde2cd5399b03acf49086c",
+              "elapsed_seconds": 1.15
+            },
+            {
+              "task": "TASK:REVISE",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "补充说明：当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立，但法律另有规定或者当事人另有约定的除外。[S2]根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据该依据援引的条款、第五百一十一条等规定予以确定。[S2]当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。[S2]上述内容涉及的具体条文内容尚未提供，该部分依据不足。[S2]",
+                "failure": "invalid_citation",
+                "feedback": [
+                  {
+                    "explanation": "含未提供的编号、来源标识或不匹配的原文引用。删除这些标识，使用给定S编号；不得补写未提供条文的内容。",
+                    "invalid_identifiers": [
+                      "第五百一十一条"
+                    ],
+                    "allowed_citations": [
+                      "S1",
+                      "S2"
+                    ]
+                  }
+                ],
+                "validated_context": "结论\n[S1] 认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n",
+                "repair_units": [],
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                  }
+                ]
+              },
+              "output": "补充说明：当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立，但法律另有规定或者当事人另有约定的除外。[S2]根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据该依据援引的条款等规定予以确定。[S2]当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。[S2]上述内容涉及的具体条文内容尚未提供，该部分依据不足。[S2]",
+              "system_prompt_sha256": "567aaa050f563e2686fa75c0b12d0d4a64b263b919e8e6cc8a4273017dd00ad5",
+              "elapsed_seconds": 0.893
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：只有认购书约定将来签正式合同，什么时候构成预约，意向书一定算吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "补充说明：当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立，但法律另有规定或者当事人另有约定的除外。[S2]根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据该依据援引的条款等规定予以确定。[S2]当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。[S2]上述内容涉及的具体条文内容尚未提供，该部分依据不足。[S2]\n\n",
+                "validated_context": "结论\n[S1] 认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，且能够确定将来所要订立合同的主体、标的等内容的，应认定预约合同成立。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。[S1] 意向书或备忘录仅表达交易意向，未约定在将来一定期限内订立合同，或者虽有约定但难以确定将来所要订立合同的主体、标的等内容的，主张预约合同成立不予支持。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n",
+                "reference_context": [
+                  {
+                    "from_citation": "S1",
+                    "reference": "本解释第三条",
+                    "target_citation": "S2",
+                    "status": "provided"
+                  },
+                  {
+                    "from_citation": "S2",
+                    "reference": "民法典第五百一十条",
+                    "target_citation": null,
+                    "status": "not_provided"
+                  }
+                ],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "补充说明：当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立，但法律另有规定或者当事人另有约定的除外。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "[S2]根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据该依据援引的条款等规定予以确定。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "[S2]当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "[S2]上述内容涉及的具体条文内容尚未提供，该部分依据不足。"
+                  },
+                  {
+                    "unit_id": 4,
+                    "text": "[S2]"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。\n当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。\n当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条 当事人以认购书、订购书、预订书等形式约定在将来一定期限内订立合同，或者为担保在将来一定期限内订立合同交付了定金，能够确定将来所要订立合同的主体、标的等内容的，人民法院应当认定预约合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "当事人通过签订意向书或者备忘录等方式，仅表达交易的意向，未约定在将来一定期限内订立合同，或者虽然有约定但是难以确定将来所要订立合同的主体、标的等内容，一方主张预约合同成立的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "当事人订立的认购书、订购书、预订书等已就合同标的、数量、价款或者报酬等主要内容达成合意，符合本解释第三条第一款规定的合同成立条件，未明确约定在将来一定期限内另行订立合同，或者虽然有约定但是当事人一方已实施履行行为且对方接受的，人民法院应当认定本约合同成立。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S2",
+                    "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。但是，法律另有规定或者当事人另有约定的除外。\n根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。\n当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第三条 当事人对合同是否成立存在争议，人民法院能够确定当事人姓名或者名称、标的和数量的，一般应当认定合同成立。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，法律另有规定或者当事人另有约定的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "根据前款规定能够认定合同已经成立的，对合同欠缺的内容，人民法院应当依据民法典第五百一十条、第五百一十一条等规定予以确定。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "当事人主张合同无效或者请求撤销、解除合同等，人民法院认为合同不成立的，应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定将合同是否成立作为焦点问题进行审理，并可以根据案件的具体情况重新指定举证期限。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S2\", \"span_id\": 0}, {\"citation_id\": \"S2\", \"span_id\": 1}], \"explanation\": \"\"}, {\"unit_id\": 1, \"verdict\": \"unsupported\", \"supports\": [], \"explanation\": \"原文为“依据民法典第五百一十条、第五百一十一条等规定予以确定”，候选写成“依据该依据援引的条款等规定”，表述不清且未保留具体援引条文；虽reference_context显示民法典第五百一十条未提供，但本条独立规则仍应准确转述。\"}, {\"unit_id\": 2, \"verdict\": \"unsupported\", \"supports\": [], \"explanation\": \"原文要求“应当依据《最高人民法院关于民事诉讼证据的若干规定》第五十三条的规定”将合同是否成立作为焦点问题审理，候选遗漏该程序依据，改变了程序条件的完整性。\"}, {\"unit_id\": 3, \"verdict\": \"neutral\", \"supports\": [], \"explanation\": \"该句为资料不足说明，不构成法律主张。\"}, {\"unit_id\": 4, \"verdict\": \"neutral\", \"supports\": [], \"explanation\": \"仅含引用标记，无实质法律主张。\"}]}",
+              "system_prompt_sha256": "ac79b2daf3c801d2de34a69b23309c4140b4ce052780c73acf97ef8f1b0ed3f5",
+              "elapsed_seconds": 1.453
+            }
+          ],
+          "error": "MODEL_UNAVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-05",
+      "query_id": "L-CD-05",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-13",
+        "civil_code-2020-05-28-153",
+        "civil_code-2020-05-28-143"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 200,
+          "elapsed_seconds": 1.971,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "{\"intent\": \"qa\", \"confidence\": 0.95, \"document_type\": null}",
+              "system_prompt_sha256": "15b04347abee604af14c840cf0659009a9a0ba470b960f47a891e285b9e967aa",
+              "elapsed_seconds": 0.499
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": true, \"requires_local_material\": false, \"fields\": [{\"name\": \"facts\", \"value\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\", \"quote\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\"}, {\"name\": \"context\", \"value\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\", \"quote\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\"}, {\"name\": \"case_status\", \"value\": \"目前没有生效裁判\", \"quote\": \"目前没有生效裁判\"}]}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 1.438
+            }
+          ],
+          "response": {
+            "response": "为避免遗漏事实或误用法律版本，请先补充：\n1. 请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。",
+            "intent": "qa",
+            "sources": [],
+            "session_id": "5a27ddb8-c7dc-4c23-b7b9-4436922d33ba",
+            "missing_fields": [
+              "event_date"
+            ],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "67410f72-4723-42e8-b44c-b1f0afef641d",
+              "revision": "af25df34-3640-46b4-a5b0-f8b4a4d17106",
+              "kind": "qa",
+              "phase": "collecting",
+              "document_type": null,
+              "domain": "contract_dispute",
+              "mode": "event",
+              "fields": {
+                "facts": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "context": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "case_status": {
+                  "value": "目前没有生效裁判",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "目前没有生效裁判",
+                  "source": "message"
+                }
+              },
+              "conflicts": {},
+              "missing_fields": [
+                "event_date"
+              ],
+              "questions": [
+                "请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。"
+              ],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "5edaf041-db2f-4edc-ab62-fde38c8e8ac6": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。"
+          },
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 4.862,
+          "model_trace": [
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "关键事件发生日期是2026年6月1日。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": "contract_dispute",
+                "requested_fields": [
+                  "event_date"
+                ]
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": false, \"requires_local_material\": false, \"fields\": [{\"name\": \"event_date\", \"value\": \"2026年6月1日\", \"quote\": \"关键事件发生日期是2026年6月1日。\"}]}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.701
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。",
+                "mode": "event",
+                "facts": {
+                  "facts": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "context": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "case_status": "目前没有生效裁判",
+                  "event_date": "2026年6月1日"
+                },
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "e807ddd3-0059-5e17-8ab5-498321867e34",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "e807ddd3-0059-5e17-8ab5-498321867e34",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第十六条 合同违反法律、行政法规的强制性规定，有下列情形之一，由行为人承担行政责任或者刑事责任能够实现强制性规定的立法目的的，人民法院可以依据民法典第一百五十三条第一款关于“该强制性规定不导致该民事法律行为无效的除外”的规定认定该合同不因违反强制性规定无效：\n(一)强制性规定虽然旨在维护社会公共秩序，但是合同的实际履行对社会公共秩序造成的影响显著轻微，认定合同无效将导致案件处理结果有失公平公正；\n(二)强制性规定旨在维护政府的税收、土地出让金等国家利益或者其他民事主体的合法利益而非合同当事人的民事权益，认定合同有效不会影响该规范目的的实现；\n(三)强制性规定旨在要求当事人一方加强风险控制、内部管理等，对方无能力或者无义务审查合同是否违反强制性规定，认定合同无效将使其承担不利后果；\n(四)当事人一方虽然在订立合同时违反强制性规定，但是在合同订立后其已经具备补正违反强制性规定的条件却违背诚信原则不予补正；\n(五)法律、司法解释规定的其他情形。\n法律、行政法规的强制性规定旨在规制合同订立后的履行行为，当事人以合同违反强制性规定为由请求认定合同无效的，人民法院不予支持。但是，合同履行必然导致违反强制性规定或者法律、司法解释另有规定的除外。\n依据前两款认定合同有效，但是当事人的违法行为未经处理的，人民法院应当向有关行政管理部门提出司法建议。当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条 合同违反法律、行政法规的强制性规定，有下列情形之一，由行为人承担行政责任或者刑事责任能够实现强制性规定的立法目的的，人民法院可以依据民法典第一百五十三条第一款关于“该强制性规定不导致该民事法律行为无效的除外”的规定认定该合同不因违反强制性规定无效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "(一)强制性规定虽然旨在维护社会公共秩序，但是合同的实际履行对社会公共秩序造成的影响显著轻微，认定合同无效将导致案件处理结果有失公平公正；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "(二)强制性规定旨在维护政府的税收、土地出让金等国家利益或者其他民事主体的合法利益而非合同当事人的民事权益，认定合同有效不会影响该规范目的的实现；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "(三)强制性规定旨在要求当事人一方加强风险控制、内部管理等，对方无能力或者无义务审查合同是否违反强制性规定，认定合同无效将使其承担不利后果；"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "(四)当事人一方虽然在订立合同时违反强制性规定，但是在合同订立后其已经具备补正违反强制性规定的条件却违背诚信原则不予补正；"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "(五)法律、司法解释规定的其他情形。"
+                      },
+                      {
+                        "span_id": 6,
+                        "text": "法律、行政法规的强制性规定旨在规制合同订立后的履行行为，当事人以合同违反强制性规定为由请求认定合同无效的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 7,
+                        "text": "但是，合同履行必然导致违反强制性规定或者法律、司法解释另有规定的除外。"
+                      },
+                      {
+                        "span_id": 8,
+                        "text": "依据前两款认定合同有效，但是当事人的违法行为未经处理的，人民法院应当向有关行政管理部门提出司法建议。"
+                      },
+                      {
+                        "span_id": 9,
+                        "text": "当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；"
+                      },
+                      {
+                        "span_id": 10,
+                        "text": "属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "90162175-52db-5d3b-b1db-1bcd2b3b6c38",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "90162175-52db-5d3b-b1db-1bcd2b3b6c38",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第二十四条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第二十四条 合同不成立、无效、被撤销或者确定不发生效力，当事人请求返还财产，经审查财产能够返还的，人民法院应当根据案件具体情况，单独或者合并适用返还占有的标的物、更正登记簿册记载等方式；经审查财产不能返还或者没有必要返还的，人民法院应当以认定合同不成立、无效、被撤销或者确定不发生效力之日该财产的市场价值或者以其他合理方式计算的价值为基准判决折价补偿。\n除前款规定的情形外，当事人还请求赔偿损失的，人民法院应当结合财产返还或者折价补偿的情况，综合考虑财产增值收益和贬值损失、交易成本的支出等事实，按照双方当事人的过错程度及原因力大小，根据诚信原则和公平原则，合理确定损失赔偿额。\n合同不成立、无效、被撤销或者确定不发生效力，当事人的行为涉嫌违法且未经处理，可能导致一方或者双方通过违法行为获得不当利益的，人民法院应当向有关行政管理部门提出司法建议。当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第二十四条 合同不成立、无效、被撤销或者确定不发生效力，当事人请求返还财产，经审查财产能够返还的，人民法院应当根据案件具体情况，单独或者合并适用返还占有的标的物、更正登记簿册记载等方式；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "经审查财产不能返还或者没有必要返还的，人民法院应当以认定合同不成立、无效、被撤销或者确定不发生效力之日该财产的市场价值或者以其他合理方式计算的价值为基准判决折价补偿。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "除前款规定的情形外，当事人还请求赔偿损失的，人民法院应当结合财产返还或者折价补偿的情况，综合考虑财产增值收益和贬值损失、交易成本的支出等事实，按照双方当事人的过错程度及原因力大小，根据诚信原则和公平原则，合理确定损失赔偿额。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "合同不成立、无效、被撤销或者确定不发生效力，当事人的行为涉嫌违法且未经处理，可能导致一方或者双方通过违法行为获得不当利益的，人民法院应当向有关行政管理部门提出司法建议。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一百四十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一百五十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\"source_ids\": [\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\", \"8f267bfd-3759-5bcf-835b-7856fe43b69d\", \"2646d07a-7d83-523d-af16-dde10e1e2f4a\"], \"assessment\": \"conditional\", \"direct_support\": {\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\": [0]}, \"supporting_support\": {\"8f267bfd-3759-5bcf-835b-7856fe43b69d\": [0, 1, 2, 3], \"2646d07a-7d83-523d-af16-dde10e1e2f4a\": [0, 1, 2]}, \"missing_fields\": [], \"questions\": {}, \"blocking_reasons\": {\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\": \"合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\"}}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.227
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "reference_context": [],
+                "history": [
+                  {
+                    "role": "user",
+                    "content": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。"
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "为避免遗漏事实或误用法律版本，请先补充：\n1. 请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "version": "2023年制定",
+                    "effective_from": "2023-12-05",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S4",
+                    "is_demo": false,
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S5",
+                    "is_demo": false,
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；当事人以已备案为由主张合同有效，人民法院不予支持[S1]。合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效[S5]。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "3f79efa225f5114ed22ae03ed7bdd01c64f9fde2b75baa12ab1dce55c3b39e6d",
+              "chunks": [
+                "结论",
+                "\n",
+                "合同",
+                "已在",
+                "行政机关",
+                "备案",
+                "，",
+                "不",
+                "因此",
+                "排除",
+                "对",
+                "无效",
+                "或",
+                "可",
+                "撤销",
+                "事",
+                "由",
+                "的",
+                "审查",
+                "；",
+                "当事人",
+                "以",
+                "已",
+                "备案",
+                "为由",
+                "主张",
+                "合同",
+                "有效",
+                "，",
+                "人民法院",
+                "不予",
+                "支持",
+                "[S",
+                "1",
+                "]。",
+                "合同",
+                "有效",
+                "需",
+                "同时",
+                "具备",
+                "行为人",
+                "具有",
+                "相应",
+                "民事",
+                "行为能力",
+                "、",
+                "意思",
+                "表示",
+                "真实",
+                "、",
+                "不",
+                "违反",
+                "法律",
+                "行政法规",
+                "强制性",
+                "规定",
+                "且",
+                "不",
+                "违背",
+                "公",
+                "序",
+                "良",
+                "俗",
+                "[S",
+                "4",
+                "]",
+                "；",
+                "违反",
+                "法律",
+                "行政法规",
+                "强制性",
+                "规定的",
+                "民事",
+                "法律",
+                "行为",
+                "无效",
+                "，",
+                "但",
+                "该",
+                "强制性",
+                "规定",
+                "不",
+                "导致",
+                "无效",
+                "的",
+                "除外",
+                "，",
+                "违背",
+                "公",
+                "序",
+                "良",
+                "俗",
+                "的",
+                "无效",
+                "[S",
+                "5",
+                "]。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 2.875
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "结论\n合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；当事人以已备案为由主张合同有效，人民法院不予支持[S1]。合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效[S5]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "当事人以已备案为由主张合同有效，人民法院不予支持[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗[S4]；"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效[S5]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 0}], \"explanation\": \"\"}, {\"unit_id\": 1, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S1\", \"span_id\": 0}], \"explanation\": \"\"}, {\"unit_id\": 2, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S4\", \"span_id\": 0}, {\"citation_id\": \"S4\", \"span_id\": 1}, {\"citation_id\": \"S4\", \"span_id\": 2}, {\"citation_id\": \"S4\", \"span_id\": 3}], \"explanation\": \"\"}, {\"unit_id\": 3, \"verdict\": \"supported\", \"supports\": [{\"citation_id\": \"S5\", \"span_id\": 0}, {\"citation_id\": \"S5\", \"span_id\": 1}, {\"citation_id\": \"S5\", \"span_id\": 2}], \"explanation\": \"\"}]}",
+              "system_prompt_sha256": "ac79b2daf3c801d2de34a69b23309c4140b4ce052780c73acf97ef8f1b0ed3f5",
+              "elapsed_seconds": 1.046
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "结论\n合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；当事人以已备案为由主张合同有效，人民法院不予支持[S1]。合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效[S5]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "当事人以已备案为由主张合同有效，人民法院不予支持[S1]。"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗[S4]；"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效[S5]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"与S1一致：备案不排除对无效或可撤销事由的审查，未改变条件或例外。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"S1明确当事人以已备案为由主张合同有效，人民法院不予支持；候选保留该规则。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"S4规定民事法律行为有效的三项条件，候选转述为合同有效需同时具备，未增加或删减实质条件。\"}, {\"unit_id\": 3, \"verdict\": \"consistent\", \"explanation\": \"S5包含违反强制性规定无效、但强制性规定不导致无效的除外，以及违背公序良俗无效；候选完整保留该但书。\"}]}",
+              "system_prompt_sha256": "5005f75c314e41050dac4959ab40402e4cdb1de136392f702a5083916208c98d",
+              "elapsed_seconds": 1.151
+            }
+          ],
+          "response": {
+            "response": "结论\n[S1] 合同已在行政机关备案，不因此排除对无效或可撤销事由的审查；[S1] 当事人以已备案为由主张合同有效，人民法院不予支持。[S4] 合同有效需同时具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗；[S5] 违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致无效的除外，违背公序良俗的无效。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n参考材料\n[S1] 最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释（第十三条）\n版本：2023年制定；生效：2023-12-05；核验日期：2026-09-19；有效状态资料截至：2023-12-05。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\n来源：https://www.court.gov.cn/fabu/xiangqing/419382.html\n\n[S4] 中华人民共和国民法典（第一百四十三条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html\n\n[S5] 中华人民共和国民法典（第一百五十三条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                "reference_number": "第十三条",
+                "publisher": "最高人民法院",
+                "date": "2023-12-04",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2023年制定",
+                "effective_from": "2023-12-05",
+                "effective_until": null,
+                "verified_at": "2026-09-19",
+                "status_as_of": "2023-12-05",
+                "legal_status": "effective",
+                "original_text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一百四十三条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S4",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一百五十三条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S5",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "5a27ddb8-c7dc-4c23-b7b9-4436922d33ba",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "67410f72-4723-42e8-b44c-b1f0afef641d",
+              "revision": "5d295a5d-ad42-42db-9a5c-cfb6992a8056",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "contract_dispute",
+              "mode": "event",
+              "fields": {
+                "facts": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "context": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "case_status": {
+                  "value": "目前没有生效裁判",
+                  "source_turn_id": "5edaf041-db2f-4edc-ab62-fde38c8e8ac6",
+                  "quote": "目前没有生效裁判",
+                  "source": "message"
+                },
+                "event_date": {
+                  "value": "2026年6月1日",
+                  "source_turn_id": "69246396-2038-4a50-beae-708962a2262c",
+                  "quote": "关键事件发生日期是2026年6月1日。",
+                  "source": "message"
+                }
+              },
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "5edaf041-db2f-4edc-ab62-fde38c8e8ac6": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "69246396-2038-4a50-beae-708962a2262c": "关键事件发生日期是2026年6月1日。"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-13",
+              "contract_general-2023-12-04-16",
+              "contract_general-2023-12-04-24",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9146628058302255,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "synthetic_redis_keys_removed": true
+  },
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 3,
+  "scope": "targeted_development_subset",
+  "requested_scenarios": [
+    "E-L-MF-02",
+    "E-L-CD-02",
+    "E-L-CD-05"
+  ],
+  "summary": {
+    "scenarios_attempted": 3,
+    "scenarios_planned": 3,
+    "turns_planned": 4,
+    "successful_http_turns": 3,
+    "model_calls": 24,
+    "scenario_structural_passes": 2,
+    "behavior_match_including_errors": {
+      "value": 0.75,
+      "denominator": 4
+    },
+    "answer_behavior_rate": {
+      "value": 0.6666666666666666,
+      "denominator": 3
+    },
+    "strict_insufficient_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "safe_nonanswer_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "http_latency_seconds_p50": 4.862,
+    "http_latency_seconds_p95": 5.919499999999999,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  },
+  "completed_at": "2026-09-30T18:02:43.687542+00:00"
+}

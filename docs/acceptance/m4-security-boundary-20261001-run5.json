@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-10-01T08:02:51.808501+00:00",
+  "scope": "configured secrets in tracked/untracked deliverables and frontend dist; final loopback boundaries",
+  "checked_file_count": 636,
+  "checks": {
+    "no_configured_secrets_in_checked_artifacts": true,
+    "embedded_chroma_with_external_embeddings": true,
+    "chroma_http_route_not_exposed": true,
+    "nested_jwt_rejected": true
+  },
+  "secret_matches": [],
+  "chroma_route_status": 404,
+  "nested_jwt_status": 401,
+  "passed": true,
+  "limitations": [
+    "Does not remove upstream Chroma advisories or establish absence of unknown vulnerabilities."
+  ]
+}

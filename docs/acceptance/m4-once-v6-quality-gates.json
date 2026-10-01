@@ -1,0 +1,67 @@
+{
+  "scope": "frozen one-shot candidate first observation; not independent blind acceptance",
+  "quality_gate_passed": false,
+  "checks": {
+    "complete": true,
+    "behavior_match": false,
+    "service_failure_limit": false,
+    "hard_check_failure_limit": true,
+    "semantic_review": false,
+    "expert_annotation": false,
+    "receipt_preserved": true
+  },
+  "summary": {
+    "scenarios_attempted": 24,
+    "scenarios_planned": 24,
+    "turns_planned": 24,
+    "successful_http_turns": 22,
+    "model_calls": 120,
+    "scenario_structural_passes": 17,
+    "behavior_match_including_errors": {
+      "value": 0.7083333333333334,
+      "denominator": 24
+    },
+    "answer_behavior_rate": {
+      "value": 0.75,
+      "denominator": 16
+    },
+    "strict_insufficient_rate": {
+      "value": 0.25,
+      "denominator": 4
+    },
+    "safe_nonanswer_rate": {
+      "value": 0.25,
+      "denominator": 4
+    },
+    "http_latency_seconds_p50": 5.013,
+    "http_latency_seconds_p95": 7.877800000000001,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  },
+  "service_failures": 2,
+  "hard_check_failures": {
+    "source_integrity": 0,
+    "known_citations": 0,
+    "verbatim_quotes": 0,
+    "no_model_urls": 0,
+    "version_interval": 0,
+    "field_provenance": 0,
+    "conflict_preserved": 0,
+    "confirmed_field": 0
+  },
+  "frozen_quality_gates": {
+    "behavior_match_minimum": 0.85,
+    "maximum_service_failures": 0,
+    "maximum_hard_check_failures": 0,
+    "semantic_review_required": true,
+    "expert_annotation_required": true
+  },
+  "raw_report_sha256": "638812b0cdf326a2d28b37c9de144ab59ebb4f3943587f40292d5a55d4204565",
+  "semantic_review_sha256": "5de694936529ab70071101151819a0f0d3ad6f19f27369599d8677732b7e12e3",
+  "annotation_status": "agent_draft_pending_expert",
+  "unseen_before_this_run": true,
+  "currently_unseen": false,
+  "independent_blind_test": false,
+  "label_changes": 0,
+  "reruns": 0
+}

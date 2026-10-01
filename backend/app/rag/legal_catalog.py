@@ -188,6 +188,32 @@ def complementary_provisions(ranked, index: BM25Index):
     return selected[:5]
 
 
+def referenced_complement(selected, eligible):
+    """Use the fifth slot for one exact, already reviewed cross-reference.
+
+    Keep the four existing candidates, including the lexical complement. Only
+    version/domain-filtered rows may supply a target. Missing or ambiguous full
+    texts remain gaps; a candidate still needs the applicability assessment.
+    """
+    reference_pattern = r'(民法典|劳动合同法|本解释|本法)(第[一二三四五六七八九十百千万零〇\d]+条)'
+    targets = []
+    for row, version in selected[:4]:
+        for name, article in dict.fromkeys(re.findall(reference_pattern, version.original_text)):
+            title = row.regulation_name if name in {'本法', '本解释'} else '中华人民共和国' + name
+            matches = [pair for pair in eligible if pair[0].regulation_name == title
+                       and pair[0].article_number == article]
+            if len(matches) == 1 and matches[0] not in targets:
+                targets.append(matches[0])
+    # An existing exact referenced target is more valuable than a new optional
+    # complement; do not displace it from the fifth slot.
+    if len(selected) == 5 and selected[-1] in targets:
+        return selected
+    target = next((pair for pair in targets if pair not in selected), None)
+    if target is not None:
+        return [*selected[:4], target]
+    return selected
+
+
 def retrieve_provisions(database: Database, query: str, domain: Domain | None, *, event_date: str | None,
                         general: bool = False, case_status: str | None = None,
                         include_transition_questions: bool = False) -> list[tuple[LegalProvision, Verification]]:
@@ -225,6 +251,6 @@ def retrieve_provisions(database: Database, query: str, domain: Domain | None, *
         ranked = [(lookup[key], score) for key, score in index.search(query, limit=len(corpus))]
         # Keywords contribute to ranking, but lexical synonyms must not delete top hits.
         # Candidate scores do not authorize an answer: direct support is checked downstream.
-        return complementary_provisions(ranked, index)
+        return referenced_complement(complementary_provisions(ranked, index), candidates)
     except (SQLAlchemyError, ValueError, TypeError) as exc:
         raise RetrievalUnavailableError() from exc

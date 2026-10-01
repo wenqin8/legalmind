@@ -1,0 +1,48 @@
+{
+  "raw_report_sha256": "164184f91a85c278e2783ab3f77b249b66b64302a982cb62ac837c2482575ae9",
+  "reviewer": "同一开发代理Codex；非独立法律专家",
+  "annotation_status": "agent_draft_pending_expert",
+  "scope": "仅检查最新未完整执行报告中7个成功法律答案，未执行或失败答案不作通过标注",
+  "turns": {
+    "E-L-MF-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-MF-02:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-MF-03:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-MF-05:2": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-MF-06:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-MF-06:3": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    },
+    "E-L-LD-01:1": {
+      "faithfulness": "pass",
+      "applicability": "pending",
+      "notes": "对本轮原文的忠实初评；个案适用和完整性尚待独立法律复核。"
+    }
+  },
+  "failure_analysis": {
+    "E-L-MF-04:1": "语义修订后仍被条件审查拒绝；未保存为成功答案。原文及交叉引用范围仍待独立复核。",
+    "E-L-LD-02:1": "供应商HTTP402，中止后续37轮；不能视为完整复验。"
+  },
+  "expert_review_performed": false
+}

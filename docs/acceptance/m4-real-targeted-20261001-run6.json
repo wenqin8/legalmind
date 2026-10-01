@@ -1,0 +1,2409 @@
+{
+  "started_at": "2026-10-01T05:49:05.582173+00:00",
+  "configuration": {
+    "implementation_sha256": "f400d42287b8e042e17cd13d2527aadc86dbdf60123c53700b0f163c6cd983ee",
+    "implementation_files": {
+      "app/agents/__init__.py": "3a3588b2398bf14af08a234ae5ee5f624182e04b1731f71eaf2c325222096c00",
+      "app/agents/claim_rules.py": "e894967300837e205f76da995702451b5dcddc82c5bf01e6dbe8204c9ae057cc",
+      "app/agents/evidence.py": "46e9156ab2494001a0e7bedf87e539f06389a51e618df53b757809fd09ae2875",
+      "app/agents/grounding.py": "528846ae9c96bb3fd114a80a4b8fd128f732d50db22ae78ca8cab284e15729ad",
+      "app/agents/intent.py": "2da5de0a93c0ead1acbbf4be2b04f275e9b00b2ed7d387688f8dd2b90cad8c13",
+      "app/agents/legal_evidence.py": "1e23fb8a4b14083d5bfae527196612fc5382214064355dcd8cf11a444c9aa649",
+      "app/agents/legal_references.py": "7945005a58d16e97f5f8c083e45aa7c2d3e2c88feafc4f84df6281269b709b72",
+      "app/agents/limitations.py": "cb0a46b3c26d95263e7b01fd5f5a2fdd349b9f163f331221fb15ac7df4d69dac",
+      "app/agents/paragraph_revision.py": "8b7f24ee10c198e7498d59de649826e09a3c8ea41044d6aea763916b278882e3",
+      "app/agents/qa.py": "07ef8c026697f586e8122b6eb9f0a862659733c350bb9e394f98c210bdf3aef7",
+      "app/agents/support_spans.py": "70919107be787eb5f72522852c3be26f6b9d346c5f89e108d8eb24de54ae958c",
+      "app/agents/tasks.py": "817a5106a0d772236037f681e97074ceeae35e23d413bc2977cd12d55ca404a7",
+      "app/agents/workflow.py": "bb4c8b48e69414b764f82bde9fe290962117390709b9b2637f311ea0367f7678",
+      "app/evaluation/__init__.py": "d5cc89a4afccd452db41a3a7747567ebc06efa06aebf876b1b6506884b3e69fe",
+      "app/evaluation/answers.py": "3f31ce63c6748819a07bee023a31d7f89dba6adcd4098e5875dba765ebe2dbf6",
+      "app/evaluation/dataset.py": "369c3dafed038067d8ecc01327a15e478a3ec12e57e9874f165a7feabd8b8ecf",
+      "app/evaluation/environment.py": "10c9266cad921b5af2719774c4c1515bb2a8075719adc02ca77aa377dfdb5e38",
+      "app/evaluation/metrics.py": "1715fa3667933106235fe9ff220002dc12b3b050d77506427f4ad56630e13eed",
+      "app/evaluation/offline_guard.py": "070966cc68cfffd3b9bcdc2558369959de0231c4f9defa87c06740a4e48e2dea",
+      "app/evaluation/once_acceptance.py": "c300ab6a9a21c93f643f7fba6dd86296015bd0ab36d570948b811ba6ab8e09fc",
+      "app/evaluation/replay.py": "d85be93090c7a730a40e41f24d78d3cda7169ec3c214de8f4de5c05dc563b74a",
+      "app/rag/__init__.py": "51841c0e025436fb642dfb9520b320d2278f6e5c2f58edc2dbd10b73e9d2ca5b",
+      "app/rag/bm25.py": "624799d8425e74be1fafd8f46689687d1602c2fc4f4ebddea147977672432491",
+      "app/rag/catalog_profiles.py": "fae8c48201b428a4c2462d5601e4fb1842c86bdda0a67929f32a31c667d1c7cf",
+      "app/rag/chunking.py": "c456e78143e1f88bd4cc361546edb22337d54504659c3dee5b6c15a046887425",
+      "app/rag/embeddings.py": "f23aa7d42d94f851c9280a132f373f825cb95698091388b9c89fb53a46e1629a",
+      "app/rag/importer.py": "8b1f67137260fe827fcb621cd7cce5886147cdf58811819e130cc0ea9117de34",
+      "app/rag/indexer.py": "f0f3e76d414b25c1613d8c029c22cece8c0ee19f9e2da3e390e67b730eb61af2",
+      "app/rag/legal_catalog.py": "b920f5c34dfddb1f07058c0ec66e57dab40d909000d46977a3b3f6c523a6c63e",
+      "app/rag/normalization.py": "58394369dd1a0098780647763ad63474ee38d7585e79b6704de3150bf9b35e53",
+      "app/rag/retriever.py": "dc718b9a5a259de749ce5efb1f08a2f7aab2ef83c9486a3057d1dfd39d0a8e5d",
+      "app/rag/schemas.py": "5047a1b87ebbbebd2e3e157eaea69f8695ece0295f08c71e4ed1d5b68f2f400a",
+      "app/rag/vector_store.py": "a0e24bf8e3df50bb3cbad55049d3f5d9d4b0530e7e62e8986c592de70beff051",
+      "app/services/__init__.py": "4b3e6d32891fe52f7b1a3c9bede88fb2a4c95dfdb7cb245fb00ce131c5f73c0c",
+      "app/services/auth.py": "5f071c077af4513279edbd2e0320219da843c9cfe55768d5d1a875d0d9550ba6",
+      "app/services/cases.py": "5216a770aff8bcade8b5c73725f74b1ef6a23063891b64fa68a5e66c7f43eaa5",
+      "app/services/chat.py": "92ddc3317648ba016ade859504457559b3439c2de4c02b640479b2db56e68666",
+      "app/services/documents.py": "d2ea0f2a71d5022b445cc06e9ff94b2f374713143824a6ff983f5c4a37b00c54",
+      "app/services/session_store.py": "3ce0a119c2dfeca369938aba443dc3237267c5b2cd6a108732af24065d4c8a3b",
+      "scripts/create_once_acceptance.py": "13880e03d2d269dd30f913c90c115558ee320caef71c0a41b3512e0b51af31b0",
+      "scripts/diagnose_rag_failures.py": "7a2fb091931058bf7a4601a3b31c2134c4ecc37758fe2cef45102cd23f33274a",
+      "scripts/diagnose_source_losses.py": "414a3b6f91242b9383421b7c595afadc81c110e6d15d3066bc3f1766bf3074d4",
+      "scripts/ensure_local_infrastructure_secrets.py": "ddc728035d2572a6c3fc27d283897f4f524aaa0ec283072eeecd353e677fc516",
+      "scripts/ensure_local_jwt_secret.py": "cb883bea1525fb11a573ba449131c4d153fbae3c1c15e152aa92477cb7827918",
+      "scripts/evaluate_grounding_probes.py": "e99d4331f88f60de4406d160b8542ba2d9718f00b52663f02043d05ea9251c6b",
+      "scripts/evaluate_legal_retrieval.py": "3ff650090022470b8c6dfe598e0caf16f604e3d232d7146df5b9269826e5b802",
+      "scripts/evaluate_offline.py": "6cad819f7bba99bd02e541bd6c941553460197a394f6bf6628ee86d506838d8c",
+      "scripts/evaluate_quality_gates.py": "554300ecd620ffb5dbb714679f5e776ffc3beed62e361ecf3f752a0a0e16b1d1",
+      "scripts/evaluate_rag.py": "c240338f3931bf7ed2d4a8cafa3ede4db0470f7879f6ff013a58b2abe25f0046",
+      "scripts/evaluate_rag_answers.py": "20eea6bea3730980cd3914b39c30d9961a6fc15435beeb127f1ea8ebd5ba8662",
+      "scripts/evaluate_week2_retrieval.py": "2225539c75b524a61747d17397c2feb82f263f9f69145c6fde0d12e8e0c23579",
+      "scripts/import_legal_data.py": "3752aa6cd8cc611c4111bd581710f6f61300642197a4527711235caccd969529",
+      "scripts/import_verified_laws.py": "a8e29eed48b324a7dbbcbe4f577002f032bf8d3497d61a46b84b06d6df027081",
+      "scripts/index_legal_data.py": "11f23750086d55307502ce1def8f0db21cb50967bc8a0d91f671110d2cb475cd",
+      "scripts/initialize_deployment.py": "6cbc5e64043c318bc7449d4f6ea3fd49bc3f97921a5169463d4e3fefc1c0de72",
+      "scripts/review_rag_answers.py": "1ad1412060795c8837a380572e524b8350765be1865fad8765d1521ec8f7db15",
+      "scripts/serve_e2e.py": "bdb2564660fd1242e9293a467a17ca5a0367db3f685a86fad2cb5ecd0ccc91cc",
+      "scripts/smoke_infrastructure.py": "37c34780be686587577ab3ee9e4f91d409cb1aee3d2883c4af6407f1b3d3e064",
+      "scripts/smoke_legal_multiturn.py": "725052a6ff1a56802129e80a6bcbf45546d2405d743a557d30f0fac3d8aa1e96",
+      "scripts/smoke_week3_real_model.py": "ed4d3451a41dbe9f99590366907b15cea558b119f49072485e8dcf99da038c52",
+      "scripts/verify_deployment.py": "7242d407514e311e402b7cd6aded3e1dc6b365e88895900df03ad2b0fb9a744f",
+      "scripts/verify_postgres_week2.py": "9f32a5ba549f5aeb84d800e806a9598ea6f730e3f9e3e74a2d2c640a2553b8a0",
+      "scripts/verify_week3_storage.py": "66010e3330aabeb413c2315d588674e6b136632941880f7c439560a7c41c6457"
+    },
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "embedding_dimension": 512,
+    "embedding_device": "cpu",
+    "llm_model": "deepseek-v4-flash",
+    "llm_temperature": 0.2,
+    "llm_max_tokens": 2048,
+    "query_manifest_sha256": "9403797dd15f52758d074b7d1942cc90a0277b30d2968fcd11043ef93cb81f24",
+    "isolation": "fresh SQLite and Chroma under tmp; no default database or vector writes"
+  },
+  "transport": "real_loopback_http",
+  "model_attempts_per_turn": 1,
+  "complete": true,
+  "scenarios": [
+    {
+      "id": "E-L-MF-03",
+      "query_id": "L-MF-03",
+      "domain": "marriage_family",
+      "split": "development",
+      "gold_sources": [
+        "marriage_ii-2025-01-15-8",
+        "civil_code-2020-05-28-1062",
+        "civil_code-2020-05-28-1087"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 6.431,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+              "output": "{\"intent\": \"qa\", \"confidence\": 1.0, \"document_type\": null}",
+              "system_prompt_sha256": "48968e995facab09136f75cb0526a26919b13741a6d2fb69721af376f7ab88cc",
+              "elapsed_seconds": 0.814
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"marriage_family\", \"general_question\": true, \"requires_local_material\": false, \"fields\": []}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.476
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？",
+                "mode": "general",
+                "facts": {},
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "fadcd053-9d92-5dc4-a96a-f96dc4ed1de6",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "fadcd053-9d92-5dc4-a96a-f96dc4ed1de6",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第八条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "1286cc34-5353-5c58-b4eb-300cd5ad7663",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十四条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。\n离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。\n离婚后，不满两周岁的子女，以由母亲直接抚养为原则。已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。子女已满八周岁的，应当尊重其真实意愿。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十四条　父母与子女间的关系，不因父母离婚而消除。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "离婚后，子女无论由父或者母直接抚养，仍是父母双方的子女。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "离婚后，父母对于子女仍有抚养、教育、保护的权利和义务。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "离婚后，不满两周岁的子女，以由母亲直接抚养为原则。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "已满两周岁的子女，父母双方对抚养问题协议不成的，由人民法院根据双方的具体情况，按照最有利于未成年子女的原则判决。"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "子女已满八周岁的，应当尊重其真实意愿。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "52541fcd-bbde-5676-a9cb-e5deea45c486",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "52541fcd-bbde-5676-a9cb-e5deea45c486",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                      "reference_number": "第六条",
+                      "publisher": "最高人民法院",
+                      "date": "2025-01-15",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2025-02-01",
+                      "legal_status": "effective",
+                      "original_text": "第六条  夫妻一方未经另一方同意，在网络直播平台用夫妻共同财产打赏，数额明显超出其家庭一般消费水平，严重损害夫妻共同财产利益的，可以认定为民法典第一千零六十六条和第一千零九十二条规定的“挥霍”。另一方请求在婚姻关系存续期间分割夫妻共同财产，或者在离婚分割夫妻共同财产时请求对打赏一方少分或者不分的，人民法院应予支持。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第六条  夫妻一方未经另一方同意，在网络直播平台用夫妻共同财产打赏，数额明显超出其家庭一般消费水平，严重损害夫妻共同财产利益的，可以认定为民法典第一千零六十六条和第一千零九十二条规定的“挥霍”。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "另一方请求在婚姻关系存续期间分割夫妻共同财产，或者在离婚分割夫妻共同财产时请求对打赏一方少分或者不分的，人民法院应予支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "90a5e094-c8d4-5384-84ab-953c9fef297c",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "90a5e094-c8d4-5384-84ab-953c9fef297c",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十七条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "b465fc0a-5ae3-555d-b897-dbf5de24e817",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一千零八十五条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。负担费用的多少和期限的长短，由双方协议；协议不成的，由人民法院判决。\n前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。",
+                      "applicability": "general_reference",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十五条　离婚后，子女由一方直接抚养的，另一方应当负担部分或者全部抚养费。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "负担费用的多少和期限的长短，由双方协议；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "协议不成的，由人民法院判决。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "前款规定的协议或者判决，不妨碍子女在必要时向父母任何一方提出超过协议或者判决原定数额的合理要求。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\"source_ids\": [\"fadcd053-9d92-5dc4-a96a-f96dc4ed1de6\", \"90a5e094-c8d4-5384-84ab-953c9fef297c\"], \"assessment\": \"general\", \"direct_support\": {\"fadcd053-9d92-5dc4-a96a-f96dc4ed1de6\": [0, 1], \"90a5e094-c8d4-5384-84ab-953c9fef297c\": [0, 1]}, \"supporting_support\": {\"fadcd053-9d92-5dc4-a96a-f96dc4ed1de6\": [1], \"90a5e094-c8d4-5384-84ab-953c9fef297c\": [1]}, \"missing_fields\": [], \"questions\": {}, \"blocking_reasons\": {}}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.542
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？\n用户此前提供并保留的事实（数据）：\n",
+                "reference_context": [],
+                "history": [],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。",
+                    "version": "2025年制定",
+                    "effective_from": "2025-02-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S4",
+                    "is_demo": false,
+                    "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "general_reference",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额[S1]。据此，不能直接认定另一方毫无份额；是否补偿及补偿数额由人民法院按上述因素确定[S1]。离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决[S4]。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "73169598d8cf8c773748dec3f16ecb1368765c7c308a92df8367dab51f629819",
+              "chunks": [
+                "结论",
+                "\n",
+                "一方",
+                "父母",
+                "在",
+                "婚姻",
+                "关系",
+                "存",
+                "续",
+                "期间",
+                "全额",
+                "出资",
+                "购房",
+                "，",
+                "赠与",
+                "合同",
+                "没有",
+                "约定",
+                "或",
+                "约定",
+                "不",
+                "明确的",
+                "，",
+                "离婚",
+                "分割",
+                "夫妻",
+                "共同",
+                "财产",
+                "时",
+                "，",
+                "人民法院",
+                "可以",
+                "判决",
+                "该",
+                "房屋",
+                "归",
+                "出资",
+                "人",
+                "子女",
+                "一方",
+                "所有",
+                "，",
+                "并",
+                "综合考虑",
+                "共同",
+                "生活",
+                "及",
+                "孕育",
+                "共同",
+                "子女",
+                "情况",
+                "、",
+                "离婚",
+                "过错",
+                "、",
+                "对",
+                "家庭的",
+                "贡献",
+                "大小",
+                "以及",
+                "离婚",
+                "时",
+                "房屋",
+                "市场价格",
+                "等因素",
+                "，",
+                "确定",
+                "是否",
+                "由",
+                "获得",
+                "房屋",
+                "一方",
+                "对",
+                "另一方",
+                "予以",
+                "补偿",
+                "以及",
+                "补偿",
+                "的具体",
+                "数额",
+                "[S",
+                "1",
+                "]。",
+                "据此",
+                "，",
+                "不能",
+                "直接",
+                "认定",
+                "另一方",
+                "毫无",
+                "份额",
+                "；",
+                "是否",
+                "补偿",
+                "及",
+                "补偿",
+                "数额",
+                "由",
+                "人民法院",
+                "按",
+                "上述",
+                "因素",
+                "确定",
+                "[S",
+                "1",
+                "]。",
+                "离婚",
+                "时",
+                "夫妻",
+                "共同",
+                "财产",
+                "由",
+                "双方",
+                "协议",
+                "处理",
+                "，",
+                "协议",
+                "不",
+                "成的",
+                "，",
+                "由",
+                "人民法院",
+                "根据",
+                "财产",
+                "的具体",
+                "情况",
+                "，",
+                "按照",
+                "照顾",
+                "子女",
+                "、",
+                "女方",
+                "和无",
+                "过错",
+                "方",
+                "权益",
+                "的原则",
+                "判决",
+                "[S",
+                "4",
+                "]。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 3.535
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额[S1]。据此，不能直接认定另一方毫无份额；是否补偿及补偿数额由人民法院按上述因素确定[S1]。离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决[S4]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "据此，不能直接认定另一方毫无份额；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "是否补偿及补偿数额由人民法院按上述因素确定[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决[S4]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":0},{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":2,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":1}],\"explanation\":\"\"},{\"unit_id\":3,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S4\",\"span_id\":0},{\"citation_id\":\"S4\",\"span_id\":1}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "83c851a2f98a797840597e0fc64f3594772b3dd530b1d780c3849f3e46851088",
+              "elapsed_seconds": 1.152
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？\n用户此前提供并保留的事实（数据）：\n",
+                "paragraph": "结论\n一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额[S1]。据此，不能直接认定另一方毫无份额；是否补偿及补偿数额由人民法院按上述因素确定[S1]。离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决[S4]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额[S1]。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "据此，不能直接认定另一方毫无份额；"
+                  },
+                  {
+                    "unit_id": 2,
+                    "text": "是否补偿及补偿数额由人民法院按上述因素确定[S1]。"
+                  },
+                  {
+                    "unit_id": 3,
+                    "text": "离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决[S4]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2025年制定",
+                      "effective_from": "2025-02-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"与S1全额出资、无约定或约定不明情形一致，保留了可以判决归出资人子女、综合考虑因素及确定是否补偿的裁量条件。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"S1明确可判决归出资人子女并确定是否补偿，故不能直接认定另一方毫无份额，未改变条件。\"}, {\"unit_id\": 2, \"verdict\": \"consistent\", \"explanation\": \"与S1一致，是否补偿及数额由法院综合相关因素确定，未将可选补偿写成必须支付。\"}, {\"unit_id\": 3, \"verdict\": \"consistent\", \"explanation\": \"与S4一致，保留协议处理优先、协议不成由法院按原则判决的条件。\"}]}",
+              "system_prompt_sha256": "0d0d6f97da842b0977cd94d1e6c47a5d606bed7ef4230f01a4f4ffb536bb8f69",
+              "elapsed_seconds": 1.269
+            }
+          ],
+          "response": {
+            "response": "结论\n[S1] 一方父母在婚姻关系存续期间全额出资购房，赠与合同没有约定或约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。[S1] 据此，不能直接认定另一方毫无份额；[S1] 是否补偿及补偿数额由人民法院按上述因素确定。[S4] 离婚时夫妻共同财产由双方协议处理，协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n参考材料\n[S1] 最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)（第八条）\n版本：2025年制定；生效：2025-02-01；核验日期：2026-09-19；有效状态资料截至：2025-02-01。\n一般规则参考。\n官方原文：第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。\n来源：https://www.court.gov.cn/zixun/xiangqing/452771.html\n\n[S4] 中华人民共和国民法典（第一千零八十七条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n一般规则参考。\n官方原文：第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "fadcd053-9d92-5dc4-a96a-f96dc4ed1de6",
+                "title": "最高人民法院关于适用《中华人民共和国民法典》婚姻家庭编的解释(二)",
+                "reference_number": "第八条",
+                "publisher": "最高人民法院",
+                "date": "2025-01-15",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/452771.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2025年制定",
+                "effective_from": "2025-02-01",
+                "effective_until": null,
+                "verified_at": "2026-09-19",
+                "status_as_of": "2025-02-01",
+                "legal_status": "effective",
+                "original_text": "第八条  婚姻关系存续期间，夫妻购置房屋由一方父母全额出资，如果赠与合同明确约定只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以判决该房屋归出资人子女一方所有，并综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，确定是否由获得房屋一方对另一方予以补偿以及补偿的具体数额。\n婚姻关系存续期间，夫妻购置房屋由一方父母部分出资或者双方父母出资，如果赠与合同明确约定相应出资只赠与自己子女一方的，按照约定处理；没有约定或者约定不明确的，离婚分割夫妻共同财产时，人民法院可以根据当事人诉讼请求，以出资来源及比例为基础，综合考虑共同生活及孕育共同子女情况、离婚过错、对家庭的贡献大小以及离婚时房屋市场价格等因素，判决房屋归其中一方所有，并由获得房屋一方对另一方予以合理补偿。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "90a5e094-c8d4-5384-84ab-953c9fef297c",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一千零八十七条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S4",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一千零八十七条　离婚时，夫妻的共同财产由双方协议处理；协议不成的，由人民法院根据财产的具体情况，按照照顾子女、女方和无过错方权益的原则判决。\n对夫或者妻在家庭土地承包经营中享有的权益等，应当依法予以保护。",
+                "applicability": "general_reference",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "0624cffc-9de8-42b2-936e-6e4f5d701a8f",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "5082bb79-86f8-43e3-8abc-59abf3ff5300",
+              "revision": "f79acf20-a064-4ab4-a6f9-1a6a52c92993",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "marriage_family",
+              "mode": "general",
+              "fields": {},
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "a1d735a6-8c2c-435b-aa14-d734c7ef8f10": "我想了解以下问题的一般规则，不涉及具体事件，也不要求计算金额：一方父母全款给婚后买房，没有写明只赠给谁，离婚分房能直接认定另一方毫无份额吗？"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1084",
+              "marriage_ii-2025-01-15-6",
+              "civil_code-2020-05-28-1087",
+              "civil_code-2020-05-28-1085"
+            ],
+            "selected_ids": [
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1087"
+            ],
+            "returned_ids": [
+              "marriage_ii-2025-01-15-8",
+              "civil_code-2020-05-28-1087"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.7978637366933587,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.8556691603792903,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.4,
+              "ndcg": 0.8556691603792903,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E-L-CD-05",
+      "query_id": "L-CD-05",
+      "domain": "contract_dispute",
+      "split": "development",
+      "gold_sources": [
+        "contract_general-2023-12-04-13",
+        "civil_code-2020-05-28-153",
+        "civil_code-2020-05-28-143"
+      ],
+      "review_status": "agent_draft_pending_expert",
+      "review_rubric": {
+        "faithfulness": "判断每项实质结论能否从所引原文获得支持，不能只检查是否含引用号。",
+        "applicability": "核对主体、行为、例外、事件和审理时间，不将一般参考等同确定结论。",
+        "behavior": "有依据则有条件回答；材料缺失则问明确问题；库外信息不得编造。"
+      },
+      "turns": [
+        {
+          "expected": {
+            "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "expected": "clarify",
+            "expected_missing": [
+              "event_date"
+            ]
+          },
+          "status": 200,
+          "elapsed_seconds": 2.291,
+          "model_trace": [
+            {
+              "task": "TASK:INTENT",
+              "input": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+              "output": "{\"intent\": \"qa\", \"confidence\": 1.0, \"document_type\": null}",
+              "system_prompt_sha256": "48968e995facab09136f75cb0526a26919b13741a6d2fb69721af376f7ab88cc",
+              "elapsed_seconds": 0.825
+            },
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": null,
+                "requested_fields": []
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": false, \"requires_local_material\": false, \"fields\": [{\"name\": \"facts\", \"value\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\", \"quote\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\"}, {\"name\": \"context\", \"value\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\", \"quote\": \"合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\"}, {\"name\": \"case_status\", \"value\": \"目前没有生效裁判\", \"quote\": \"目前没有生效裁判\"}]}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 1.43
+            }
+          ],
+          "response": {
+            "response": "为避免遗漏事实或误用法律版本，请先补充：\n1. 请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。",
+            "intent": "qa",
+            "sources": [],
+            "session_id": "b38bc5e0-e89a-4a34-a7d5-3919187b73d0",
+            "missing_fields": [
+              "event_date"
+            ],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "7300eb38-7a6c-4d4f-9cef-7794ec6029b4",
+              "revision": "8b61bf9f-3198-4e8b-8b86-11783fee5ebf",
+              "kind": "qa",
+              "phase": "collecting",
+              "document_type": null,
+              "domain": "contract_dispute",
+              "mode": "event",
+              "fields": {
+                "facts": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "context": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "case_status": {
+                  "value": "目前没有生效裁判",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "目前没有生效裁判",
+                  "source": "message"
+                }
+              },
+              "conflicts": {},
+              "missing_fields": [
+                "event_date"
+              ],
+              "questions": [
+                "请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。"
+              ],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "37081eef-97b9-44b1-9468-7923ed4b0d07": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。"
+          },
+          "evaluation": {
+            "observed_behavior": "clarify",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [],
+            "selected_ids": [],
+            "returned_ids": [],
+            "candidate_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "reciprocal_rank": 0.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        },
+        {
+          "expected": {
+            "message": "关键事件发生日期是2026年6月1日。",
+            "expected": "answer"
+          },
+          "status": 200,
+          "elapsed_seconds": 6.988,
+          "model_trace": [
+            {
+              "task": "TASK:EXTRACT",
+              "input": {
+                "message": "关键事件发生日期是2026年6月1日。",
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "task_kind": "qa",
+                "domain": "contract_dispute",
+                "requested_fields": [
+                  "event_date"
+                ]
+              },
+              "output": "{\"domain\": \"contract_dispute\", \"general_question\": false, \"requires_local_material\": false, \"fields\": [{\"name\": \"event_date\", \"value\": \"2026年6月1日\", \"quote\": \"关键事件发生日期是2026年6月1日。\"}]}",
+              "system_prompt_sha256": "9bbf70f9c5209f1556c8cea3e9ff18beacab46ec45a99d7aded5a94d1b19c0d7",
+              "elapsed_seconds": 0.774
+            },
+            {
+              "task": "TASK:APPLICABILITY",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。",
+                "mode": "event",
+                "facts": {
+                  "facts": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "context": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "case_status": "目前没有生效裁判",
+                  "event_date": "2026年6月1日"
+                },
+                "allowed_fields": {
+                  "event_date": [
+                    "关键事件发生日期或起止日期（请含年份；不是咨询日期）",
+                    500
+                  ],
+                  "facts": [
+                    "事情经过、争议焦点和希望解决的问题",
+                    4000
+                  ],
+                  "context": [
+                    "双方关系、已有协议或处理材料",
+                    4000
+                  ],
+                  "relationship_date": [
+                    "关系建立或合同签订日期（含年份）",
+                    500
+                  ],
+                  "discovery_date": [
+                    "何时知道权利受侵害（含年份）",
+                    500
+                  ],
+                  "end_date": [
+                    "持续事件或关系结束日期（含年份），未结束请明确说明",
+                    500
+                  ],
+                  "case_status": [
+                    "是否已经终审及终审日期，是否属于再审（仅在过渡适用需要时）",
+                    500
+                  ]
+                },
+                "candidates": [
+                  {
+                    "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S1",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "e807ddd3-0059-5e17-8ab5-498321867e34",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "e807ddd3-0059-5e17-8ab5-498321867e34",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第十六条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S2",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第十六条 合同违反法律、行政法规的强制性规定，有下列情形之一，由行为人承担行政责任或者刑事责任能够实现强制性规定的立法目的的，人民法院可以依据民法典第一百五十三条第一款关于“该强制性规定不导致该民事法律行为无效的除外”的规定认定该合同不因违反强制性规定无效：\n(一)强制性规定虽然旨在维护社会公共秩序，但是合同的实际履行对社会公共秩序造成的影响显著轻微，认定合同无效将导致案件处理结果有失公平公正；\n(二)强制性规定旨在维护政府的税收、土地出让金等国家利益或者其他民事主体的合法利益而非合同当事人的民事权益，认定合同有效不会影响该规范目的的实现；\n(三)强制性规定旨在要求当事人一方加强风险控制、内部管理等，对方无能力或者无义务审查合同是否违反强制性规定，认定合同无效将使其承担不利后果；\n(四)当事人一方虽然在订立合同时违反强制性规定，但是在合同订立后其已经具备补正违反强制性规定的条件却违背诚信原则不予补正；\n(五)法律、司法解释规定的其他情形。\n法律、行政法规的强制性规定旨在规制合同订立后的履行行为，当事人以合同违反强制性规定为由请求认定合同无效的，人民法院不予支持。但是，合同履行必然导致违反强制性规定或者法律、司法解释另有规定的除外。\n依据前两款认定合同有效，但是当事人的违法行为未经处理的，人民法院应当向有关行政管理部门提出司法建议。当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十六条 合同违反法律、行政法规的强制性规定，有下列情形之一，由行为人承担行政责任或者刑事责任能够实现强制性规定的立法目的的，人民法院可以依据民法典第一百五十三条第一款关于“该强制性规定不导致该民事法律行为无效的除外”的规定认定该合同不因违反强制性规定无效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "(一)强制性规定虽然旨在维护社会公共秩序，但是合同的实际履行对社会公共秩序造成的影响显著轻微，认定合同无效将导致案件处理结果有失公平公正；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "(二)强制性规定旨在维护政府的税收、土地出让金等国家利益或者其他民事主体的合法利益而非合同当事人的民事权益，认定合同有效不会影响该规范目的的实现；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "(三)强制性规定旨在要求当事人一方加强风险控制、内部管理等，对方无能力或者无义务审查合同是否违反强制性规定，认定合同无效将使其承担不利后果；"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "(四)当事人一方虽然在订立合同时违反强制性规定，但是在合同订立后其已经具备补正违反强制性规定的条件却违背诚信原则不予补正；"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "(五)法律、司法解释规定的其他情形。"
+                      },
+                      {
+                        "span_id": 6,
+                        "text": "法律、行政法规的强制性规定旨在规制合同订立后的履行行为，当事人以合同违反强制性规定为由请求认定合同无效的，人民法院不予支持。"
+                      },
+                      {
+                        "span_id": 7,
+                        "text": "但是，合同履行必然导致违反强制性规定或者法律、司法解释另有规定的除外。"
+                      },
+                      {
+                        "span_id": 8,
+                        "text": "依据前两款认定合同有效，但是当事人的违法行为未经处理的，人民法院应当向有关行政管理部门提出司法建议。"
+                      },
+                      {
+                        "span_id": 9,
+                        "text": "当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；"
+                      },
+                      {
+                        "span_id": 10,
+                        "text": "属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "90162175-52db-5d3b-b1db-1bcd2b3b6c38",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "90162175-52db-5d3b-b1db-1bcd2b3b6c38",
+                      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                      "reference_number": "第二十四条",
+                      "publisher": "最高人民法院",
+                      "date": "2023-12-04",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S3",
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "effective_until": null,
+                      "verified_at": "2026-09-19",
+                      "status_as_of": "2023-12-05",
+                      "legal_status": "effective",
+                      "original_text": "第二十四条 合同不成立、无效、被撤销或者确定不发生效力，当事人请求返还财产，经审查财产能够返还的，人民法院应当根据案件具体情况，单独或者合并适用返还占有的标的物、更正登记簿册记载等方式；经审查财产不能返还或者没有必要返还的，人民法院应当以认定合同不成立、无效、被撤销或者确定不发生效力之日该财产的市场价值或者以其他合理方式计算的价值为基准判决折价补偿。\n除前款规定的情形外，当事人还请求赔偿损失的，人民法院应当结合财产返还或者折价补偿的情况，综合考虑财产增值收益和贬值损失、交易成本的支出等事实，按照双方当事人的过错程度及原因力大小，根据诚信原则和公平原则，合理确定损失赔偿额。\n合同不成立、无效、被撤销或者确定不发生效力，当事人的行为涉嫌违法且未经处理，可能导致一方或者双方通过违法行为获得不当利益的，人民法院应当向有关行政管理部门提出司法建议。当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第二十四条 合同不成立、无效、被撤销或者确定不发生效力，当事人请求返还财产，经审查财产能够返还的，人民法院应当根据案件具体情况，单独或者合并适用返还占有的标的物、更正登记簿册记载等方式；"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "经审查财产不能返还或者没有必要返还的，人民法院应当以认定合同不成立、无效、被撤销或者确定不发生效力之日该财产的市场价值或者以其他合理方式计算的价值为基准判决折价补偿。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "除前款规定的情形外，当事人还请求赔偿损失的，人民法院应当结合财产返还或者折价补偿的情况，综合考虑财产增值收益和贬值损失、交易成本的支出等事实，按照双方当事人的过错程度及原因力大小，根据诚信原则和公平原则，合理确定损失赔偿额。"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "合同不成立、无效、被撤销或者确定不发生效力，当事人的行为涉嫌违法且未经处理，可能导致一方或者双方通过违法行为获得不当利益的，人民法院应当向有关行政管理部门提出司法建议。"
+                      },
+                      {
+                        "span_id": 4,
+                        "text": "当事人的行为涉嫌犯罪的，应当将案件线索移送刑事侦查机关；"
+                      },
+                      {
+                        "span_id": 5,
+                        "text": "属于刑事自诉案件的，应当告知当事人可以向有管辖权的人民法院另行提起诉讼。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一百四十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S4",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ]
+                  },
+                  {
+                    "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                    "source": {
+                      "source_type": "legal_provision",
+                      "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                      "title": "中华人民共和国民法典",
+                      "reference_number": "第一百五十三条",
+                      "publisher": "最高人民法院",
+                      "date": "2020-05-28",
+                      "sample_date": null,
+                      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                      "source_kind": "official",
+                      "is_demo": false,
+                      "is_synthetic": false,
+                      "citation_id": "S5",
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "effective_until": null,
+                      "verified_at": "2026-09-18",
+                      "status_as_of": "2026-03-12",
+                      "legal_status": "effective",
+                      "original_text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                      "applicability": "event_candidate",
+                      "temporal_rule": "event_date",
+                      "transition_text": null
+                    },
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "{\"source_ids\": [\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\", \"8f267bfd-3759-5bcf-835b-7856fe43b69d\", \"2646d07a-7d83-523d-af16-dde10e1e2f4a\"], \"assessment\": \"conditional\", \"direct_support\": {\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\": [0]}, \"supporting_support\": {\"8f267bfd-3759-5bcf-835b-7856fe43b69d\": [0, 1, 2, 3], \"2646d07a-7d83-523d-af16-dde10e1e2f4a\": [0, 1, 2]}, \"missing_fields\": [], \"questions\": {}, \"blocking_reasons\": {\"99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74\": \"合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\"}}",
+              "system_prompt_sha256": "5cbc408a4c19ba0c23e9b611284545e00bb26290ff88a2eb35f5410615ef62e6",
+              "elapsed_seconds": 1.384
+            },
+            {
+              "task": "TASK:QA",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "reference_context": [],
+                "history": [
+                  {
+                    "role": "user",
+                    "content": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。"
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "为避免遗漏事实或误用法律版本，请先补充：\n1. 请补充关键事件发生日期或起止日期（请含年份；不是咨询日期）。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "is_demo": false,
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "version": "2023年制定",
+                    "effective_from": "2023-12-05",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "direct",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S4",
+                    "is_demo": false,
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ]
+                  },
+                  {
+                    "citation_id": "S5",
+                    "is_demo": false,
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "version": "2020年制定",
+                    "effective_from": "2021-01-01",
+                    "applicability": "event_candidate",
+                    "transition_text": null,
+                    "role": "supporting",
+                    "selected_spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "output": "结论\n合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持[S1]。\n\n合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效[S5]。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。",
+              "system_prompt_sha256": "73169598d8cf8c773748dec3f16ecb1368765c7c308a92df8367dab51f629819",
+              "chunks": [
+                "结论",
+                "\n",
+                "合同",
+                "已在",
+                "行政机关",
+                "备案",
+                "，",
+                "不能",
+                "据此",
+                "保证",
+                "合同",
+                "有效",
+                "而不",
+                "审查",
+                "无效",
+                "事",
+                "由",
+                "。",
+                "合同",
+                "存在",
+                "无效",
+                "或者",
+                "可",
+                "撤销",
+                "情形",
+                "时",
+                "，",
+                "当事人",
+                "以",
+                "已在",
+                "有关",
+                "行政",
+                "管理部门",
+                "办理",
+                "备案",
+                "、",
+                "已经",
+                "批准",
+                "机关",
+                "批准",
+                "或者",
+                "已",
+                "依据",
+                "该",
+                "合同",
+                "办理",
+                "财产",
+                "权利",
+                "变更",
+                "登记",
+                "、",
+                "移",
+                "转",
+                "登记",
+                "等",
+                "为由",
+                "主张",
+                "合同",
+                "有效的",
+                "，",
+                "人民法院",
+                "不予",
+                "支持",
+                "[S",
+                "1",
+                "]。\n\n",
+                "合同",
+                "有效",
+                "需",
+                "具备",
+                "行为人",
+                "具有",
+                "相应",
+                "民事",
+                "行为能力",
+                "、",
+                "意思",
+                "表示",
+                "真实",
+                "、",
+                "不",
+                "违反",
+                "法律",
+                "行政法规",
+                "强制性",
+                "规定",
+                "且",
+                "不",
+                "违背",
+                "公",
+                "序",
+                "良",
+                "俗",
+                "等",
+                "条件",
+                "[S",
+                "4",
+                "]",
+                "；",
+                "违反",
+                "法律",
+                "行政法规",
+                "强制性",
+                "规定的",
+                "民事",
+                "法律",
+                "行为",
+                "无效",
+                "，",
+                "但",
+                "该",
+                "强制性",
+                "规定",
+                "不",
+                "导致",
+                "该",
+                "行为",
+                "无效",
+                "的",
+                "除外",
+                "，",
+                "违背",
+                "公",
+                "序",
+                "良",
+                "俗",
+                "的",
+                "民事",
+                "法律",
+                "行为",
+                "无效",
+                "[S",
+                "5",
+                "]。\n\n",
+                "风险",
+                "\n",
+                "现有",
+                "资料",
+                "仅",
+                "支持",
+                "上述",
+                "有",
+                "条件的",
+                "规则",
+                "说明",
+                "；",
+                "具体",
+                "事实",
+                "、",
+                "原始",
+                "材料",
+                "及",
+                "条文",
+                "适用",
+                "前提",
+                "尚",
+                "需",
+                "逐",
+                "项",
+                "核实",
+                "，",
+                "不能",
+                "据此",
+                "确定",
+                "个案",
+                "结果",
+                "。\n\n",
+                "下一步",
+                "\n",
+                "请",
+                "整理",
+                "与",
+                "争",
+                "点",
+                "有关的",
+                "原始",
+                "材料",
+                "及",
+                "事件",
+                "时间",
+                "线",
+                "，",
+                "对照",
+                "上述",
+                "前提",
+                "核实",
+                "；",
+                "如需",
+                "个案",
+                "分析",
+                "，",
+                "可",
+                "继续",
+                "补充",
+                "事实",
+                "或",
+                "纠正",
+                "已有",
+                "信息",
+                "。"
+              ],
+              "elapsed_seconds": 4.769
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "结论\n合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持[S1]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持[S1]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":0}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S1\",\"span_id\":0}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "83c851a2f98a797840597e0fc64f3594772b3dd530b1d780c3849f3e46851088",
+              "elapsed_seconds": 0.798
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "结论\n合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持[S1]。\n\n",
+                "validated_context": "",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持[S1]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"与S1一致：备案不能保证有效，仍须审查无效或可撤销事由。未将备案写成有效要件，也未排除审查。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"完整保留S1前提“合同存在无效或者可撤销的情形”，并列事由及不予支持后果均与原文一致，未扩大或改变条件。\"}]}",
+              "system_prompt_sha256": "0d0d6f97da842b0977cd94d1e6c47a5d606bed7ef4230f01a4f4ffb536bb8f69",
+              "elapsed_seconds": 1.118
+            },
+            {
+              "task": "TASK:GROUNDING",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效[S5]。\n\n",
+                "validated_context": "结论\n[S1] 合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。[S1] 合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\n\n",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件[S4]；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效[S5]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\":[{\"unit_id\":0,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S4\",\"span_id\":0},{\"citation_id\":\"S4\",\"span_id\":1},{\"citation_id\":\"S4\",\"span_id\":2},{\"citation_id\":\"S4\",\"span_id\":3}],\"explanation\":\"\"},{\"unit_id\":1,\"verdict\":\"supported\",\"supports\":[{\"citation_id\":\"S5\",\"span_id\":0},{\"citation_id\":\"S5\",\"span_id\":1},{\"citation_id\":\"S5\",\"span_id\":2}],\"explanation\":\"\"}]}",
+              "system_prompt_sha256": "83c851a2f98a797840597e0fc64f3594772b3dd530b1d780c3849f3e46851088",
+              "elapsed_seconds": 0.812
+            },
+            {
+              "task": "TASK:CONDITIONS",
+              "input": {
+                "query": "关键事件发生日期是2026年6月1日。\n用户此前提供并保留的事实（数据）：\nfacts: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncontext: 合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。\ncase_status: 目前没有生效裁判\nevent_date: 2026年6月1日",
+                "paragraph": "合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件[S4]；违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效[S5]。\n\n",
+                "validated_context": "结论\n[S1] 合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。[S1] 合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\n\n",
+                "reference_context": [],
+                "units": [
+                  {
+                    "unit_id": 0,
+                    "text": "合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件[S4]；"
+                  },
+                  {
+                    "unit_id": 1,
+                    "text": "违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效[S5]。"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "citation_id": "S1",
+                    "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2023年制定",
+                      "effective_from": "2023-12-05",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S4",
+                    "text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百四十三条　具备下列条件的民事法律行为有效："
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "（一）行为人具有相应的民事行为能力；"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "（二）意思表示真实；"
+                      },
+                      {
+                        "span_id": 3,
+                        "text": "（三）不违反法律、行政法规的强制性规定，不违背公序良俗。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  },
+                  {
+                    "citation_id": "S5",
+                    "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                    "spans": [
+                      {
+                        "span_id": 0,
+                        "text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。"
+                      },
+                      {
+                        "span_id": 1,
+                        "text": "但是，该强制性规定不导致该民事法律行为无效的除外。"
+                      },
+                      {
+                        "span_id": 2,
+                        "text": "违背公序良俗的民事法律行为无效。"
+                      }
+                    ],
+                    "metadata": {
+                      "version": "2020年制定",
+                      "effective_from": "2021-01-01",
+                      "transition_text": null
+                    }
+                  }
+                ]
+              },
+              "output": "{\"items\": [{\"unit_id\": 0, \"verdict\": \"consistent\", \"explanation\": \"候选句与S4一致：有效需具备行为能力、意思表示真实、不违反强制性规定且不违背公序良俗等条件，未改变条件或例外。\"}, {\"unit_id\": 1, \"verdict\": \"consistent\", \"explanation\": \"候选句完整保留S5的但书：违反强制性规定无效，但该强制性规定不导致无效的除外；并保留违背公序良俗无效，无逻辑改变。\"}]}",
+              "system_prompt_sha256": "0d0d6f97da842b0977cd94d1e6c47a5d606bed7ef4230f01a4f4ffb536bb8f69",
+              "elapsed_seconds": 0.998
+            }
+          ],
+          "response": {
+            "response": "结论\n[S1] 合同已在行政机关备案，不能据此保证合同有效而不审查无效事由。[S1] 合同存在无效或者可撤销情形时，当事人以已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\n\n[S4] 合同有效需具备行为人具有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定且不违背公序良俗等条件；[S5] 违反法律行政法规强制性规定的民事法律行为无效，但该强制性规定不导致该行为无效的除外，违背公序良俗的民事法律行为无效。\n\n风险\n现有资料仅支持上述有条件的规则说明；具体事实、原始材料及条文适用前提尚需逐项核实，不能据此确定个案结果。\n\n下一步\n请整理与争点有关的原始材料及事件时间线，对照上述前提核实；如需个案分析，可继续补充事实或纠正已有信息。\n\n参考材料\n[S1] 最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释（第十三条）\n版本：2023年制定；生效：2023-12-05；核验日期：2026-09-19；有效状态资料截至：2023-12-05。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。\n来源：https://www.court.gov.cn/fabu/xiangqing/419382.html\n\n[S4] 中华人民共和国民法典（第一百四十三条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html\n\n[S5] 中华人民共和国民法典（第一百五十三条）\n版本：2020年制定；生效：2021-01-01；核验日期：2026-09-18；有效状态资料截至：2026-03-12。\n事件时间候选依据，仍需核对具体适用条件。\n官方原文：第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。\n来源：https://www.court.gov.cn/zixun/xiangqing/233181.html",
+            "intent": "qa",
+            "sources": [
+              {
+                "source_type": "legal_provision",
+                "source_id": "99fda2ce-7ccd-5e31-aacb-7c6ec0b3dc74",
+                "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+                "reference_number": "第十三条",
+                "publisher": "最高人民法院",
+                "date": "2023-12-04",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/fabu/xiangqing/419382.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S1",
+                "version": "2023年制定",
+                "effective_from": "2023-12-05",
+                "effective_until": null,
+                "verified_at": "2026-09-19",
+                "status_as_of": "2023-12-05",
+                "legal_status": "effective",
+                "original_text": "第十三条 合同存在无效或者可撤销的情形，当事人以该合同已在有关行政管理部门办理备案、已经批准机关批准或者已依据该合同办理财产权利的变更登记、移转登记等为由主张合同有效的，人民法院不予支持。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "8f267bfd-3759-5bcf-835b-7856fe43b69d",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一百四十三条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S4",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一百四十三条　具备下列条件的民事法律行为有效：\n（一）行为人具有相应的民事行为能力；\n（二）意思表示真实；\n（三）不违反法律、行政法规的强制性规定，不违背公序良俗。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              },
+              {
+                "source_type": "legal_provision",
+                "source_id": "2646d07a-7d83-523d-af16-dde10e1e2f4a",
+                "title": "中华人民共和国民法典",
+                "reference_number": "第一百五十三条",
+                "publisher": "最高人民法院",
+                "date": "2020-05-28",
+                "sample_date": null,
+                "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+                "source_kind": "official",
+                "is_demo": false,
+                "is_synthetic": false,
+                "citation_id": "S5",
+                "version": "2020年制定",
+                "effective_from": "2021-01-01",
+                "effective_until": null,
+                "verified_at": "2026-09-18",
+                "status_as_of": "2026-03-12",
+                "legal_status": "effective",
+                "original_text": "第一百五十三条　违反法律、行政法规的强制性规定的民事法律行为无效。但是，该强制性规定不导致该民事法律行为无效的除外。\n违背公序良俗的民事法律行为无效。",
+                "applicability": "event_candidate",
+                "temporal_rule": "event_date",
+                "transition_text": null
+              }
+            ],
+            "session_id": "b38bc5e0-e89a-4a34-a7d5-3919187b73d0",
+            "missing_fields": [],
+            "warnings": [
+              "AI 生成内容仅供参考，不构成法律意见。重要事项请核对原始依据或咨询专业人士。",
+              "法条使用本地核验版本，未在本次回答时实时联网更新；引用真实仍需核对场景、例外和过渡规则。",
+              "资料版本：eval-rag-v2-209（209条法条）。当前为扩展评估版，资料未构成完整现行法律库。"
+            ],
+            "document_id": null,
+            "task": {
+              "task_id": "7300eb38-7a6c-4d4f-9cef-7794ec6029b4",
+              "revision": "eef5ad01-3480-4715-8ad9-1040dc0a3f55",
+              "kind": "qa",
+              "phase": "completed",
+              "document_type": null,
+              "domain": "contract_dispute",
+              "mode": "event",
+              "fields": {
+                "facts": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "context": {
+                  "value": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+                  "source": "message"
+                },
+                "case_status": {
+                  "value": "目前没有生效裁判",
+                  "source_turn_id": "37081eef-97b9-44b1-9468-7923ed4b0d07",
+                  "quote": "目前没有生效裁判",
+                  "source": "message"
+                },
+                "event_date": {
+                  "value": "2026年6月1日",
+                  "source_turn_id": "f39f8177-c883-4f60-8176-ea2a23410556",
+                  "quote": "关键事件发生日期是2026年6月1日。",
+                  "source": "message"
+                }
+              },
+              "conflicts": {},
+              "missing_fields": [],
+              "questions": [],
+              "document_id": null,
+              "requires_local_material": false
+            }
+          },
+          "message_provenance": {
+            "37081eef-97b9-44b1-9468-7923ed4b0d07": "合成咨询：合同已经在行政机关备案，就能据此保证有效而不审查无效事由吗？这是境内普通民事合同纠纷，合同及相应履行记录已经留存，目前没有生效裁判。只做规则与材料分析，不要求计算金额。",
+            "f39f8177-c883-4f60-8176-ea2a23410556": "关键事件发生日期是2026年6月1日。"
+          },
+          "evaluation": {
+            "observed_behavior": "answer",
+            "checks": {
+              "expected_behavior": true,
+              "source_integrity": true,
+              "known_citations": true,
+              "verbatim_quotes": true,
+              "no_model_urls": true,
+              "version_interval": true,
+              "field_provenance": true,
+              "expected_missing": true,
+              "conflict_preserved": true,
+              "confirmed_field": true,
+              "relevant_answer_source": true
+            },
+            "structural_passed": true,
+            "candidate_ids": [
+              "contract_general-2023-12-04-13",
+              "contract_general-2023-12-04-16",
+              "contract_general-2023-12-04-24",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "selected_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "returned_ids": [
+              "contract_general-2023-12-04-13",
+              "civil_code-2020-05-28-143",
+              "civil_code-2020-05-28-153"
+            ],
+            "candidate_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9146628058302255,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "selected_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "returned_metrics": {
+              "hit": 1.0,
+              "recall": 1.0,
+              "precision": 0.6,
+              "ndcg": 0.9721212198129313,
+              "reciprocal_rank": 1.0,
+              "recall_ceiling": 1.0,
+              "negative_false_retrieval": null
+            },
+            "semantic_review": "pending; structural checks do not establish faithfulness or legal correctness"
+          }
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "synthetic_redis_keys_removed": true
+  },
+  "annotation_status": "agent_draft_pending_expert",
+  "split": "development",
+  "catalog": {
+    "profile": "eval-rag-v2-209",
+    "provision_count": 209,
+    "fingerprint": "25a451c771966c28332f1103d758e51ba809125d93eb1b2a39323c82eca2ddaf"
+  },
+  "planned_scenarios": 2,
+  "scope": "targeted_development_subset",
+  "requested_scenarios": [
+    "E-L-MF-03",
+    "E-L-CD-05"
+  ],
+  "summary": {
+    "scenarios_attempted": 2,
+    "scenarios_planned": 2,
+    "turns_planned": 3,
+    "successful_http_turns": 3,
+    "model_calls": 15,
+    "scenario_structural_passes": 2,
+    "behavior_match_including_errors": {
+      "value": 1.0,
+      "denominator": 3
+    },
+    "answer_behavior_rate": {
+      "value": 1.0,
+      "denominator": 2
+    },
+    "strict_insufficient_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "safe_nonanswer_rate": {
+      "value": null,
+      "denominator": 0
+    },
+    "http_latency_seconds_p50": 6.431,
+    "http_latency_seconds_p95": 6.932300000000001,
+    "semantic_quality_passed": null,
+    "expert_review": "not performed"
+  },
+  "completed_at": "2026-10-01T05:49:22.230953+00:00"
+}

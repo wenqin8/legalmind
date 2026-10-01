@@ -1,0 +1,453 @@
+{
+  "recorded_at": "2026-10-01T15:18:32.336133+00:00",
+  "archive": "output/delivery/LegalMind-M4-reviewed-supplement-20261001.zip",
+  "archive_sha256": "538ae79f1442ffc7fcc84cedad70cdfe24337a4e29398c9d40f05aad1f8ca34e",
+  "archive_bytes": 395307,
+  "file_count": 85,
+  "requires_base_archive": "output/delivery/LegalMind-M4-course-MVP-20261001.zip",
+  "base_archive_sha256": "68afcbccd8a5b4fce84c070499522283d79212176853104e3cb8309bf505c892",
+  "verification": {
+    "crc_and_each_entry_sha256_passed": true,
+    "configured_secrets_found": 0,
+    "live_data_or_dependencies_included": false,
+    "broken_local_links_with_base_course": 0,
+    "base_archive_original_pdf_and_prior_packages_unchanged": true
+  },
+  "acceptance": {
+    "first_run_engineering_passed": true,
+    "agent_answer_review_complete": true,
+    "human_semantic_review_complete": false,
+    "independent_expert_review_complete": false,
+    "legal_quality_passed": false,
+    "python_dependency_audit_passed": false,
+    "model_calls": 134,
+    "model_reruns": 0
+  },
+  "files": [
+    {
+      "path": "backend/data/evaluation/m4-once-v13/manifest.json",
+      "bytes": 2365,
+      "sha256": "04603b92091d9916999aee47c65c6469d9dfae7a0d46cf8540d121ad0c2e94e7"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/queries.jsonl",
+      "bytes": 16183,
+      "sha256": "69e165f02fd2baa914e235429f9e43f066de03f218773cc8c41cf68d0f90afe9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/README.md",
+      "bytes": 1364,
+      "sha256": "c5e16145c67090e097a33a9267f522f9671aeecc7ee4acb810836c436aab128c"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/review-record.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/rubric.json",
+      "bytes": 37211,
+      "sha256": "429b4c0348c7674a894224c60d4ee0209dc1773b91d6d084aac1fd00a0678582"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/scenarios.jsonl",
+      "bytes": 11171,
+      "sha256": "b6d56b1008726b6c79def2de373b6761c6bea1abc20ac6f1dfe3720bac61793b"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/labor-review-record.json",
+      "bytes": 9857,
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/manifest.json",
+      "bytes": 2524,
+      "sha256": "9c0f82d23773c1b187d080c58d812d31d7023034df3acd941578b1035bd54362"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/queries.jsonl",
+      "bytes": 16258,
+      "sha256": "1a03633c90ce72f985bb932207dd430b21fa58585cd621fa9e7d2b8e11b50368"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/README.md",
+      "bytes": 1365,
+      "sha256": "4f3bd3b7cd774780dc0cf230d0778293bb20f08cf2a9ac6cdd3e7e120fe98f17"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/review-record.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/rubric.json",
+      "bytes": 39886,
+      "sha256": "48419e8dd8346f16e5565cabe7e314166ccfc64603eb3ad15a07a28f309f8de9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v14/scenarios.jsonl",
+      "bytes": 11246,
+      "sha256": "2b3b26ffcb46aee14feea7adc512e19d3214f111dcbe692be6241627ba4e49d9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/labor-review-record.json",
+      "bytes": 9857,
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/manifest.json",
+      "bytes": 2665,
+      "sha256": "9598fe86ba3884948c0f6e567729aff05931d63874c2ce51dea25b56a9e6d56e"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/queries.jsonl",
+      "bytes": 16473,
+      "sha256": "d5ff90c5c04ed4a28c88cadd8366082e7a798d0a31f099df93dfda88af9e3f58"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/README.md",
+      "bytes": 1538,
+      "sha256": "f79743ba5ff7f49f3c13be514420f449801526bc8d1dd1a7c144d81623a24f8a"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/review-record.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/rubric.json",
+      "bytes": 43488,
+      "sha256": "0f9bb264bd180b5132c66b45588e8fb334abcad817d277258a6945b93cea0fb9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/scenarios.jsonl",
+      "bytes": 11461,
+      "sha256": "72f4153c13e39c13019a1a8201c937cc5f59402a3c3bae42e06040405bb5d5b7"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/traffic-review-record.json",
+      "bytes": 10973,
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/contract-review-record.json",
+      "bytes": 11960,
+      "sha256": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/labor-review-record.json",
+      "bytes": 9857,
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/manifest.json",
+      "bytes": 2961,
+      "sha256": "d4b3289ffd75e1ab57d4c78b2d1a2d92ed04dc01d3798acfbba142268cbe2f02"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/queries.jsonl",
+      "bytes": 16833,
+      "sha256": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/README.md",
+      "bytes": 1667,
+      "sha256": "00357ebeac92a3f6713b936d018da87ae342518c95183acad7e69542e8808bd1"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/review-record.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/rubric.json",
+      "bytes": 47100,
+      "sha256": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/scenarios.jsonl",
+      "bytes": 11821,
+      "sha256": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/traffic-review-record.json",
+      "bytes": 10973,
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/contract-review-record.json",
+      "bytes": 11960,
+      "sha256": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/execution-plan.json",
+      "bytes": 862,
+      "sha256": "56c10f6e3ea48c74593c1b099b0a096ed097b7dbd28a200242ab97760d474afa"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/labor-review-record.json",
+      "bytes": 9857,
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/manifest.json",
+      "bytes": 3787,
+      "sha256": "8998382058a7626ac6d84e299f8e420ed59703189ae07199c27ce9f7722ae014"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/observation-receipt.json",
+      "bytes": 449,
+      "sha256": "abd1703283d1988a2f9c66ca7a0f68c142b994c88a655b76a38ad4ee4229f213"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/queries.jsonl",
+      "bytes": 16833,
+      "sha256": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/README.md",
+      "bytes": 1073,
+      "sha256": "54cdecc19d268b268bf6f2d5e6cde4109c62f9020f6ee57f13358e8b64f7259b"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/review-record.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/revision-resolution.json",
+      "bytes": 5769,
+      "sha256": "1636b60d428b597781c3cf614e0d64d4404b817336f5bb7f9226dc2785a8122f"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/rubric.json",
+      "bytes": 47100,
+      "sha256": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/scenarios.jsonl",
+      "bytes": 11821,
+      "sha256": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v17/traffic-review-record.json",
+      "bytes": 10973,
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    },
+    {
+      "path": "docs/acceptance/m4-progress.md",
+      "bytes": 10522,
+      "sha256": "d04148d19c53938da9b3c5d2d88636c16171511957dbb0f5b84bf29cb81fae24"
+    },
+    {
+      "path": "docs/acceptance/m4-reserved-question-family-observed-20261001.json",
+      "bytes": 2594,
+      "sha256": "ac8885a8160e41276d8d6b0ba3816b1e068405283126d11dc05ba642d2afe44d"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-candidate-offline-20261001-run1.json",
+      "bytes": 29432,
+      "sha256": "e80b4d9182f1bf31c10aee7ca77c377840f766aef0d3a746854daee10d4efa26"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-closeout-20261001.md",
+      "bytes": 4317,
+      "sha256": "989b83d87479b998195c5f72a6d871c4b8d12da4faef58dd2548ef4e06cb18ae"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-closeout-offline-network-20261001.json",
+      "bytes": 23,
+      "sha256": "fee1ffdd043959e742be6984326de17c878e58af42b035c49f74fede4c5b7d08"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-closeout-offline-tests-20261001.xml",
+      "bytes": 8943,
+      "sha256": "884f33d2d51aadb94a13fb373b411c8eb36cfccc97b406c67a71d4b05524b674"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-evidence-manifest-20261001.json",
+      "bytes": 17243,
+      "sha256": "bc85a9dce00f858b6b3686d95a7605d4a37237981264ec69de7d7ea91eba3f8e"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-final-input-offline-20261001-run1.json",
+      "bytes": 29677,
+      "sha256": "fca068f1c4e5630b6f28c12965391c72e8e720f74ab8c42297e206fb02c9c76f"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-first-model-20261001-run1.json",
+      "bytes": 833786,
+      "sha256": "e370e3cba9c24d4a26e3024c3f880bbe2b57cbac331dbd57ad752ffec3bed340"
+    },
+    {
+      "path": "docs/acceptance/m4-reviewed-first-model-gates-20261001-run1.json",
+      "bytes": 79130,
+      "sha256": "875540d3ad01196686849da5a0e0b4d2116c4a1d2fd24b4c3ccbe7a588cb90c9"
+    },
+    {
+      "path": "docs/handoff-index.md",
+      "bytes": 3790,
+      "sha256": "1fa2c5d80a1975366093ed2492a39e263635a3e01007a7cdea666ed051dceb7a"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round1.json",
+      "bytes": 17838,
+      "sha256": "d7830410a0ba01ede5e5db326219be8586afa47a208e1ca20c9a7cd5b69314eb"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round2.json",
+      "bytes": 21885,
+      "sha256": "f78b63fc1f13765d89610640e18e96811670fb6ae272b744095ee8620fc1ccec"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round3.json",
+      "bytes": 27492,
+      "sha256": "f31cecf3a89365230b3a396dc128872baffeccea5110870313ee1466bb958c17"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round4.json",
+      "bytes": 33558,
+      "sha256": "d803a3ffdef32d44eeb566e6b7fde670d04dfa447d429545011dde188068b7e3"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round5.json",
+      "bytes": 34774,
+      "sha256": "1dad8daa15e8bccf8caa6f9ebdf1d82ce1ea36d7e23cf5f56eff891b0a8c8b4e"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round6.json",
+      "bytes": 46205,
+      "sha256": "8212c7fb5269fae8ff7c12a48339ae4391e94647a13b5f527096fb94e46dc2ec"
+    },
+    {
+      "path": "docs/review/m4-contract-review-round1-20261001.json",
+      "bytes": 11960,
+      "sha256": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+    },
+    {
+      "path": "docs/review/m4-contract-review-round1-20261001.md",
+      "bytes": 4049,
+      "sha256": "0b984e64fbba75ef87f0ae47af85ecb5ffc5281920a3d3d5d904b2a20e2a3dd9"
+    },
+    {
+      "path": "docs/review/m4-contract-review-round1-verification-20261001.json",
+      "bytes": 3736,
+      "sha256": "a9a95bef0791ac330e702a44c769ba4daa403bb20cb8c9d3bf00ce95cddf631e"
+    },
+    {
+      "path": "docs/review/m4-first-round-review-summary-20261001.md",
+      "bytes": 5810,
+      "sha256": "db9e6f71ab2c6e3bef86765b4097ca4c08fd6a6eb6edbf3c204c1c9fc8e93e49"
+    },
+    {
+      "path": "docs/review/m4-labor-review-round1-20261001.json",
+      "bytes": 9857,
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "docs/review/m4-labor-review-round1-20261001.md",
+      "bytes": 3287,
+      "sha256": "3ab35eed78f2e3f13cf6aae8448ad5a3f3dc005a9c5eabb8ef071390f7116980"
+    },
+    {
+      "path": "docs/review/m4-labor-review-round1-verification-20261001.json",
+      "bytes": 2612,
+      "sha256": "46c0653d2c86358f4185d86291b5d7b1bddee29312dc8cfa6f5785c1e7924fd7"
+    },
+    {
+      "path": "docs/review/m4-legal-review-template.json",
+      "bytes": 12312,
+      "sha256": "08c88865b65e75249b6d31b887fc9a536679265c31fe1e2d1d2b7e6f75f614e0"
+    },
+    {
+      "path": "docs/review/m4-legal-review.md",
+      "bytes": 1864,
+      "sha256": "bdec62a406f5dd114a8566d2c9e1c5f84d75da8a36e2abe12d8ed51d76bbde0a"
+    },
+    {
+      "path": "docs/review/m4-marriage-family-review-round1-20261001.json",
+      "bytes": 11189,
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "docs/review/m4-marriage-family-review-round1-20261001.md",
+      "bytes": 3650,
+      "sha256": "a9a164f0d471fb8212052c27f43dc2655259c61ba825c4bd6db00eb75e7439da"
+    },
+    {
+      "path": "docs/review/m4-marriage-family-review-round1-verification-20261001.json",
+      "bytes": 2558,
+      "sha256": "3563c46a3d3a3d5f59c654b09096f368963a2636c40948d9cf706fdf0caabf9e"
+    },
+    {
+      "path": "docs/review/m4-reviewed-inputs-final-20261001.md",
+      "bytes": 1865,
+      "sha256": "fc27695006a385659affa448bb9cfc68bbc7278c0a62d214918e94ede876707c"
+    },
+    {
+      "path": "docs/review/m4-reviewed-inputs-final-verification-20261001.json",
+      "bytes": 2206,
+      "sha256": "a81a554cfa06755d9a7064868370edd02edcca510fb12c0e5cdb25a45b5d14f0"
+    },
+    {
+      "path": "docs/review/m4-revision-resolution-20261001.json",
+      "bytes": 5769,
+      "sha256": "1636b60d428b597781c3cf614e0d64d4404b817336f5bb7f9226dc2785a8122f"
+    },
+    {
+      "path": "docs/review/m4-traffic-review-round1-20261001.json",
+      "bytes": 10973,
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    },
+    {
+      "path": "docs/review/m4-traffic-review-round1-20261001.md",
+      "bytes": 4405,
+      "sha256": "8956a7b12af28a02e53a7aa054ba790e79cde3b3aa509f925fa85b43113fc36f"
+    },
+    {
+      "path": "docs/review/m4-traffic-review-round1-verification-20261001.json",
+      "bytes": 2949,
+      "sha256": "bbef6556ef2335042f8efd645b2e2d56773a160cda1ae4cd30cd3ef1fa6f9fe0"
+    },
+    {
+      "path": "docs/review/m4-user-review-guide-20261001.md",
+      "bytes": 8069,
+      "sha256": "4f034a848e26522173eca7b7bdfd5286e43b7554bc72232edb63001225ce9b88"
+    },
+    {
+      "path": "docs/review/m4-v12-review-worksheet-20261001.md",
+      "bytes": 37616,
+      "sha256": "e2a9ac70b8fc08ed03b9ddb798863cde3316ad2713255553f7d68613156e6134"
+    },
+    {
+      "path": "docs/review/m4-v17-actual-answer-assisted-review-20261001.json",
+      "bytes": 13956,
+      "sha256": "d6743db1a81581c865c176f34c0d62db40640c5f6d6c885f1a20ed374a142cb0"
+    },
+    {
+      "path": "docs/review/m4-v17-actual-answer-review-20261001.md",
+      "bytes": 69438,
+      "sha256": "793282644f643bb5ad7b2c9f2ddaf8f074f3d7a035709bf8b70829d9e0e74fb5"
+    },
+    {
+      "path": "docs/review/m4-v17-actual-answer-review-template-20261001.json",
+      "bytes": 10659,
+      "sha256": "8f8bda446e8089282544e8b4a8663ba95ae918d1995763983a45f88f635b6156"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 4539,
+      "sha256": "4e6e91036604a716bbe6ed025910632dc9992401146cbad4a5920c25f427ee85"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2890,
+      "sha256": "15529faee6f20e31b8deb4abcb828c69cef27103329bbb8bc1fb78040ce98c9f"
+    },
+    {
+      "path": "tools/verify_m4_reviewed_candidate.py",
+      "bytes": 7508,
+      "sha256": "2eb519eada500657e018a983c436a46e2a97ba06affae8bb9851c70530a91c14"
+    }
+  ]
+}

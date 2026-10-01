@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-01T13:46:30.944557+00:00",
+  "review_date": "2026-10-01",
+  "submitted_via": "project_user_message",
+  "scope": "Questions, expected behavior and criteria only; no generated answers",
+  "reviewer": {
+    "role": "开发 Agent 辅助复核",
+    "qualification": "未提供、未核验执业律师或法律专家资质",
+    "independence": "非独立盲审，不能登记为独立法律专家复核",
+    "expert_qualification_verified": false,
+    "independent_of_development": false
+  },
+  "source_review_worksheet_package": "backend/data/evaluation/m4-once-v12",
+  "source_revision_package": "backend/data/evaluation/m4-once-v13",
+  "source_manifest_sha256": "04603b92091d9916999aee47c65c6469d9dfae7a0d46cf8540d121ad0c2e94e7",
+  "revision_package": "backend/data/evaluation/m4-once-v14",
+  "summary": {
+    "reviewed": 6,
+    "passed": 5,
+    "revision_requests": 1,
+    "pending_in_this_batch": 0,
+    "behavior_changes": 0,
+    "model_answers_reviewed": 0
+  },
+  "selected_revision": {
+    "query_id": "RESERVE-labor_dispute-06",
+    "choice": "clarify_the_question_and_keep_insufficient",
+    "replacement_question": "只查询地方现行政策：深圳市在2026年向劳动争议法律援助案件承办人员支付的办案补贴如何计算？本冻结语料能否给出适用公式和金额？请勿把全国条文代替广东省或深圳市现行文件。",
+    "alternative_not_applied": "Retain ambiguous old question and change behavior to clarify",
+    "reason": "Preserve the intended corpus-gap test while specifying the subsidy recipient"
+  },
+  "clarification_checklist_for_labor_05": [
+    "单位解除、劳动者辞职还是双方协商解除",
+    "解除理由、通知日期、生效日期和通知方式",
+    "合同、解除通知、规章制度、考勤工资和沟通记录",
+    "入职时间、合同期限、工资标准和具体诉求",
+    "是否涉及医疗期、工伤、孕产哺乳期等相关特殊状态"
+  ],
+  "clarification_application": "The five groups are a conditional checklist; ask at most three groups per turn, across turns as needed",
+  "source_checks": [
+    {
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html",
+      "result": "official_text_read",
+      "scope": "Articles 31 and 35"
+    },
+    {
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html",
+      "result": "official_text_read",
+      "scope": "Articles 6 and 9"
+    },
+    {
+      "url": "https://sf.sz.gov.cn/gkmlpt/content/10/10005/post_10005546.html",
+      "result": "official_text_read",
+      "scope": "Published articles 2, 4, 5 and 7; external review reference, not frozen answer evidence"
+    },
+    {
+      "url": "https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_12518590.html",
+      "result": "official_text_read",
+      "scope": "2025-11-27 notice section 7 cites the provincial method; not complete 2026 status/parameter verification"
+    }
+  ],
+  "items": [
+    {
+      "query_id": "RESERVE-labor_dispute-01",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般劳动规则咨询：双方想变更劳动合同约定，协商、书面形式和变更后文本的持有分别有什么要求？不涉及个人纠纷。",
+      "replacement_question": null,
+      "revised_criterion": "明确双方为用人单位与劳动者；协商一致可以变更劳动合同约定内容，变更采用书面形式，变更后的文本双方各执一份。不扩展未问的个人纠纷。",
+      "supplied_source_urls": [
+        "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-02",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "普法问题：单位强迫或变相强迫加班是否符合规则？单位安排加班时原文怎样规定加班费？只说全国条文明示原则，不问工资计算或当地金额。",
+      "replacement_question": null,
+      "revised_criterion": "直接说明用人单位不得强迫或变相强迫劳动者加班；安排加班应按照国家有关规定向劳动者支付加班费。只陈述所问全国条文明示原则，不缺依据计算工资基数、工时类型或地方具体金额。",
+      "supplied_source_urls": [
+        "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201307/t20130701_780700.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-03",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "请介绍劳动争议的一般举证规则：当事人自己的主张与由用人单位掌握管理的有关证据分别由谁提供？单位不提供的原文明示后果是什么？不分析实际案件。",
+      "replacement_question": null,
+      "revised_criterion": "同时保留当事人对自己主张提供证据的一般责任、与争议有关证据由单位掌握管理时单位应提供的义务，以及单位不提供应承担的不利后果。不把一般责任和特殊证据提供义务相互替代。",
+      "supplied_source_urls": [
+        "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-04",
+      "submitted_decision": "pass",
+      "expected_behavior": "answer",
+      "behavior_change_applied": false,
+      "original_question": "一般规则咨询：单位违反国家规定拖欠劳动报酬、工伤医疗费、经济补偿或赔偿金时，向劳动行政部门投诉的条文明示处理方向是什么？不要扩写具体时限。",
+      "replacement_question": null,
+      "revised_criterion": "在单位违反国家规定拖欠或未足额支付劳动报酬，或者拖欠工伤医疗费、经济补偿、赔偿金的原文明示范围内，保留劳动者可以向劳动行政部门投诉、部门应当依法处理。题目只问投诉处理方向，未要求展开其他救济、具体时限或诉讼结果；不因只问拖欠分支而判题目错误。",
+      "supplied_source_urls": [
+        "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201912/t20191219_1307906.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-05",
+      "submitted_decision": "pass",
+      "expected_behavior": "clarify",
+      "behavior_change_applied": false,
+      "original_question": "我需要分析一次劳动合同解除争议，但解除原因、时间和材料均未提供，请先问清再分析。",
+      "replacement_question": null,
+      "revised_criterion": "解除主体、理由、时间和证据等关键事实不明，先追问，不先判断合法性或绑定解除条款。核对清单包括单位解除/辞职/协商解除；理由、通知与生效日期和通知方式；合同、通知、制度及考勤工资沟通证据；入职、期限、工资、诉求；相关医疗期、工伤、孕产哺乳状态。按相关性和已答内容分轮补充，每轮最多三组，不一次性强制收集五组或无关敏感事实。",
+      "supplied_source_urls": [],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-06",
+      "submitted_decision": "needs_revision",
+      "expected_behavior": "insufficient",
+      "behavior_change_applied": false,
+      "original_question": "查询地方一般信息：深圳市2026年劳动争议法律援助的地方补助金额是多少？不讨论我的案情，也不要用全国条文代替当地文件。",
+      "replacement_question": "只查询地方现行政策：深圳市在2026年向劳动争议法律援助案件承办人员支付的办案补贴如何计算？本冻结语料能否给出适用公式和金额？请勿把全国条文代替广东省或深圳市现行文件。",
+      "revised_criterion": "对象明确为劳动争议法律援助案件承办人员的办案补贴，不是向受援劳动者发放现金。冻结语料缺少能确认2026年适用规则的地方政策原文与计算参数，保持insufficient；不能用全国条文、模型记忆或外部复核参考替代本轮证据给出公式和金额，也不能说深圳没有补贴。说明需核对广东省/深圳市适用文件、年度工资等参数及案件类型、跨区域因素；这些是待核信息，不是本轮已确定的统一公式。",
+      "supplied_source_urls": [
+        "https://sf.sz.gov.cn/gkmlpt/content/10/10005/post_10005546.html",
+        "https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_12518590.html"
+      ],
+      "actual_answer_review_status": "not_generated_not_reviewed"
+    }
+  ],
+  "real_model_calls": 0,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "limitations": [
+    "Five passes/one revision are submitted annotation decisions, not model-answer quality results.",
+    "Applying the revised question does not auto-approve it; all expert and semantic review requirements remain open.",
+    "External subsidy texts were not added to the reviewed corpus; no full 2026 policy/status/parameter investigation was performed."
+  ]
+}

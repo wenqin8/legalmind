@@ -1,0 +1,73 @@
+{
+  "recorded_at": "2026-10-01T13:11:48.778695+00:00",
+  "passed": true,
+  "real_model_calls": 0,
+  "question_ids_changed": [
+    "RESERVE-marriage_family-01",
+    "RESERVE-marriage_family-03"
+  ],
+  "scenario_ids_changed": [
+    "RESERVE-marriage_family-01",
+    "RESERVE-marriage_family-03"
+  ],
+  "rubric_ids_refined": [
+    "RESERVE-marriage_family-01",
+    "RESERVE-marriage_family-02",
+    "RESERVE-marriage_family-03",
+    "RESERVE-marriage_family-04",
+    "RESERVE-marriage_family-05",
+    "RESERVE-marriage_family-06"
+  ],
+  "unchanged_question_count": 22,
+  "remaining_unreviewed": 18,
+  "behavior_counts": {
+    "answer": 16,
+    "clarify": 4,
+    "insufficient": 4
+  },
+  "original_v12_files_unchanged": true,
+  "original_course_archive_and_manifest_unchanged": true,
+  "runtime_implementation_unchanged": true,
+  "old_and_new_observation_receipts_absent": true,
+  "expert_review_complete": false,
+  "actual_answers_reviewed": 0,
+  "broken_local_links": [],
+  "files": [
+    {
+      "path": "docs/review/m4-marriage-family-review-round1-20261001.json",
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "docs/review/m4-marriage-family-review-round1-20261001.md",
+      "sha256": "a9a164f0d471fb8212052c27f43dc2655259c61ba825c4bd6db00eb75e7439da"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round1.json",
+      "sha256": "d7830410a0ba01ede5e5db326219be8586afa47a208e1ca20c9a7cd5b69314eb"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/manifest.json",
+      "sha256": "04603b92091d9916999aee47c65c6469d9dfae7a0d46cf8540d121ad0c2e94e7"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/queries.jsonl",
+      "sha256": "69e165f02fd2baa914e235429f9e43f066de03f218773cc8c41cf68d0f90afe9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/README.md",
+      "sha256": "c5e16145c67090e097a33a9267f522f9671aeecc7ee4acb810836c436aab128c"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/review-record.json",
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/rubric.json",
+      "sha256": "429b4c0348c7674a894224c60d4ee0209dc1773b91d6d084aac1fd00a0678582"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v13/scenarios.jsonl",
+      "sha256": "b6d56b1008726b6c79def2de373b6761c6bea1abc20ac6f1dfe3720bac61793b"
+    }
+  ]
+}

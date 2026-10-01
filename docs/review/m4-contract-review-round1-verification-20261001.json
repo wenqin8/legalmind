@@ -1,0 +1,101 @@
+{
+  "recorded_at": "2026-10-01T14:40:48.243546+00:00",
+  "passed": true,
+  "question_ids_changed_from_v15": [
+    "RESERVE-contract_dispute-04",
+    "RESERVE-contract_dispute-06"
+  ],
+  "unchanged_questions_from_v15": 22,
+  "question_ids_changed_from_v12": [
+    "RESERVE-marriage_family-01",
+    "RESERVE-marriage_family-03",
+    "RESERVE-labor_dispute-06",
+    "RESERVE-traffic_accident-06",
+    "RESERVE-contract_dispute-04",
+    "RESERVE-contract_dispute-06"
+  ],
+  "rubric_ids_refined": [
+    "RESERVE-contract_dispute-01",
+    "RESERVE-contract_dispute-02",
+    "RESERVE-contract_dispute-03",
+    "RESERVE-contract_dispute-04",
+    "RESERVE-contract_dispute-05",
+    "RESERVE-contract_dispute-06"
+  ],
+  "cumulative_reviewed": 24,
+  "passed_as_submitted": 18,
+  "revisions_requested": 6,
+  "remaining_unreviewed": 0,
+  "first_round_assisted_review_complete": true,
+  "revision_confirmations_pending": 6,
+  "behavior_counts": {
+    "answer": 16,
+    "clarify": 4,
+    "insufficient": 4
+  },
+  "preserved_file_count": 117,
+  "old_packages_data_and_delivery_unchanged": true,
+  "runtime_implementation_unchanged": true,
+  "old_and_new_observation_receipts_absent": true,
+  "source_metadata_and_previously_reviewed_items_unchanged": true,
+  "quality_gates_unchanged": true,
+  "real_model_calls": 0,
+  "actual_answers_reviewed": 0,
+  "expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "broken_local_links": [],
+  "files": [
+    {
+      "path": "docs/review/m4-contract-review-round1-20261001.json",
+      "sha256": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+    },
+    {
+      "path": "docs/review/m4-contract-review-round1-20261001.md",
+      "sha256": "0b984e64fbba75ef87f0ae47af85ecb5ffc5281920a3d3d5d904b2a20e2a3dd9"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round4.json",
+      "sha256": "d803a3ffdef32d44eeb566e6b7fde670d04dfa447d429545011dde188068b7e3"
+    },
+    {
+      "path": "docs/review/m4-first-round-review-summary-20261001.md",
+      "sha256": "db9e6f71ab2c6e3bef86765b4097ca4c08fd6a6eb6edbf3c204c1c9fc8e93e49"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/contract-review-record.json",
+      "sha256": "ba379ece036afed9a2b83500fe73fb12e64e9d1579b5f45fb533591c41523483"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/labor-review-record.json",
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/manifest.json",
+      "sha256": "d4b3289ffd75e1ab57d4c78b2d1a2d92ed04dc01d3798acfbba142268cbe2f02"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/queries.jsonl",
+      "sha256": "7cd2ea2fb5200468395a9e80aeba59ecc02056ecf2c0ea5e5c0fbccb9229a36c"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/README.md",
+      "sha256": "00357ebeac92a3f6713b936d018da87ae342518c95183acad7e69542e8808bd1"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/review-record.json",
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/rubric.json",
+      "sha256": "31e034b2244cb9a2f6bf3560847f5940b3e3f09065c79daf14f6564908565fcd"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/scenarios.jsonl",
+      "sha256": "49c7b04d9235b0cd24f6efbc251128d9e605687005e15c796f35a5512b88d81b"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v16/traffic-review-record.json",
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "recorded_at": "2026-10-01T14:26:53.213267+00:00",
+  "passed": true,
+  "question_ids_changed_from_v14": [
+    "RESERVE-traffic_accident-06"
+  ],
+  "unchanged_questions_from_v14": 23,
+  "rubric_ids_refined": [
+    "RESERVE-traffic_accident-01",
+    "RESERVE-traffic_accident-02",
+    "RESERVE-traffic_accident-03",
+    "RESERVE-traffic_accident-04",
+    "RESERVE-traffic_accident-05",
+    "RESERVE-traffic_accident-06"
+  ],
+  "cumulative_reviewed": 18,
+  "passed_as_submitted": 14,
+  "revisions_requested": 4,
+  "remaining_unreviewed": 6,
+  "behavior_counts": {
+    "answer": 16,
+    "clarify": 4,
+    "insufficient": 4
+  },
+  "preserved_file_count": 105,
+  "old_packages_data_and_delivery_unchanged": true,
+  "runtime_implementation_unchanged": true,
+  "old_and_new_observation_receipts_absent": true,
+  "source_metadata_and_unreviewed_items_unchanged": true,
+  "quality_gates_unchanged": true,
+  "real_model_calls": 0,
+  "actual_answers_reviewed": 0,
+  "expert_review_complete": false,
+  "broken_local_links": [],
+  "files": [
+    {
+      "path": "docs/review/m4-traffic-review-round1-20261001.json",
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    },
+    {
+      "path": "docs/review/m4-traffic-review-round1-20261001.md",
+      "sha256": "8956a7b12af28a02e53a7aa054ba790e79cde3b3aa509f925fa85b43113fc36f"
+    },
+    {
+      "path": "docs/review/m4-annotation-review-progress-20261001-round3.json",
+      "sha256": "f31cecf3a89365230b3a396dc128872baffeccea5110870313ee1466bb958c17"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/labor-review-record.json",
+      "sha256": "a8f23c09040f8b0fb6cfa2dacb6278d414bc57776d00c2b658464150460c17e4"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/manifest.json",
+      "sha256": "9598fe86ba3884948c0f6e567729aff05931d63874c2ce51dea25b56a9e6d56e"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/queries.jsonl",
+      "sha256": "d5ff90c5c04ed4a28c88cadd8366082e7a798d0a31f099df93dfda88af9e3f58"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/README.md",
+      "sha256": "f79743ba5ff7f49f3c13be514420f449801526bc8d1dd1a7c144d81623a24f8a"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/review-record.json",
+      "sha256": "ee1ba056fb7d8f08d4e46ed4640f988469272cd442dd6f91b7843860e7ba200d"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/rubric.json",
+      "sha256": "0f9bb264bd180b5132c66b45588e8fb334abcad817d277258a6945b93cea0fb9"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/scenarios.jsonl",
+      "sha256": "72f4153c13e39c13019a1a8201c937cc5f59402a3c3bae42e06040405bb5d5b7"
+    },
+    {
+      "path": "backend/data/evaluation/m4-once-v15/traffic-review-record.json",
+      "sha256": "a960a57d9e1f0bd9e4e373712316b5844589391e73eddd2b05e1d923404eac49"
+    }
+  ]
+}

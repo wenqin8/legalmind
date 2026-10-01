@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta, timezone
+import base64
+import hashlib
+import hmac
 from uuid import uuid4
 
 import jwt
@@ -81,6 +84,19 @@ def test_unsigned_and_malformed_tokens_are_rejected() -> None:
 
     assert decode_access_token(unsigned, settings) is None
     assert decode_access_token("not-a-token", settings) is None
+
+
+@pytest.mark.parametrize('nested_part', ['header', 'payload'])
+def test_deeply_nested_token_is_rejected_without_uncaught_recursion(nested_part):
+    settings = _settings()
+    def encode(value):
+        return base64.urlsafe_b64encode(value).rstrip(b'=')
+    nested = b'[' * 2000 + b']' * 2000
+    header = encode(nested if nested_part == 'header' else b'{"alg":"HS256","typ":"JWT"}')
+    payload = encode(nested if nested_part == 'payload' else b'{}')
+    unsigned = header + b'.' + payload
+    signature = encode(hmac.new(settings.jwt_secret_key.get_secret_value().encode(), unsigned, hashlib.sha256).digest())
+    assert decode_access_token((unsigned + b'.' + signature).decode(), settings) is None
 
 
 def test_missing_or_short_secret_fails_closed() -> None:

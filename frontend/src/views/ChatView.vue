@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import { RouterLink } from 'vue-router'
 
 import AppIcon from '@/components/AppIcon.vue'
 import LegalDisclaimer from '@/components/LegalDisclaimer.vue'
+import SourceCards from '@/components/SourceCards.vue'
+import DocumentActions from '@/components/DocumentActions.vue'
 import { useChatStore } from '@/stores/chat'
 import {
   MAX_CHAT_MESSAGE_LENGTH,
@@ -18,13 +20,13 @@ const {
   draft,
   sessionId,
   conversationRecords,
-  deletingConversationKey,
   errorMessage,
   errorCode,
   errorRequestId,
   lastFailedQuestion,
   isSending,
   canSend,
+  isBusy, loadingHistory, loadingRecords, historyNotice, recordError, hasMoreRecords,
 } = storeToRefs(chatStore)
 
 const domainEntries = [
@@ -94,7 +96,9 @@ async function requestDeleteConversation(conversation: LocalConversationRecord):
   if (deleted && mobileHistoryMenu.value) mobileHistoryMenu.value.open = false
 }
 
-onMounted(chatStore.refreshCredentialState)
+const messageLog = ref<HTMLElement | null>(null)
+watch(() => messages.value.at(-1)?.content, async () => { await nextTick(); if (messageLog.value) messageLog.value.scrollTop = messageLog.value.scrollHeight })
+onMounted(() => { void chatStore.initialize() })
 </script>
 
 <template>
@@ -108,7 +112,7 @@ onMounted(chatStore.refreshCredentialState)
       <button
         type="button"
         class="focus-ring mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-ink-950 px-4 text-sm font-semibold text-white transition enabled:hover:bg-jade-900 disabled:cursor-not-allowed disabled:opacity-40"
-        :disabled="isSending"
+        :disabled="isBusy"
         @click="chatStore.startNewConversation"
       >
         <AppIcon name="plus" :size="17" />
@@ -134,14 +138,14 @@ onMounted(chatStore.refreshCredentialState)
             type="button"
             class="focus-ring min-w-0 flex-1 rounded-l-xl px-3.5 py-3 text-left"
             :aria-current="conversation.isActive ? 'page' : undefined"
-            :disabled="isSending || Boolean(deletingConversationKey)"
+            :disabled="isBusy"
             @click="chatStore.switchConversation(conversation.key)"
           >
             <span class="block truncate text-xs font-semibold text-ink-900">
               {{ conversation.title }}
             </span>
             <span class="mt-1 block text-[10px] text-ink-600">
-              {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+              {{ conversation.isActive ? '当前咨询' : conversation.historyExpired ? '历史已过期' : '点击恢复会话' }}
             </span>
           </button>
           <button
@@ -149,7 +153,7 @@ onMounted(chatStore.refreshCredentialState)
             class="focus-ring mr-2 grid size-8 shrink-0 place-items-center rounded-lg text-ink-500 transition hover:bg-red-50 hover:text-red-800 disabled:cursor-not-allowed disabled:opacity-35"
             :aria-label="`删除咨询：${conversation.title}`"
             :title="`删除咨询：${conversation.title}`"
-            :disabled="isSending || Boolean(deletingConversationKey)"
+            :disabled="isBusy"
             @click="requestDeleteConversation(conversation)"
           >
             <AppIcon name="trash" :size="15" />
@@ -162,7 +166,11 @@ onMounted(chatStore.refreshCredentialState)
         <p class="mt-1.5 text-xs leading-5 text-ink-600">选择一个问题类型，开始新的咨询。</p>
       </div>
 
-      <p class="mt-3 text-[10px] leading-4 text-ink-500">记录仅保留在当前页面，刷新后会清空。</p>
+      <p v-if="loadingRecords" role="status" class="mt-3 text-xs">正在加载咨询记录……</p>
+      <p v-if="recordError" role="alert" class="mt-3 text-xs text-red-800">{{ recordError }}</p>
+      <button type="button" class="focus-ring mt-2 text-xs underline" :disabled="isBusy || loadingRecords" @click="chatStore.refreshConversations()">刷新记录</button>
+      <button v-if="hasMoreRecords" type="button" class="focus-ring mt-2 text-xs underline" :disabled="isBusy || loadingRecords" @click="chatStore.refreshConversations(true)">加载更多</button>
+      <p class="mt-3 text-[10px] leading-4 text-ink-500">历史保留24小时，过期后需重新补充事实。</p>
 
       <div class="mt-7">
         <p class="text-xs font-semibold tracking-[0.08em] text-ink-600">常见问题类型</p>
@@ -172,7 +180,7 @@ onMounted(chatStore.refreshCredentialState)
             :key="entry.title"
             type="button"
             class="focus-ring flex min-h-11 items-center gap-3 rounded-xl border border-transparent px-3 py-2.5 text-left text-xs font-medium text-ink-600 transition hover:border-ink-950/8 hover:bg-white/70 hover:text-ink-950 disabled:cursor-not-allowed disabled:opacity-45"
-            :disabled="isSending"
+            :disabled="isBusy"
             @click="chatStore.useSuggestedQuestion(entry.question)"
           >
             <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-moss-100 text-jade-800">
@@ -209,7 +217,7 @@ onMounted(chatStore.refreshCredentialState)
         <button
           type="button"
           class="focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl bg-ink-950 px-3.5 text-xs font-semibold text-white disabled:opacity-40"
-          :disabled="isSending"
+          :disabled="isBusy"
           @click="chatStore.startNewConversation"
         >
           <AppIcon name="plus" :size="15" />
@@ -220,6 +228,9 @@ onMounted(chatStore.refreshCredentialState)
             记录
           </summary>
           <div class="absolute left-0 z-20 mt-2 grid w-72 gap-1.5 rounded-2xl border border-ink-950/10 bg-paper p-2 shadow-[0_16px_45px_rgba(18,33,29,0.16)]">
+            <p v-if="loadingRecords" class="px-3 py-2 text-xs" role="status">正在加载……</p>
+            <button type="button" class="focus-ring px-3 py-2 text-left text-xs underline" :disabled="isBusy || loadingRecords" @click="chatStore.refreshConversations()">刷新记录</button>
+            <button v-if="hasMoreRecords" type="button" class="focus-ring px-3 py-2 text-left text-xs underline" :disabled="isBusy || loadingRecords" @click="chatStore.refreshConversations(true)">加载更多</button>
             <div
               v-for="conversation in conversationRecords"
               :key="conversation.key"
@@ -229,19 +240,19 @@ onMounted(chatStore.refreshCredentialState)
               <button
                 type="button"
                 class="focus-ring min-w-0 flex-1 rounded-l-xl px-3 py-2.5 text-left"
-                :disabled="isSending || Boolean(deletingConversationKey)"
+                :disabled="isBusy"
                 @click="chooseMobileConversation(conversation.key)"
               >
                 <span class="block truncate font-medium">{{ conversation.title }}</span>
                 <span class="mt-1 block text-[10px] text-ink-500">
-                  {{ conversation.isActive ? '当前咨询' : `${conversation.messages.length} 条消息` }}
+                  {{ conversation.isActive ? '当前咨询' : conversation.historyExpired ? '历史已过期' : '点击恢复会话' }}
                 </span>
               </button>
               <button
                 type="button"
                 class="focus-ring mr-1 grid size-8 shrink-0 place-items-center rounded-lg text-ink-500 hover:bg-red-50 hover:text-red-800 disabled:opacity-35"
                 :aria-label="`删除咨询：${conversation.title}`"
-                :disabled="isSending || Boolean(deletingConversationKey)"
+                :disabled="isBusy"
                 @click="requestDeleteConversation(conversation)"
               >
                 <AppIcon name="trash" :size="14" />
@@ -259,7 +270,7 @@ onMounted(chatStore.refreshCredentialState)
               :key="entry.title"
               type="button"
               class="focus-ring flex min-h-11 items-center gap-2 rounded-xl bg-white/65 px-3 text-left text-xs font-medium text-ink-700 disabled:opacity-40"
-              :disabled="isSending"
+              :disabled="isBusy"
               @click="chooseMobileDomain(entry.question)"
             >
               <AppIcon :name="entry.icon" :size="14" class="shrink-0 text-jade-800" />
@@ -269,7 +280,9 @@ onMounted(chatStore.refreshCredentialState)
         </details>
       </div>
 
-      <div class="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 lg:px-12">
+      <div ref="messageLog" class="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-8 lg:px-12">
+        <p v-if="loadingHistory" role="status" class="text-sm">正在恢复会话……</p>
+        <p v-if="historyNotice" role="status" class="mb-4 text-sm text-amber-800">{{ historyNotice }}</p>
         <div
           v-if="messages.length === 0 && !isSending"
           class="mx-auto flex min-h-full max-w-xl flex-col items-center justify-center py-8 text-center"
@@ -308,25 +321,26 @@ onMounted(chatStore.refreshCredentialState)
             >
               <div v-if="message.role === 'assistant'" class="mb-2 flex items-center gap-2">
                 <span class="rounded-md bg-jade-50 px-2 py-0.5 text-[10px] font-semibold tracking-[0.06em] text-jade-800">
-                  AI 回答
+                  {{ message.delivery === 'pending' ? '正在生成 · 待确认' : message.delivery === 'interrupted' ? '未完成 · 请勿作为结论使用' : 'AI 回答' }}
                 </span>
                 <span v-if="intentLabel(message.intent)" class="text-[10px] text-ink-600">
                   {{ intentLabel(message.intent) }}
                 </span>
               </div>
-              <p class="whitespace-pre-wrap [overflow-wrap:anywhere]">{{ message.content }}</p>
+              <p class="whitespace-pre-wrap [overflow-wrap:anywhere]">{{ message.content || '正在整理事实和依据……' }}</p>
+              <DocumentActions v-if="message.documentId && message.delivery !== 'interrupted'" :document-id="message.documentId" :content="message.content" />
 
               <div v-if="message.task && message === messages[messages.length - 1] && !['completed', 'cancelled'].includes(message.task.phase)" class="mt-3 flex flex-wrap gap-2" aria-label="任务操作">
-                <button v-if="message.task.phase === 'review'" type="button" class="focus-ring rounded-lg bg-jade-800 px-3 py-2 text-xs text-white" :disabled="isSending" @click="chatStore.submitTaskAction('confirm', message.task.revision)">确认摘要并生成草稿</button>
+                <button v-if="message.task.phase === 'review'" type="button" class="focus-ring rounded-lg bg-jade-800 px-3 py-2 text-xs text-white" :disabled="isBusy" @click="chatStore.submitTaskAction('confirm', message.task.revision)">确认摘要并生成草稿</button>
                 <template v-if="message.task.phase === 'conflict'">
-                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('accept_changes', message.task.revision)">采用本次修改</button>
-                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('reject_changes', message.task.revision)">保留原值</button>
+                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isBusy" @click="chatStore.submitTaskAction('accept_changes', message.task.revision)">采用本次修改</button>
+                  <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isBusy" @click="chatStore.submitTaskAction('reject_changes', message.task.revision)">保留原值</button>
                 </template>
-                <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isSending" @click="chatStore.submitTaskAction('cancel', message.task.revision)">取消当前任务</button>
+                <button type="button" class="focus-ring rounded-lg border px-3 py-2 text-xs" :disabled="isBusy" @click="chatStore.submitTaskAction('cancel', message.task.revision)">取消当前任务</button>
               </div>
 
               <section
-                v-if="message.role === 'assistant'"
+                v-if="message.role === 'assistant' && !['pending', 'interrupted'].includes(message.delivery ?? '')"
                 class="mt-4 border-t border-ink-950/8 pt-3 text-[11px] leading-5 text-ink-600"
                 aria-label="依据与提示"
               >
@@ -337,17 +351,7 @@ onMounted(chatStore.refreshCredentialState)
                 <p v-else-if="message.sourceCount" class="mt-1.5">
                   已附 {{ message.sourceCount }} 条{{ message.hasDemoSources ? '参考材料，包含演示数据，不是真实判例或法律依据' : '参考材料，请核对原始来源' }}。
                 </p>
-                <details v-for="source in message.sources" :key="source.source_id" class="mt-2 rounded-lg border border-ink-950/10 p-3">
-                  <summary class="cursor-pointer font-semibold">[{{ source.citation_id }}] {{ source.title }} · {{ source.reference_number }}{{ source.is_demo ? '（演示参考）' : '（官方条文）' }}</summary>
-                  <template v-if="source.source_type === 'legal_provision'">
-                    <p class="mt-2">{{ source.version }} · 生效日期：{{ source.effective_from }}{{ source.effective_until ? `，失效边界：${source.effective_until}` : '' }}</p>
-                    <p>核验日期：{{ source.verified_at }}；有效状态资料截至：{{ source.status_as_of }}。本次未实时联网核验。</p>
-                    <p>{{ source.applicability === 'general_reference' ? '一般规则参考' : '事件时间候选依据，仍须审查具体适用条件' }}</p>
-                    <blockquote class="my-2 whitespace-pre-wrap border-l-2 border-jade-700/30 pl-3">{{ source.original_text }}</blockquote>
-                    <a v-if="source.source_url" :href="source.source_url" target="_blank" rel="noopener noreferrer" class="focus-ring underline">查看官方原文（{{ source.publisher }}）</a>
-                  </template>
-                  <p v-else class="mt-2">合成场景仅用于演示，样本日期 {{ source.sample_date }} 不是裁判日期。</p>
-                </details>
+                <SourceCards :sources="message.sources ?? []" />
                 <ul v-if="displayWarnings(message).length" class="mt-1.5 space-y-1.5">
                   <li v-for="warning in displayWarnings(message)" :key="warning">
                     {{ warning }}
@@ -383,6 +387,7 @@ onMounted(chatStore.refreshCredentialState)
               <p v-if="errorRequestId" class="mt-2 text-[10px] text-red-950/60">
                 请求编号：{{ errorRequestId }}
               </p>
+              <button v-if="sessionId && errorCode !== 'AUTH_REQUIRED'" type="button" class="focus-ring mt-2 text-xs underline" :disabled="isBusy" @click="chatStore.restoreCurrentConversation()">同步当前会话记录</button>
             </div>
             <RouterLink
               v-if="errorCode === 'AUTH_REQUIRED'"
@@ -395,7 +400,7 @@ onMounted(chatStore.refreshCredentialState)
               v-else-if="lastFailedQuestion"
               type="button"
               class="focus-ring shrink-0 rounded-lg border border-red-950/10 bg-white/70 px-3 py-2 text-xs font-semibold text-red-900 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
-              :disabled="isSending"
+              :disabled="isBusy"
               @click="retry"
             >
               重试
@@ -438,6 +443,11 @@ onMounted(chatStore.refreshCredentialState)
                 {{ draft.length }} / {{ MAX_CHAT_MESSAGE_LENGTH }}
               </p>
               <button
+                v-if="isSending"
+                type="button" class="focus-ring ml-auto min-h-10 rounded-xl border border-ink-950/20 px-4 text-xs font-semibold" @click="chatStore.stopGeneration()"
+              >停止生成</button>
+              <button
+                v-else
                 type="submit"
                 class="focus-ring ml-auto inline-flex min-h-10 items-center gap-2 rounded-xl bg-ink-950 px-4 text-xs font-semibold text-white transition enabled:hover:bg-jade-900 disabled:cursor-not-allowed disabled:opacity-35"
                 :disabled="!canSend"

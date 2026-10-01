@@ -30,7 +30,7 @@ class Query(BaseModel):
     id: str
     route: Literal['case', 'law']
     domain: Domain
-    split: Literal['development', 'holdout']
+    split: Literal['development', 'holdout', 'acceptance']
     scenario_group: str
     query: str = Field(min_length=5, max_length=1000)
     category: str

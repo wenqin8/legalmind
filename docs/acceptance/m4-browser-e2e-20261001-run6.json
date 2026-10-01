@@ -1,0 +1,55 @@
+{
+  "scope": "isolated_browser_e2e",
+  "workspace": "C:\\Users\\段文钦\\Documents\\ChatGPT\\法律咨询Agent\\tmp\\browser-8e7ed34a-2a4b-4f74-b878-89fc90a272a0",
+  "real_model_calls": 0,
+  "real_redis": false,
+  "embedding": "deterministic_hash",
+  "tests": [
+    {
+      "name": "normal: register, SSE, source, reload, follow-up",
+      "passed": true,
+      "elapsed_ms": 1062
+    },
+    {
+      "name": "cases: search, domain filter, detail",
+      "passed": true,
+      "elapsed_ms": 187
+    },
+    {
+      "name": "empty results: no fabricated cases",
+      "passed": true,
+      "elapsed_ms": 117
+    },
+    {
+      "name": "documents: three templates, review, copy, MD and TXT",
+      "passed": true,
+      "elapsed_ms": 1058
+    },
+    {
+      "name": "timeout: unfinished content and safe retry",
+      "passed": true,
+      "elapsed_ms": 1906
+    },
+    {
+      "name": "disconnect: stop and recover without committing partial content",
+      "passed": true,
+      "elapsed_ms": 138
+    },
+    {
+      "name": "security: cross-user history and document access denied",
+      "passed": true,
+      "elapsed_ms": 118
+    },
+    {
+      "name": "invalid token: clears session and prompts login",
+      "passed": true,
+      "elapsed_ms": 72
+    },
+    {
+      "name": "responsive: no horizontal overflow at 320px and 390px",
+      "passed": true,
+      "elapsed_ms": 485
+    }
+  ],
+  "passed": true
+}

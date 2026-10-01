@@ -1,0 +1,91 @@
+{
+  "recorded_at": "2026-10-01T15:02:52.109162+00:00",
+  "scope": "Assisted revision application verification, not a second legal expert review",
+  "current_user_instruction": "完成剩下的内容",
+  "user_qualification_reply": "没有",
+  "user_reported_legal_background_or_license": false,
+  "professional_qualification_verified": false,
+  "participation_in_development_or_question_writing": "not_separately_established_from_the_short_reply",
+  "source_manifest_sha256": "d4b3289ffd75e1ab57d4c78b2d1a2d92ed04dc01d3798acfbba142268cbe2f02",
+  "source_package": "backend/data/evaluation/m4-once-v16",
+  "final_input_package": "backend/data/evaluation/m4-once-v17",
+  "revisions_resolved": 6,
+  "items": [
+    {
+      "query_id": "RESERVE-marriage_family-01",
+      "question": "只了解一般规则：夫妻一方在婚姻关系存续期间以个人名义所负债务，超出家庭日常生活需要时，是否属于夫妻共同债务？债权人证明该债务用于夫妻共同生活、共同生产经营或者基于夫妻双方共同意思表示时，例外如何处理？不分析个案。",
+      "expected_behavior": "answer",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_minor_revision",
+      "review_record": "docs/review/m4-marriage-family-review-round1-20261001.json",
+      "independent_legal_approval": false
+    },
+    {
+      "query_id": "RESERVE-marriage_family-03",
+      "question": "一般规则问题：父母双方以法定代理人身份处分用夫妻共同财产购买并登记在未成年子女名下的房屋后，又以损害未成年子女利益为由向相对人主张该民事法律行为无效，司法解释明示如何处理？不展开被援引的其他条文。",
+      "expected_behavior": "answer",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_minor_revision",
+      "review_record": "docs/review/m4-marriage-family-review-round1-20261001.json",
+      "independent_legal_approval": false
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-06",
+      "question": "只查询地方现行政策：深圳市在2026年向劳动争议法律援助案件承办人员支付的办案补贴如何计算？本冻结语料能否给出适用公式和金额？请勿把全国条文代替广东省或深圳市现行文件。",
+      "expected_behavior": "insufficient",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_revision",
+      "review_record": "docs/review/m4-labor-review-round1-20261001.json",
+      "independent_legal_approval": false
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-06",
+      "question": "只查询深圳市2026年现行临时救助制度：因交通事故导致基本生活暂时严重困难时，能否申请《深圳市临时救助办法》规定的急难型救助，救助金额如何按照2026年最低生活保障标准计算？若冻结语料未收录该办法、有效期延长文件或2026年最低生活保障标准，请明确说明资料不足。",
+      "expected_behavior": "insufficient",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_revision",
+      "review_record": "docs/review/m4-traffic-review-round1-20261001.json",
+      "independent_legal_approval": false
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "question": "一般规则咨询：当事人一方依据《民法典》第五百八十条第二款，请求人民法院终止合同权利义务关系时，一般以何时作为终止时间？法院选取更符合公平原则和诚信原则的其他时间时，存在哪些明示限制？不展开第五百八十条第二款的具体适用事由。",
+      "expected_behavior": "answer",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_revision",
+      "review_record": "docs/review/m4-contract-review-round1-20261001.json",
+      "independent_legal_approval": false
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "question": "只查询深圳市2026年地方政策：小微企业作为合同争议当事人参加商事调解时，是否存在由政府向该企业补助或减免调解服务费的政策，适用条件和金额是多少？不把支付给人民调解员、调解委员会或商事调解机构的工作经费视为企业获得的补贴；冻结语料缺少相应地方文件时，应明确说明资料不足。",
+      "expected_behavior": "insufficient",
+      "matches_supplied_recommendation": true,
+      "behavior_unchanged": true,
+      "resolution": "agent_verified_exact_application_of_supplied_revision",
+      "first_round_decision": "needs_revision",
+      "review_record": "docs/review/m4-contract-review-round1-20261001.json",
+      "independent_legal_approval": false
+    }
+  ],
+  "first_round_summary_preserved": {
+    "reviewed": 24,
+    "passed": 18,
+    "revision_requests": 6,
+    "pending": 0
+  },
+  "human_second_round_legal_passes_asserted": false,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "real_model_calls": 0
+}

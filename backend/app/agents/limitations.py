@@ -7,6 +7,21 @@ It cannot validate or rescue a contradictory main claim.
 import re
 
 from app.core.errors import ModelUnavailableError
+from app.agents.legal_references import reference_context
+
+
+def missing_cross_reference_notice(rendered, evidence):
+    """Display a server-verified material gap without guessing legal effects."""
+    if '该依据援引的条款' not in rendered:
+        return ''
+    used = set(re.findall(r'\[(S[1-5])\]', rendered))
+    labels = dict.fromkeys(item['from_citation'] for item in reference_context(evidence)
+                          if item['status'] == 'not_provided' and item['from_citation'] in used)
+    if not labels:
+        return ''
+    return '\n\n资料边界\n' + '\n'.join(
+        f'[{label}] 本轮所选该依据的原文还引用了其他条文，其中有被引用条文的完整内容未提供；'
+        '依赖这些缺失内容的具体后果，本次不作判断。' for label in labels)
 
 
 def omitted_limitation_notice(rendered, evidence):

@@ -1,0 +1,17 @@
+.git
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+**/.npm-cache
+**/.cache
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/dist
+tmp
+output
+backend/data/*.db*
+backend/data/chroma
+backend/data/models
+**/logs

@@ -1,0 +1,91 @@
+name: legalmind-m4
+x-backend: &backend
+  build:
+    context: .
+    dockerfile: backend/Dockerfile
+  environment: &backend-env
+    LEGALMIND_ENVIRONMENT: production
+    LEGALMIND_DEBUG: "false"
+    LEGALMIND_DATABASE_URL: postgresql+psycopg://legalmind:${LEGALMIND_POSTGRES_PASSWORD:?run deployment/init_env.py}@postgres:5432/legalmind
+    LEGALMIND_REDIS_URL: redis://:${LEGALMIND_REDIS_PASSWORD:?run deployment/init_env.py}@redis:6379/0
+    LEGALMIND_JWT_SECRET_KEY: ${LEGALMIND_JWT_SECRET_KEY:?run deployment/init_env.py}
+    LEGALMIND_LLM_BACKEND: ${LEGALMIND_LLM_BACKEND:-deepseek}
+    LEGALMIND_DEEPSEEK_API_KEY: ${LEGALMIND_DEEPSEEK_API_KEY:-}
+    LEGALMIND_DEEPSEEK_MODEL: ${LEGALMIND_DEEPSEEK_MODEL:-deepseek-v4-flash}
+    LEGALMIND_CORS_ORIGINS: '["http://127.0.0.1:${LEGALMIND_HTTP_PORT:-8080}"]'
+    LEGALMIND_CHROMA_PERSIST_DIRECTORY: /var/lib/legalmind/chroma
+    LEGALMIND_EMBEDDING_CACHE_DIRECTORY: /var/lib/legalmind/models
+    LEGALMIND_EMBEDDING_BACKEND: sentence_transformers
+  volumes:
+    - chroma-data:/var/lib/legalmind/chroma
+    - model-data:/var/lib/legalmind/models
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: legalmind
+      POSTGRES_USER: legalmind
+      POSTGRES_PASSWORD: ${LEGALMIND_POSTGRES_PASSWORD:?run deployment/init_env.py}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U legalmind -d legalmind']
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:8-alpine
+    environment:
+      REDIS_PASSWORD: ${LEGALMIND_REDIS_PASSWORD:?run deployment/init_env.py}
+    command: [sh, -c, 'exec redis-server --appendonly yes --requirepass "$$REDIS_PASSWORD"']
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [CMD-SHELL, 'REDISCLI_AUTH="$$REDIS_PASSWORD" redis-cli ping | grep -q PONG']
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  initialize:
+    <<: *backend
+    command: [python, -m, scripts.initialize_deployment]
+    restart: "no"
+  backend:
+    <<: *backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      initialize:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "127.0.0.1:${LEGALMIND_HTTP_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD-SHELL, 'wget -q -O /dev/null http://127.0.0.1/api/v1/health']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+volumes:
+  postgres-data:
+  redis-data:
+  chroma-data:
+  model-data:

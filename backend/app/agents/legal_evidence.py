@@ -1,6 +1,7 @@
 """Version-filtered candidates followed by a separate applicability assessment."""
 
 import json
+import re
 from dataclasses import dataclass, field
 from typing import Annotated, Literal
 from uuid import UUID
@@ -47,7 +48,11 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
     # Dates and procedural status filter versions; repeating them as keywords
     # crowds out the actual issue (especially on confirmation turns).
     search = "\n".join(dict.fromkeys(value for value in (query, facts.get('facts')) if value))
-    rows = await run_in_threadpool(retrieve_provisions, database, search, task.domain,
+    # A traffic work injury can require both labor and personal-injury rules.
+    # Catalog tags are retrieval hints, not limits on the applicable law.
+    cross_domain = (re.search(r'交通|车祸|机动车|道路|撞伤|肇事', search)
+                    and re.search(r'工伤|劳动|用人单位|工伤保险', search))
+    rows = await run_in_threadpool(retrieve_provisions, database, search, None if cross_domain else task.domain,
                                   event_date=facts.get("event_date"), general=task.mode == "general", case_status=facts.get('case_status'),
                                   include_transition_questions=True)
     interval = event_interval(facts.get('event_date', ''))
@@ -80,7 +85,8 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
                     "片段只能选候选spans里已有编号，不自行复制或拼接原文；可选择同一来源的多个非连续片段，涵盖前提、正文及但书。"
                     "逐一检查候选：除直接规则外，还要保留解释该规则的权利基础、例外、计算范围或被其明确引用的配套条文；"
                     "这些必要配套依据放入supporting_support，并在source_ids中保留。不得仅因司法解释已有具体规则就删除对应法律基础。"
-                    "同一法条的不同片段可分别承担直接与配套作用，服务器合并片段并以direct角色优先；泛泛相关、重复而无补充作用或无关条文不选择。"
+                    "同一法条的不同片段可分别承担直接与配套作用；配套片段只解释当前争点的前提、例外或规则联系，不新增独立请求。泛泛相关、重复而无补充作用或无关条文不选择。"
+                    "某条文同时规定无效后处理和财产分割等不同请求时，按用户实际询问的请求选择direct_support；未问的另一请求不因同条或主题相关而放入supporting_support。"
                     "source_ids中的每条都必须在两种support之一列出片段。后续答案需实际解释其与争点的关系，不得为了凑来源而引用。"
                     "配套条文必须服务用户已经询问的争点；不能因主题接近而纳入新增请求、额外赔偿或未问程序。计算条文不能单独当作请求权或支付义务成立的依据。"
                     "只有可作有条件分析的候选才能选择。general只用于一般规则介绍；不得将样本事实当用户事实。"
@@ -140,7 +146,10 @@ async def legal_evidence(database: Database, query: str, task: TaskState, llm: L
             return LegalDecision('insufficient', reason='no_direct_support')
         return LegalDecision('answer', evidence=[Evidence(e.source, e.text,
             'direct' if str(e.source.source_id) in result.direct_support else 'supporting',
-            tuple(supports[str(e.source.source_id)]))
+            tuple(supports[str(e.source.source_id)]),
+            tuple(span for span in result.supporting_support.get(str(e.source.source_id), [])
+                  if str(e.source.source_id) in result.direct_support
+                  and span not in result.direct_support[str(e.source.source_id)]))
             for e in candidates if e.source.source_id in result.source_ids and e.source.source_id not in needs_case_status])
     except (TimeoutError, ValueError, TypeError) as exc:
         # A failed dependency is not a genuine finding that no law covers the query.

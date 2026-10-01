@@ -1,0 +1,38 @@
+........................................................................ [ 10%]
+........................................................................ [ 20%]
+.......F................................................................ [ 31%]
+........................................................................ [ 41%]
+........................................................................ [ 52%]
+........................................................................ [ 62%]
+........................................................................ [ 73%]
+........................................................................ [ 83%]
+........................................................................ [ 94%]
+......................................                                   [100%]
+================================== FAILURES ===================================
+_ test_recorded_cross_reference_keeps_assertion_for_audit_without_false_source _
+
+    def test_recorded_cross_reference_keeps_assertion_for_audit_without_false_source():
+        trace, evidence = recorded('E-L-CD-06')
+        original = next(c['output'] for c in trace if c['task'] == 'TASK:COVERAGE')
+        with pytest.raises(ModelUnavailableError):
+            validate_citations(original, evidence)
+        normalized = normalize_cross_references(original, evidence)
+>       assert normalized == original.replace('民法典第五百八十四条', '该依据援引的条款（被引用全文本轮未提供）')
+E       AssertionError: assert '补充说明  \n[S2]...，该部分依据不足。[S1]' == '补充说明  \n[S2]...，该部分依据不足。[S1]'
+E         
+E         Skipping 234 identical leading characters in diff, use -v to show
+E         - 引用全文本轮未提供）的具体内容，本轮未提供，不能补充其条件或结果；若判断依赖该条具体内容，该部分依据不足。[S1]
+E         + 引用全文本轮未提供）（配套引用1）的具体内容，本轮未提供，不能补充其条件或结果；若判断依赖该条具体内容，该部分依据不足。[S1]
+E         ?          +++++++
+
+tests\unit\test_archived_claim_rules.py:71: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_cases.py: 6 warnings
+tests/unit/test_rag_index.py: 5 warnings
+  C:\Users\段文钦\Documents\ChatGPT\法律咨询Agent\backend\.venv\Lib\site-packages\chromadb\api\models\CollectionCommon.py:155: DeprecationWarning: legacy embedding function config
+    return load_collection_configuration_from_json(self._model.configuration_json)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_archived_claim_rules.py::test_recorded_cross_reference_keeps_assertion_for_audit_without_false_source
+1 failed, 685 passed, 11 warnings in 58.99s

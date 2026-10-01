@@ -16,6 +16,7 @@ export interface ChatMessage {
   sources?: SourceReference[]
   task?: TaskState | null
   documentId?: string | null
+  delivery?: 'pending' | 'completed' | 'interrupted'
 }
 
 export interface LocalConversationRecord {
@@ -24,6 +25,8 @@ export interface LocalConversationRecord {
   title: string
   messages: ChatMessage[]
   isActive: boolean
+  historyExpired?: boolean
+  updatedAt?: string
 }
 
 export interface ChatSendRequest {
@@ -67,6 +70,8 @@ export interface SourceReference {
   legal_status?: string | null
   original_text?: string | null
   applicability?: 'general_reference' | 'event_candidate' | null
+  temporal_rule?: 'event_date' | 'pending_after_effective'
+  transition_text?: string | null
 }
 
 export type TaskAction = 'confirm' | 'accept_changes' | 'reject_changes' | 'cancel' | 'restart'

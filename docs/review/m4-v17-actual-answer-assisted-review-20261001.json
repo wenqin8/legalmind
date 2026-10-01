@@ -1,0 +1,240 @@
+{
+  "recorded_at": "2026-10-01T15:18:31.967280+00:00",
+  "scope": "Development-agent auxiliary review of actual first-run responses against supplied criteria and frozen sources",
+  "reviewer": "development_agent",
+  "professional_qualification_verified": false,
+  "independent_of_development": false,
+  "raw_report": "docs/acceptance/m4-reviewed-first-model-20261001-run1.json",
+  "raw_report_sha256": "e370e3cba9c24d4a26e3024c3f880bbe2b57cbac331dbd57ad752ffec3bed340",
+  "package_manifest_sha256": "8998382058a7626ac6d84e299f8e420ed59703189ae07199c27ce9f7722ae014",
+  "reviewed": 24,
+  "agent_no_material_issue_identified": 24,
+  "human_review_complete": false,
+  "independent_expert_review_complete": false,
+  "legal_quality_acceptance_passed": false,
+  "real_model_calls_for_this_review": 0,
+  "items": [
+    {
+      "query_id": "RESERVE-marriage_family-01",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "存续期间、个人名义、超日常生活、债权人证明及三个例外齐全；先述不属于再保留除外，未扩大至婚前/离婚后。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-marriage_family-02",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "自愿、书面协议、双方亲自申请、协议中的子女/财产/债务意见齐全；未扩展办理时限。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-marriage_family-03",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "父母双方、法定代理身份、夫妻共同财产买房及子女登记、处分后主张损害利益无效与不予支持齐全；被引条款缺口明示，未推断任何处分均有效。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-marriage_family-04",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "生活困难、有负担能力、当事人请求、另一方财产状况及法院可以支持齐全；未写成必然支持。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-marriage_family-05",
+      "expected_behavior": "clarify",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "先问日期及经过/焦点/诉求两组，无财产归属结论；完整财产事实清单仍需后续按回答分轮落实，本次仅检查首轮。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-marriage_family-06",
+      "expected_behavior": "insufficient",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "明确本资料集缺地方文件、不能给出金额或政策结论；未断言深圳没有政策，也未用全国规则替代。部门与资格的进一步核对仍由补充资料后展开。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-01",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "主体为用人单位与劳动者，协商一致、书面形式、双方各执一份均保留。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-02",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "明示不得强迫或变相强迫加班，按国家有关规定支付加班费；未计算金额。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-03",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "一般举证责任、单位掌握证据的提供义务和拒不提供的不利后果均保留。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-04",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "拖欠/未足额支付工资等范围、劳动者可投诉、劳动行政部门依法处理完整；未添救济时限。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-05",
+      "expected_behavior": "clarify",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "首轮补日期和经过/焦点/请求两组，不先判断解除是否合法；特殊状态、合同等清单属后续有条件追问，本轮不证明后续全覆盖。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-labor_dispute-06",
+      "expected_behavior": "insufficient",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "拒绝以全国条文或缺失地方金额给出确定结论，无向受援人现金补助断言；回复较通用，具体承办参数需补充地方文件。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-01",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "必要陪护、就医/转院、实际费用、正式票据与地点时间人数次数齐全；配套民法典仅述合理治疗康复费用，未扩张赔偿范围。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-02",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "参照标准和外地治疗必要、客观不能住院、实际发生、合理部分齐全；未生成当地固定金额。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-03",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "利害关系决定各方费用、合同免责抗辩不支持完整；生效与未终审/旧终审再审例外在参考材料过渡原文中逐字保留，正文未另行展开。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-04",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "合并审理与非机动车一方责任下合同赔偿/不足部分两层条件分别保留；参考材料含生效及过渡原文，未泛化所有事故。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-05",
+      "expected_behavior": "clarify",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "首轮日期及经过/焦点/请求两组，无责任比例/金额预断；车辆、伤亡、责任、保险、票据清单要在后续分轮落实。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-traffic_accident-06",
+      "expected_behavior": "insufficient",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "说明冻结资料缺地方文件/数额，不能确定地方政策和金额；没有混入基金垫付或断言救助不存在，具体政策名称可读性仍可完善。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-01",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "准确写驳回诉讼请求，保留新事实再诉及基础关系未获生效文书确认抗辩不支持。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-02",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "再次起诉状副本送达对方为时点，撤诉后通知已到达例外完整；配套第五十三条实际提供解除权审查，首稿拒绝与受限修订留在模型轨迹中。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-03",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "人身权益与故意/重大过失财产权益两类分别表述，侵权人抵销不支持，未把过错条件扩大到第一类。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-04",
+      "expected_behavior": "answer",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "限定被引条款第二款的请求、送达时点、更公平诚信的裁量及充分说理齐全；引用身份1与参考材料原第五十九条对应第五百八十条第二款，未展开缺失全文。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-05",
+      "expected_behavior": "clarify",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "首轮日期及经过/焦点/请求两组，不预定解除/退款/索赔；其他合同和履行材料属后续分轮，本轮不证明后续已完成。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    },
+    {
+      "query_id": "RESERVE-contract_dispute-06",
+      "expected_behavior": "insufficient",
+      "agent_faithfulness_assessment": "no_material_issue_identified",
+      "agent_applicability_assessment": "no_material_issue_identified_in_this_first_turn",
+      "notes": "冻结资料缺口、不能给出地方金额/政策结论及全国规则不能替代均明示；未将调解员经费算成企业补贴，未声称不存在该政策。",
+      "faithfulness_passed_by_human": null,
+      "applicability_passed_by_human": null
+    }
+  ],
+  "limitations": [
+    "Auxiliary observations are not independent legal expert judgments or signed human semantic passes.",
+    "This run tests one turn per question; complete conditional fact checklists across later turns are not proven.",
+    "Generic clarification/corpus-gap responses and obfuscated missing references have readability limits.",
+    "The original MF04 gifting question is outside this 24-question package; its exact post-fix live behavior remains unmeasured."
+  ]
+}

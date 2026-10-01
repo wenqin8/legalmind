@@ -1,0 +1,26 @@
+{
+  "purpose": "M4 evidence file integrity; failed and incomplete runs are preserved",
+  "files": {
+    "m4-browser-e2e-20261001-run5.json": "b9188e575d4dda0ed754d893c8a44295984a3bef66375b8633caba10b51c5664",
+    "m4-deployed-browser-20261001-run1.json": "8b87481da2b495c4de5e8ac4868a6d42721e38a93452e3e38cd5159080676100",
+    "m4-deployed-browser-20261001-run2.json": "67301964848995e360441dd6cafa9a82503a0251742304ca1fb1db4223dfe944",
+    "m4-deployed-browser-20261001-run3.json": "cc65a700b690cbdbc975d83c75b59fa596ae390dbbbb682896246b8fdd367e18",
+    "m4-deployed-browser-20261001-run4.json": "de99049b2b69ad115560697e3e56505f810864c64732c33c252768c27296057d",
+    "m4-deployed-browser-20261001-run5.json": "21ebc61362e9268c51ab6fb1e7c79b2dd1fe6063f7a21b7c98dad4ca78ddce45",
+    "m4-deployment-runtime-20261001-run1.json": "09f7fa60a946c0bc42098452054ac82836bb9da1c4717f9787ffb9932c284df3",
+    "m4-deployment-smoke-20261001-run1.json": "597a9ffa5ba4feaa9d46cd014e9e24d4c34c319a4ac03c2a358fe43e0d7c26de",
+    "m4-offline-full-20261001-run8.json": "e35700d419efcf194344c4b21750468e4f69037d358b417e3fa7777c9902cda0",
+    "m4-quality-gates-20261001-run3.json": "10bec6a7e4051a7e4e8086956c80148f347568f6d000801da967d37fdabdba65",
+    "m4-real-development-20261001-run1.json": "c43e9646dad39b8ea843a7ed2e75d94570f08897f419c2330f3b9d474182e8f6",
+    "m4-real-development-20261001-run2.json": "90e5458e7a0f4e30de595e9861c77c0474de8cd91216b6d6656e22b9572c98ce",
+    "m4-real-development-20261001-run3.json": "68b73bb91e61375057aff80b4784a2ff4f6b307d8d0c71602127c3b7bd1ae5f4",
+    "m4-real-targeted-20261001-run1.json": "0ffaf4511a771167368ddfa6442d7ebc934daa53f0337fe92be68ae790d36289",
+    "m4-real-targeted-20261001-run2.json": "682d4a1754d13677c8d7ffa5f7170eeb5b4f2d9747de8e8c34e2611794b7d111",
+    "m4-real-targeted-20261001-run3.json": "7772586e5d2d914c9be4c77939650dc68ed336405564239e8867f96321ae5674",
+    "m4-real-targeted-20261001-run4.json": "e856c3660bf8a1fa02c56448909bbdab381a020e19dde157555b4a5a9aab83c0",
+    "m4-retrieval-20261001-run1.json": "39083df4a506138c53cb5da6ff588490e63476b1433c2372a97002a99f077750",
+    "m4-retrieval-20261001-run2.json": "158ef419fb11832867fad357411a7b2ed91660d915919af6b23af86a39271f86",
+    "m4-retrieval-20261001-run3.json": "67da146f732f99246c43ab5fbe0d62e136d4f953b24bc155d8d330ba25439ccc",
+    "m4-semantic-draft-20261001-run3.json": "f000caea02c329657bed9f93d7fffc0a6eeb38977c4ad1d6169ca5bbb7668fac"
+  }
+}

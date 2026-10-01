@@ -9,6 +9,14 @@ def evidence_spans(text: str) -> list[dict]:
     return [{'span_id': i, 'text': value} for i, value in enumerate(p for p in pieces if p)]
 
 
+def selection_scope(evidence) -> list[dict]:
+    """Keep the applicability selector's scope separate from complete originals."""
+    return [{'citation_id': e.source.citation_id, 'role': e.role,
+             'answer_span_ids': [span for span in e.support_span_ids if span not in e.context_span_ids],
+             'context_span_ids': list(e.context_span_ids)}
+            for e in evidence if e.role in {'direct', 'supporting'}]
+
+
 def exact_support(text: str, proposed: str) -> str | None:
     if len(proposed.strip()) < 4:
         return None

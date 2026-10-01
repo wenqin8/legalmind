@@ -13,6 +13,7 @@ from app.core.constants import API_V1_PREFIX, REQUEST_ID_HEADER
 from app.core.errors import register_exception_handlers
 from app.core.logging import configure_logging
 from app.core.middleware import RequestContextMiddleware, UnhandledExceptionMiddleware
+from app.core.rate_limit import RateLimitMiddleware
 from app.db.session import Database
 from app.llm.base import LLMClient
 from app.llm.factory import create_llm_client
@@ -87,6 +88,8 @@ def create_app(
 
     register_exception_handlers(application)
     application.add_middleware(UnhandledExceptionMiddleware)
+    application.add_middleware(RateLimitMiddleware, auth_limit=resolved_settings.auth_rate_limit_per_minute,
+                               business_limit=resolved_settings.business_rate_limit_per_minute)
     application.add_middleware(
         CORSMiddleware,
         allow_origins=resolved_settings.cors_origins,
