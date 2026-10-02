@@ -145,6 +145,7 @@ legalmind/
 
 | 文档 | 内容 |
 | --- | --- |
+| [开发者上手指南](docs/developer-onboarding.md)、[完整文档清单](docs/handoff-document-inventory.md) | 接手阅读顺序、功能与架构、代码导航、启动、测试和后续边界 |
 | [后端说明](backend/README.md)、[前端说明](frontend/README.md) | 开发环境、配置、启动及测试 |
 | [部署说明](deployment/README.md) | Compose、Nginx、数据初始化与故障排查 |
 | [系统架构](docs/architecture.md)、[API 合同](docs/api-contract.md) | 工作流、服务职责、接口与 SSE 协议 |

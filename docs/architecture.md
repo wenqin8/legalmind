@@ -1,6 +1,6 @@
 # 系统架构与工作流
 
-文档状态：2026-10-01，按第四周课程MVP实现校准。界面与本机完整部署已完成；工程验证、法律质量和依赖风险分别见[M4收尾](acceptance/m4-course-mvp-closeout-20261001.md)。M1/M2/M3记录仅表示历史版本。
+文档状态：2026-10-02，按第四周课程MVP实现校准。界面与本机完整部署已完成；课程验收以[项目方最终决定](acceptance/m4-project-acceptance-20261002.md)为准，工程与失败历史保留在[M4收尾](acceptance/m4-course-mvp-closeout-20261001.md)。M1/M2/M3记录仅表示历史版本，开发入口见[上手指南](developer-onboarding.md)。
 
 ## 1. 当前运行架构
 
@@ -124,4 +124,4 @@ SSE 用有界队列传递 `meta → content* → sources → done`。段落完�
 
 咨询页使用认证的`POST /chat/stream`，处理增量、停止/重试、来源和任务确认；同步接口仍可用于API调用。刷新及断流重试读取服务端历史与提交标记，浏览器只持久化会话指针。案例搜索/详情及文书表单为独立路由；文书经摘要确认，可复制和下载Markdown/TXT。
 
-`compose.yml`包含前端Nginx、后端、PostgreSQL、Redis和一次性初始化；Chroma以嵌入模式使用后端的数据卷，不是HTTP服务。另有模型缓存卷，后端使用CPU及非root用户。`compose.infrastructure.yml`只用于基础设施开发。当前已验证干净卷初始化、零模型部署浏览器和重启保留；正常问答与故障注入的浏览器回归使用明确标注的隔离测试依赖。最终模型质量尚未验收，Chroma依赖公告未消除，详情见[部署说明](../deployment/README.md)及[安全复核](acceptance/m4-security-review-20261001.md)。
+`compose.yml`包含前端Nginx、后端、PostgreSQL、Redis和一次性初始化；Chroma以嵌入模式使用后端的数据卷，不是HTTP服务。另有模型缓存卷，后端使用CPU及非root用户。`compose.infrastructure.yml`只用于基础设施开发。当前已验证干净卷初始化、零模型部署浏览器和重启保留；正常问答与故障注入的浏览器回归使用明确标注的隔离测试依赖。项目方已接受24题AI内容复核作为本地课程验收，不登记为独立专家认证或公网生产验收；Chroma依赖公告未消除，详情见[部署说明](../deployment/README.md)及[安全复核](acceptance/m4-security-review-20261001.md)。

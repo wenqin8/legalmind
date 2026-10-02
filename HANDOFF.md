@@ -33,9 +33,9 @@
 
 ## 交付定位
 
-Run21历史验收提交：`2095704`；修复前基线：`6fb2996`；M3冻结点：`v0.1.0-m3`（`c399d78`）。M4版本定位为本地附注标签`m4`，可用`git show m4`查看提交与验收范围；本次不推送或公开发布。
+Run21历史验收提交：`2095704`；修复前基线：`6fb2996`；M3冻结点：`v0.1.0-m3`（`c399d78`）。GitHub仓库为`wenqin8/legalmind`，远端按项目方要求只保留`m4`，目标提交`1b29eab`；后续说明在master。本地历史标签保留，不再用`git push --tags`上传。
 
-按[文档索引](docs/handoff-index.md)交付仓库、数据及manifest；课程ZIP和校验清单位于`output/delivery`，含原始PDF，不含密钥与运行数据。原始评估和失败报告保留在`docs/acceptance`；新增[复核后补充交付](docs/acceptance/m4-reviewed-closeout-20261001.md)，原课程ZIP不覆盖。
+接手先读[开发者上手指南](docs/developer-onboarding.md)、[文档索引](docs/handoff-index.md)和[完整清单](docs/handoff-document-inventory.md)。课程ZIP和校验清单位于`output/delivery`，含原始PDF、不含密钥与运行数据；固定包不自动包含后来文档。原始评估与失败报告保留在`docs/acceptance`，原包不覆盖。
 
 Git外文件须另行交付：[一个月开发计划PDF](output/pdf/法律咨询Agent一个月开发计划.pdf)。SHA-256：
 

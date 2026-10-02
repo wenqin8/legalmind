@@ -7,14 +7,13 @@
 在仓库根目录执行：
 
 ```powershell
-backend\.venv\Scripts\python.exe deployment\init_env.py
+python deployment/init_env.py
 ```
 
-该脚本新建 `deployment/.env`，生成三项独立密钥；已有文件保持原样。请在本地配置 DeepSeek API Key，密钥不要写入前端或 Git。启动与下列部署烟测均不发起真实模型调用；实际法律咨询会使用所配置的模型。
+该脚本仅使用Python标准库，新克隆环境需要Python 3.11+，无需先安装后端虚拟环境。它新建 `deployment/.env`并生成三项独立密钥；已有文件保持原样。请在本地配置 DeepSeek API Key，密钥不要写入前端或 Git。启动与下列部署烟测均不发起真实模型调用；实际法律咨询会使用所配置的模型。开发和交接入口见[开发者指南](../docs/developer-onboarding.md)。
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File deployment\start.ps1
-backend\.venv\Scripts\python.exe -m pip check
 ```
 
 访问 `http://127.0.0.1:8080`。首次构建安装现有后端依赖，初始化下载固定 revision 的 BGE 权重；需可访问对应包与模型源。初始化依次执行迁移、导入16条演示案例与60条默认法规、建立64块向量索引。后端在初始化成功、数据库和Redis健康后启动，前端在后端健康后启动。初始化失败时停止，不宣称部署完成。

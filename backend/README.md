@@ -1,6 +1,6 @@
 # LegalMind后端运行说明
 
-FastAPI + LangGraph，提供问答、检索、文书及会话API。日常使用SQLite，Redis保存短期消息和任务，Chroma本地持久化案例向量。工作流见[架构](../docs/architecture.md)，接口见[API合同](../docs/api-contract.md)，当前质量结论见[最终验收](../docs/acceptance/rag-v2-final-acceptance.md)。
+FastAPI + LangGraph，提供问答、检索、文书及会话API。日常使用SQLite，Redis保存短期消息和任务，Chroma本地持久化案例向量。接手先读[开发者指南](../docs/developer-onboarding.md)；工作流见[架构](../docs/architecture.md)，接口见[API合同](../docs/api-contract.md)，当前课程验收见[M4项目方决定](../docs/acceptance/m4-project-acceptance-20261002.md)，[Run21](../docs/acceptance/rag-v2-final-acceptance.md)仅为M3历史结果。
 
 以下Python命令在`backend`目录执行，除非另有说明。
 
